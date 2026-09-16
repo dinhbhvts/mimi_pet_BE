@@ -1,0 +1,156 @@
+[
+  {
+    "track": "yle",
+    "level": "Movers",
+    "displayName": "Cambridge YLE - Movers",
+    "sections": [
+      {
+        "name": "Vocabulary & Grammar",
+        "skill": "vocabulary",
+        "questionCount": 18,
+        "timeLimitSeconds": 900,
+        "instructions": "Chọn đáp án đúng nhất cho mỗi câu."
+      },
+      {
+        "name": "Grammar",
+        "skill": "grammar",
+        "questionCount": 12,
+        "timeLimitSeconds": 540,
+        "instructions": "Điền từ hoặc chọn câu đúng."
+      },
+      {
+        "name": "Listening",
+        "skill": "listening",
+        "questionCount": 8,
+        "timeLimitSeconds": 720,
+        "instructions": "Nghe và chọn/đánh số theo đúng thứ tự."
+      },
+      {
+        "name": "Reading & Writing",
+        "skill": "reading",
+        "questionCount": 7,
+        "timeLimitSeconds": 540,
+        "instructions": "Đọc đoạn văn và trả lời câu hỏi."
+      },
+      {
+        "name": "Writing",
+        "skill": "writing",
+        "questionCount": 3,
+        "timeLimitSeconds": 360,
+        "instructions": "Sắp xếp từ thành câu đúng."
+      },
+      {
+        "name": "Speaking Practice",
+        "skill": "speaking",
+        "questionCount": 3,
+        "timeLimitSeconds": 360,
+        "instructions": "Nói theo tranh - phụ huynh/giáo viên nghe và chấm."
+      }
+    ],
+    "totalTimeLimitSeconds": 3420,
+    "scoringStrategyId": "yleShield"
+  },
+  {
+    "track": "yle",
+    "level": "Flyers",
+    "displayName": "Cambridge YLE - Flyers",
+    "sections": [
+      {
+        "name": "Vocabulary",
+        "skill": "vocabulary",
+        "questionCount": 10,
+        "timeLimitSeconds": 600
+      },
+      {
+        "name": "Grammar",
+        "skill": "grammar",
+        "questionCount": 9,
+        "timeLimitSeconds": 540
+      },
+      {
+        "name": "Listening",
+        "skill": "listening",
+        "questionCount": 4,
+        "timeLimitSeconds": 480
+      },
+      {
+        "name": "Reading",
+        "skill": "reading",
+        "questionCount": 7,
+        "timeLimitSeconds": 660
+      },
+      {
+        "name": "Writing",
+        "skill": "writing",
+        "questionCount": 3,
+        "timeLimitSeconds": 420
+      },
+      {
+        "name": "Speaking Practice",
+        "skill": "speaking",
+        "questionCount": 3,
+        "timeLimitSeconds": 420
+      }
+    ],
+    "totalTimeLimitSeconds": 3120,
+    "scoringStrategyId": "yleShield"
+  },
+  {
+    "track": "toeic",
+    "level": "Standard",
+    "displayName": "TOEIC Full Test (Listening & Reading)",
+    "sections": [
+      {
+        "name": "Part 1 - Photographs",
+        "skill": "listening",
+        "partNumber": 1,
+        "questionCount": 6,
+        "timeLimitSeconds": 0
+      },
+      {
+        "name": "Part 2 - Question-Response",
+        "skill": "listening",
+        "partNumber": 2,
+        "questionCount": 25,
+        "timeLimitSeconds": 0
+      },
+      {
+        "name": "Part 3 - Conversations",
+        "skill": "listening",
+        "partNumber": 3,
+        "questionCount": 39,
+        "timeLimitSeconds": 0
+      },
+      {
+        "name": "Part 4 - Short Talks",
+        "skill": "listening",
+        "partNumber": 4,
+        "questionCount": 30,
+        "timeLimitSeconds": 0
+      },
+      {
+        "name": "Part 5 - Incomplete Sentences",
+        "skill": "reading",
+        "partNumber": 5,
+        "questionCount": 30,
+        "timeLimitSeconds": 0
+      },
+      {
+        "name": "Part 6 - Text Completion",
+        "skill": "reading",
+        "partNumber": 6,
+        "questionCount": 16,
+        "timeLimitSeconds": 0
+      },
+      {
+        "name": "Part 7 - Reading Comprehension",
+        "skill": "reading",
+        "partNumber": 7,
+        "questionCount": 54,
+        "timeLimitSeconds": 0
+      }
+    ],
+    "totalTimeLimitSeconds": 7200,
+    "scoringStrategyId": "toeicScaled"
+  }
+]
