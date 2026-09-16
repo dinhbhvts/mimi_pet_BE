@@ -20,6 +20,12 @@ jobs:
 
       - run: flutter pub get
 
+      # DEBUG TẠM THỜI: in giá trị vars.API_BASE_URL ra log Actions để xác
+      # nhận GitHub có thật sự truyền đúng biến vào build hay không (an toàn
+      # in ra vì đây là URL backend công khai, không phải bí mật) - xoá bước
+      # này sau khi xác nhận build đã đúng URL.
+      - run: echo "API_BASE_URL hiện tại là:'${{ vars.API_BASE_URL }}'"
+
       # API_BASE_URL là 1 repository VARIABLE (không phải secret - URL
       # backend Render không phải thông tin bí mật), khai tại Settings ->
       # Secrets and variables -> Actions -> tab Variables. Xem
