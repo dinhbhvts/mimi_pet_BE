@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mimi-web",
+      "runtimeExecutable": "C:\\Users\\kip\\flutter\\bin\\flutter.bat",
+      "runtimeArgs": [
+        "run",
+        "-d",
+        "web-server",
+        "--web-port",
+        "8765",
+        "--dart-define=API_BASE_URL=http://localhost:8000"
+      ],
+      "port": 8765
+    }
+  ]
+}

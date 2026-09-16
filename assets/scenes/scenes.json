@@ -1,0 +1,530 @@
+{
+  "scenes": [
+    {
+      "id": "park_v1",
+      "title": "At the Park",
+      "titleVi": "Ở công viên",
+      "illustrationId": "park_v1",
+      "questions": [
+        {
+          "id": "park_q1",
+          "prompt": "What is the boy doing?",
+          "kind": "choice",
+          "options": [
+            "Flying a kite",
+            "Riding a bike",
+            "Reading a book"
+          ],
+          "answer": "Flying a kite"
+        },
+        {
+          "id": "park_q2",
+          "prompt": "True or false: the dog is under the bench.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "park_q3",
+          "prompt": "How many birds are there?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Three"
+        },
+        {
+          "id": "park_q4",
+          "prompt": "Look at the picture and say the color of the kite.",
+          "kind": "speak",
+          "answer": "red"
+        },
+        {
+          "id": "park_q5",
+          "prompt": "Is it sunny or rainy in the picture?",
+          "kind": "choice",
+          "options": [
+            "Sunny",
+            "Rainy"
+          ],
+          "answer": "Sunny"
+        }
+      ]
+    },
+    {
+      "id": "breakfast_v1",
+      "title": "Breakfast Time",
+      "titleVi": "Bữa sáng",
+      "illustrationId": "breakfast_v1",
+      "questions": [
+        {
+          "id": "breakfast_q1",
+          "prompt": "What is on the plate?",
+          "kind": "choice",
+          "options": [
+            "Eggs",
+            "Fish",
+            "Rice"
+          ],
+          "answer": "Eggs"
+        },
+        {
+          "id": "breakfast_q2",
+          "prompt": "True or false: there is a banana on the table.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "breakfast_q3",
+          "prompt": "What is Mom doing?",
+          "kind": "choice",
+          "options": [
+            "Pouring juice",
+            "Washing dishes",
+            "Reading a book"
+          ],
+          "answer": "Pouring juice"
+        },
+        {
+          "id": "breakfast_q4",
+          "prompt": "Look at the glass and say what is inside it.",
+          "kind": "speak",
+          "answer": "milk"
+        },
+        {
+          "id": "breakfast_q5",
+          "prompt": "How many eggs are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "Two"
+        }
+      ]
+    },
+    {
+      "id": "classroom_v1",
+      "title": "In the Classroom",
+      "titleVi": "Trong lớp học",
+      "illustrationId": "classroom_v1",
+      "questions": [
+        {
+          "id": "classroom_q1",
+          "prompt": "Who is standing next to the board?",
+          "kind": "choice",
+          "options": [
+            "The teacher",
+            "A student",
+            "A dog"
+          ],
+          "answer": "The teacher"
+        },
+        {
+          "id": "classroom_q2",
+          "prompt": "True or false: there are two students in the picture.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "classroom_q3",
+          "prompt": "What is on the wall?",
+          "kind": "choice",
+          "options": [
+            "A clock",
+            "A window",
+            "A door"
+          ],
+          "answer": "A clock"
+        },
+        {
+          "id": "classroom_q4",
+          "prompt": "Say what the teacher is writing on.",
+          "kind": "speak",
+          "answer": "board"
+        },
+        {
+          "id": "classroom_q5",
+          "prompt": "Where are the books?",
+          "kind": "choice",
+          "options": [
+            "On the shelf",
+            "On the floor",
+            "Outside"
+          ],
+          "answer": "On the shelf"
+        }
+      ]
+    },
+    {
+      "id": "zoo_v1",
+      "title": "At the Zoo",
+      "titleVi": "Ở vườn thú",
+      "illustrationId": "zoo_v1",
+      "questions": [
+        {
+          "id": "zoo_q1",
+          "prompt": "Which animal has a long trunk?",
+          "kind": "choice",
+          "options": [
+            "Elephant",
+            "Lion",
+            "Monkey"
+          ],
+          "answer": "Elephant"
+        },
+        {
+          "id": "zoo_q2",
+          "prompt": "True or false: the monkey is in the tree.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "zoo_q3",
+          "prompt": "How many children are watching the animals?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "zoo_q4",
+          "prompt": "Say the name of the animal with a big mane.",
+          "kind": "speak",
+          "answer": "lion"
+        },
+        {
+          "id": "zoo_q5",
+          "prompt": "Is the lion roaring or sleeping?",
+          "kind": "choice",
+          "options": [
+            "Roaring",
+            "Sleeping"
+          ],
+          "answer": "Roaring"
+        }
+      ]
+    },
+    {
+      "id": "bedtime_v1",
+      "title": "Bedtime",
+      "titleVi": "Giờ đi ngủ",
+      "illustrationId": "bedtime_v1",
+      "questions": [
+        {
+          "id": "bedtime_q1",
+          "prompt": "What is next to the pillow?",
+          "kind": "choice",
+          "options": [
+            "A teddy bear",
+            "A ball",
+            "A shoe"
+          ],
+          "answer": "A teddy bear"
+        },
+        {
+          "id": "bedtime_q2",
+          "prompt": "True or false: the lamp is off.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "bedtime_q3",
+          "prompt": "What can you see outside the window?",
+          "kind": "choice",
+          "options": [
+            "The moon",
+            "The sun",
+            "A rainbow"
+          ],
+          "answer": "The moon"
+        },
+        {
+          "id": "bedtime_q4",
+          "prompt": "Say what is on the nightstand.",
+          "kind": "speak",
+          "answer": "book"
+        },
+        {
+          "id": "bedtime_q5",
+          "prompt": "Is the child awake or asleep?",
+          "kind": "choice",
+          "options": [
+            "Asleep",
+            "Awake"
+          ],
+          "answer": "Asleep"
+        }
+      ]
+    },
+    {
+      "id": "beach_v1",
+      "title": "At the Beach",
+      "titleVi": "Ở bãi biển",
+      "illustrationId": "beach_v1",
+      "questions": [
+        {
+          "id": "beach_q1",
+          "prompt": "What is the girl doing?",
+          "kind": "choice",
+          "options": [
+            "Building a sandcastle",
+            "Swimming",
+            "Reading a book"
+          ],
+          "answer": "Building a sandcastle"
+        },
+        {
+          "id": "beach_q2",
+          "prompt": "True or false: there is a crab on the sand.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "beach_q3",
+          "prompt": "How many seashells are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "beach_q4",
+          "prompt": "Look at the picture and say the color of the beach ball.",
+          "kind": "speak",
+          "answer": "red"
+        },
+        {
+          "id": "beach_q5",
+          "prompt": "Is the umbrella open or closed?",
+          "kind": "choice",
+          "options": [
+            "Open",
+            "Closed"
+          ],
+          "answer": "Open"
+        }
+      ]
+    },
+    {
+      "id": "farm_v1",
+      "title": "On the Farm",
+      "titleVi": "Ở nông trại",
+      "illustrationId": "farm_v1",
+      "questions": [
+        {
+          "id": "farm_q1",
+          "prompt": "What is the farmer doing?",
+          "kind": "choice",
+          "options": [
+            "Feeding the chickens",
+            "Sleeping",
+            "Reading a book"
+          ],
+          "answer": "Feeding the chickens"
+        },
+        {
+          "id": "farm_q2",
+          "prompt": "True or false: the barn is blue.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "farm_q3",
+          "prompt": "How many chickens are there?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Three"
+        },
+        {
+          "id": "farm_q4",
+          "prompt": "Say the name of the animal that says 'moo'.",
+          "kind": "speak",
+          "answer": "cow"
+        },
+        {
+          "id": "farm_q5",
+          "prompt": "Where is the tractor?",
+          "kind": "choice",
+          "options": [
+            "Next to the barn",
+            "On the roof",
+            "In the sky"
+          ],
+          "answer": "Next to the barn"
+        }
+      ]
+    },
+    {
+      "id": "kitchen_v1",
+      "title": "In the Kitchen",
+      "titleVi": "Trong bếp",
+      "illustrationId": "kitchen_v1",
+      "questions": [
+        {
+          "id": "kitchen_q1",
+          "prompt": "What is Dad doing?",
+          "kind": "choice",
+          "options": [
+            "Cooking at the stove",
+            "Washing the car",
+            "Sleeping"
+          ],
+          "answer": "Cooking at the stove"
+        },
+        {
+          "id": "kitchen_q2",
+          "prompt": "True or false: there is a cat in the kitchen.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "kitchen_q3",
+          "prompt": "How many apples are in the bowl?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Three"
+        },
+        {
+          "id": "kitchen_q4",
+          "prompt": "Look at the stove and say what color the pot is.",
+          "kind": "speak",
+          "answer": "red"
+        },
+        {
+          "id": "kitchen_q5",
+          "prompt": "Where is the bowl of apples?",
+          "kind": "choice",
+          "options": [
+            "On the counter",
+            "On the floor",
+            "On the stove"
+          ],
+          "answer": "On the counter"
+        }
+      ]
+    },
+    {
+      "id": "garden_v1",
+      "title": "In the Garden",
+      "titleVi": "Trong vườn",
+      "illustrationId": "garden_v1",
+      "questions": [
+        {
+          "id": "garden_q1",
+          "prompt": "What is the girl holding?",
+          "kind": "choice",
+          "options": [
+            "A watering can",
+            "A ball",
+            "A book"
+          ],
+          "answer": "A watering can"
+        },
+        {
+          "id": "garden_q2",
+          "prompt": "True or false: there is a car in the garden.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "garden_q3",
+          "prompt": "How many flowers are there?",
+          "kind": "choice",
+          "options": [
+            "Three",
+            "Four",
+            "Five"
+          ],
+          "answer": "Four"
+        },
+        {
+          "id": "garden_q4",
+          "prompt": "Say the color of the ladybug.",
+          "kind": "speak",
+          "answer": "red"
+        },
+        {
+          "id": "garden_q5",
+          "prompt": "Where is the butterfly?",
+          "kind": "choice",
+          "options": [
+            "Above the flowers",
+            "Under the tree",
+            "On the ground"
+          ],
+          "answer": "Above the flowers"
+        }
+      ]
+    },
+    {
+      "id": "birthday_v1",
+      "title": "Birthday Party",
+      "titleVi": "Tiệc sinh nhật",
+      "illustrationId": "birthday_v1",
+      "questions": [
+        {
+          "id": "birthday_q1",
+          "prompt": "What is on the cake?",
+          "kind": "choice",
+          "options": [
+            "Candles",
+            "Flowers",
+            "Leaves"
+          ],
+          "answer": "Candles"
+        },
+        {
+          "id": "birthday_q2",
+          "prompt": "True or false: there are cats in the picture.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "birthday_q3",
+          "prompt": "How many candles are on the cake?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Three"
+        },
+        {
+          "id": "birthday_q4",
+          "prompt": "Say the color of the present box.",
+          "kind": "speak",
+          "answer": "blue"
+        },
+        {
+          "id": "birthday_q5",
+          "prompt": "How many children are at the table?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "Two"
+        }
+      ]
+    }
+  ]
+}

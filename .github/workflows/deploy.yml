@@ -1,0 +1,35 @@
+name: Deploy Mimi Pet Web
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - run: flutter pub get
+
+      # API_BASE_URL là 1 repository VARIABLE (không phải secret - URL
+      # backend Render không phải thông tin bí mật), khai tại Settings ->
+      # Secrets and variables -> Actions -> tab Variables. Xem
+      # `deployment.md` Phần 2 Bước 2.3 để biết cách tạo/lấy giá trị này.
+      - run: >
+          flutter build web --release
+          --base-href /mimi_pet/
+          --dart-define=API_BASE_URL=${{ vars.API_BASE_URL }}
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web
