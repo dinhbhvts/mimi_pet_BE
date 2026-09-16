@@ -3,7 +3,7 @@
 /// tác (Chat, Home...) thay vì chỉ xưng hô chung chung. Implementation thật
 /// đồng bộ qua backend, xem `CloudChildNameRepository`.
 ///
-/// CẬP NHẬT (2026-09-16): app giờ ĐÃ có đăng nhập (email + mã 6 số, xem
+/// CẬP NHẬT (2026-09-16): app giờ ĐÃ có đăng nhập (username + mật khẩu, xem
 /// `AuthService`) - tên bé được lưu THEO TỪNG TÀI KHOẢN (mỗi tài khoản 1
 /// dòng `profile_states` riêng phía backend), đúng như ghi chú cũ ở đây đã
 /// dự tính.

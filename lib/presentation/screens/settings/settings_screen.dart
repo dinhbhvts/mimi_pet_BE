@@ -13,6 +13,8 @@ import 'package:mimi_pet/presentation/state/gem_reward_controller.dart';
 import 'package:mimi_pet/presentation/state/pet_character_controller.dart';
 import 'package:mimi_pet/presentation/state/pet_inventory_controller.dart';
 import 'package:mimi_pet/presentation/state/progress_controller.dart';
+import 'package:mimi_pet/services/api_client.dart';
+import 'package:mimi_pet/services/auth_service.dart';
 import 'package:mimi_pet/services/tts_service.dart';
 
 /// Màn hình cài đặt: kiểm tra giọng nói, làm lại từ đầu, thông tin app.
@@ -54,6 +56,31 @@ class SettingsScreen extends StatelessWidget {
       // lại được (xem doc comment `GemRewardController.resetClaimed`).
       await gems.resetClaimed();
     }
+  }
+
+  Future<void> _confirmLogout(BuildContext context) async {
+    final auth = context.read<AuthService>();
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Đăng xuất?'),
+        content: const Text('Bạn cần đăng nhập lại bằng tên đăng nhập và mật khẩu để dùng tiếp.'),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(dialogContext).pop(false), child: const Text('Huỷ')),
+          TextButton(onPressed: () => Navigator.of(dialogContext).pop(true), child: const Text('Đăng xuất')),
+        ],
+      ),
+    );
+    if (confirmed == true) {
+      await auth.logout();
+    }
+  }
+
+  void _openChangePasswordDialog(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) => const _ChangePasswordDialog(),
+    );
   }
 
   /// Mở bottom sheet cho bé chọn avatar riêng - emoji có sẵn hoặc ảnh từ máy
@@ -122,6 +149,7 @@ class SettingsScreen extends StatelessWidget {
     final characterName = PetCharacterInfo.all[context.watch<PetCharacterController>().character]!.displayName;
     final childAvatar = context.watch<ChildAvatarController>().avatar;
     final childName = context.watch<ChildNameController>().name;
+    final username = context.watch<AuthService>().username;
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -134,6 +162,26 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
+          _SettingsTile(
+            icon: Icons.account_circle_rounded,
+            title: 'Tài khoản',
+            subtitle: username == null ? 'Đang đăng nhập' : 'Đang đăng nhập: $username',
+          ),
+          const SizedBox(height: 12),
+          _SettingsTile(
+            icon: Icons.lock_reset_rounded,
+            title: 'Đổi mật khẩu',
+            subtitle: 'Đổi mật khẩu đang dùng cho tài khoản này',
+            onTap: () => _openChangePasswordDialog(context),
+          ),
+          const SizedBox(height: 12),
+          _SettingsTile(
+            icon: Icons.logout_rounded,
+            title: 'Đăng xuất',
+            subtitle: 'Thoát khỏi tài khoản hiện tại trên thiết bị này',
+            onTap: () => _confirmLogout(context),
+          ),
+          const SizedBox(height: 12),
           _SettingsTile(
             leading: _AvatarPreview(avatar: childAvatar, size: 28),
             title: 'Avatar của bé',
@@ -370,6 +418,121 @@ class _AvatarPickerSheet extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Dialog đổi mật khẩu tài khoản đang đăng nhập (mục "Đổi mật khẩu" ở Cài
+/// đặt) - yêu cầu nhập đúng mật khẩu hiện tại (xác nhận lại danh tính, tránh
+/// người khác cầm máy đã mở sẵn app đổi trộm mật khẩu), mật khẩu mới phải
+/// nhập 2 lần khớp nhau (tránh gõ nhầm rồi tự khoá mình khỏi tài khoản).
+class _ChangePasswordDialog extends StatefulWidget {
+  const _ChangePasswordDialog();
+
+  @override
+  State<_ChangePasswordDialog> createState() => _ChangePasswordDialogState();
+}
+
+class _ChangePasswordDialogState extends State<_ChangePasswordDialog> {
+  final _oldController = TextEditingController();
+  final _newController = TextEditingController();
+  final _confirmController = TextEditingController();
+  bool _busy = false;
+  String? _error;
+
+  @override
+  void dispose() {
+    _oldController.dispose();
+    _newController.dispose();
+    _confirmController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _submit() async {
+    final oldPassword = _oldController.text;
+    final newPassword = _newController.text;
+    final confirm = _confirmController.text;
+    if (oldPassword.isEmpty || newPassword.isEmpty) {
+      setState(() => _error = 'Nhập đủ mật khẩu hiện tại và mật khẩu mới.');
+      return;
+    }
+    if (newPassword.length < 6) {
+      setState(() => _error = 'Mật khẩu mới cần ít nhất 6 ký tự.');
+      return;
+    }
+    if (newPassword != confirm) {
+      setState(() => _error = 'Mật khẩu mới nhập lại không khớp.');
+      return;
+    }
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    try {
+      await context.read<AuthService>().changePassword(oldPassword, newPassword);
+      if (!mounted) return;
+      Navigator.of(context).pop();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Đã đổi mật khẩu thành công.')),
+      );
+    } on ApiException catch (e) {
+      setState(() => _error = e.message);
+    } catch (_) {
+      setState(() => _error = 'Không đổi được mật khẩu. Kiểm tra kết nối mạng rồi thử lại.');
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Đổi mật khẩu'),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              controller: _oldController,
+              obscureText: true,
+              enabled: !_busy,
+              decoration: const InputDecoration(labelText: 'Mật khẩu hiện tại'),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _newController,
+              obscureText: true,
+              enabled: !_busy,
+              decoration: const InputDecoration(labelText: 'Mật khẩu mới'),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _confirmController,
+              obscureText: true,
+              enabled: !_busy,
+              decoration: const InputDecoration(labelText: 'Nhập lại mật khẩu mới'),
+              onSubmitted: (_) => _submit(),
+            ),
+            if (_error != null) ...[
+              const SizedBox(height: 12),
+              Text(_error!, style: const TextStyle(color: Colors.redAccent)),
+            ],
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: _busy ? null : () => Navigator.of(context).pop(),
+          child: const Text('Huỷ'),
+        ),
+        TextButton(
+          onPressed: _busy ? null : _submit,
+          child: _busy
+              ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
+              : const Text('Đổi mật khẩu'),
+        ),
+      ],
     );
   }
 }

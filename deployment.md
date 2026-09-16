@@ -57,9 +57,17 @@ Backend FastAPI (thư mục backend/, deploy trên Render)
 NeonDB (Postgres) - lưu tài khoản + tiến độ của bé
 ```
 
-Mỗi bé/phụ huynh đăng nhập bằng email (nhận mã 6 số qua email, không cần đặt
-mật khẩu) - tiến độ (sao, tim, streak, thú cưng đã tuỳ chỉnh, avatar, điểm
-thi thử...) đồng bộ tự động giữa mọi thiết bị đã đăng nhập cùng email đó.
+Mỗi bé/phụ huynh đăng nhập bằng **username + mật khẩu** (10 tài khoản
+`mimi01`..`mimi10` được TỰ ĐỘNG tạo sẵn mỗi khi backend khởi động, mật khẩu
+mặc định `Bong@1808`, xem `backend/app/seed.py`) - tiến độ (sao, tim,
+streak, thú cưng đã tuỳ chỉnh, avatar, điểm thi thử...) đồng bộ tự động giữa
+mọi thiết bị đăng nhập cùng 1 tài khoản. Đổi mật khẩu ngay trong app (Cài
+đặt → Đổi mật khẩu) sau khi đăng nhập lần đầu.
+
+**Lịch sử**: bản đầu dùng đăng nhập không mật khẩu (mã 6 số gửi qua email),
+sau đổi sang gọi API email bên thứ 3 (Brevo) vì Render chặn cổng SMTP - cả 2
+cách đều bị đánh giá phức tạp không cần thiết cho 1 app dùng trong gia đình,
+nên quay lại username/mật khẩu truyền thống với vài tài khoản cố định.
 
 ## Phần 1: Deploy backend lên Render + NeonDB
 
@@ -105,32 +113,19 @@ git push -u origin main
    | `JWT_SECRET` | 1 chuỗi ngẫu nhiên dài (chạy `python -c "import secrets; print(secrets.token_hex(32))"` để tạo) |
    | `GEMINI_API_KEY` | API key Gemini (lấy tại https://aistudio.google.com/apikey) - để trống nếu chưa dùng tính năng Chat/Từ điển |
    | `GEMINI_MODEL` | `gemini-2.5-flash` (hoặc model khác nếu Google đổi) |
-   | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `FROM_EMAIL` | Thông tin Gmail App Password để gửi mã đăng nhập (xem Bước 1.4) |
    | `ALLOWED_ORIGINS` | Domain web sẽ deploy ở Phần 2, ví dụ `https://<ten-user>.github.io` (nhiều domain cách nhau dấu phẩy) |
 5. Bấm **Create Web Service**. Lần đầu build mất vài phút, xong sẽ có URL
    dạng `https://mimi-pet-be.onrender.com` - **ghi lại URL này**, cần dùng
    ở Phần 2 (biến `API_BASE_URL`).
 6. Mở `https://<url-render-cua-ban>/health` trên trình duyệt - thấy
-   `{"status":"ok"}` là backend đã chạy.
+   `{"status":"ok"}` là backend đã chạy. Ngay từ lần khởi động ĐẦU TIÊN này,
+   backend đã tự tạo sẵn 10 tài khoản `mimi01`..`mimi10` (mật khẩu mặc định
+   `Bong@1808`) - không cần thao tác gì thêm, đăng nhập thử ngay được.
 
 **Lưu ý gói Free của Render**: server tự "ngủ" sau ~15 phút không có ai gọi,
 lần gọi đầu tiên sau khi ngủ sẽ mất thêm 30-60 giây để "thức dậy" (bé/phụ
 huynh sẽ thấy màn đăng nhập load hơi lâu ở lần dùng đầu ngày) - đây là giới
 hạn của gói miễn phí, không phải lỗi.
-
-### Bước 1.4: Tạo Gmail App Password để gửi mã đăng nhập
-
-1. Bật xác minh 2 bước cho tài khoản Gmail tại
-   https://myaccount.google.com/security (nếu chưa bật).
-2. Vào https://myaccount.google.com/apppasswords , tạo 1 "App Password"
-   mới (đặt tên bất kỳ, ví dụ "Mimi Pet").
-3. Copy chuỗi 16 ký tự hiện ra, dán vào biến `SMTP_PASSWORD` trên Render.
-   `SMTP_USER` và `FROM_EMAIL` là chính địa chỉ Gmail của bạn, `SMTP_HOST` =
-   `smtp.gmail.com`, `SMTP_PORT` = `587`.
-
-Nếu bỏ trống 3 biến `SMTP_*`, mã đăng nhập sẽ chỉ IN RA LOG của Render (xem
-tab **Logs**) thay vì gửi email thật - dùng tạm để test, không hợp cho gia
-đình dùng thật vì phải tự vào xem log Render mỗi lần đăng nhập.
 
 ## Phần 2: Deploy bản web lên GitHub Pages
 
@@ -150,7 +145,7 @@ tồn tại trên máy người dùng khác) và không đăng nhập được.
 
 Xem Bước 1.2 ở trên.
 
-### Bước 2.3: Thêm workflow tự động build + deploy
+### Bước 2.3: Kích hoạt workflow tự động build + deploy
 
 File `.github/workflows/deploy.yml` đã có sẵn trong project, tự động build
 và deploy lên GitHub Pages mỗi khi push lên nhánh `main`. Chỉ cần khai báo 1
@@ -210,9 +205,10 @@ nhúng thẳng trong app (chấp nhận được vì app riêng tư, chỉ cài 
 
 1. Tạo project NeonDB, copy connection string (Bước 1.1).
 2. Đẩy code lên GitHub nếu chưa có (Bước 1.2/2.2).
-3. Tạo Web Service trên Render, khai đủ biến môi trường, lấy URL (Bước 1.3).
-4. Tạo Gmail App Password để gửi mã đăng nhập thật (Bước 1.4, có thể bỏ qua
-   lúc đầu và dùng tạm mã in trong log Render).
-5. Khai biến `API_BASE_URL` trên GitHub Actions, bật GitHub Pages, push code
+3. Tạo Web Service trên Render, khai đủ biến môi trường, lấy URL (Bước 1.3) -
+   backend tự tạo sẵn 10 tài khoản `mimi01`..`mimi10` (mật khẩu mặc định
+   `Bong@1808`) ngay lần khởi động đầu tiên, không cần thao tác gì thêm.
+4. Khai biến `API_BASE_URL` trên GitHub Actions, bật GitHub Pages, push code
    (Bước 2.3).
-6. Mở link GitHub Pages trên iPhone/iPad để bé dùng thử.
+5. Mở link GitHub Pages trên iPhone/iPad, đăng nhập bằng 1 trong 10 tài
+   khoản trên, đổi mật khẩu ngay trong Cài đặt.

@@ -3,9 +3,7 @@ import sys
 
 # Console Windows mặc định dùng cp1252, không encode được tiếng Việt có dấu -
 # ép UTF-8 cho stdout/stderr (an toàn/không đổi gì trên Linux - nơi backend
-# thực sự chạy khi deploy lên Render - vì ở đó locale đã là UTF-8 sẵn) để
-# các câu print() tiếng Việt (vd `email_sender.py` lúc chưa cấu hình SMTP)
-# không làm sập server khi chạy thử trên Windows.
+# thực sự chạy khi deploy lên Render - vì ở đó locale đã là UTF-8 sẵn).
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
@@ -18,9 +16,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .db import Base, engine
-from .routers import auth, gemini, state
+from .routers import account, auth, gemini, state
+from .seed import seed_default_accounts
 
 Base.metadata.create_all(bind=engine)
+seed_default_accounts()
 
 app = FastAPI(title="Mimi Pet API")
 
@@ -35,6 +35,7 @@ app.add_middleware(
 )
 
 app.include_router(auth.router)
+app.include_router(account.router)
 app.include_router(state.router)
 app.include_router(gemini.router)
 

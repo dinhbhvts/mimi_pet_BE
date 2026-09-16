@@ -4,7 +4,6 @@
 // backend thật - xác nhận ít nhất cây widget gốc build được, phát hiện sớm
 // lỗi Provider/import kiểu như đã gặp thực tế khi thêm đăng nhập (xem
 // `deployment.md`).
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,6 +22,6 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Mimi English Pet'), findsOneWidget);
-    expect(find.text('Gửi mã'), findsOneWidget);
+    expect(find.text('Đăng nhập'), findsOneWidget);
   });
 }

@@ -1180,15 +1180,21 @@ User cho biết bé đã học lớp **Cambridge YLE Movers** và yêu cầu ti�
   tiến độ theo tuần.
 - Giới hạn thời gian chơi mỗi ngày.
 - ✅ (2026-09-16) **Backup/khôi phục tiến độ + đồng bộ cloud** - xem Giai
-  đoạn 6 ngay dưới đây (đăng nhập bằng email, tiến độ tự đồng bộ, đổi điện
-  thoại/máy vẫn giữ nguyên miễn đăng nhập cùng email).
+  đoạn 6 ngay dưới đây (đăng nhập bằng tài khoản, tiến độ tự đồng bộ, đổi
+  điện thoại/máy vẫn giữ nguyên miễn đăng nhập cùng tài khoản).
 
 ### Giai đoạn 6 - Mở rộng kỹ thuật
 - ✅ (2026-09-16) **Đồng bộ nhiều thiết bị (cloud sync)** - backend FastAPI +
-  NeonDB (Postgres), đăng nhập không mật khẩu (mã 6 số qua email). Xem
-  `deployment.md` + `backend/README.md`. Mỗi email = 1 hồ sơ riêng (chưa có
-  UI chuyển đổi nhiều hồ sơ dưới 1 tài khoản - muốn thêm 1 bé khác, tạo thêm
-  1 email khác).
+  NeonDB (Postgres). Xem `deployment.md` + `backend/README.md`. Mỗi tài
+  khoản = 1 hồ sơ riêng (chưa có UI chuyển đổi nhiều hồ sơ dưới 1 tài khoản -
+  muốn thêm 1 bé khác, đăng nhập bằng 1 trong các tài khoản có sẵn khác).
+- ✅ (2026-09-16, CẬP NHẬT SAU) **Đổi cơ chế đăng nhập sang username + mật
+  khẩu** - bản đầu dùng mã 6 số gửi qua email, sau thử đổi sang gọi API
+  email bên thứ 3 (Brevo, vì Render chặn cổng SMTP) nhưng bị đánh giá quá
+  phức tạp cho 1 app gia đình. Quay lại username/mật khẩu truyền thống: 10
+  tài khoản `mimi01`..`mimi10` (mật khẩu mặc định `Bong@1808`) được TỰ ĐỘNG
+  tạo sẵn mỗi khi backend khởi động (xem `backend/app/seed.py`), đổi mật
+  khẩu ngay trong app ở Cài đặt → Đổi mật khẩu.
 - Hồ sơ nhiều bé (multi-profile) dưới CÙNG 1 tài khoản - chưa làm, xem ghi
   chú ngay trên.
 - App KHÔNG còn offline-first tuyệt đối (cần mạng để đăng nhập lần đầu +

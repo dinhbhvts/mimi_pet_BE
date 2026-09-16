@@ -1,9 +1,10 @@
 # Mimi Pet API (backend)
 
-Backend FastAPI cho app Mimi English Pet - xử lý đăng nhập (mã 6 số gửi qua
-email, không cần mật khẩu), đồng bộ tiến độ của bé giữa các thiết bị
-(web + Android), và proxy gọi Gemini API (giữ API key ở server, không lộ ra
-app public trên web).
+Backend FastAPI cho app Mimi English Pet - xử lý đăng nhập (username + mật
+khẩu, 10 tài khoản `mimi01`..`mimi10` tự tạo sẵn lúc khởi động, xem
+`app/seed.py`), đồng bộ tiến độ của bé giữa các thiết bị (web + Android), và
+proxy gọi Gemini API (giữ API key ở server, không lộ ra app public trên
+web).
 
 Xem `../deployment.md` (thư mục gốc project Flutter) để biết hướng dẫn
 deploy đầy đủ lên Render + NeonDB. File này chỉ hướng dẫn chạy THỬ cục bộ.
@@ -21,8 +22,9 @@ uvicorn app.main:app --reload --port 8000
 ```
 
 Mặc định (chưa khai `DATABASE_URL`) dùng SQLite (`dev.db` tự tạo trong thư
-mục này) - không cần NeonDB thật để test. Mã đăng nhập sẽ IN RA CONSOLE
-(chưa khai `SMTP_*`) thay vì gửi email thật.
+mục này) - không cần NeonDB thật để test. Ngay khi khởi động, 10 tài khoản
+`mimi01`..`mimi10` (mật khẩu mặc định `Bong@1808`) được tự động tạo sẵn -
+đăng nhập thử ngay được, không cần thao tác gì thêm.
 
 Copy `.env.example` thành `.env` để tuỳ chỉnh biến môi trường lúc chạy cục
 bộ (file `.env` đã có sẵn trong `.gitignore` - không commit lên GitHub).
@@ -34,14 +36,15 @@ backend/
 ├── requirements.txt
 ├── .env.example
 └── app/
-    ├── main.py           - khởi tạo FastAPI, CORS, đăng ký router
+    ├── main.py           - khởi tạo FastAPI, CORS, đăng ký router, chạy seed
     ├── db.py             - kết nối SQLAlchemy (SQLite dev / Postgres prod)
-    ├── models.py         - 3 bảng: users, login_codes, profile_states
+    ├── models.py         - 2 bảng: users, profile_states
     ├── schemas.py        - Pydantic request/response cho auth + state
-    ├── auth.py           - sinh/băm mã đăng nhập, tạo/xác thực JWT
-    ├── email_sender.py   - gửi mã đăng nhập qua SMTP
+    ├── auth.py           - băm/so khớp mật khẩu (PBKDF2), tạo/xác thực JWT
+    ├── seed.py           - tự tạo 10 tài khoản mimi01..mimi10 lúc khởi động
     └── routers/
-        ├── auth.py       - POST /auth/request-code, /auth/verify-code
+        ├── auth.py       - POST /auth/login
+        ├── account.py    - POST /me/change-password
         ├── state.py      - GET/PUT /me/state (đồng bộ tiến độ)
         └── gemini.py     - POST /me/gemini/generate (proxy Gemini)
 ```
@@ -49,19 +52,19 @@ backend/
 ## Kiểm tra nhanh bằng curl
 
 ```bash
-# 1. Xin mã đăng nhập (mã sẽ hiện trong log console/terminal đang chạy uvicorn)
-curl -X POST http://localhost:8000/auth/request-code \
-  -H "Content-Type: application/json" -d '{"email":"test@example.com"}'
+# 1. Đăng nhập (dùng luôn 1 trong 10 tài khoản có sẵn)
+curl -X POST http://localhost:8000/auth/login \
+  -H "Content-Type: application/json" -d '{"username":"mimi01","password":"Bong@1808"}'
 
-# 2. Xác nhận mã, lấy token
-curl -X POST http://localhost:8000/auth/verify-code \
-  -H "Content-Type: application/json" \
-  -d '{"email":"test@example.com","code":"<mã 6 số>"}'
-
-# 3. Đọc/ghi state (thay <token> bằng giá trị "token" ở bước 2)
+# 2. Đọc/ghi state (thay <token> bằng giá trị "token" ở bước 1)
 curl http://localhost:8000/me/state -H "Authorization: Bearer <token>"
 curl -X PUT http://localhost:8000/me/state -H "Authorization: Bearer <token>" \
   -H "Content-Type: application/json" -d '{"state":{"stars":10}}'
+
+# 3. Đổi mật khẩu
+curl -X POST http://localhost:8000/me/change-password -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{"old_password":"Bong@1808","new_password":"MatKhauMoi123"}'
 ```
 
 ## Thiết kế "1 blob JSON" thay vì nhiều bảng

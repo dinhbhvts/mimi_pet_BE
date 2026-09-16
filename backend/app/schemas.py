@@ -7,21 +7,22 @@ không cần hiểu cấu trúc bên trong).
 """
 from typing import Any, Dict, Optional
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
 
-class RequestCodeIn(BaseModel):
-    email: EmailStr
+class LoginIn(BaseModel):
+    username: str
+    password: str
 
 
-class VerifyCodeIn(BaseModel):
-    email: EmailStr
-    code: str
+class ChangePasswordIn(BaseModel):
+    old_password: str
+    new_password: str
 
 
 class TokenOut(BaseModel):
     token: str
-    email: str
+    username: str
 
 
 class StateIn(BaseModel):
