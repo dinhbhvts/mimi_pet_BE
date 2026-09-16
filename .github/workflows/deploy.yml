@@ -24,9 +24,14 @@ jobs:
       # backend Render không phải thông tin bí mật), khai tại Settings ->
       # Secrets and variables -> Actions -> tab Variables. Xem
       # `deployment.md` Phần 2 Bước 2.3 để biết cách tạo/lấy giá trị này.
+      # --base-href PHẢI khớp đúng tên repo GitHub thật (repo này tên
+      # "mimi_pet_BE", KHÔNG phải "mimi_pet") - GitHub Pages phục vụ project
+      # site tại https://<user>.github.io/<ten-repo>/, sai tên repo ở đây
+      # khiến mọi asset (JS/CSS/main.dart.js...) load 404 dù trang HTML gốc
+      # vẫn mở được.
       - run: >
           flutter build web --release
-          --base-href /mimi_pet/
+          --base-href /mimi_pet_BE/
           --dart-define=API_BASE_URL=${{ vars.API_BASE_URL }}
 
       - uses: peaceiris/actions-gh-pages@v3

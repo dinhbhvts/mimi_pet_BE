@@ -108,7 +108,7 @@ git push -u origin main
    | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `FROM_EMAIL` | Thông tin Gmail App Password để gửi mã đăng nhập (xem Bước 1.4) |
    | `ALLOWED_ORIGINS` | Domain web sẽ deploy ở Phần 2, ví dụ `https://<ten-user>.github.io` (nhiều domain cách nhau dấu phẩy) |
 5. Bấm **Create Web Service**. Lần đầu build mất vài phút, xong sẽ có URL
-   dạng `https://mimi-pet-api.onrender.com` - **ghi lại URL này**, cần dùng
+   dạng `https://mimi-pet-be.onrender.com` - **ghi lại URL này**, cần dùng
    ở Phần 2 (biến `API_BASE_URL`).
 6. Mở `https://<url-render-cua-ban>/health` trên trình duyệt - thấy
    `{"status":"ok"}` là backend đã chạy.
