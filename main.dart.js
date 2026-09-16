@@ -97127,7 +97127,7 @@ xH(a){return this.a2s(a)},
 a2s(a){var s=0,r=A.n(t.P),q,p=this
 var $async$xH=A.o(function(b,c){if(b===1)return A.k(c,r)
 for(;;)switch(s){case 0:s=3
-return A.j(p.a.Vk("GET",A.fp(a,0,null),p.gHr()).lr(B.qs),$async$xH)
+return A.j(p.a.Vk("GET",A.fp("https://mimi-pet-be.onrender.com"+a,0,null),p.gHr()).lr(B.qs),$async$xH)
 case 3:q=p.Gq(c)
 s=1
 break
@@ -97137,7 +97137,7 @@ mq(a,b){return this.azk(a,b)},
 azk(a,b){var s=0,r=A.n(t.P),q,p=this
 var $async$mq=A.o(function(c,d){if(c===1)return A.k(d,r)
 for(;;)switch(s){case 0:s=3
-return A.j(p.a.r0("POST",A.fp(a,0,null),p.gHr(),B.as.m6(b,null),null).lr(B.JS),$async$mq)
+return A.j(p.a.r0("POST",A.fp("https://mimi-pet-be.onrender.com"+a,0,null),p.gHr(),B.as.m6(b,null),null).lr(B.JS),$async$mq)
 case 3:q=p.Gq(d)
 s=1
 break
@@ -97147,7 +97147,7 @@ DJ(a,b){return this.azu(a,b)},
 azu(a,b){var s=0,r=A.n(t.P),q,p=this
 var $async$DJ=A.o(function(c,d){if(c===1)return A.k(d,r)
 for(;;)switch(s){case 0:s=3
-return A.j(p.a.r0("PUT",A.fp(a,0,null),p.gHr(),B.as.m6(b,null),null).lr(B.qs),$async$DJ)
+return A.j(p.a.r0("PUT",A.fp("https://mimi-pet-be.onrender.com"+a,0,null),p.gHr(),B.as.m6(b,null),null).lr(B.qs),$async$DJ)
 case 3:q=p.Gq(d)
 s=1
 break
