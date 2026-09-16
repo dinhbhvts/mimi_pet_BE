@@ -160,7 +160,7 @@ tin bí mật) cho đúng URL backend của bạn:
 1. Vào repo trên GitHub → **Settings → Secrets and variables → Actions** →
    tab **Variables** → **New repository variable**.
 2. Đặt tên `API_BASE_URL`, giá trị là URL Render ở Phần 1 (ví dụ
-   `https://mimi-pet-api.onrender.com` - KHÔNG có dấu `/` ở cuối).
+   `https://mimi-pet-be.onrender.com` - KHÔNG có dấu `/` ở cuối).
 3. Vào **Settings → Pages**, chọn **Source: Deploy from a branch**, chọn
    nhánh `gh-pages` (workflow tự tạo nhánh này sau lần chạy đầu, quay lại
    đây chọn SAU KHI đã push và workflow chạy xong lần đầu).
