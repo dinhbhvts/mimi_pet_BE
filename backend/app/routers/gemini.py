@@ -31,7 +31,12 @@ async def generate(payload: Dict[str, Any], user: User = Depends(get_current_use
             status_code=503,
             detail="Gemini chưa được cấu hình trên server (thiếu biến môi trường GEMINI_API_KEY).",
         )
-    model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+    # "gemini-2.5-flash" ĐÃ BỊ GOOGLE KHAI TỬ (xác nhận qua lỗi 404 thật lúc
+    # test: "model gemini-2.5-flash is no longer available to new users...
+    # use models/gemini-3.6-flash") - dùng "gemini-3.6-flash" làm mặc định.
+    # Nếu Google tiếp tục đổi tên model, xem `deployment.md` mục "Chat không
+    # kết nối được AI thật?" để tự tra tên model mới đúng cho key của bạn.
+    model = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
 
     async with httpx.AsyncClient(timeout=25) as client:
         try:

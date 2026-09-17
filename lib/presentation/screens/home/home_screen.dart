@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -60,6 +61,24 @@ class _HomeScreenState extends State<HomeScreen> {
     'Giggle giggle!',
   ];
 
+  /// Câu Mimi nói khi bé chạm 2 lần liên tiếp - PHẢN ỨNG MẠNH hơn hẳn 1 lần
+  /// chạm thường (xem [_handlePetDoubleTap]/[PetAvatar.onDoubleTap]).
+  static const List<String> _doubleTapPhrases = [
+    'Whoa! Hehehe, again?! 😆',
+    'Hihi, you got me twice!',
+    'Ahaha, double tickle!',
+  ];
+
+  /// Câu Mimi nói LẶP LẠI trong lúc bé GIỮ TAY trêu (xem [_handleTickleStart]/
+  /// [PetAvatar.onTickleStart]) - xoay vòng ngẫu nhiên mỗi nhịp cho tới khi bé
+  /// thả tay, cảm giác thú cưng "cười không dừng được" càng trêu càng lâu.
+  static const List<String> _tickleLoopPhrases = [
+    'Hahaha! Stop, hihi! 😂',
+    "That tickles so much!",
+    'Hihihi, no more, hehe!',
+    'Ahaha, I can\'t stop laughing!',
+  ];
+
   /// `null` nghĩa là chưa có tương tác gì - lúc đó bong bóng thoại hiển thị
   /// câu chào MẶC ĐỊNH theo đúng tên nhân vật đang chọn (xem [build]), thay
   /// vì cố định "Hi! I'm Mimi!" như trước (giờ bé có thể chọn Bunny/Moni).
@@ -68,6 +87,17 @@ class _HomeScreenState extends State<HomeScreen> {
   DateTime? _lastPetAt;
   final _random = Random();
   late final PetAvatarController _mimiController;
+
+  /// true khi hàng chọn thú cưng/màu đang MỞ RỘNG - mặc định THU GỌN để dành
+  /// chỗ cho vùng tương tác chính (avatar + nút chơi) luôn vừa trong 1 khung
+  /// màn hình, không cần cuộn (xem yêu cầu rà soát UI Home). Bé vẫn đổi được
+  /// bình thường, chỉ cần bấm mở ra trước.
+  bool _customizeExpanded = false;
+
+  /// Chạy lặp lại trong lúc bé GIỮ TAY trêu thú cưng (xem [_handleTickleStart]/
+  /// [_handleTickleEnd]) - đọc to 1 câu "cười" ngẫu nhiên + rung nhẹ mỗi
+  /// nhịp, dừng hẳn khi bé thả tay ra.
+  Timer? _tickleTimer;
 
   @override
   void initState() {
@@ -78,6 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void dispose() {
     _mimiController.dispose();
+    _tickleTimer?.cancel();
     super.dispose();
   }
 
@@ -112,6 +143,45 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() => _bubbleText = phrase);
     pet.setMood(PetMood.happy, autoIdleAfter: const Duration(seconds: 2));
     tts.speak(phrase);
+  }
+
+  /// Chạm 2 lần liên tiếp (nhanh) - phản ứng MẠNH hơn hẳn 1 lần chạm thường,
+  /// đúng kiểu bé "trêu bất ngờ" thú cưng (xem [PetAvatar.onDoubleTap]).
+  void _handlePetDoubleTap() {
+    if (_isBusy) return;
+    final phrase = _doubleTapPhrases[_random.nextInt(_doubleTapPhrases.length)];
+    HapticFeedback.heavyImpact();
+    setState(() => _bubbleText = phrase);
+    context.read<PetController>().setMood(PetMood.happy, autoIdleAfter: const Duration(seconds: 2));
+    context.read<TtsService>().speak(phrase);
+  }
+
+  /// Bé bắt đầu GIỮ TAY trêu thú cưng - đọc ngay 1 câu, rồi lặp lại đều đặn
+  /// (kèm rung nhẹ mỗi nhịp) cho tới khi bé thả tay ([_handleTickleEnd]) -
+  /// đúng kiểu "trêu càng lâu thú cưng càng cười to" bé nhà bạn thích.
+  void _handleTickleStart() {
+    if (_isBusy) return;
+    _tickleTimer?.cancel();
+    void tick() {
+      if (!mounted) return;
+      HapticFeedback.lightImpact();
+      setState(() => _bubbleText = _tickleLoopPhrases[_random.nextInt(_tickleLoopPhrases.length)]);
+      context.read<TtsService>().speak(_bubbleText!);
+    }
+
+    tick();
+    _tickleTimer = Timer.periodic(const Duration(milliseconds: 900), (_) => tick());
+    context.read<PetController>().setMood(PetMood.happy);
+  }
+
+  /// Bé thả tay ra - dừng hẳn vòng lặp câu "cười", thú cưng thở phào trở lại
+  /// bình thường sau vài giây.
+  void _handleTickleEnd() {
+    _tickleTimer?.cancel();
+    _tickleTimer = null;
+    if (!mounted) return;
+    setState(() => _bubbleText = 'Phew! Hehe, that was fun! 😊');
+    context.read<PetController>().setMood(PetMood.happy, autoIdleAfter: const Duration(seconds: 2));
   }
 
   void _handleSpin() {
@@ -359,6 +429,38 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  /// Hàng nhỏ bấm để MỞ/ĐÓNG phần chọn thú cưng + màu (xem [_customizeExpanded]).
+  /// Luôn hiện tên+emoji nhân vật đang chọn ngay cả khi đang thu gọn, để bé
+  /// vẫn biết đang chơi với ai mà không cần mở ra.
+  Widget _customizeToggle(PetCharacterInfo info) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: () => setState(() => _customizeExpanded = !_customizeExpanded),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(info.emoji, style: const TextStyle(fontSize: 18)),
+              const SizedBox(width: 6),
+              Text(
+                '${info.displayName} · Đổi thú cưng/màu',
+                style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Color(0xFF8B6FD9)),
+              ),
+              Icon(
+                _customizeExpanded ? Icons.expand_less_rounded : Icons.expand_more_rounded,
+                size: 20,
+                color: const Color(0xFF8B6FD9),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final pet = context.watch<PetController>();
@@ -370,105 +472,111 @@ class _HomeScreenState extends State<HomeScreen> {
     final isListening = pet.mood == PetMood.listening;
     final bubbleText = _bubbleText ?? "Hi! I'm ${info.displayName}! ${info.emoji}";
 
-    // LayoutBuilder + SingleChildScrollView + ConstrainedBox(minHeight) +
-    // IntrinsicHeight: canh GIỮA nội dung khi đủ chỗ (giống trước), nhưng
-    // cho phép CUỘN khi nội dung cao hơn khung hình (màn hình nhỏ, hoặc sau
-    // khi thêm hàng chọn nhân vật/màu làm nội dung dài hơn). Thiếu bước này,
-    // nội dung tràn khỏi khung bị IndexedStack cắt mất - đây chính là lý do
-    // nút "Tap to talk" (nằm cuối cùng) có lúc bị đẩy ra ngoài vùng nhìn
-    // thấy/chạm được, gây cảm giác "bấm không ăn".
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: constraints.maxHeight),
-            child: IntrinsicHeight(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: PetCharacter.values
-                        .map((c) => _characterChip(c, c == character))
-                        .toList(growable: false),
-                  ),
-                  const SizedBox(height: 10),
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: 10,
-                    runSpacing: 8,
-                    children: PetPalette.values
-                        .map((p) => _paletteChip(character, p, p == palette))
-                        .toList(growable: false),
-                  ),
-                  const SizedBox(height: 12),
-                  PetAvatar(
-                    mood: pet.mood,
-                    character: character,
-                    palette: palette,
-                    headAccessory: inventory.equippedHead,
-                    neckAccessory: inventory.equippedNeck,
-                    size: 230,
-                    onTap: _handlePetTap,
-                    controller: _mimiController,
-                  ),
-                  const SizedBox(height: 18),
-                  Text(
-                    info.displayName,
-                    style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 12),
-                  SpeechBubble(text: bubbleText),
-                  const SizedBox(height: 16),
-                  _PictureScenesCard(onTap: () => _openPictureScenes(context)),
-                  const SizedBox(height: 10),
-                  _ExamCard(onTap: () => _openExam(context)),
-                  const SizedBox(height: 18),
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: 10,
-                    runSpacing: 10,
+    // CẤU TRÚC MỚI (rà soát UI Home): tách hẳn 2 vùng thay vì 1 cột cuộn duy
+    // nhất như trước - vùng TƯƠNG TÁC VỚI THÚ CƯNG (avatar + nút chơi + nút
+    // nói) đứng CỐ ĐỊNH phía trên, LUÔN vừa trong 1 khung màn hình không cần
+    // cuộn (đúng yêu cầu); vùng "Bài tranh"/"Thi thử" đẩy XUỐNG DƯỚI, nằm
+    // trong `Expanded` + `SingleChildScrollView` RIÊNG - cuộn được nếu cần,
+    // không ảnh hưởng gì tới vùng tương tác phía trên. Hàng chọn nhân
+    // vật/màu mặc định THU GỌN (xem [_customizeExpanded]) để nhường chỗ.
+    return Column(
+      children: [
+        const SizedBox(height: 4),
+        _customizeToggle(info),
+        AnimatedSize(
+          duration: const Duration(milliseconds: 220),
+          curve: Curves.easeOut,
+          alignment: Alignment.topCenter,
+          child: !_customizeExpanded
+              ? const SizedBox(width: double.infinity)
+              : Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: Column(
                     children: [
-                      _playButton(label: 'Xoay vòng', icon: Icons.refresh_rounded, onTap: _handleSpin),
-                      _playButton(
-                        label: 'Nhảy chơi',
-                        icon: Icons.arrow_upward_rounded,
-                        onTap: _handleBonusJump,
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: PetCharacter.values
+                            .map((c) => _characterChip(c, c == character))
+                            .toList(growable: false),
                       ),
-                      _playButton(label: 'Cho ăn 🥕', icon: Icons.favorite_rounded, onTap: _handleFeed),
-                      _playButton(label: 'Tắm 🛁', icon: Icons.bathtub_rounded, onTap: _handleBath),
-                      _playButton(label: 'Đi ngủ 🌙', icon: Icons.bedtime_rounded, onTap: _handleSleep),
-                      _playButton(
-                        label: 'Tập thể dục 🤸',
-                        icon: Icons.fitness_center_rounded,
-                        onTap: _handleExercise,
+                      const SizedBox(height: 8),
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        spacing: 10,
+                        runSpacing: 8,
+                        children: PetPalette.values
+                            .map((p) => _paletteChip(character, p, p == palette))
+                            .toList(growable: false),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 22),
-                  TalkButton(
-                    isListening: isListening,
-                    enabled: !_isBusy,
-                    onTap: _handleTalkPressed,
-                    label: isListening ? 'Listening...' : 'Tap to talk',
-                  ),
-                  const SizedBox(height: 8),
-                  // Fallback cho Safari trên iPhone/iPad (hầu như không hỗ
-                  // trợ speech_to_text) - xem `TypeInsteadOfTalk`.
-                  TypeInsteadOfTalk(
-                    enabled: !_isBusy,
-                    onSubmitted: _handleTypedTalk,
-                    hintText: 'Gõ "Hello"...',
-                  ),
-                ],
-              ),
+                ),
+        ),
+        const SizedBox(height: 6),
+        PetAvatar(
+          mood: pet.mood,
+          character: character,
+          palette: palette,
+          headAccessory: inventory.equippedHead,
+          neckAccessory: inventory.equippedNeck,
+          size: 200,
+          onTap: _handlePetTap,
+          onDoubleTap: _handlePetDoubleTap,
+          onTickleStart: _handleTickleStart,
+          onTickleEnd: _handleTickleEnd,
+          controller: _mimiController,
+        ),
+        const SizedBox(height: 8),
+        // Nút "chơi cùng" đặt NGAY SÁT dưới avatar (thay vì tách xa như
+        // trước) - đúng yêu cầu "để sát lên phần hình ảnh pet".
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            _playButton(label: 'Xoay vòng', icon: Icons.refresh_rounded, onTap: _handleSpin),
+            _playButton(label: 'Nhảy chơi', icon: Icons.arrow_upward_rounded, onTap: _handleBonusJump),
+            _playButton(label: 'Cho ăn 🥕', icon: Icons.favorite_rounded, onTap: _handleFeed),
+            _playButton(label: 'Tắm 🛁', icon: Icons.bathtub_rounded, onTap: _handleBath),
+            _playButton(label: 'Đi ngủ 🌙', icon: Icons.bedtime_rounded, onTap: _handleSleep),
+            _playButton(label: 'Tập thể dục 🤸', icon: Icons.fitness_center_rounded, onTap: _handleExercise),
+          ],
+        ),
+        const SizedBox(height: 8),
+        SpeechBubble(text: bubbleText),
+        const SizedBox(height: 10),
+        TalkButton(
+          isListening: isListening,
+          enabled: !_isBusy,
+          onTap: _handleTalkPressed,
+          label: isListening ? 'Listening...' : 'Tap to talk',
+        ),
+        const SizedBox(height: 6),
+        // Fallback cho Safari trên iPhone/iPad (hầu như không hỗ trợ
+        // speech_to_text) - xem `TypeInsteadOfTalk`.
+        TypeInsteadOfTalk(
+          enabled: !_isBusy,
+          onSubmitted: _handleTypedTalk,
+          hintText: 'Gõ "Hello"...',
+        ),
+        const SizedBox(height: 10),
+        // Vùng "Bài tranh"/"Thi thử" - ĐẨY XUỐNG DƯỚI, cuộn riêng, không
+        // chiếm chỗ của vùng tương tác thú cưng phía trên.
+        Expanded(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Column(
+              children: [
+                _PictureScenesCard(onTap: () => _openPictureScenes(context)),
+                const SizedBox(height: 10),
+                _ExamCard(onTap: () => _openExam(context)),
+              ],
             ),
           ),
-        );
-      },
+        ),
+      ],
     );
   }
 }

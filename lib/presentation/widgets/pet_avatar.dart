@@ -90,6 +90,20 @@ class PetAvatar extends StatefulWidget {
   /// (giữ đúng hành vi cũ, không đổi bất ngờ ở màn hình khác).
   final void Function(MimiTapRegion region)? onTap;
 
+  /// Bé chạm 2 lần liên tiếp (nhanh) vào thú cưng - phản ứng "giật mình cười
+  /// phá lên", MẠNH hơn hẳn 1 lần chạm thường (xem [_handleDoubleTap]). Để
+  /// trống nếu màn hình không cần (giữ nguyên hành vi 1-chạm cũ).
+  final VoidCallback? onDoubleTap;
+
+  /// Bé GIỮ TAY (nhấn giữ) trên thú cưng - vào/ra 1 trạng thái "đang bị
+  /// trêu/cù" LIÊN TỤC cho tới khi thả tay, khác hẳn các "trò" một lần
+  /// ([PetAvatarController]) hay chạm rời rạc ([onTap]) - đúng kiểu bé thích
+  /// "trêu" thú cưng thật sự (giữ càng lâu, thú cưng càng cười to hơn). Màn
+  /// hình gọi nên bắt đầu 1 chu kỳ đọc câu trêu/rung nhẹ lặp lại trong
+  /// [onTickleStart], dừng lại trong [onTickleEnd].
+  final VoidCallback? onTickleStart;
+  final VoidCallback? onTickleEnd;
+
   /// Kênh nhận yêu cầu chơi trò (xoay vòng/nhảy/ăn) từ bên ngoài. Có thể để
   /// trống nếu màn hình không cần các trò này.
   final PetAvatarController? controller;
@@ -103,6 +117,9 @@ class PetAvatar extends StatefulWidget {
     this.neckAccessory,
     this.size = 220,
     this.onTap,
+    this.onDoubleTap,
+    this.onTickleStart,
+    this.onTickleEnd,
     this.controller,
   });
 
@@ -125,6 +142,7 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
   late final AnimationController _bathCtrl;
   late final AnimationController _sleepCtrl;
   late final AnimationController _exerciseCtrl;
+  late final AnimationController _tickleCtrl;
 
   Timer? _blinkTimer;
   Timer? _earTwitchTimer;
@@ -134,6 +152,13 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
   Offset _dragOffset = Offset.zero;
   Animation<Offset>? _dragSnapAnimation;
   MimiTapRegion? _activeEarPull;
+
+  /// true trong khoảng thời gian bé đang GIỮ TAY trêu (xem
+  /// [_handleLongPressStart]/[_handleLongPressEnd]) - dáng "cù lét" ở
+  /// [_buildPose] chỉ áp dụng khi cờ này bật, độc lập với việc
+  /// `_tickleCtrl.isAnimating` (animation có thể còn đang chạy nốt vòng lặp
+  /// dở dang ngay lúc thả tay).
+  bool _isTickling = false;
 
   static final Animatable<double> _earTwitchTween = TweenSequence<double>([
     TweenSequenceItem(tween: Tween(begin: 0.0, end: -0.22), weight: 20),
@@ -170,6 +195,7 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
     _bathCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1400));
     _sleepCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1800));
     _exerciseCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000));
+    _tickleCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 260));
 
     _scheduleBlink();
     _scheduleEarTwitch();
@@ -271,6 +297,38 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
     widget.onTap?.call(region);
   }
 
+  /// Chạm 2 lần liên tiếp - phản ứng MẠNH hơn hẳn 1 lần chạm (giật mình cười
+  /// phá lên): dùng LẠI [_giggleCtrl] nhưng cho chạy 2 vòng liền (forward rồi
+  /// forward lại) để biên độ cảm giác "nhiều" hơn, không cần thêm animation
+  /// riêng - đủ khác biệt để bé phân biệt được với 1 lần chạm.
+  void _handleDoubleTap() {
+    _giggleCtrl.forward(from: 0).then((_) {
+      if (mounted) _giggleCtrl.forward(from: 0);
+    });
+    widget.onDoubleTap?.call();
+  }
+
+  void _handleLongPressStart(LongPressStartDetails details) {
+    setState(() => _isTickling = true);
+    _tickleCtrl.repeat(reverse: true);
+    widget.onTickleStart?.call();
+  }
+
+  void _handleLongPressEnd(LongPressEndDetails details) => _endTickle();
+
+  /// Phòng trường hợp cử chỉ giữ tay bị HUỶ NGANG (ví dụ tay trượt ra ngoài
+  /// vùng thú cưng, hệ thống cướp gesture...) - Flutter gọi `onLongPressCancel`
+  /// thay vì `onLongPressEnd` trong các trường hợp này, KHÔNG dọn dẹp ở đây
+  /// sẽ khiến `_isTickling`/`_tickleCtrl` kẹt mãi ở trạng thái "đang trêu".
+  void _handleLongPressCancel() => _endTickle();
+
+  void _endTickle() {
+    if (!mounted || !_isTickling) return;
+    setState(() => _isTickling = false);
+    _tickleCtrl.stop();
+    widget.onTickleEnd?.call();
+  }
+
   void _handlePanUpdate(DragUpdateDetails details) {
     _dragSnapCtrl.stop();
     final maxOffset = widget.size * 0.18;
@@ -316,6 +374,7 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
     _bathCtrl.dispose();
     _sleepCtrl.dispose();
     _exerciseCtrl.dispose();
+    _tickleCtrl.dispose();
     super.dispose();
   }
 
@@ -452,6 +511,21 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
       mouth = MimiMouth.happy;
     }
 
+    // "Bị trêu/cù" (LIÊN TỤC trong lúc bé giữ tay, xem [_handleLongPressStart])
+    // - đè lên MỌI animation theo mood khác (kể cả "happy") vì đây là phản ứng
+    // MẠNH NHẤT, rõ ràng nhất cho bé thấy thú cưng "chịu không nổi" khi bị
+    // trêu - tai/đầu rung nhanh theo nhịp `_tickleCtrl` (0->1->0 lặp lại liên
+    // tục), khác hẳn kiểu "giggle" 1 lần khi chạm thường.
+    if (_isTickling) {
+      final t = _tickleCtrl.value;
+      happyEyes = true;
+      mouth = MimiMouth.happy;
+      earL = -0.32 + sin(t * pi * 2) * 0.28;
+      earR = 0.32 - sin(t * pi * 2) * 0.28;
+      headTilt += sin(t * pi * 4) * 0.14;
+      bodyScaleY = 1.0 - t * 0.07;
+    }
+
     final eyeScaleY =
         forcedEyeScaleY ?? (happyEyes ? 1.0 : min(max(1.0 - _blinkCtrl.value * 0.92, 0.06), 1.0));
 
@@ -551,6 +625,7 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
       _bathCtrl,
       _sleepCtrl,
       _exerciseCtrl,
+      _tickleCtrl,
     ]);
 
     final avatar = AnimatedBuilder(
@@ -629,6 +704,10 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
 
     return GestureDetector(
       onTapUp: _handleTapUp,
+      onDoubleTap: _handleDoubleTap,
+      onLongPressStart: _handleLongPressStart,
+      onLongPressEnd: _handleLongPressEnd,
+      onLongPressCancel: _handleLongPressCancel,
       onPanUpdate: _handlePanUpdate,
       onPanEnd: _handlePanEnd,
       behavior: HitTestBehavior.opaque,

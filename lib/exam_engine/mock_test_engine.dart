@@ -105,8 +105,11 @@ bool _listEquals(List<String> a, List<String> b) {
   return true;
 }
 
-/// Chấm 1 câu trả lời của user so với đáp án đúng trong ngân hàng câu hỏi.
-bool _isCorrect(Question q, List<String>? userAnswer) {
+/// Chấm 1 câu trả lời của user so với đáp án đúng trong ngân hàng câu hỏi -
+/// PUBLIC (không còn `_isCorrect` riêng tư) vì [ExamSessionController] cũng
+/// cần dùng lại đúng logic này để hiện "Đúng/Sai" NGAY khi bé bấm "Kiểm tra
+/// đáp án" ở chế độ luyện tập, không đợi tới lúc nộp cả bài.
+bool isAnswerCorrect(Question q, List<String>? userAnswer) {
   if (userAnswer == null || userAnswer.isEmpty) return false;
   switch (q.questionType) {
     case QuestionType.multipleChoice:
@@ -197,9 +200,9 @@ class ToeicScaledScoringStrategy implements ScoringStrategy {
         session.questions.where((q) => q.skill == Skill.reading).toList();
 
     final listeningCorrect =
-        listeningQs.where((q) => _isCorrect(q, session.answers[q.id])).length;
+        listeningQs.where((q) => isAnswerCorrect(q, session.answers[q.id])).length;
     final readingCorrect =
-        readingQs.where((q) => _isCorrect(q, session.answers[q.id])).length;
+        readingQs.where((q) => isAnswerCorrect(q, session.answers[q.id])).length;
 
     int scale(int correct, int total) {
       if (total == 0) return 0;
@@ -242,7 +245,7 @@ TestScore _baseScore(TestSession session) {
       continue;
     }
 
-    final isRight = _isCorrect(q, session.answers[q.id]);
+    final isRight = isAnswerCorrect(q, session.answers[q.id]);
     if (isRight) correct++;
 
     bySkillTotal[q.skill] = (bySkillTotal[q.skill] ?? 0) + 1;

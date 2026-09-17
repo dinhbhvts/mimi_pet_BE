@@ -137,6 +137,14 @@ class _ExamQuizView extends StatelessWidget {
                   _QuestionCard(question: question),
                   const SizedBox(height: 16),
                   _AnswerArea(ctrl: ctrl, question: question),
+                  // Panel "Đúng/Sai" + giải thích - CHỈ ở chế độ luyện tập
+                  // (giữ nguyên trải nghiệm thi thật cho "Thi thử có giờ": chỉ
+                  // biết điểm sau khi nộp CẢ bài, xem [ExamSessionController.
+                  // isPracticeMode]) và chỉ sau khi bé bấm "Kiểm tra đáp án".
+                  if (ctrl.isPracticeMode && ctrl.showFeedback) ...[
+                    const SizedBox(height: 16),
+                    _FeedbackPanel(ctrl: ctrl, question: question),
+                  ],
                 ],
               ),
             ),
@@ -159,21 +167,129 @@ class _ExamQuizView extends StatelessWidget {
               ],
               Expanded(
                 flex: 2,
-                child: ElevatedButton(
-                  onPressed: ctrl.goNext,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                  ),
-                  child: Text(
-                    ctrl.isLastQuestion ? 'Nộp bài' : 'Câu tiếp theo',
-                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                ),
+                child: _PrimaryActionButton(ctrl: ctrl, question: question),
               ),
             ],
           ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Nút hành động chính - Ở CHẾ ĐỘ LUYỆN TẬP, bấm lần đầu (đã chọn đáp án
+/// nhưng chưa xem giải thích) sẽ "Kiểm tra đáp án" trước (hiện [_FeedbackPanel]
+/// ngay tại chỗ), bấm lần 2 mới thật sự sang câu tiếp theo - giống cách các
+/// app luyện thi phổ biến làm, ép bé nhìn thấy đúng/sai + giải thích trước
+/// khi lướt qua câu khác thay vì bỏ qua luôn. Câu nói (speakingPrompt, không
+/// chấm tự động được) và chế độ "Thi thử có giờ" bỏ qua bước này, giữ nguyên
+/// hành vi "Câu tiếp theo"/"Nộp bài" như cũ.
+class _PrimaryActionButton extends StatelessWidget {
+  final ExamSessionController ctrl;
+  final Question question;
+
+  const _PrimaryActionButton({required this.ctrl, required this.question});
+
+  @override
+  Widget build(BuildContext context) {
+    final needsCheck = ctrl.isPracticeMode &&
+        question.questionType != QuestionType.speakingPrompt &&
+        !ctrl.showFeedback &&
+        ctrl.answerFor(question.id) != null &&
+        ctrl.answerFor(question.id)!.isNotEmpty;
+
+    return ElevatedButton(
+      onPressed: needsCheck ? ctrl.checkAnswer : ctrl.goNext,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: needsCheck ? const Color(0xFF3FAE5A) : AppColors.primary,
+        padding: const EdgeInsets.symmetric(vertical: 14),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+      child: Text(
+        needsCheck ? 'Kiểm tra đáp án' : (ctrl.isLastQuestion ? 'Nộp bài' : 'Câu tiếp theo'),
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+}
+
+/// Chuyển [Question.correctAnswer] (toàn ID nội bộ) thành chữ DỄ ĐỌC cho bé -
+/// mỗi dạng câu hỏi cần cách "dịch" khác nhau (xem comment ở
+/// `question_bank_models.dart` giải thích ý nghĩa `correctAnswer` theo từng
+/// [QuestionType]).
+String _correctAnswerText(Question q) {
+  String textOf(String id) => q.options
+      .firstWhere((o) => o.id == id, orElse: () => AnswerOption(id: id, text: id))
+      .text;
+
+  switch (q.questionType) {
+    case QuestionType.multipleChoice:
+    case QuestionType.trueFalse:
+      return q.correctAnswer.map(textOf).join(', ');
+    case QuestionType.ordering:
+    case QuestionType.listenAndColor:
+    case QuestionType.listenAndNumber:
+      return q.correctAnswer.map(textOf).join(' → ');
+    case QuestionType.matching:
+      return q.correctAnswer.map((pair) {
+        final parts = pair.split(':');
+        return '${textOf(parts[0])} - ${textOf(parts[1])}';
+      }).join(', ');
+    case QuestionType.fillBlank:
+    case QuestionType.shortAnswer:
+      return q.correctAnswer.join(' / ');
+    case QuestionType.speakingPrompt:
+      return '';
+  }
+}
+
+/// Panel hiện NGAY sau khi bé bấm "Kiểm tra đáp án" - tô xanh/đỏ theo đúng
+/// [ExamSessionController.isCurrentAnswerCorrect], luôn hiện đáp án đúng
+/// (kể cả khi bé làm đúng, để củng cố lại) + giải thích nếu ngân hàng câu hỏi
+/// có sẵn ([Question.explanation] - không phải câu nào cũng có).
+class _FeedbackPanel extends StatelessWidget {
+  final ExamSessionController ctrl;
+  final Question question;
+
+  const _FeedbackPanel({required this.ctrl, required this.question});
+
+  @override
+  Widget build(BuildContext context) {
+    final isCorrect = ctrl.isCurrentAnswerCorrect ?? false;
+    final color = isCorrect ? const Color(0xFF3FAE5A) : const Color(0xFFE0863C);
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: color.withValues(alpha: 0.4)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(isCorrect ? Icons.check_circle_rounded : Icons.cancel_rounded, color: color),
+              const SizedBox(width: 8),
+              Text(
+                isCorrect ? 'Chính xác!' : 'Chưa đúng',
+                style: TextStyle(color: color, fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+            ],
+          ),
+          if (!isCorrect) ...[
+            const SizedBox(height: 8),
+            Text(
+              'Đáp án đúng: ${_correctAnswerText(question)}',
+              style: const TextStyle(fontWeight: FontWeight.w600),
+            ),
+          ],
+          if (question.explanation != null) ...[
+            const SizedBox(height: 8),
+            Text(question.explanation!, style: const TextStyle(color: AppColors.textMuted)),
+          ],
         ],
       ),
     );

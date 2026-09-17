@@ -112,7 +112,7 @@ git push -u origin main
    | `DATABASE_URL` | Chuỗi kết nối NeonDB đã copy ở Bước 1.1 |
    | `JWT_SECRET` | 1 chuỗi ngẫu nhiên dài (chạy `python -c "import secrets; print(secrets.token_hex(32))"` để tạo) |
    | `GEMINI_API_KEY` | API key Gemini (lấy tại https://aistudio.google.com/apikey) - để trống nếu chưa dùng tính năng Chat/Từ điển |
-   | `GEMINI_MODEL` | `gemini-2.5-flash` (hoặc model khác nếu Google đổi) |
+   | `GEMINI_MODEL` | `gemini-3.6-flash` (model đang dùng được tại thời điểm viết tài liệu này - Google hay đổi tên model, xem mục "Chat không kết nối được AI thật?" bên dưới nếu gặp lỗi "Tên model Gemini không đúng") |
    | `ALLOWED_ORIGINS` | Domain web sẽ deploy ở Phần 2, ví dụ `https://<ten-user>.github.io` (nhiều domain cách nhau dấu phẩy) |
 5. Bấm **Create Web Service**. Lần đầu build mất vài phút, xong sẽ có URL
    dạng `https://mimi-pet-be.onrender.com` - **ghi lại URL này**, cần dùng
