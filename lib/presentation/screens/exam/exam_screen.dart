@@ -225,6 +225,11 @@ String _correctAnswerText(Question q) {
   switch (q.questionType) {
     case QuestionType.multipleChoice:
     case QuestionType.trueFalse:
+      // Part 1/2 TOEIC ẩn chữ lúc làm bài (xem [Question.isAudioOnlyChoice])
+      // nên lúc xem đáp án cần kèm CHỮ CÁI để bé đối chiếu với nút đã bấm.
+      if (q.isAudioOnlyChoice) {
+        return q.correctAnswer.map((id) => '${id.toUpperCase()}. ${textOf(id)}').join(', ');
+      }
       return q.correctAnswer.map(textOf).join(', ');
     case QuestionType.ordering:
     case QuestionType.listenAndColor:
@@ -296,6 +301,31 @@ class _FeedbackPanel extends StatelessWidget {
   }
 }
 
+/// "Ảnh" TOEIC Part 1 - ghép vài emoji lớn trong khung viền như 1 tấm ảnh
+/// thật (xem doc comment [Question.imageEmoji] để biết lý do không dùng ảnh
+/// chụp thật). Nền/viền tối giản để emoji là trọng tâm, giống cách 1 khung
+/// ảnh thật nổi bật trên nền trắng của đề thi.
+class _PhotoCard extends StatelessWidget {
+  final String emoji;
+
+  const _PhotoCard({required this.emoji});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 140,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: const Color(0xFFF3F4F6),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: Colors.black12),
+      ),
+      child: Text(emoji, style: const TextStyle(fontSize: 56)),
+    );
+  }
+}
+
 class _QuestionCard extends StatelessWidget {
   final Question question;
 
@@ -328,6 +358,13 @@ class _QuestionCard extends StatelessWidget {
             child: Text(badge, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
           ),
           const SizedBox(height: 10),
+          // "Ảnh" cho TOEIC Part 1 (Photographs) - xem doc comment
+          // [Question.imageEmoji]. Đặt TRƯỚC câu hỏi, giống bố cục đề thật
+          // (nhìn ảnh trước, sau đó mới nghe 4 mô tả A/B/C/D).
+          if (question.imageEmoji != null) ...[
+            _PhotoCard(emoji: question.imageEmoji!),
+            const SizedBox(height: 12),
+          ],
           Text(question.prompt, style: const TextStyle(fontSize: 17, height: 1.4)),
           // media.type == 'audio' xảy ra ở CẢ 2 trường hợp: đã có url thật lẫn
           // url == null (chưa có file audio thật, xem THIET_KE_SCHEMA_CHUNG.md
@@ -339,23 +376,34 @@ class _QuestionCard extends StatelessWidget {
           // (hợp với bé nhỏ tuổi ở track YLE, không hợp ngữ cảnh công sở).
           if (question.media.type == 'audio') ...[
             const SizedBox(height: 10),
+            // Bấm được NHIỀU LẦN (TtsService.speak tự dừng lượt đọc trước đó
+            // rồi đọc lại từ đầu) - bé yếu phần nghe có thể nghe lại thoải
+            // mái, không giới hạn số lần như thi thật.
             OutlinedButton.icon(
               onPressed: () => context.read<TtsService>().speak(
                     question.audioScript ?? question.prompt,
                     rate: question.track == ExamTrack.toeic ? 0.5 : null,
                     pitch: question.track == ExamTrack.toeic ? 1.0 : null,
                   ),
-              icon: const Icon(Icons.volume_up_rounded, size: 18),
+              icon: const Icon(Icons.replay_rounded, size: 18),
               label: Text(
                 question.audioScript != null
-                    ? 'Nghe nội dung'
-                    : 'Nghe (giọng đọc tạm thay audio thật)',
+                    ? '🔊 Nghe lại nội dung'
+                    : '🔊 Nghe lại (giọng đọc tạm thay audio thật)',
               ),
               style: OutlinedButton.styleFrom(
                 foregroundColor: AppColors.primary,
-                side: const BorderSide(color: AppColors.primary),
+                side: const BorderSide(color: AppColors.primary, width: 1.5),
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
               ),
             ),
+            if (question.isAudioOnlyChoice) ...[
+              const SizedBox(height: 8),
+              const Text(
+                '🎧 Đề thật KHÔNG in chữ đáp án ở Part này - bé nghe kỹ rồi chọn A, B, C hoặc D bên dưới nhé.',
+                style: TextStyle(fontSize: 12.5, color: AppColors.textMuted, fontStyle: FontStyle.italic),
+              ),
+            ],
           ],
         ],
       ),
@@ -409,9 +457,74 @@ class _ChoiceAnswer extends StatelessWidget {
     final answer = ctrl.answerFor(question.id);
     final selectedId = (answer != null && answer.isNotEmpty) ? answer.first : null;
 
+    // TOEIC Part 1/2 - đề thật không in chữ đáp án (chỉ đọc qua loa), nên
+    // hiện dạng nút chữ cái A/B/C/D thay vì in nguyên câu lúc đang làm bài
+    // (xem [Question.isAudioOnlyChoice]). Sau khi bấm "Kiểm tra đáp án" ở
+    // chế độ luyện tập (ctrl.showFeedback), MỚI hiện đầy đủ text kèm chữ cái
+    // để bé đối chiếu phần đã nghe với phần giải thích - nút "Nghe lại nội
+    // dung" ở trên vẫn bấm lại được bình thường lúc này.
+    final revealText = !question.isAudioOnlyChoice || (ctrl.isPracticeMode && ctrl.showFeedback);
+
+    if (!revealText) {
+      return Row(
+        children: options.map((option) {
+          final selected = option.id == selectedId;
+          return Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: AspectRatio(
+                aspectRatio: 1,
+                child: OutlinedButton(
+                  onPressed: () => ctrl.answerCurrent([option.id]),
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: selected ? AppColors.primary : Colors.white,
+                    foregroundColor: selected ? Colors.white : AppColors.primary,
+                    side: BorderSide(color: AppColors.primary, width: selected ? 2 : 1.5),
+                    padding: EdgeInsets.zero,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  ),
+                  child: Text(
+                    option.id.toUpperCase(),
+                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
+          );
+        }).toList(),
+      );
+    }
+
+    // showFeedback CHỈ true ở chế độ luyện tập sau khi bấm "Kiểm tra đáp án"
+    // (xem _PrimaryActionButton) - lúc đó tô thêm xanh/đỏ để bé thấy ngay
+    // đáp án đúng nằm ở đâu, giống cách [_FeedbackPanel] bên dưới đang làm.
+    final showFeedback = ctrl.isPracticeMode && ctrl.showFeedback;
+
     return Column(
       children: options.map((option) {
         final selected = option.id == selectedId;
+        final isCorrectOption = question.correctAnswer.contains(option.id);
+        Color bg = selected ? AppColors.primary : Colors.white;
+        Color fg = selected ? Colors.white : AppColors.primary;
+        Color border = AppColors.primary;
+        if (showFeedback) {
+          if (isCorrectOption) {
+            bg = const Color(0xFF3FAE5A);
+            fg = Colors.white;
+            border = const Color(0xFF3FAE5A);
+          } else if (selected) {
+            bg = const Color(0xFFE0863C);
+            fg = Colors.white;
+            border = const Color(0xFFE0863C);
+          } else {
+            bg = Colors.white;
+            fg = AppColors.textMuted;
+            border = AppColors.textMuted.withValues(alpha: 0.3);
+          }
+        }
+        final label = question.isAudioOnlyChoice
+            ? '${option.id.toUpperCase()}. ${option.text}'
+            : option.text;
         return Padding(
           padding: const EdgeInsets.only(bottom: 10),
           child: SizedBox(
@@ -419,14 +532,14 @@ class _ChoiceAnswer extends StatelessWidget {
             child: OutlinedButton(
               onPressed: () => ctrl.answerCurrent([option.id]),
               style: OutlinedButton.styleFrom(
-                backgroundColor: selected ? AppColors.primary : Colors.white,
-                foregroundColor: selected ? Colors.white : AppColors.primary,
-                side: BorderSide(color: AppColors.primary, width: selected ? 2 : 1.5),
+                backgroundColor: bg,
+                foregroundColor: fg,
+                side: BorderSide(color: border, width: selected || (showFeedback && isCorrectOption) ? 2 : 1.5),
                 padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
                 alignment: Alignment.centerLeft,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
               ),
-              child: Text(option.text, style: const TextStyle(fontSize: 16)),
+              child: Text(label, style: const TextStyle(fontSize: 16)),
             ),
           ),
         );

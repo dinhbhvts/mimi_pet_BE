@@ -123,6 +123,25 @@ class Question {
   /// không có phần nghe riêng (media.type != 'audio').
   final String? audioScript;
 
+  /// Minh hoạ "ảnh chụp" cho TOEIC Part 1 (Photographs) - 1 chuỗi vài emoji
+  /// ghép lại mô tả TRỰC QUAN cảnh trong ảnh (ví dụ "🧑‍🌾🌻🚿" cho "người
+  /// đang tưới hoa"), hiển thị trong khung như 1 tấm ảnh thật (xem
+  /// `_QuestionCard`/`_PhotoCard` trong `exam_screen.dart`). TÁCH RIÊNG khỏi
+  /// [media] (dành cho audio) - Part 1 cần CẢ HAI cùng lúc: nhìn ảnh + nghe 4
+  /// mô tả A/B/C/D rồi chọn câu khớp với ảnh, đúng cấu trúc đề thật (KHÔNG
+  /// dùng ảnh chụp thật vì cần đóng gói gọn trong app, dùng emoji ghép cảnh
+  /// thay thế - vẫn đủ để bé luyện kỹ năng "nhìn - nghe - chọn"). `null` với
+  /// mọi câu hỏi không thuộc Part 1.
+  final String? imageEmoji;
+
+  /// TOEIC Part 1 (Photographs) và Part 2 (Question-Response) - trong đề
+  /// thật, 4 lựa chọn A/B/C/D CHỈ được ĐỌC qua loa, KHÔNG in chữ trong đề
+  /// (khác Part 3/4: hội thoại/thông báo là audio nhưng câu hỏi + 4 đáp án
+  /// VẪN in chữ đầy đủ). Dùng để ẩn text lựa chọn, chỉ hiện nhãn A/B/C/D,
+  /// buộc bé phải nghe (xem `_ChoiceAnswer` trong exam_screen.dart).
+  bool get isAudioOnlyChoice =>
+      track == ExamTrack.toeic && partNumber != null && partNumber! <= 2;
+
   const Question({
     required this.id,
     required this.track,
@@ -140,6 +159,7 @@ class Question {
     this.tags = const [],
     this.points = 1,
     this.audioScript,
+    this.imageEmoji,
   });
 
   factory Question.fromJson(Map<String, dynamic> json) => Question(
@@ -167,6 +187,7 @@ class Question {
             .toList(),
         points: json['points'] as int? ?? 1,
         audioScript: json['audioScript'] as String?,
+        imageEmoji: json['imageEmoji'] as String?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -186,6 +207,7 @@ class Question {
         'tags': tags,
         'points': points,
         if (audioScript != null) 'audioScript': audioScript,
+        if (imageEmoji != null) 'imageEmoji': imageEmoji,
       };
 }
 

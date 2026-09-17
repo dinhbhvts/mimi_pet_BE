@@ -41,22 +41,30 @@ class ApiClient {
 
   Uri _uri(String path) => Uri.parse('${ApiConfig.baseUrl}$path');
 
-  Future<Map<String, dynamic>> getJson(String path) async {
-    final res = await _client.get(_uri(path), headers: _headers).timeout(const Duration(seconds: 15));
+  /// Timeout MẶC ĐỊNH cho các request thường (đủ nhanh để fail sớm, rơi về
+  /// offline/cache thay vì bắt bé chờ lâu vô ích - ví dụ Gemini/đồng bộ nền).
+  /// Các màn hình biết trước có thể đụng lúc Render "ngủ" (đăng nhập, tải
+  /// state lần đầu - xem `boot_screen.dart`) nên TRUYỀN [timeout] dài hơn hẳn
+  /// (xem [BootContent.wakeTimeout]) để không bị huỷ giữa chừng lúc server
+  /// còn đang khởi động lại (có thể mất tới 1-2 phút ở gói Free).
+  static const _defaultTimeout = Duration(seconds: 15);
+
+  Future<Map<String, dynamic>> getJson(String path, {Duration? timeout}) async {
+    final res = await _client.get(_uri(path), headers: _headers).timeout(timeout ?? _defaultTimeout);
     return _decode(res);
   }
 
-  Future<Map<String, dynamic>> postJson(String path, Map<String, dynamic> body) async {
+  Future<Map<String, dynamic>> postJson(String path, Map<String, dynamic> body, {Duration? timeout}) async {
     final res = await _client
         .post(_uri(path), headers: _headers, body: jsonEncode(body))
-        .timeout(const Duration(seconds: 25));
+        .timeout(timeout ?? const Duration(seconds: 25));
     return _decode(res);
   }
 
-  Future<Map<String, dynamic>> putJson(String path, Map<String, dynamic> body) async {
+  Future<Map<String, dynamic>> putJson(String path, Map<String, dynamic> body, {Duration? timeout}) async {
     final res = await _client
         .put(_uri(path), headers: _headers, body: jsonEncode(body))
-        .timeout(const Duration(seconds: 15));
+        .timeout(timeout ?? _defaultTimeout);
     return _decode(res);
   }
 

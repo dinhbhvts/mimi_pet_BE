@@ -45,7 +45,11 @@ class CloudStateStore {
       }
     }
     try {
-      final remote = await _apiClient.getJson('/me/state');
+      // Timeout DÀI (xem [ApiClient.getJson]) - đây thường là request ĐẦU
+      // TIÊN sau khi mở app, dễ đụng lúc backend Render (gói Free) đang
+      // "ngủ" và cần thời gian thức dậy (xem `boot_screen.dart`) - timeout
+      // mặc định 15s sẽ huỷ ngang giữa lúc server còn đang khởi động lại.
+      final remote = await _apiClient.getJson('/me/state', timeout: const Duration(seconds: 100));
       _state = (remote['state'] as Map<String, dynamic>?) ?? {};
       await prefs.setString(_cacheKey, jsonEncode(_state));
     } catch (_) {

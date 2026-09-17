@@ -27,6 +27,7 @@ import 'domain/repositories/picture_scene_repository.dart';
 import 'domain/repositories/progress_repository.dart';
 import 'domain/repositories/streak_repository.dart';
 import 'presentation/screens/auth/login_screen.dart';
+import 'presentation/screens/boot/boot_screen.dart';
 import 'presentation/screens/root/root_shell.dart';
 import 'presentation/state/chat_controller.dart';
 import 'presentation/state/child_avatar_controller.dart';
@@ -167,9 +168,15 @@ class _AuthenticatedAppState extends State<_AuthenticatedApp> {
       future: _loadFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
-          return const MaterialApp(
+          // Đây thường là request MẠNG ĐẦU TIÊN sau khi mở app (tải tiến độ
+          // của bé qua `GET /me/state`) - dễ đụng lúc backend Render (gói
+          // Free) đang "ngủ", có thể mất tới cả phút mới thức dậy. Hiện màn
+          // chờ có nội dung/lời chào/từ vựng TOEIC thay vì 1 vòng xoay trơ
+          // trọi, xem `boot_screen.dart`.
+          return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: Scaffold(body: Center(child: CircularProgressIndicator())),
+            theme: AppTheme.light,
+            home: BootScreen(future: _loadFuture),
           );
         }
         return Provider<CloudStateStore>.value(

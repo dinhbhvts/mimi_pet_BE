@@ -38,7 +38,14 @@ class AuthService extends ChangeNotifier {
   /// Đăng nhập bằng [username]/[password] - thành công thì lưu token và coi
   /// như đã đăng nhập; ném [ApiException] nếu sai tên đăng nhập/mật khẩu.
   Future<void> login(String username, String password) async {
-    final res = await _apiClient.postJson('/auth/login', {'username': username, 'password': password});
+    // Timeout DÀI (xem [ApiClient.postJson]) - lần đăng nhập đầu tiên trong
+    // ngày dễ đụng lúc backend Render (gói Free) đang "ngủ", cần thời gian
+    // thức dậy (xem `boot_screen.dart`) trước khi trả lời được.
+    final res = await _apiClient.postJson(
+      '/auth/login',
+      {'username': username, 'password': password},
+      timeout: const Duration(seconds: 100),
+    );
     _token = res['token'] as String;
     _username = res['username'] as String;
     _apiClient.setToken(_token);

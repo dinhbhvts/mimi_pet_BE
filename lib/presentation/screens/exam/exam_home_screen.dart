@@ -252,6 +252,25 @@ class _PracticeSetupSheetState extends State<_PracticeSetupSheet> {
     });
   }
 
+  /// Bấm "Chỉ luyện phần này" trên 1 dòng - CHỌN DUY NHẤT phần đó, bỏ chọn
+  /// mọi phần khác trong 1 lần bấm, thay vì phải tự bỏ tích TỪNG phần thừa
+  /// một như trước (đúng góp ý UX: chọn 1 phần đang bất tiện).
+  void _selectOnly(int index) {
+    setState(() => _selectedSections
+      ..clear()
+      ..add(index));
+  }
+
+  void _selectAll() {
+    setState(() => _selectedSections
+      ..clear()
+      ..addAll(List.generate(widget.config.sections.length, (i) => i)));
+  }
+
+  void _selectNone() {
+    setState(() => _selectedSections.clear());
+  }
+
   void _toggleTopic(int sectionIndex, String topic) {
     setState(() {
       final set = _selectedTopicsBySection[sectionIndex]!;
@@ -298,13 +317,28 @@ class _PracticeSetupSheetState extends State<_PracticeSetupSheet> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Chọn phần muốn luyện tập 🎯',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Row(
+              children: [
+                const Expanded(
+                  child: Text(
+                    'Chọn phần muốn luyện tập 🎯',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                TextButton(
+                  onPressed: _selectedSections.length == widget.config.sections.length ? _selectNone : _selectAll,
+                  style: TextButton.styleFrom(padding: EdgeInsets.zero, minimumSize: const Size(0, 0)),
+                  child: Text(
+                    _selectedSections.length == widget.config.sections.length ? 'Bỏ chọn tất cả' : 'Chọn tất cả',
+                    style: const TextStyle(fontSize: 13),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 4),
             const Text(
-              'Bỏ chọn phần không cần, hoặc mở rộng 1 phần ra để chọn thêm chủ đề cụ thể.',
+              'Bấm "Chỉ luyện phần này" để luyện đúng 1 phần ngay, hoặc tự tích/bỏ '
+              'tích để gộp nhiều phần - mở rộng 1 phần ra để chọn thêm chủ đề cụ thể.',
               style: TextStyle(fontSize: 13, color: AppColors.textMuted),
             ),
             const SizedBox(height: 14),
@@ -317,6 +351,7 @@ class _PracticeSetupSheetState extends State<_PracticeSetupSheet> {
                         section: widget.config.sections[i],
                         selected: _selectedSections.contains(i),
                         onToggle: () => _toggleSection(i),
+                        onSelectOnly: () => _selectOnly(i),
                         availableTopics: _availableTopicsBySection[i]!,
                         selectedTopics: _selectedTopicsBySection[i]!,
                         onToggleTopic: (t) => _toggleTopic(i, t),
@@ -355,6 +390,7 @@ class _SectionSelectTile extends StatelessWidget {
   final SectionConfig section;
   final bool selected;
   final VoidCallback onToggle;
+  final VoidCallback onSelectOnly;
   final List<String> availableTopics;
   final Set<String> selectedTopics;
   final ValueChanged<String> onToggleTopic;
@@ -363,6 +399,7 @@ class _SectionSelectTile extends StatelessWidget {
     required this.section,
     required this.selected,
     required this.onToggle,
+    required this.onSelectOnly,
     required this.availableTopics,
     required this.selectedTopics,
     required this.onToggleTopic,
@@ -389,6 +426,11 @@ class _SectionSelectTile extends StatelessWidget {
             activeColor: AppColors.primary,
             title: Text(section.name, style: const TextStyle(fontWeight: FontWeight.w600)),
             subtitle: Text('${section.questionCount} câu', style: const TextStyle(fontSize: 12)),
+            secondary: TextButton(
+              onPressed: onSelectOnly,
+              style: TextButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8)),
+              child: const Text('Chỉ phần này', style: TextStyle(fontSize: 12)),
+            ),
           ),
           if (selected && availableTopics.length > 1) ...[
             Padding(
