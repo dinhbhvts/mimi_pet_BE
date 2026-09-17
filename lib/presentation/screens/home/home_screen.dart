@@ -472,111 +472,130 @@ class _HomeScreenState extends State<HomeScreen> {
     final isListening = pet.mood == PetMood.listening;
     final bubbleText = _bubbleText ?? "Hi! I'm ${info.displayName}! ${info.emoji}";
 
-    // CẤU TRÚC MỚI (rà soát UI Home): tách hẳn 2 vùng thay vì 1 cột cuộn duy
-    // nhất như trước - vùng TƯƠNG TÁC VỚI THÚ CƯNG (avatar + nút chơi + nút
-    // nói) đứng CỐ ĐỊNH phía trên, LUÔN vừa trong 1 khung màn hình không cần
-    // cuộn (đúng yêu cầu); vùng "Bài tranh"/"Thi thử" đẩy XUỐNG DƯỚI, nằm
-    // trong `Expanded` + `SingleChildScrollView` RIÊNG - cuộn được nếu cần,
-    // không ảnh hưởng gì tới vùng tương tác phía trên. Hàng chọn nhân
-    // vật/màu mặc định THU GỌN (xem [_customizeExpanded]) để nhường chỗ.
-    return Column(
-      children: [
-        const SizedBox(height: 4),
-        _customizeToggle(info),
-        AnimatedSize(
-          duration: const Duration(milliseconds: 220),
-          curve: Curves.easeOut,
-          alignment: Alignment.topCenter,
-          child: !_customizeExpanded
-              ? const SizedBox(width: double.infinity)
-              : Padding(
-                  padding: const EdgeInsets.only(top: 6),
-                  child: Column(
+    // CẤU TRÚC (rà soát UI Home, SỬA LẠI sau khi phát hiện lỗi trên di động
+    // thật): bản đầu dùng `Expanded` CỐ ĐỊNH chiều cao vùng tương tác thú
+    // cưng - chạy tốt trên màn hình rộng lúc test nhưng VỠ trên điện thoại
+    // thật màn hình nhỏ + khi bàn phím ảo mở (Expanded co về 0 làm "Bài
+    // tranh"/"Thi thử" biến mất hẳn, đồng thời không còn ai lo cuộn nên bàn
+    // phím che mất ô nhập liệu). Quay lại đúng pattern CUỘN TOÀN BỘ đã dùng
+    // trước đây (LayoutBuilder + SingleChildScrollView + ConstrainedBox
+    // (minHeight) + IntrinsicHeight) - tự co giãn đúng theo bàn phím ảo
+    // (Flutter tự trừ `viewInsets.bottom` vào `constraints.maxHeight`), vẫn
+    // "vừa 1 màn hình không cần cuộn" trên máy đủ cao nhờ nội dung đã thu
+    // gọn (hàng chọn nhân vật/màu mặc định ẩn, xem [_customizeExpanded]) -
+    // chỉ cuộn thật sự khi máy quá nhỏ hoặc bàn phím chiếm nhiều chỗ, đúng
+    // hành vi "graceful" thay vì cắt cứng nội dung.
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: IntrinsicHeight(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  _customizeToggle(info),
+                  AnimatedSize(
+                    duration: const Duration(milliseconds: 220),
+                    curve: Curves.easeOut,
+                    alignment: Alignment.topCenter,
+                    child: !_customizeExpanded
+                        ? const SizedBox(width: double.infinity)
+                        : Padding(
+                            padding: const EdgeInsets.only(top: 6),
+                            child: Column(
+                              children: [
+                                Wrap(
+                                  alignment: WrapAlignment.center,
+                                  spacing: 8,
+                                  runSpacing: 8,
+                                  children: PetCharacter.values
+                                      .map((c) => _characterChip(c, c == character))
+                                      .toList(growable: false),
+                                ),
+                                const SizedBox(height: 8),
+                                Wrap(
+                                  alignment: WrapAlignment.center,
+                                  spacing: 10,
+                                  runSpacing: 8,
+                                  children: PetPalette.values
+                                      .map((p) => _paletteChip(character, p, p == palette))
+                                      .toList(growable: false),
+                                ),
+                              ],
+                            ),
+                          ),
+                  ),
+                  const SizedBox(height: 6),
+                  PetAvatar(
+                    mood: pet.mood,
+                    character: character,
+                    palette: palette,
+                    headAccessory: inventory.equippedHead,
+                    neckAccessory: inventory.equippedNeck,
+                    size: 200,
+                    onTap: _handlePetTap,
+                    onDoubleTap: _handlePetDoubleTap,
+                    onTickleStart: _handleTickleStart,
+                    onTickleEnd: _handleTickleEnd,
+                    controller: _mimiController,
+                  ),
+                  const SizedBox(height: 8),
+                  // Nút "chơi cùng" đặt NGAY SÁT dưới avatar (thay vì tách xa
+                  // như trước) - đúng yêu cầu "để sát lên phần hình ảnh pet".
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: 8,
+                    runSpacing: 8,
                     children: [
-                      Wrap(
-                        alignment: WrapAlignment.center,
-                        spacing: 8,
-                        runSpacing: 8,
-                        children: PetCharacter.values
-                            .map((c) => _characterChip(c, c == character))
-                            .toList(growable: false),
+                      _playButton(label: 'Xoay vòng', icon: Icons.refresh_rounded, onTap: _handleSpin),
+                      _playButton(
+                        label: 'Nhảy chơi',
+                        icon: Icons.arrow_upward_rounded,
+                        onTap: _handleBonusJump,
                       ),
-                      const SizedBox(height: 8),
-                      Wrap(
-                        alignment: WrapAlignment.center,
-                        spacing: 10,
-                        runSpacing: 8,
-                        children: PetPalette.values
-                            .map((p) => _paletteChip(character, p, p == palette))
-                            .toList(growable: false),
+                      _playButton(label: 'Cho ăn 🥕', icon: Icons.favorite_rounded, onTap: _handleFeed),
+                      _playButton(label: 'Tắm 🛁', icon: Icons.bathtub_rounded, onTap: _handleBath),
+                      _playButton(label: 'Đi ngủ 🌙', icon: Icons.bedtime_rounded, onTap: _handleSleep),
+                      _playButton(
+                        label: 'Tập thể dục 🤸',
+                        icon: Icons.fitness_center_rounded,
+                        onTap: _handleExercise,
                       ),
                     ],
                   ),
-                ),
-        ),
-        const SizedBox(height: 6),
-        PetAvatar(
-          mood: pet.mood,
-          character: character,
-          palette: palette,
-          headAccessory: inventory.equippedHead,
-          neckAccessory: inventory.equippedNeck,
-          size: 200,
-          onTap: _handlePetTap,
-          onDoubleTap: _handlePetDoubleTap,
-          onTickleStart: _handleTickleStart,
-          onTickleEnd: _handleTickleEnd,
-          controller: _mimiController,
-        ),
-        const SizedBox(height: 8),
-        // Nút "chơi cùng" đặt NGAY SÁT dưới avatar (thay vì tách xa như
-        // trước) - đúng yêu cầu "để sát lên phần hình ảnh pet".
-        Wrap(
-          alignment: WrapAlignment.center,
-          spacing: 8,
-          runSpacing: 8,
-          children: [
-            _playButton(label: 'Xoay vòng', icon: Icons.refresh_rounded, onTap: _handleSpin),
-            _playButton(label: 'Nhảy chơi', icon: Icons.arrow_upward_rounded, onTap: _handleBonusJump),
-            _playButton(label: 'Cho ăn 🥕', icon: Icons.favorite_rounded, onTap: _handleFeed),
-            _playButton(label: 'Tắm 🛁', icon: Icons.bathtub_rounded, onTap: _handleBath),
-            _playButton(label: 'Đi ngủ 🌙', icon: Icons.bedtime_rounded, onTap: _handleSleep),
-            _playButton(label: 'Tập thể dục 🤸', icon: Icons.fitness_center_rounded, onTap: _handleExercise),
-          ],
-        ),
-        const SizedBox(height: 8),
-        SpeechBubble(text: bubbleText),
-        const SizedBox(height: 10),
-        TalkButton(
-          isListening: isListening,
-          enabled: !_isBusy,
-          onTap: _handleTalkPressed,
-          label: isListening ? 'Listening...' : 'Tap to talk',
-        ),
-        const SizedBox(height: 6),
-        // Fallback cho Safari trên iPhone/iPad (hầu như không hỗ trợ
-        // speech_to_text) - xem `TypeInsteadOfTalk`.
-        TypeInsteadOfTalk(
-          enabled: !_isBusy,
-          onSubmitted: _handleTypedTalk,
-          hintText: 'Gõ "Hello"...',
-        ),
-        const SizedBox(height: 10),
-        // Vùng "Bài tranh"/"Thi thử" - ĐẨY XUỐNG DƯỚI, cuộn riêng, không
-        // chiếm chỗ của vùng tương tác thú cưng phía trên.
-        Expanded(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Column(
-              children: [
-                _PictureScenesCard(onTap: () => _openPictureScenes(context)),
-                const SizedBox(height: 10),
-                _ExamCard(onTap: () => _openExam(context)),
-              ],
+                  const SizedBox(height: 8),
+                  SpeechBubble(text: bubbleText),
+                  const SizedBox(height: 10),
+                  TalkButton(
+                    isListening: isListening,
+                    enabled: !_isBusy,
+                    onTap: _handleTalkPressed,
+                    label: isListening ? 'Listening...' : 'Tap to talk',
+                  ),
+                  const SizedBox(height: 6),
+                  // Fallback cho Safari trên iPhone/iPad (hầu như không hỗ
+                  // trợ speech_to_text) - xem `TypeInsteadOfTalk`.
+                  TypeInsteadOfTalk(
+                    enabled: !_isBusy,
+                    onSubmitted: _handleTypedTalk,
+                    hintText: 'Gõ "Hello"...',
+                  ),
+                  const SizedBox(height: 18),
+                  // "Bài tranh"/"Thi thử" - ĐẨY XUỐNG DƯỚI, ngay trong CÙNG
+                  // cột cuộn (không tách `Expanded` riêng như bản trước - đó
+                  // chính là nguyên nhân card "biến mất" trên máy nhỏ/khi mở
+                  // bàn phím, xem ghi chú ở đầu `build()`).
+                  _PictureScenesCard(onTap: () => _openPictureScenes(context)),
+                  const SizedBox(height: 10),
+                  _ExamCard(onTap: () => _openExam(context)),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        );
+      },
     );
   }
 }
