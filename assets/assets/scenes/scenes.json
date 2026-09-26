@@ -49,6 +49,51 @@
             "Rainy"
           ],
           "answer": "Sunny"
+        },
+        {
+          "id": "park_q6",
+          "prompt": "How many trees are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "park_q7",
+          "prompt": "What color is the boy's shirt?",
+          "kind": "choice",
+          "options": [
+            "Blue",
+            "Red",
+            "Green"
+          ],
+          "answer": "Blue"
+        },
+        {
+          "id": "park_q8",
+          "prompt": "True or false: there is a cat in the park.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "park_q9",
+          "prompt": "Say the name of the animal under the bench.",
+          "kind": "speak",
+          "answer": "dog"
+        },
+        {
+          "id": "park_q10",
+          "prompt": "What is flying in the sky?",
+          "kind": "choice",
+          "options": [
+            "A kite",
+            "A plane",
+            "A balloon"
+          ],
+          "answer": "A kite"
         }
       ]
     },
@@ -102,6 +147,51 @@
             "Three"
           ],
           "answer": "Two"
+        },
+        {
+          "id": "breakfast_q6",
+          "prompt": "What color is the banana?",
+          "kind": "choice",
+          "options": [
+            "Yellow",
+            "Red",
+            "Purple"
+          ],
+          "answer": "Yellow"
+        },
+        {
+          "id": "breakfast_q7",
+          "prompt": "True or false: there is a glass of milk on the table.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "breakfast_q8",
+          "prompt": "What is Mom pouring?",
+          "kind": "choice",
+          "options": [
+            "Orange juice",
+            "Milk",
+            "Water"
+          ],
+          "answer": "Orange juice"
+        },
+        {
+          "id": "breakfast_q9",
+          "prompt": "Say the name of the yellow fruit on the table.",
+          "kind": "speak",
+          "answer": "banana"
+        },
+        {
+          "id": "breakfast_q10",
+          "prompt": "What color is Mom's shirt?",
+          "kind": "choice",
+          "options": [
+            "Pink",
+            "Blue",
+            "Green"
+          ],
+          "answer": "Pink"
         }
       ]
     },
@@ -155,6 +245,51 @@
             "Outside"
           ],
           "answer": "On the shelf"
+        },
+        {
+          "id": "classroom_q6",
+          "prompt": "How many books are on the shelf?",
+          "kind": "choice",
+          "options": [
+            "Three",
+            "Four",
+            "Five"
+          ],
+          "answer": "Four"
+        },
+        {
+          "id": "classroom_q7",
+          "prompt": "What color are the students' shirts?",
+          "kind": "choice",
+          "options": [
+            "Yellow",
+            "Red",
+            "Blue"
+          ],
+          "answer": "Yellow"
+        },
+        {
+          "id": "classroom_q8",
+          "prompt": "True or false: the teacher is sitting down.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "classroom_q9",
+          "prompt": "Say the name of the thing on the wall that tells the time.",
+          "kind": "speak",
+          "answer": "clock"
+        },
+        {
+          "id": "classroom_q10",
+          "prompt": "Where are the students sitting?",
+          "kind": "choice",
+          "options": [
+            "At their desks",
+            "On the floor",
+            "On the shelf"
+          ],
+          "answer": "At their desks"
         }
       ]
     },
@@ -207,6 +342,51 @@
             "Sleeping"
           ],
           "answer": "Roaring"
+        },
+        {
+          "id": "zoo_q6",
+          "prompt": "What color is the elephant?",
+          "kind": "choice",
+          "options": [
+            "Gray",
+            "Pink",
+            "Yellow"
+          ],
+          "answer": "Gray"
+        },
+        {
+          "id": "zoo_q7",
+          "prompt": "True or false: there is a giraffe at the zoo.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "zoo_q8",
+          "prompt": "How many animals can you see?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Three"
+        },
+        {
+          "id": "zoo_q9",
+          "prompt": "Say the name of the animal in the tree.",
+          "kind": "speak",
+          "answer": "monkey"
+        },
+        {
+          "id": "zoo_q10",
+          "prompt": "Which animal is the biggest?",
+          "kind": "choice",
+          "options": [
+            "The elephant",
+            "The lion",
+            "The monkey"
+          ],
+          "answer": "The elephant"
         }
       ]
     },
@@ -259,6 +439,50 @@
             "Awake"
           ],
           "answer": "Asleep"
+        },
+        {
+          "id": "bedtime_q6",
+          "prompt": "What color is the blanket?",
+          "kind": "choice",
+          "options": [
+            "Blue",
+            "Red",
+            "Yellow"
+          ],
+          "answer": "Blue"
+        },
+        {
+          "id": "bedtime_q7",
+          "prompt": "True or false: you can see stars outside the window.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "bedtime_q8",
+          "prompt": "Is it day or night?",
+          "kind": "choice",
+          "options": [
+            "Night",
+            "Day"
+          ],
+          "answer": "Night"
+        },
+        {
+          "id": "bedtime_q9",
+          "prompt": "Say the color of the book on the nightstand.",
+          "kind": "speak",
+          "answer": "red"
+        },
+        {
+          "id": "bedtime_q10",
+          "prompt": "Where is the child?",
+          "kind": "choice",
+          "options": [
+            "In bed",
+            "In the kitchen",
+            "In the garden"
+          ],
+          "answer": "In bed"
         }
       ]
     },
@@ -311,6 +535,50 @@
             "Closed"
           ],
           "answer": "Open"
+        },
+        {
+          "id": "beach_q6",
+          "prompt": "What color is the umbrella?",
+          "kind": "choice",
+          "options": [
+            "Red",
+            "Green",
+            "Purple"
+          ],
+          "answer": "Red"
+        },
+        {
+          "id": "beach_q7",
+          "prompt": "True or false: there is a flag on the sandcastle.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "beach_q8",
+          "prompt": "What color is the bucket?",
+          "kind": "choice",
+          "options": [
+            "Blue",
+            "Yellow",
+            "Pink"
+          ],
+          "answer": "Blue"
+        },
+        {
+          "id": "beach_q9",
+          "prompt": "Say the name of the animal on the sand.",
+          "kind": "speak",
+          "answer": "crab"
+        },
+        {
+          "id": "beach_q10",
+          "prompt": "Is it sunny or cloudy?",
+          "kind": "choice",
+          "options": [
+            "Sunny",
+            "Cloudy"
+          ],
+          "answer": "Sunny"
         }
       ]
     },
@@ -364,6 +632,46 @@
             "In the sky"
           ],
           "answer": "Next to the barn"
+        },
+        {
+          "id": "farm_q6",
+          "prompt": "What color is the tractor?",
+          "kind": "choice",
+          "options": [
+            "Green",
+            "Red",
+            "Blue"
+          ],
+          "answer": "Green"
+        },
+        {
+          "id": "farm_q7",
+          "prompt": "True or false: the cow has black spots.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "farm_q8",
+          "prompt": "What color are the chickens?",
+          "kind": "choice",
+          "options": [
+            "White",
+            "Black",
+            "Brown"
+          ],
+          "answer": "White"
+        },
+        {
+          "id": "farm_q9",
+          "prompt": "Say the name of the big red building.",
+          "kind": "speak",
+          "answer": "barn"
+        },
+        {
+          "id": "farm_q10",
+          "prompt": "True or false: there is a horse on the farm.",
+          "kind": "trueFalse",
+          "answer": "False"
         }
       ]
     },
@@ -417,6 +725,51 @@
             "On the stove"
           ],
           "answer": "On the counter"
+        },
+        {
+          "id": "kitchen_q6",
+          "prompt": "What color is the cat?",
+          "kind": "choice",
+          "options": [
+            "Gray",
+            "Orange",
+            "Black"
+          ],
+          "answer": "Gray"
+        },
+        {
+          "id": "kitchen_q7",
+          "prompt": "True or false: the pot is on the stove.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "kitchen_q8",
+          "prompt": "What color are the apples?",
+          "kind": "choice",
+          "options": [
+            "Red",
+            "Green",
+            "Yellow"
+          ],
+          "answer": "Red"
+        },
+        {
+          "id": "kitchen_q9",
+          "prompt": "Say the name of the animal in the kitchen.",
+          "kind": "speak",
+          "answer": "cat"
+        },
+        {
+          "id": "kitchen_q10",
+          "prompt": "What is coming out of the pot?",
+          "kind": "choice",
+          "options": [
+            "Steam",
+            "Water",
+            "Apples"
+          ],
+          "answer": "Steam"
         }
       ]
     },
@@ -470,6 +823,51 @@
             "On the ground"
           ],
           "answer": "Above the flowers"
+        },
+        {
+          "id": "garden_q6",
+          "prompt": "What color is the butterfly?",
+          "kind": "choice",
+          "options": [
+            "Pink",
+            "Blue",
+            "Green"
+          ],
+          "answer": "Pink"
+        },
+        {
+          "id": "garden_q7",
+          "prompt": "True or false: there is a blue flower.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "garden_q8",
+          "prompt": "What color is the watering can?",
+          "kind": "choice",
+          "options": [
+            "Blue",
+            "Red",
+            "Yellow"
+          ],
+          "answer": "Blue"
+        },
+        {
+          "id": "garden_q9",
+          "prompt": "Say the name of the small red bug on the grass.",
+          "kind": "speak",
+          "answer": "ladybug"
+        },
+        {
+          "id": "garden_q10",
+          "prompt": "What color is the girl's shirt?",
+          "kind": "choice",
+          "options": [
+            "Yellow",
+            "Pink",
+            "Purple"
+          ],
+          "answer": "Yellow"
         }
       ]
     },
@@ -523,6 +921,345 @@
             "Three"
           ],
           "answer": "Two"
+        },
+        {
+          "id": "birthday_q6",
+          "prompt": "How many balloons are there?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Three"
+        },
+        {
+          "id": "birthday_q7",
+          "prompt": "True or false: the cake is pink.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "birthday_q8",
+          "prompt": "What color is the ribbon on the present?",
+          "kind": "choice",
+          "options": [
+            "Yellow",
+            "Red",
+            "Green"
+          ],
+          "answer": "Yellow"
+        },
+        {
+          "id": "birthday_q9",
+          "prompt": "Say what is in the middle of the table.",
+          "kind": "speak",
+          "answer": "cake"
+        },
+        {
+          "id": "birthday_q10",
+          "prompt": "Which balloon color is NOT in the picture?",
+          "kind": "choice",
+          "options": [
+            "Green",
+            "Pink",
+            "Blue"
+          ],
+          "answer": "Green"
+        }
+      ]
+    },
+    {
+      "id": "rainy_v1",
+      "title": "A Rainy Day",
+      "titleVi": "Ngày mưa",
+      "illustrationId": "rainy_v1",
+      "questions": [
+        {
+          "id": "rainy_q1",
+          "prompt": "What is the weather like?",
+          "kind": "choice",
+          "options": [
+            "Rainy",
+            "Sunny",
+            "Snowy"
+          ],
+          "answer": "Rainy"
+        },
+        {
+          "id": "rainy_q2",
+          "prompt": "What color is the umbrella?",
+          "kind": "choice",
+          "options": [
+            "Yellow",
+            "Blue",
+            "Green"
+          ],
+          "answer": "Yellow"
+        },
+        {
+          "id": "rainy_q3",
+          "prompt": "True or false: the girl is wearing a red coat.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "rainy_q4",
+          "prompt": "What is swimming in the puddle?",
+          "kind": "choice",
+          "options": [
+            "A duck",
+            "A fish",
+            "A frog"
+          ],
+          "answer": "A duck"
+        },
+        {
+          "id": "rainy_q5",
+          "prompt": "Say what the girl is holding.",
+          "kind": "speak",
+          "answer": "umbrella"
+        },
+        {
+          "id": "rainy_q6",
+          "prompt": "How many clouds are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "rainy_q7",
+          "prompt": "True or false: the sun is shining.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "rainy_q8",
+          "prompt": "Say the name of the small animal with a shell.",
+          "kind": "speak",
+          "answer": "snail"
+        },
+        {
+          "id": "rainy_q9",
+          "prompt": "Where is the tree?",
+          "kind": "choice",
+          "options": [
+            "On the left",
+            "On the right",
+            "In the puddle"
+          ],
+          "answer": "On the left"
+        },
+        {
+          "id": "rainy_q10",
+          "prompt": "What color is the duck?",
+          "kind": "choice",
+          "options": [
+            "Yellow",
+            "Black",
+            "Red"
+          ],
+          "answer": "Yellow"
+        }
+      ]
+    },
+    {
+      "id": "playground_v1",
+      "title": "At the Playground",
+      "titleVi": "Ở sân chơi",
+      "illustrationId": "playground_v1",
+      "questions": [
+        {
+          "id": "playground_q1",
+          "prompt": "What color is the slide?",
+          "kind": "choice",
+          "options": [
+            "Red",
+            "Blue",
+            "Green"
+          ],
+          "answer": "Red"
+        },
+        {
+          "id": "playground_q2",
+          "prompt": "What is the girl doing?",
+          "kind": "choice",
+          "options": [
+            "Playing on the swing",
+            "Riding a bike",
+            "Reading a book"
+          ],
+          "answer": "Playing on the swing"
+        },
+        {
+          "id": "playground_q3",
+          "prompt": "True or false: there is a ball on the grass.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "playground_q4",
+          "prompt": "What color is the ball?",
+          "kind": "choice",
+          "options": [
+            "Green",
+            "Red",
+            "Yellow"
+          ],
+          "answer": "Green"
+        },
+        {
+          "id": "playground_q5",
+          "prompt": "Say the name of the red thing children slide down.",
+          "kind": "speak",
+          "answer": "slide"
+        },
+        {
+          "id": "playground_q6",
+          "prompt": "How many swings are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "playground_q7",
+          "prompt": "True or false: it is raining.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "playground_q8",
+          "prompt": "How many children are at the playground?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "playground_q9",
+          "prompt": "How many birds are in the sky?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Five"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "playground_q10",
+          "prompt": "Say the color of the girl's shirt.",
+          "kind": "speak",
+          "answer": "purple"
+        }
+      ]
+    },
+    {
+      "id": "snowy_v1",
+      "title": "A Snowy Day",
+      "titleVi": "Ngày tuyết rơi",
+      "illustrationId": "snowy_v1",
+      "questions": [
+        {
+          "id": "snowy_q1",
+          "prompt": "What is next to the boy?",
+          "kind": "choice",
+          "options": [
+            "A snowman",
+            "A car",
+            "A horse"
+          ],
+          "answer": "A snowman"
+        },
+        {
+          "id": "snowy_q2",
+          "prompt": "What color is the snowman's scarf?",
+          "kind": "choice",
+          "options": [
+            "Red",
+            "Blue",
+            "Yellow"
+          ],
+          "answer": "Red"
+        },
+        {
+          "id": "snowy_q3",
+          "prompt": "True or false: the snowman has a carrot nose.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "snowy_q4",
+          "prompt": "How many trees are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "snowy_q5",
+          "prompt": "Say what is falling from the sky.",
+          "kind": "speak",
+          "answer": "snow"
+        },
+        {
+          "id": "snowy_q6",
+          "prompt": "What is on the snowman's head?",
+          "kind": "choice",
+          "options": [
+            "A hat",
+            "A crown",
+            "A flower"
+          ],
+          "answer": "A hat"
+        },
+        {
+          "id": "snowy_q7",
+          "prompt": "True or false: there is smoke coming out of the chimney.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "snowy_q8",
+          "prompt": "What season is it?",
+          "kind": "choice",
+          "options": [
+            "Winter",
+            "Summer",
+            "Spring"
+          ],
+          "answer": "Winter"
+        },
+        {
+          "id": "snowy_q9",
+          "prompt": "Say the color of the boy's coat.",
+          "kind": "speak",
+          "answer": "green"
+        },
+        {
+          "id": "snowy_q10",
+          "prompt": "What color is the roof of the house?",
+          "kind": "choice",
+          "options": [
+            "Red",
+            "Green",
+            "Blue"
+          ],
+          "answer": "Red"
         }
       ]
     }

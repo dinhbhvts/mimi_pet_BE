@@ -3075,7 +3075,12 @@
           "emoji": "6️⃣",
           "promptType": "identify",
           "sentenceTemplate": "I have ___ candies.",
-          "sentenceWords": ["I", "have", "six", "candies"]
+          "sentenceWords": [
+            "I",
+            "have",
+            "six",
+            "candies"
+          ]
         },
         {
           "id": "seven",
@@ -3084,7 +3089,12 @@
           "emoji": "7️⃣",
           "promptType": "identify",
           "sentenceTemplate": "I see ___ stars.",
-          "sentenceWords": ["I", "see", "seven", "stars"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "seven",
+            "stars"
+          ]
         },
         {
           "id": "eight",
@@ -3093,7 +3103,12 @@
           "emoji": "8️⃣",
           "promptType": "identify",
           "sentenceTemplate": "I have ___ crayons.",
-          "sentenceWords": ["I", "have", "eight", "crayons"]
+          "sentenceWords": [
+            "I",
+            "have",
+            "eight",
+            "crayons"
+          ]
         },
         {
           "id": "nine",
@@ -3102,7 +3117,12 @@
           "emoji": "9️⃣",
           "promptType": "identify",
           "sentenceTemplate": "I see ___ birds.",
-          "sentenceWords": ["I", "see", "nine", "birds"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "nine",
+            "birds"
+          ]
         },
         {
           "id": "ten",
@@ -3111,7 +3131,12 @@
           "emoji": "🔟",
           "promptType": "identify",
           "sentenceTemplate": "I have ___ fingers and toes.",
-          "sentenceWords": ["I", "have", "ten", "toes"]
+          "sentenceWords": [
+            "I",
+            "have",
+            "ten",
+            "toes"
+          ]
         },
         {
           "id": "eleven",
@@ -3162,7 +3187,12 @@
           "swatchColor": "FFEC407A",
           "promptType": "identify",
           "sentenceTemplate": "My dress is ___.",
-          "sentenceWords": ["My", "dress", "is", "pink"]
+          "sentenceWords": [
+            "My",
+            "dress",
+            "is",
+            "pink"
+          ]
         },
         {
           "id": "green",
@@ -3171,7 +3201,12 @@
           "swatchColor": "FF66BB6A",
           "promptType": "identify",
           "sentenceTemplate": "The leaf is ___.",
-          "sentenceWords": ["The", "leaf", "is", "green"]
+          "sentenceWords": [
+            "The",
+            "leaf",
+            "is",
+            "green"
+          ]
         },
         {
           "id": "purple",
@@ -3180,7 +3215,12 @@
           "swatchColor": "FFAB47BC",
           "promptType": "identify",
           "sentenceTemplate": "The grape is ___.",
-          "sentenceWords": ["The", "grape", "is", "purple"]
+          "sentenceWords": [
+            "The",
+            "grape",
+            "is",
+            "purple"
+          ]
         },
         {
           "id": "orange_color",
@@ -3189,7 +3229,12 @@
           "swatchColor": "FFFFA726",
           "promptType": "identify",
           "sentenceTemplate": "The pumpkin is ___.",
-          "sentenceWords": ["The", "pumpkin", "is", "orange"]
+          "sentenceWords": [
+            "The",
+            "pumpkin",
+            "is",
+            "orange"
+          ]
         },
         {
           "id": "black",
@@ -3198,7 +3243,12 @@
           "swatchColor": "FF424242",
           "promptType": "identify",
           "sentenceTemplate": "The cat is ___.",
-          "sentenceWords": ["The", "cat", "is", "black"]
+          "sentenceWords": [
+            "The",
+            "cat",
+            "is",
+            "black"
+          ]
         },
         {
           "id": "white",
@@ -3207,7 +3257,12 @@
           "swatchColor": "FFFAFAFA",
           "promptType": "identify",
           "sentenceTemplate": "The snow is ___.",
-          "sentenceWords": ["The", "snow", "is", "white"]
+          "sentenceWords": [
+            "The",
+            "snow",
+            "is",
+            "white"
+          ]
         },
         {
           "id": "brown",
@@ -3216,7 +3271,12 @@
           "swatchColor": "FF8D6E63",
           "promptType": "identify",
           "sentenceTemplate": "The bear is ___.",
-          "sentenceWords": ["The", "bear", "is", "brown"]
+          "sentenceWords": [
+            "The",
+            "bear",
+            "is",
+            "brown"
+          ]
         },
         {
           "id": "gray",
@@ -3225,7 +3285,12 @@
           "swatchColor": "FF9E9E9E",
           "promptType": "identify",
           "sentenceTemplate": "The elephant is ___.",
-          "sentenceWords": ["The", "elephant", "is", "gray"]
+          "sentenceWords": [
+            "The",
+            "elephant",
+            "is",
+            "gray"
+          ]
         },
         {
           "id": "gold",
@@ -3234,7 +3299,12 @@
           "swatchColor": "FFFFD700",
           "promptType": "identify",
           "sentenceTemplate": "The medal is ___.",
-          "sentenceWords": ["The", "medal", "is", "gold"]
+          "sentenceWords": [
+            "The",
+            "medal",
+            "is",
+            "gold"
+          ]
         },
         {
           "id": "silver",
@@ -3243,7 +3313,12 @@
           "swatchColor": "FFC0C0C0",
           "promptType": "identify",
           "sentenceTemplate": "The ring is ___.",
-          "sentenceWords": ["The", "ring", "is", "silver"]
+          "sentenceWords": [
+            "The",
+            "ring",
+            "is",
+            "silver"
+          ]
         }
       ]
     },
@@ -3259,7 +3334,12 @@
           "emoji": "🐋",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "whale"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "whale"
+          ]
         },
         {
           "id": "dolphin",
@@ -3268,7 +3348,12 @@
           "emoji": "🐬",
           "promptType": "identify",
           "sentenceTemplate": "The ___ can jump.",
-          "sentenceWords": ["The", "dolphin", "can", "jump"]
+          "sentenceWords": [
+            "The",
+            "dolphin",
+            "can",
+            "jump"
+          ]
         },
         {
           "id": "shark",
@@ -3277,7 +3362,12 @@
           "emoji": "🦈",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "shark"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "shark"
+          ]
         },
         {
           "id": "octopus",
@@ -3286,7 +3376,13 @@
           "emoji": "🐙",
           "promptType": "identify",
           "sentenceTemplate": "The ___ has eight arms.",
-          "sentenceWords": ["The", "octopus", "has", "eight", "arms"]
+          "sentenceWords": [
+            "The",
+            "octopus",
+            "has",
+            "eight",
+            "arms"
+          ]
         },
         {
           "id": "crab",
@@ -3295,7 +3391,12 @@
           "emoji": "🦀",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "crab"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "crab"
+          ]
         },
         {
           "id": "sea_turtle",
@@ -3304,7 +3405,12 @@
           "emoji": "🐢",
           "promptType": "identify",
           "sentenceTemplate": "The ___ swims slowly.",
-          "sentenceWords": ["The", "turtle", "swims", "slowly"]
+          "sentenceWords": [
+            "The",
+            "turtle",
+            "swims",
+            "slowly"
+          ]
         },
         {
           "id": "jellyfish",
@@ -3313,7 +3419,12 @@
           "emoji": "🪼",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "jellyfish"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "jellyfish"
+          ]
         },
         {
           "id": "squid",
@@ -3322,7 +3433,12 @@
           "emoji": "🦑",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "squid"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "squid"
+          ]
         },
         {
           "id": "lobster",
@@ -3331,7 +3447,12 @@
           "emoji": "🦞",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "lobster"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "lobster"
+          ]
         },
         {
           "id": "starfish",
@@ -3340,7 +3461,12 @@
           "emoji": "⭐",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "starfish"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "starfish"
+          ]
         }
       ]
     },
@@ -3356,7 +3482,12 @@
           "emoji": "🐘",
           "promptType": "identify",
           "sentenceTemplate": "The elephant is ___.",
-          "sentenceWords": ["The", "elephant", "is", "big"]
+          "sentenceWords": [
+            "The",
+            "elephant",
+            "is",
+            "big"
+          ]
         },
         {
           "id": "small",
@@ -3365,7 +3496,12 @@
           "emoji": "🐭",
           "promptType": "identify",
           "sentenceTemplate": "The mouse is ___.",
-          "sentenceWords": ["The", "mouse", "is", "small"]
+          "sentenceWords": [
+            "The",
+            "mouse",
+            "is",
+            "small"
+          ]
         },
         {
           "id": "fast",
@@ -3374,7 +3510,12 @@
           "emoji": "🐆",
           "promptType": "identify",
           "sentenceTemplate": "The cheetah is ___.",
-          "sentenceWords": ["The", "cheetah", "is", "fast"]
+          "sentenceWords": [
+            "The",
+            "cheetah",
+            "is",
+            "fast"
+          ]
         },
         {
           "id": "slow",
@@ -3383,7 +3524,12 @@
           "emoji": "🐢",
           "promptType": "identify",
           "sentenceTemplate": "The turtle is ___.",
-          "sentenceWords": ["The", "turtle", "is", "slow"]
+          "sentenceWords": [
+            "The",
+            "turtle",
+            "is",
+            "slow"
+          ]
         },
         {
           "id": "long",
@@ -3392,7 +3538,12 @@
           "emoji": "🐍",
           "promptType": "identify",
           "sentenceTemplate": "The snake is ___.",
-          "sentenceWords": ["The", "snake", "is", "long"]
+          "sentenceWords": [
+            "The",
+            "snake",
+            "is",
+            "long"
+          ]
         },
         {
           "id": "short",
@@ -3401,7 +3552,12 @@
           "emoji": "📏",
           "promptType": "identify",
           "sentenceTemplate": "The pencil is ___.",
-          "sentenceWords": ["The", "pencil", "is", "short"]
+          "sentenceWords": [
+            "The",
+            "pencil",
+            "is",
+            "short"
+          ]
         },
         {
           "id": "heavy",
@@ -3410,7 +3566,12 @@
           "emoji": "🏋️",
           "promptType": "identify",
           "sentenceTemplate": "The box is ___.",
-          "sentenceWords": ["The", "box", "is", "heavy"]
+          "sentenceWords": [
+            "The",
+            "box",
+            "is",
+            "heavy"
+          ]
         },
         {
           "id": "light",
@@ -3419,7 +3580,12 @@
           "emoji": "🪶",
           "promptType": "identify",
           "sentenceTemplate": "The feather is ___.",
-          "sentenceWords": ["The", "feather", "is", "light"]
+          "sentenceWords": [
+            "The",
+            "feather",
+            "is",
+            "light"
+          ]
         },
         {
           "id": "full",
@@ -3428,7 +3594,12 @@
           "emoji": "🍽️",
           "promptType": "identify",
           "sentenceTemplate": "My plate is ___.",
-          "sentenceWords": ["My", "plate", "is", "full"]
+          "sentenceWords": [
+            "My",
+            "plate",
+            "is",
+            "full"
+          ]
         },
         {
           "id": "empty",
@@ -3437,7 +3608,12 @@
           "emoji": "📭",
           "promptType": "identify",
           "sentenceTemplate": "The box is ___.",
-          "sentenceWords": ["The", "box", "is", "empty"]
+          "sentenceWords": [
+            "The",
+            "box",
+            "is",
+            "empty"
+          ]
         }
       ]
     },
@@ -3453,7 +3629,12 @@
           "emoji": "🐜",
           "promptType": "identify",
           "sentenceTemplate": "I see an ___.",
-          "sentenceWords": ["I", "see", "an", "ant"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "an",
+            "ant"
+          ]
         },
         {
           "id": "bee",
@@ -3462,7 +3643,12 @@
           "emoji": "🐝",
           "promptType": "identify",
           "sentenceTemplate": "The ___ makes honey.",
-          "sentenceWords": ["The", "bee", "makes", "honey"]
+          "sentenceWords": [
+            "The",
+            "bee",
+            "makes",
+            "honey"
+          ]
         },
         {
           "id": "butterfly",
@@ -3471,7 +3657,12 @@
           "emoji": "🦋",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "butterfly"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "butterfly"
+          ]
         },
         {
           "id": "ladybug",
@@ -3480,7 +3671,12 @@
           "emoji": "🐞",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "ladybug"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "ladybug"
+          ]
         },
         {
           "id": "spider",
@@ -3489,7 +3685,12 @@
           "emoji": "🕷️",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "spider"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "spider"
+          ]
         },
         {
           "id": "snail",
@@ -3498,7 +3699,12 @@
           "emoji": "🐌",
           "promptType": "identify",
           "sentenceTemplate": "The ___ is slow.",
-          "sentenceWords": ["The", "snail", "is", "slow"]
+          "sentenceWords": [
+            "The",
+            "snail",
+            "is",
+            "slow"
+          ]
         },
         {
           "id": "worm",
@@ -3507,7 +3713,12 @@
           "emoji": "🐛",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "worm"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "worm"
+          ]
         },
         {
           "id": "fly",
@@ -3516,7 +3727,12 @@
           "emoji": "🪰",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "fly"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "fly"
+          ]
         },
         {
           "id": "mosquito",
@@ -3525,7 +3741,12 @@
           "emoji": "🦟",
           "promptType": "identify",
           "sentenceTemplate": "I see a ___.",
-          "sentenceWords": ["I", "see", "a", "mosquito"]
+          "sentenceWords": [
+            "I",
+            "see",
+            "a",
+            "mosquito"
+          ]
         },
         {
           "id": "cricket",
@@ -3534,7 +3755,12 @@
           "emoji": "🦗",
           "promptType": "identify",
           "sentenceTemplate": "I hear a ___.",
-          "sentenceWords": ["I", "hear", "a", "cricket"]
+          "sentenceWords": [
+            "I",
+            "hear",
+            "a",
+            "cricket"
+          ]
         }
       ]
     },
@@ -3550,7 +3776,13 @@
           "emoji": "🍲",
           "promptType": "identify",
           "sentenceTemplate": "Mom cooks in the ___.",
-          "sentenceWords": ["Mom", "cooks", "in", "the", "pot"]
+          "sentenceWords": [
+            "Mom",
+            "cooks",
+            "in",
+            "the",
+            "pot"
+          ]
         },
         {
           "id": "pan",
@@ -3559,7 +3791,13 @@
           "emoji": "🍳",
           "promptType": "identify",
           "sentenceTemplate": "Mom cooks in the ___.",
-          "sentenceWords": ["Mom", "cooks", "in", "the", "pan"]
+          "sentenceWords": [
+            "Mom",
+            "cooks",
+            "in",
+            "the",
+            "pan"
+          ]
         },
         {
           "id": "spoon",
@@ -3568,7 +3806,13 @@
           "emoji": "🥄",
           "promptType": "identify",
           "sentenceTemplate": "I eat with a ___.",
-          "sentenceWords": ["I", "eat", "with", "a", "spoon"]
+          "sentenceWords": [
+            "I",
+            "eat",
+            "with",
+            "a",
+            "spoon"
+          ]
         },
         {
           "id": "fork",
@@ -3577,7 +3821,13 @@
           "emoji": "🍴",
           "promptType": "identify",
           "sentenceTemplate": "I eat with a ___.",
-          "sentenceWords": ["I", "eat", "with", "a", "fork"]
+          "sentenceWords": [
+            "I",
+            "eat",
+            "with",
+            "a",
+            "fork"
+          ]
         },
         {
           "id": "knife",
@@ -3586,7 +3836,13 @@
           "emoji": "🔪",
           "promptType": "identify",
           "sentenceTemplate": "Mom cuts with a ___.",
-          "sentenceWords": ["Mom", "cuts", "with", "a", "knife"]
+          "sentenceWords": [
+            "Mom",
+            "cuts",
+            "with",
+            "a",
+            "knife"
+          ]
         },
         {
           "id": "plate",
@@ -3595,7 +3851,14 @@
           "emoji": "🍽️",
           "promptType": "identify",
           "sentenceTemplate": "I put food on the ___.",
-          "sentenceWords": ["I", "put", "food", "on", "the", "plate"]
+          "sentenceWords": [
+            "I",
+            "put",
+            "food",
+            "on",
+            "the",
+            "plate"
+          ]
         },
         {
           "id": "cup",
@@ -3604,7 +3867,13 @@
           "emoji": "☕",
           "promptType": "identify",
           "sentenceTemplate": "I drink from a ___.",
-          "sentenceWords": ["I", "drink", "from", "a", "cup"]
+          "sentenceWords": [
+            "I",
+            "drink",
+            "from",
+            "a",
+            "cup"
+          ]
         },
         {
           "id": "bowl",
@@ -3613,7 +3882,14 @@
           "emoji": "🥣",
           "promptType": "identify",
           "sentenceTemplate": "I eat rice from a ___.",
-          "sentenceWords": ["I", "eat", "rice", "from", "a", "bowl"]
+          "sentenceWords": [
+            "I",
+            "eat",
+            "rice",
+            "from",
+            "a",
+            "bowl"
+          ]
         },
         {
           "id": "kettle",
@@ -3622,7 +3898,14 @@
           "emoji": "🫖",
           "promptType": "identify",
           "sentenceTemplate": "Mom boils water in the ___.",
-          "sentenceWords": ["Mom", "boils", "water", "in", "the", "kettle"]
+          "sentenceWords": [
+            "Mom",
+            "boils",
+            "water",
+            "in",
+            "the",
+            "kettle"
+          ]
         },
         {
           "id": "fridge",
@@ -3631,7 +3914,12 @@
           "emoji": "🧊",
           "promptType": "identify",
           "sentenceTemplate": "I open the ___.",
-          "sentenceWords": ["I", "open", "the", "fridge"]
+          "sentenceWords": [
+            "I",
+            "open",
+            "the",
+            "fridge"
+          ]
         }
       ]
     },
@@ -3647,7 +3935,14 @@
           "emoji": "📥",
           "promptType": "repeat",
           "sentenceTemplate": "The ball is ___ the box.",
-          "sentenceWords": ["The", "ball", "is", "in", "the", "box"]
+          "sentenceWords": [
+            "The",
+            "ball",
+            "is",
+            "in",
+            "the",
+            "box"
+          ]
         },
         {
           "id": "prep_on",
@@ -3656,7 +3951,14 @@
           "emoji": "🔛",
           "promptType": "repeat",
           "sentenceTemplate": "The cat is ___ the table.",
-          "sentenceWords": ["The", "cat", "is", "on", "the", "table"]
+          "sentenceWords": [
+            "The",
+            "cat",
+            "is",
+            "on",
+            "the",
+            "table"
+          ]
         },
         {
           "id": "prep_under",
@@ -3665,7 +3967,14 @@
           "emoji": "⬇️",
           "promptType": "repeat",
           "sentenceTemplate": "The dog is ___ the bed.",
-          "sentenceWords": ["The", "dog", "is", "under", "the", "bed"]
+          "sentenceWords": [
+            "The",
+            "dog",
+            "is",
+            "under",
+            "the",
+            "bed"
+          ]
         },
         {
           "id": "prep_over",
@@ -3674,7 +3983,14 @@
           "emoji": "⬆️",
           "promptType": "repeat",
           "sentenceTemplate": "The bird flies ___ the tree.",
-          "sentenceWords": ["The", "bird", "flies", "over", "the", "tree"]
+          "sentenceWords": [
+            "The",
+            "bird",
+            "flies",
+            "over",
+            "the",
+            "tree"
+          ]
         },
         {
           "id": "prep_behind",
@@ -3683,7 +3999,13 @@
           "emoji": "🔙",
           "promptType": "repeat",
           "sentenceTemplate": "I hide ___ the door.",
-          "sentenceWords": ["I", "hide", "behind", "the", "door"]
+          "sentenceWords": [
+            "I",
+            "hide",
+            "behind",
+            "the",
+            "door"
+          ]
         },
         {
           "id": "prep_beside",
@@ -3692,7 +4014,13 @@
           "emoji": "👉",
           "promptType": "repeat",
           "sentenceTemplate": "I sit ___ my mom.",
-          "sentenceWords": ["I", "sit", "beside", "my", "mom"]
+          "sentenceWords": [
+            "I",
+            "sit",
+            "beside",
+            "my",
+            "mom"
+          ]
         },
         {
           "id": "prep_between",
@@ -3701,7 +4029,15 @@
           "emoji": "↔️",
           "promptType": "repeat",
           "sentenceTemplate": "The cat is ___ the two boxes.",
-          "sentenceWords": ["The", "cat", "is", "between", "the", "two", "boxes"]
+          "sentenceWords": [
+            "The",
+            "cat",
+            "is",
+            "between",
+            "the",
+            "two",
+            "boxes"
+          ]
         },
         {
           "id": "prep_above",
@@ -3710,7 +4046,14 @@
           "emoji": "🔼",
           "promptType": "repeat",
           "sentenceTemplate": "The lamp is ___ the table.",
-          "sentenceWords": ["The", "lamp", "is", "above", "the", "table"]
+          "sentenceWords": [
+            "The",
+            "lamp",
+            "is",
+            "above",
+            "the",
+            "table"
+          ]
         },
         {
           "id": "prep_below",
@@ -3719,7 +4062,14 @@
           "emoji": "🔽",
           "promptType": "repeat",
           "sentenceTemplate": "The shoes are ___ the bed.",
-          "sentenceWords": ["The", "shoes", "are", "below", "the", "bed"]
+          "sentenceWords": [
+            "The",
+            "shoes",
+            "are",
+            "below",
+            "the",
+            "bed"
+          ]
         },
         {
           "id": "prep_near",
@@ -3728,7 +4078,14 @@
           "emoji": "📍",
           "promptType": "repeat",
           "sentenceTemplate": "The park is ___ my house.",
-          "sentenceWords": ["The", "park", "is", "near", "my", "house"]
+          "sentenceWords": [
+            "The",
+            "park",
+            "is",
+            "near",
+            "my",
+            "house"
+          ]
         }
       ]
     },
@@ -3744,7 +4101,12 @@
           "emoji": "🇻🇳",
           "promptType": "identify",
           "sentenceTemplate": "I am from ___.",
-          "sentenceWords": ["I", "am", "from", "Vietnam"]
+          "sentenceWords": [
+            "I",
+            "am",
+            "from",
+            "Vietnam"
+          ]
         },
         {
           "id": "america",
@@ -3753,7 +4115,13 @@
           "emoji": "🇺🇸",
           "promptType": "identify",
           "sentenceTemplate": "I want to visit ___.",
-          "sentenceWords": ["I", "want", "to", "visit", "America"]
+          "sentenceWords": [
+            "I",
+            "want",
+            "to",
+            "visit",
+            "America"
+          ]
         },
         {
           "id": "england",
@@ -3762,7 +4130,13 @@
           "emoji": "🇬🇧",
           "promptType": "identify",
           "sentenceTemplate": "I want to visit ___.",
-          "sentenceWords": ["I", "want", "to", "visit", "England"]
+          "sentenceWords": [
+            "I",
+            "want",
+            "to",
+            "visit",
+            "England"
+          ]
         },
         {
           "id": "japan",
@@ -3771,7 +4145,13 @@
           "emoji": "🇯🇵",
           "promptType": "identify",
           "sentenceTemplate": "I want to visit ___.",
-          "sentenceWords": ["I", "want", "to", "visit", "Japan"]
+          "sentenceWords": [
+            "I",
+            "want",
+            "to",
+            "visit",
+            "Japan"
+          ]
         },
         {
           "id": "korea",
@@ -3780,7 +4160,13 @@
           "emoji": "🇰🇷",
           "promptType": "identify",
           "sentenceTemplate": "I want to visit ___.",
-          "sentenceWords": ["I", "want", "to", "visit", "Korea"]
+          "sentenceWords": [
+            "I",
+            "want",
+            "to",
+            "visit",
+            "Korea"
+          ]
         },
         {
           "id": "china",
@@ -3789,7 +4175,13 @@
           "emoji": "🇨🇳",
           "promptType": "identify",
           "sentenceTemplate": "I want to visit ___.",
-          "sentenceWords": ["I", "want", "to", "visit", "China"]
+          "sentenceWords": [
+            "I",
+            "want",
+            "to",
+            "visit",
+            "China"
+          ]
         },
         {
           "id": "france",
@@ -3798,7 +4190,13 @@
           "emoji": "🇫🇷",
           "promptType": "identify",
           "sentenceTemplate": "I want to visit ___.",
-          "sentenceWords": ["I", "want", "to", "visit", "France"]
+          "sentenceWords": [
+            "I",
+            "want",
+            "to",
+            "visit",
+            "France"
+          ]
         },
         {
           "id": "australia",
@@ -3807,7 +4205,13 @@
           "emoji": "🇦🇺",
           "promptType": "identify",
           "sentenceTemplate": "I want to visit ___.",
-          "sentenceWords": ["I", "want", "to", "visit", "Australia"]
+          "sentenceWords": [
+            "I",
+            "want",
+            "to",
+            "visit",
+            "Australia"
+          ]
         },
         {
           "id": "canada",
@@ -3816,7 +4220,13 @@
           "emoji": "🇨🇦",
           "promptType": "identify",
           "sentenceTemplate": "I want to visit ___.",
-          "sentenceWords": ["I", "want", "to", "visit", "Canada"]
+          "sentenceWords": [
+            "I",
+            "want",
+            "to",
+            "visit",
+            "Canada"
+          ]
         },
         {
           "id": "germany",
@@ -3825,7 +4235,2331 @@
           "emoji": "🇩🇪",
           "promptType": "identify",
           "sentenceTemplate": "I want to visit ___.",
-          "sentenceWords": ["I", "want", "to", "visit", "Germany"]
+          "sentenceWords": [
+            "I",
+            "want",
+            "to",
+            "visit",
+            "Germany"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "farm_animals_v1",
+      "title": "Farm Animals",
+      "emoji": "🐄",
+      "words": [
+        {
+          "id": "cow",
+          "en": "cow",
+          "vi": "con bò",
+          "emoji": "🐄",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ says moo.",
+          "sentenceWords": [
+            "The",
+            "cow",
+            "says",
+            "moo"
+          ]
+        },
+        {
+          "id": "pig",
+          "en": "pig",
+          "vi": "con lợn",
+          "emoji": "🐷",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ likes to play in the mud.",
+          "sentenceWords": [
+            "The",
+            "pig",
+            "likes",
+            "to",
+            "play",
+            "in",
+            "the",
+            "mud"
+          ]
+        },
+        {
+          "id": "horse",
+          "en": "horse",
+          "vi": "con ngựa",
+          "emoji": "🐴",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ runs very fast.",
+          "sentenceWords": [
+            "The",
+            "horse",
+            "runs",
+            "very",
+            "fast"
+          ]
+        },
+        {
+          "id": "sheep",
+          "en": "sheep",
+          "vi": "con cừu",
+          "emoji": "🐑",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has soft white wool.",
+          "sentenceWords": [
+            "The",
+            "sheep",
+            "has",
+            "soft",
+            "white",
+            "wool"
+          ]
+        },
+        {
+          "id": "goat",
+          "en": "goat",
+          "vi": "con dê",
+          "emoji": "🐐",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has two horns.",
+          "sentenceWords": [
+            "The",
+            "goat",
+            "has",
+            "two",
+            "horns"
+          ]
+        },
+        {
+          "id": "duck",
+          "en": "duck",
+          "vi": "con vịt",
+          "emoji": "🦆",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ swims in the pond.",
+          "sentenceWords": [
+            "The",
+            "duck",
+            "swims",
+            "in",
+            "the",
+            "pond"
+          ]
+        },
+        {
+          "id": "rooster",
+          "en": "rooster",
+          "vi": "con gà trống",
+          "emoji": "🐓",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ sings in the morning.",
+          "sentenceWords": [
+            "The",
+            "rooster",
+            "sings",
+            "in",
+            "the",
+            "morning"
+          ]
+        },
+        {
+          "id": "turkey",
+          "en": "turkey",
+          "vi": "con gà tây",
+          "emoji": "🦃",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has big colorful feathers.",
+          "sentenceWords": [
+            "The",
+            "turkey",
+            "has",
+            "big",
+            "colorful",
+            "feathers"
+          ]
+        },
+        {
+          "id": "mouse",
+          "en": "mouse",
+          "vi": "con chuột",
+          "emoji": "🐭",
+          "promptType": "identify",
+          "sentenceTemplate": "The little ___ eats cheese.",
+          "sentenceWords": [
+            "The",
+            "little",
+            "mouse",
+            "eats",
+            "cheese"
+          ]
+        },
+        {
+          "id": "frog",
+          "en": "frog",
+          "vi": "con ếch",
+          "emoji": "🐸",
+          "promptType": "identify",
+          "sentenceTemplate": "The green ___ jumps into the water.",
+          "sentenceWords": [
+            "The",
+            "green",
+            "frog",
+            "jumps",
+            "into",
+            "the",
+            "water"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild_animals_v1",
+      "title": "Wild Animals",
+      "emoji": "🦁",
+      "words": [
+        {
+          "id": "lion",
+          "en": "lion",
+          "vi": "con sư tử",
+          "emoji": "🦁",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is the king of the jungle.",
+          "sentenceWords": [
+            "The",
+            "lion",
+            "is",
+            "the",
+            "king",
+            "of",
+            "the",
+            "jungle"
+          ]
+        },
+        {
+          "id": "tiger",
+          "en": "tiger",
+          "vi": "con hổ",
+          "emoji": "🐯",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has orange and black stripes.",
+          "sentenceWords": [
+            "The",
+            "tiger",
+            "has",
+            "orange",
+            "and",
+            "black",
+            "stripes"
+          ]
+        },
+        {
+          "id": "elephant",
+          "en": "elephant",
+          "vi": "con voi",
+          "emoji": "🐘",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has a long trunk.",
+          "sentenceWords": [
+            "The",
+            "elephant",
+            "has",
+            "a",
+            "long",
+            "trunk"
+          ]
+        },
+        {
+          "id": "monkey",
+          "en": "monkey",
+          "vi": "con khỉ",
+          "emoji": "🐒",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ climbs trees and eats bananas.",
+          "sentenceWords": [
+            "The",
+            "monkey",
+            "climbs",
+            "trees",
+            "and",
+            "eats",
+            "bananas"
+          ]
+        },
+        {
+          "id": "giraffe",
+          "en": "giraffe",
+          "vi": "hươu cao cổ",
+          "emoji": "🦒",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has a very long neck.",
+          "sentenceWords": [
+            "The",
+            "giraffe",
+            "has",
+            "a",
+            "very",
+            "long",
+            "neck"
+          ]
+        },
+        {
+          "id": "zebra",
+          "en": "zebra",
+          "vi": "ngựa vằn",
+          "emoji": "🦓",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has black and white stripes.",
+          "sentenceWords": [
+            "The",
+            "zebra",
+            "has",
+            "black",
+            "and",
+            "white",
+            "stripes"
+          ]
+        },
+        {
+          "id": "bear",
+          "en": "bear",
+          "vi": "con gấu",
+          "emoji": "🐻",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ sleeps all winter.",
+          "sentenceWords": [
+            "The",
+            "bear",
+            "sleeps",
+            "all",
+            "winter"
+          ]
+        },
+        {
+          "id": "snake",
+          "en": "snake",
+          "vi": "con rắn",
+          "emoji": "🐍",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has no legs.",
+          "sentenceWords": [
+            "The",
+            "snake",
+            "has",
+            "no",
+            "legs"
+          ]
+        },
+        {
+          "id": "kangaroo",
+          "en": "kangaroo",
+          "vi": "chuột túi",
+          "emoji": "🦘",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ carries its baby in a pocket.",
+          "sentenceWords": [
+            "The",
+            "kangaroo",
+            "carries",
+            "its",
+            "baby",
+            "in",
+            "a",
+            "pocket"
+          ]
+        },
+        {
+          "id": "penguin",
+          "en": "penguin",
+          "vi": "chim cánh cụt",
+          "emoji": "🐧",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ lives in a very cold place.",
+          "sentenceWords": [
+            "The",
+            "penguin",
+            "lives",
+            "in",
+            "a",
+            "very",
+            "cold",
+            "place"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forest_animals_v1",
+      "title": "Forest Animals & Birds",
+      "emoji": "🦉",
+      "words": [
+        {
+          "id": "owl",
+          "en": "owl",
+          "vi": "con cú",
+          "emoji": "🦉",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is awake at night.",
+          "sentenceWords": [
+            "The",
+            "owl",
+            "is",
+            "awake",
+            "at",
+            "night"
+          ]
+        },
+        {
+          "id": "parrot",
+          "en": "parrot",
+          "vi": "con vẹt",
+          "emoji": "🦜",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ can copy what we say.",
+          "sentenceWords": [
+            "The",
+            "parrot",
+            "can",
+            "copy",
+            "what",
+            "we",
+            "say"
+          ]
+        },
+        {
+          "id": "eagle",
+          "en": "eagle",
+          "vi": "chim đại bàng",
+          "emoji": "🦅",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ flies very high in the sky.",
+          "sentenceWords": [
+            "The",
+            "eagle",
+            "flies",
+            "very",
+            "high",
+            "in",
+            "the",
+            "sky"
+          ]
+        },
+        {
+          "id": "fox",
+          "en": "fox",
+          "vi": "con cáo",
+          "emoji": "🦊",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has a bushy orange tail.",
+          "sentenceWords": [
+            "The",
+            "fox",
+            "has",
+            "a",
+            "bushy",
+            "orange",
+            "tail"
+          ]
+        },
+        {
+          "id": "deer",
+          "en": "deer",
+          "vi": "con hươu",
+          "emoji": "🦌",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has big antlers.",
+          "sentenceWords": [
+            "The",
+            "deer",
+            "has",
+            "big",
+            "antlers"
+          ]
+        },
+        {
+          "id": "wolf",
+          "en": "wolf",
+          "vi": "chó sói",
+          "emoji": "🐺",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ howls at the moon.",
+          "sentenceWords": [
+            "The",
+            "wolf",
+            "howls",
+            "at",
+            "the",
+            "moon"
+          ]
+        },
+        {
+          "id": "squirrel",
+          "en": "squirrel",
+          "vi": "con sóc",
+          "emoji": "🐿️",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ hides nuts in the tree.",
+          "sentenceWords": [
+            "The",
+            "squirrel",
+            "hides",
+            "nuts",
+            "in",
+            "the",
+            "tree"
+          ]
+        },
+        {
+          "id": "hedgehog",
+          "en": "hedgehog",
+          "vi": "con nhím",
+          "emoji": "🦔",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has lots of spikes.",
+          "sentenceWords": [
+            "The",
+            "hedgehog",
+            "has",
+            "lots",
+            "of",
+            "spikes"
+          ]
+        },
+        {
+          "id": "raccoon",
+          "en": "raccoon",
+          "vi": "gấu mèo",
+          "emoji": "🦝",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has a striped tail.",
+          "sentenceWords": [
+            "The",
+            "raccoon",
+            "has",
+            "a",
+            "striped",
+            "tail"
+          ]
+        },
+        {
+          "id": "swan",
+          "en": "swan",
+          "vi": "thiên nga",
+          "emoji": "🦢",
+          "promptType": "identify",
+          "sentenceTemplate": "The white ___ swims on the lake.",
+          "sentenceWords": [
+            "The",
+            "white",
+            "swan",
+            "swims",
+            "on",
+            "the",
+            "lake"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fruits_v1",
+      "title": "Fruits",
+      "emoji": "🍓",
+      "words": [
+        {
+          "id": "grapes",
+          "en": "grapes",
+          "vi": "quả nho",
+          "emoji": "🍇",
+          "promptType": "identify",
+          "sentenceTemplate": "I like to eat purple ___.",
+          "sentenceWords": [
+            "I",
+            "like",
+            "to",
+            "eat",
+            "purple",
+            "grapes"
+          ]
+        },
+        {
+          "id": "watermelon",
+          "en": "watermelon",
+          "vi": "dưa hấu",
+          "emoji": "🍉",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is green outside and red inside.",
+          "sentenceWords": [
+            "The",
+            "watermelon",
+            "is",
+            "green",
+            "outside",
+            "and",
+            "red",
+            "inside"
+          ]
+        },
+        {
+          "id": "strawberry",
+          "en": "strawberry",
+          "vi": "dâu tây",
+          "emoji": "🍓",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is small and sweet.",
+          "sentenceWords": [
+            "The",
+            "strawberry",
+            "is",
+            "small",
+            "and",
+            "sweet"
+          ]
+        },
+        {
+          "id": "pineapple",
+          "en": "pineapple",
+          "vi": "quả dứa",
+          "emoji": "🍍",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is yellow and spiky.",
+          "sentenceWords": [
+            "The",
+            "pineapple",
+            "is",
+            "yellow",
+            "and",
+            "spiky"
+          ]
+        },
+        {
+          "id": "mango",
+          "en": "mango",
+          "vi": "quả xoài",
+          "emoji": "🥭",
+          "promptType": "identify",
+          "sentenceTemplate": "This ripe ___ is sweet and yellow.",
+          "sentenceWords": [
+            "This",
+            "ripe",
+            "mango",
+            "is",
+            "sweet",
+            "and",
+            "yellow"
+          ]
+        },
+        {
+          "id": "lemon",
+          "en": "lemon",
+          "vi": "quả chanh vàng",
+          "emoji": "🍋",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is very sour.",
+          "sentenceWords": [
+            "The",
+            "lemon",
+            "is",
+            "very",
+            "sour"
+          ]
+        },
+        {
+          "id": "pear",
+          "en": "pear",
+          "vi": "quả lê",
+          "emoji": "🍐",
+          "promptType": "identify",
+          "sentenceTemplate": "The green ___ is very juicy.",
+          "sentenceWords": [
+            "The",
+            "green",
+            "pear",
+            "is",
+            "very",
+            "juicy"
+          ]
+        },
+        {
+          "id": "cherry",
+          "en": "cherry",
+          "vi": "quả anh đào",
+          "emoji": "🍒",
+          "promptType": "identify",
+          "sentenceTemplate": "There is a red ___ on top of the cake.",
+          "sentenceWords": [
+            "There",
+            "is",
+            "a",
+            "red",
+            "cherry",
+            "on",
+            "top",
+            "of",
+            "the",
+            "cake"
+          ]
+        },
+        {
+          "id": "peach",
+          "en": "peach",
+          "vi": "quả đào",
+          "emoji": "🍑",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is soft and fuzzy.",
+          "sentenceWords": [
+            "The",
+            "peach",
+            "is",
+            "soft",
+            "and",
+            "fuzzy"
+          ]
+        },
+        {
+          "id": "coconut",
+          "en": "coconut",
+          "vi": "quả dừa",
+          "emoji": "🥥",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has sweet water inside.",
+          "sentenceWords": [
+            "The",
+            "coconut",
+            "has",
+            "sweet",
+            "water",
+            "inside"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vegetables_v1",
+      "title": "Vegetables",
+      "emoji": "🥕",
+      "words": [
+        {
+          "id": "carrot",
+          "en": "carrot",
+          "vi": "cà rốt",
+          "emoji": "🥕",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is orange and long.",
+          "sentenceWords": [
+            "The",
+            "carrot",
+            "is",
+            "orange",
+            "and",
+            "long"
+          ]
+        },
+        {
+          "id": "potato",
+          "en": "potato",
+          "vi": "khoai tây",
+          "emoji": "🥔",
+          "promptType": "identify",
+          "sentenceTemplate": "I like crispy ___ chips.",
+          "sentenceWords": [
+            "I",
+            "like",
+            "crispy",
+            "potato",
+            "chips"
+          ]
+        },
+        {
+          "id": "tomato",
+          "en": "tomato",
+          "vi": "cà chua",
+          "emoji": "🍅",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is red and round.",
+          "sentenceWords": [
+            "The",
+            "tomato",
+            "is",
+            "red",
+            "and",
+            "round"
+          ]
+        },
+        {
+          "id": "corn",
+          "en": "corn",
+          "vi": "bắp ngô",
+          "emoji": "🌽",
+          "promptType": "identify",
+          "sentenceTemplate": "Popcorn is made from ___.",
+          "sentenceWords": [
+            "Popcorn",
+            "is",
+            "made",
+            "from",
+            "corn"
+          ]
+        },
+        {
+          "id": "onion",
+          "en": "onion",
+          "vi": "hành tây",
+          "emoji": "🧅",
+          "promptType": "identify",
+          "sentenceTemplate": "Cutting an ___ makes me cry.",
+          "sentenceWords": [
+            "Cutting",
+            "an",
+            "onion",
+            "makes",
+            "me",
+            "cry"
+          ]
+        },
+        {
+          "id": "broccoli",
+          "en": "broccoli",
+          "vi": "bông cải xanh",
+          "emoji": "🥦",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ looks like a little tree.",
+          "sentenceWords": [
+            "The",
+            "broccoli",
+            "looks",
+            "like",
+            "a",
+            "little",
+            "tree"
+          ]
+        },
+        {
+          "id": "cucumber",
+          "en": "cucumber",
+          "vi": "dưa chuột",
+          "emoji": "🥒",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is long and green.",
+          "sentenceWords": [
+            "The",
+            "cucumber",
+            "is",
+            "long",
+            "and",
+            "green"
+          ]
+        },
+        {
+          "id": "mushroom",
+          "en": "mushroom",
+          "vi": "cây nấm",
+          "emoji": "🍄",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ grows in the forest.",
+          "sentenceWords": [
+            "The",
+            "mushroom",
+            "grows",
+            "in",
+            "the",
+            "forest"
+          ]
+        },
+        {
+          "id": "chili",
+          "en": "chili",
+          "vi": "quả ớt",
+          "emoji": "🌶️",
+          "promptType": "identify",
+          "sentenceTemplate": "The red ___ is very hot.",
+          "sentenceWords": [
+            "The",
+            "red",
+            "chili",
+            "is",
+            "very",
+            "hot"
+          ]
+        },
+        {
+          "id": "garlic",
+          "en": "garlic",
+          "vi": "củ tỏi",
+          "emoji": "🧄",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ smells very strong.",
+          "sentenceWords": [
+            "The",
+            "garlic",
+            "smells",
+            "very",
+            "strong"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yummy_food_v1",
+      "title": "Yummy Food",
+      "emoji": "🍕",
+      "words": [
+        {
+          "id": "pizza",
+          "en": "pizza",
+          "vi": "bánh pizza",
+          "emoji": "🍕",
+          "promptType": "identify",
+          "sentenceTemplate": "I want a slice of ___.",
+          "sentenceWords": [
+            "I",
+            "want",
+            "a",
+            "slice",
+            "of",
+            "pizza"
+          ]
+        },
+        {
+          "id": "burger",
+          "en": "burger",
+          "vi": "bánh hamburger",
+          "emoji": "🍔",
+          "promptType": "identify",
+          "sentenceTemplate": "I eat a big ___ with fries.",
+          "sentenceWords": [
+            "I",
+            "eat",
+            "a",
+            "big",
+            "burger",
+            "with",
+            "fries"
+          ]
+        },
+        {
+          "id": "sandwich",
+          "en": "sandwich",
+          "vi": "bánh sandwich",
+          "emoji": "🥪",
+          "promptType": "identify",
+          "sentenceTemplate": "Mom makes a ___ for my lunch box.",
+          "sentenceWords": [
+            "Mom",
+            "makes",
+            "a",
+            "sandwich",
+            "for",
+            "my",
+            "lunch",
+            "box"
+          ]
+        },
+        {
+          "id": "soup",
+          "en": "soup",
+          "vi": "món súp",
+          "emoji": "🍲",
+          "promptType": "identify",
+          "sentenceTemplate": "I eat hot ___ with a spoon.",
+          "sentenceWords": [
+            "I",
+            "eat",
+            "hot",
+            "soup",
+            "with",
+            "a",
+            "spoon"
+          ]
+        },
+        {
+          "id": "cake",
+          "en": "cake",
+          "vi": "bánh ngọt",
+          "emoji": "🍰",
+          "promptType": "identify",
+          "sentenceTemplate": "We eat ___ at the party.",
+          "sentenceWords": [
+            "We",
+            "eat",
+            "cake",
+            "at",
+            "the",
+            "party"
+          ]
+        },
+        {
+          "id": "cookie",
+          "en": "cookie",
+          "vi": "bánh quy",
+          "emoji": "🍪",
+          "promptType": "identify",
+          "sentenceTemplate": "This ___ has chocolate chips.",
+          "sentenceWords": [
+            "This",
+            "cookie",
+            "has",
+            "chocolate",
+            "chips"
+          ]
+        },
+        {
+          "id": "ice_cream",
+          "en": "ice cream",
+          "vi": "kem",
+          "emoji": "🍦",
+          "promptType": "repeat"
+        },
+        {
+          "id": "chocolate",
+          "en": "chocolate",
+          "vi": "sô-cô-la",
+          "emoji": "🍫",
+          "promptType": "identify",
+          "sentenceTemplate": "I love sweet brown ___.",
+          "sentenceWords": [
+            "I",
+            "love",
+            "sweet",
+            "brown",
+            "chocolate"
+          ]
+        },
+        {
+          "id": "salad",
+          "en": "salad",
+          "vi": "món rau trộn",
+          "emoji": "🥗",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has lettuce and tomatoes.",
+          "sentenceWords": [
+            "The",
+            "salad",
+            "has",
+            "lettuce",
+            "and",
+            "tomatoes"
+          ]
+        },
+        {
+          "id": "candy",
+          "en": "candy",
+          "vi": "kẹo",
+          "emoji": "🍬",
+          "promptType": "identify",
+          "sentenceTemplate": "Too much ___ is bad for your teeth.",
+          "sentenceWords": [
+            "Too",
+            "much",
+            "candy",
+            "is",
+            "bad",
+            "for",
+            "your",
+            "teeth"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sky_space_v1",
+      "title": "Sky & Space",
+      "emoji": "🚀",
+      "words": [
+        {
+          "id": "rainbow",
+          "en": "rainbow",
+          "vi": "cầu vồng",
+          "emoji": "🌈",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has seven colors.",
+          "sentenceWords": [
+            "The",
+            "rainbow",
+            "has",
+            "seven",
+            "colors"
+          ]
+        },
+        {
+          "id": "planet",
+          "en": "planet",
+          "vi": "hành tinh",
+          "emoji": "🪐",
+          "promptType": "identify",
+          "sentenceTemplate": "Earth is a ___.",
+          "sentenceWords": [
+            "Earth",
+            "is",
+            "a",
+            "planet"
+          ]
+        },
+        {
+          "id": "rocket",
+          "en": "rocket",
+          "vi": "tên lửa",
+          "emoji": "🚀",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ flies to the moon.",
+          "sentenceWords": [
+            "The",
+            "rocket",
+            "flies",
+            "to",
+            "the",
+            "moon"
+          ]
+        },
+        {
+          "id": "astronaut",
+          "en": "astronaut",
+          "vi": "phi hành gia",
+          "emoji": "🧑‍🚀",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ walks on the moon.",
+          "sentenceWords": [
+            "The",
+            "astronaut",
+            "walks",
+            "on",
+            "the",
+            "moon"
+          ]
+        },
+        {
+          "id": "earth",
+          "en": "Earth",
+          "vi": "Trái Đất",
+          "emoji": "🌍",
+          "promptType": "identify",
+          "sentenceTemplate": "We all live on ___.",
+          "sentenceWords": [
+            "We",
+            "all",
+            "live",
+            "on",
+            "Earth"
+          ]
+        },
+        {
+          "id": "snow",
+          "en": "snow",
+          "vi": "tuyết",
+          "emoji": "❄️",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is white and cold.",
+          "sentenceWords": [
+            "The",
+            "snow",
+            "is",
+            "white",
+            "and",
+            "cold"
+          ]
+        },
+        {
+          "id": "lightning",
+          "en": "lightning",
+          "vi": "tia chớp",
+          "emoji": "⚡",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is very bright.",
+          "sentenceWords": [
+            "The",
+            "lightning",
+            "is",
+            "very",
+            "bright"
+          ]
+        },
+        {
+          "id": "storm",
+          "en": "storm",
+          "vi": "cơn bão",
+          "emoji": "⛈️",
+          "promptType": "identify",
+          "sentenceTemplate": "Stay inside during the ___.",
+          "sentenceWords": [
+            "Stay",
+            "inside",
+            "during",
+            "the",
+            "storm"
+          ]
+        },
+        {
+          "id": "comet",
+          "en": "comet",
+          "vi": "sao chổi",
+          "emoji": "☄️",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has a long bright tail.",
+          "sentenceWords": [
+            "The",
+            "comet",
+            "has",
+            "a",
+            "long",
+            "bright",
+            "tail"
+          ]
+        },
+        {
+          "id": "telescope",
+          "en": "telescope",
+          "vi": "kính thiên văn",
+          "emoji": "🔭",
+          "promptType": "identify",
+          "sentenceTemplate": "I look at the stars with a ___.",
+          "sentenceWords": [
+            "I",
+            "look",
+            "at",
+            "the",
+            "stars",
+            "with",
+            "a",
+            "telescope"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buildings_v1",
+      "title": "Buildings in Town",
+      "emoji": "🏛️",
+      "words": [
+        {
+          "id": "museum",
+          "en": "museum",
+          "vi": "bảo tàng",
+          "emoji": "🏛️",
+          "promptType": "identify",
+          "sentenceTemplate": "We see old things at the ___.",
+          "sentenceWords": [
+            "We",
+            "see",
+            "old",
+            "things",
+            "at",
+            "the",
+            "museum"
+          ]
+        },
+        {
+          "id": "airport",
+          "en": "airport",
+          "vi": "sân bay",
+          "emoji": "🛫",
+          "promptType": "identify",
+          "sentenceTemplate": "We catch a plane at the ___.",
+          "sentenceWords": [
+            "We",
+            "catch",
+            "a",
+            "plane",
+            "at",
+            "the",
+            "airport"
+          ]
+        },
+        {
+          "id": "bakery",
+          "en": "bakery",
+          "vi": "tiệm bánh",
+          "emoji": "🥐",
+          "promptType": "identify",
+          "sentenceTemplate": "We buy fresh bread at the ___.",
+          "sentenceWords": [
+            "We",
+            "buy",
+            "fresh",
+            "bread",
+            "at",
+            "the",
+            "bakery"
+          ]
+        },
+        {
+          "id": "pharmacy",
+          "en": "pharmacy",
+          "vi": "hiệu thuốc",
+          "emoji": "💊",
+          "promptType": "identify",
+          "sentenceTemplate": "We buy medicine at the ___.",
+          "sentenceWords": [
+            "We",
+            "buy",
+            "medicine",
+            "at",
+            "the",
+            "pharmacy"
+          ]
+        },
+        {
+          "id": "post_office",
+          "en": "post office",
+          "vi": "bưu điện",
+          "emoji": "🏤",
+          "promptType": "repeat"
+        },
+        {
+          "id": "hotel",
+          "en": "hotel",
+          "vi": "khách sạn",
+          "emoji": "🏨",
+          "promptType": "identify",
+          "sentenceTemplate": "We sleep in a ___ on holiday.",
+          "sentenceWords": [
+            "We",
+            "sleep",
+            "in",
+            "a",
+            "hotel",
+            "on",
+            "holiday"
+          ]
+        },
+        {
+          "id": "stadium",
+          "en": "stadium",
+          "vi": "sân vận động",
+          "emoji": "🏟️",
+          "promptType": "identify",
+          "sentenceTemplate": "We watch football at the ___.",
+          "sentenceWords": [
+            "We",
+            "watch",
+            "football",
+            "at",
+            "the",
+            "stadium"
+          ]
+        },
+        {
+          "id": "castle",
+          "en": "castle",
+          "vi": "lâu đài",
+          "emoji": "🏰",
+          "promptType": "identify",
+          "sentenceTemplate": "The princess lives in a ___.",
+          "sentenceWords": [
+            "The",
+            "princess",
+            "lives",
+            "in",
+            "a",
+            "castle"
+          ]
+        },
+        {
+          "id": "bridge",
+          "en": "bridge",
+          "vi": "cây cầu",
+          "emoji": "🌉",
+          "promptType": "identify",
+          "sentenceTemplate": "The car goes over the ___.",
+          "sentenceWords": [
+            "The",
+            "car",
+            "goes",
+            "over",
+            "the",
+            "bridge"
+          ]
+        },
+        {
+          "id": "farm",
+          "en": "farm",
+          "vi": "nông trại",
+          "emoji": "🚜",
+          "promptType": "identify",
+          "sentenceTemplate": "Cows and pigs live on a ___.",
+          "sentenceWords": [
+            "Cows",
+            "and",
+            "pigs",
+            "live",
+            "on",
+            "a",
+            "farm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "more_actions_v1",
+      "title": "More Actions",
+      "emoji": "✍️",
+      "words": [
+        {
+          "id": "write",
+          "en": "write",
+          "vi": "viết",
+          "emoji": "✍️",
+          "promptType": "identify",
+          "sentenceTemplate": "I ___ with a pencil.",
+          "sentenceWords": [
+            "I",
+            "write",
+            "with",
+            "a",
+            "pencil"
+          ]
+        },
+        {
+          "id": "drink",
+          "en": "drink",
+          "vi": "uống",
+          "emoji": "🥤",
+          "promptType": "identify",
+          "sentenceTemplate": "I ___ water every day.",
+          "sentenceWords": [
+            "I",
+            "drink",
+            "water",
+            "every",
+            "day"
+          ]
+        },
+        {
+          "id": "laugh",
+          "en": "laugh",
+          "vi": "cười lớn",
+          "emoji": "😆",
+          "promptType": "identify",
+          "sentenceTemplate": "Funny jokes make me ___.",
+          "sentenceWords": [
+            "Funny",
+            "jokes",
+            "make",
+            "me",
+            "laugh"
+          ]
+        },
+        {
+          "id": "cry",
+          "en": "cry",
+          "vi": "khóc",
+          "emoji": "😭",
+          "promptType": "identify",
+          "sentenceTemplate": "Babies ___ when they are hungry.",
+          "sentenceWords": [
+            "Babies",
+            "cry",
+            "when",
+            "they",
+            "are",
+            "hungry"
+          ]
+        },
+        {
+          "id": "clap",
+          "en": "clap",
+          "vi": "vỗ tay",
+          "emoji": "👏",
+          "promptType": "identify",
+          "sentenceTemplate": "We ___ our hands at the show.",
+          "sentenceWords": [
+            "We",
+            "clap",
+            "our",
+            "hands",
+            "at",
+            "the",
+            "show"
+          ]
+        },
+        {
+          "id": "wave",
+          "en": "wave",
+          "vi": "vẫy tay",
+          "emoji": "👋",
+          "promptType": "identify",
+          "sentenceTemplate": "I ___ goodbye to my friend.",
+          "sentenceWords": [
+            "I",
+            "wave",
+            "goodbye",
+            "to",
+            "my",
+            "friend"
+          ]
+        },
+        {
+          "id": "think",
+          "en": "think",
+          "vi": "suy nghĩ",
+          "emoji": "🤔",
+          "promptType": "identify",
+          "sentenceTemplate": "Let me ___ about it.",
+          "sentenceWords": [
+            "Let",
+            "me",
+            "think",
+            "about",
+            "it"
+          ]
+        },
+        {
+          "id": "shout",
+          "en": "shout",
+          "vi": "hét to",
+          "emoji": "📣",
+          "promptType": "identify",
+          "sentenceTemplate": "Please don't ___ in the library.",
+          "sentenceWords": [
+            "Please",
+            "don't",
+            "shout",
+            "in",
+            "the",
+            "library"
+          ]
+        },
+        {
+          "id": "point",
+          "en": "point",
+          "vi": "chỉ tay",
+          "emoji": "👉",
+          "promptType": "identify",
+          "sentenceTemplate": "I ___ at the picture.",
+          "sentenceWords": [
+            "I",
+            "point",
+            "at",
+            "the",
+            "picture"
+          ]
+        },
+        {
+          "id": "hug",
+          "en": "hug",
+          "vi": "ôm",
+          "emoji": "🤗",
+          "promptType": "identify",
+          "sentenceTemplate": "I ___ my mom every day.",
+          "sentenceWords": [
+            "I",
+            "hug",
+            "my",
+            "mom",
+            "every",
+            "day"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "more_jobs_v1",
+      "title": "More Jobs",
+      "emoji": "👷",
+      "words": [
+        {
+          "id": "builder",
+          "en": "builder",
+          "vi": "thợ xây",
+          "emoji": "👷",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ builds houses.",
+          "sentenceWords": [
+            "The",
+            "builder",
+            "builds",
+            "houses"
+          ]
+        },
+        {
+          "id": "mechanic",
+          "en": "mechanic",
+          "vi": "thợ sửa xe",
+          "emoji": "🧑‍🔧",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ fixes cars.",
+          "sentenceWords": [
+            "The",
+            "mechanic",
+            "fixes",
+            "cars"
+          ]
+        },
+        {
+          "id": "scientist",
+          "en": "scientist",
+          "vi": "nhà khoa học",
+          "emoji": "🧑‍🔬",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ works in a lab.",
+          "sentenceWords": [
+            "The",
+            "scientist",
+            "works",
+            "in",
+            "a",
+            "lab"
+          ]
+        },
+        {
+          "id": "dentist",
+          "en": "dentist",
+          "vi": "nha sĩ",
+          "emoji": "🦷",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ checks my teeth.",
+          "sentenceWords": [
+            "The",
+            "dentist",
+            "checks",
+            "my",
+            "teeth"
+          ]
+        },
+        {
+          "id": "postman",
+          "en": "postman",
+          "vi": "người đưa thư",
+          "emoji": "📮",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ brings us letters.",
+          "sentenceWords": [
+            "The",
+            "postman",
+            "brings",
+            "us",
+            "letters"
+          ]
+        },
+        {
+          "id": "dancer",
+          "en": "dancer",
+          "vi": "vũ công",
+          "emoji": "💃",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ moves to the music.",
+          "sentenceWords": [
+            "The",
+            "dancer",
+            "moves",
+            "to",
+            "the",
+            "music"
+          ]
+        },
+        {
+          "id": "photographer",
+          "en": "photographer",
+          "vi": "nhiếp ảnh gia",
+          "emoji": "📸",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ takes pictures.",
+          "sentenceWords": [
+            "The",
+            "photographer",
+            "takes",
+            "pictures"
+          ]
+        },
+        {
+          "id": "waiter",
+          "en": "waiter",
+          "vi": "người phục vụ",
+          "emoji": "🍽️",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ brings food to our table.",
+          "sentenceWords": [
+            "The",
+            "waiter",
+            "brings",
+            "food",
+            "to",
+            "our",
+            "table"
+          ]
+        },
+        {
+          "id": "detective",
+          "en": "detective",
+          "vi": "thám tử",
+          "emoji": "🕵️",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ looks for clues.",
+          "sentenceWords": [
+            "The",
+            "detective",
+            "looks",
+            "for",
+            "clues"
+          ]
+        },
+        {
+          "id": "clown",
+          "en": "clown",
+          "vi": "chú hề",
+          "emoji": "🤡",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ makes children laugh.",
+          "sentenceWords": [
+            "The",
+            "clown",
+            "makes",
+            "children",
+            "laugh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "things_we_wear_v1",
+      "title": "Things We Wear",
+      "emoji": "🕶️",
+      "words": [
+        {
+          "id": "boots",
+          "en": "boots",
+          "vi": "đôi ủng",
+          "emoji": "👢",
+          "promptType": "identify",
+          "sentenceTemplate": "I wear ___ in the rain.",
+          "sentenceWords": [
+            "I",
+            "wear",
+            "boots",
+            "in",
+            "the",
+            "rain"
+          ]
+        },
+        {
+          "id": "sunglasses",
+          "en": "sunglasses",
+          "vi": "kính râm",
+          "emoji": "🕶️",
+          "promptType": "identify",
+          "sentenceTemplate": "I wear ___ on sunny days.",
+          "sentenceWords": [
+            "I",
+            "wear",
+            "sunglasses",
+            "on",
+            "sunny",
+            "days"
+          ]
+        },
+        {
+          "id": "glasses",
+          "en": "glasses",
+          "vi": "kính mắt",
+          "emoji": "👓",
+          "promptType": "identify",
+          "sentenceTemplate": "Grandpa reads with his ___.",
+          "sentenceWords": [
+            "Grandpa",
+            "reads",
+            "with",
+            "his",
+            "glasses"
+          ]
+        },
+        {
+          "id": "watch",
+          "en": "watch",
+          "vi": "đồng hồ đeo tay",
+          "emoji": "⌚",
+          "promptType": "identify",
+          "sentenceTemplate": "My ___ tells me the time.",
+          "sentenceWords": [
+            "My",
+            "watch",
+            "tells",
+            "me",
+            "the",
+            "time"
+          ]
+        },
+        {
+          "id": "ring",
+          "en": "ring",
+          "vi": "chiếc nhẫn",
+          "emoji": "💍",
+          "promptType": "identify",
+          "sentenceTemplate": "She has a gold ___ on her finger.",
+          "sentenceWords": [
+            "She",
+            "has",
+            "a",
+            "gold",
+            "ring",
+            "on",
+            "her",
+            "finger"
+          ]
+        },
+        {
+          "id": "umbrella",
+          "en": "umbrella",
+          "vi": "cái ô",
+          "emoji": "☂️",
+          "promptType": "identify",
+          "sentenceTemplate": "My ___ keeps me dry.",
+          "sentenceWords": [
+            "My",
+            "umbrella",
+            "keeps",
+            "me",
+            "dry"
+          ]
+        },
+        {
+          "id": "backpack",
+          "en": "backpack",
+          "vi": "ba lô",
+          "emoji": "🎒",
+          "promptType": "identify",
+          "sentenceTemplate": "I carry my books in my ___.",
+          "sentenceWords": [
+            "I",
+            "carry",
+            "my",
+            "books",
+            "in",
+            "my",
+            "backpack"
+          ]
+        },
+        {
+          "id": "tie",
+          "en": "tie",
+          "vi": "cà vạt",
+          "emoji": "👔",
+          "promptType": "identify",
+          "sentenceTemplate": "Dad wears a ___ to work.",
+          "sentenceWords": [
+            "Dad",
+            "wears",
+            "a",
+            "tie",
+            "to",
+            "work"
+          ]
+        },
+        {
+          "id": "crown",
+          "en": "crown",
+          "vi": "vương miện",
+          "emoji": "👑",
+          "promptType": "identify",
+          "sentenceTemplate": "The king wears a ___.",
+          "sentenceWords": [
+            "The",
+            "king",
+            "wears",
+            "a",
+            "crown"
+          ]
+        },
+        {
+          "id": "coat",
+          "en": "coat",
+          "vi": "áo khoác dày",
+          "emoji": "🧥",
+          "promptType": "identify",
+          "sentenceTemplate": "I wear a warm ___ in winter.",
+          "sentenceWords": [
+            "I",
+            "wear",
+            "a",
+            "warm",
+            "coat",
+            "in",
+            "winter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "holidays_v1",
+      "title": "Holidays & Festivals",
+      "emoji": "🎉",
+      "words": [
+        {
+          "id": "christmas",
+          "en": "Christmas",
+          "vi": "Giáng sinh",
+          "emoji": "🎄",
+          "promptType": "identify",
+          "sentenceTemplate": "We decorate a tree at ___.",
+          "sentenceWords": [
+            "We",
+            "decorate",
+            "a",
+            "tree",
+            "at",
+            "Christmas"
+          ]
+        },
+        {
+          "id": "santa",
+          "en": "Santa",
+          "vi": "ông già Noel",
+          "emoji": "🎅",
+          "promptType": "identify",
+          "sentenceTemplate": "___ brings presents at Christmas.",
+          "sentenceWords": [
+            "Santa",
+            "brings",
+            "presents",
+            "at",
+            "Christmas"
+          ]
+        },
+        {
+          "id": "fireworks",
+          "en": "fireworks",
+          "vi": "pháo hoa",
+          "emoji": "🎆",
+          "promptType": "identify",
+          "sentenceTemplate": "We watch ___ at New Year.",
+          "sentenceWords": [
+            "We",
+            "watch",
+            "fireworks",
+            "at",
+            "New",
+            "Year"
+          ]
+        },
+        {
+          "id": "lantern",
+          "en": "lantern",
+          "vi": "đèn lồng",
+          "emoji": "🏮",
+          "promptType": "identify",
+          "sentenceTemplate": "I carry a ___ at night.",
+          "sentenceWords": [
+            "I",
+            "carry",
+            "a",
+            "lantern",
+            "at",
+            "night"
+          ]
+        },
+        {
+          "id": "mooncake",
+          "en": "mooncake",
+          "vi": "bánh trung thu",
+          "emoji": "🥮",
+          "promptType": "identify",
+          "sentenceTemplate": "We eat ___ under the full moon.",
+          "sentenceWords": [
+            "We",
+            "eat",
+            "mooncake",
+            "under",
+            "the",
+            "full",
+            "moon"
+          ]
+        },
+        {
+          "id": "pumpkin",
+          "en": "pumpkin",
+          "vi": "quả bí ngô",
+          "emoji": "🎃",
+          "promptType": "identify",
+          "sentenceTemplate": "We carve a ___ at Halloween.",
+          "sentenceWords": [
+            "We",
+            "carve",
+            "a",
+            "pumpkin",
+            "at",
+            "Halloween"
+          ]
+        },
+        {
+          "id": "snowman",
+          "en": "snowman",
+          "vi": "người tuyết",
+          "emoji": "⛄",
+          "promptType": "identify",
+          "sentenceTemplate": "We build a ___ in winter.",
+          "sentenceWords": [
+            "We",
+            "build",
+            "a",
+            "snowman",
+            "in",
+            "winter"
+          ]
+        },
+        {
+          "id": "card",
+          "en": "card",
+          "vi": "tấm thiệp",
+          "emoji": "💌",
+          "promptType": "identify",
+          "sentenceTemplate": "I write a ___ for my friend.",
+          "sentenceWords": [
+            "I",
+            "write",
+            "a",
+            "card",
+            "for",
+            "my",
+            "friend"
+          ]
+        },
+        {
+          "id": "party",
+          "en": "party",
+          "vi": "bữa tiệc",
+          "emoji": "🎉",
+          "promptType": "identify",
+          "sentenceTemplate": "Let's have a ___!",
+          "sentenceWords": [
+            "Let's",
+            "have",
+            "a",
+            "party"
+          ]
+        },
+        {
+          "id": "mask",
+          "en": "mask",
+          "vi": "mặt nạ",
+          "emoji": "🎭",
+          "promptType": "identify",
+          "sentenceTemplate": "I wear a ___ at the costume party.",
+          "sentenceWords": [
+            "I",
+            "wear",
+            "a",
+            "mask",
+            "at",
+            "the",
+            "costume",
+            "party"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "technology_v1",
+      "title": "Technology",
+      "emoji": "💻",
+      "words": [
+        {
+          "id": "computer",
+          "en": "computer",
+          "vi": "máy tính",
+          "emoji": "💻",
+          "promptType": "identify",
+          "sentenceTemplate": "I type on the ___.",
+          "sentenceWords": [
+            "I",
+            "type",
+            "on",
+            "the",
+            "computer"
+          ]
+        },
+        {
+          "id": "phone",
+          "en": "phone",
+          "vi": "điện thoại",
+          "emoji": "📱",
+          "promptType": "identify",
+          "sentenceTemplate": "Mom calls me on her ___.",
+          "sentenceWords": [
+            "Mom",
+            "calls",
+            "me",
+            "on",
+            "her",
+            "phone"
+          ]
+        },
+        {
+          "id": "television",
+          "en": "television",
+          "vi": "ti vi",
+          "emoji": "📺",
+          "promptType": "identify",
+          "sentenceTemplate": "We watch cartoons on the ___.",
+          "sentenceWords": [
+            "We",
+            "watch",
+            "cartoons",
+            "on",
+            "the",
+            "television"
+          ]
+        },
+        {
+          "id": "headphones",
+          "en": "headphones",
+          "vi": "tai nghe",
+          "emoji": "🎧",
+          "promptType": "identify",
+          "sentenceTemplate": "I listen to music with ___.",
+          "sentenceWords": [
+            "I",
+            "listen",
+            "to",
+            "music",
+            "with",
+            "headphones"
+          ]
+        },
+        {
+          "id": "keyboard",
+          "en": "keyboard",
+          "vi": "bàn phím",
+          "emoji": "⌨️",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ has many keys.",
+          "sentenceWords": [
+            "The",
+            "keyboard",
+            "has",
+            "many",
+            "keys"
+          ]
+        },
+        {
+          "id": "radio",
+          "en": "radio",
+          "vi": "đài radio",
+          "emoji": "📻",
+          "promptType": "identify",
+          "sentenceTemplate": "Grandpa listens to the ___.",
+          "sentenceWords": [
+            "Grandpa",
+            "listens",
+            "to",
+            "the",
+            "radio"
+          ]
+        },
+        {
+          "id": "printer",
+          "en": "printer",
+          "vi": "máy in",
+          "emoji": "🖨️",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ prints my homework.",
+          "sentenceWords": [
+            "The",
+            "printer",
+            "prints",
+            "my",
+            "homework"
+          ]
+        },
+        {
+          "id": "battery",
+          "en": "battery",
+          "vi": "cục pin",
+          "emoji": "🔋",
+          "promptType": "identify",
+          "sentenceTemplate": "My toy needs a new ___.",
+          "sentenceWords": [
+            "My",
+            "toy",
+            "needs",
+            "a",
+            "new",
+            "battery"
+          ]
+        },
+        {
+          "id": "flashlight",
+          "en": "flashlight",
+          "vi": "đèn pin",
+          "emoji": "🔦",
+          "promptType": "identify",
+          "sentenceTemplate": "I use a ___ in the dark.",
+          "sentenceWords": [
+            "I",
+            "use",
+            "a",
+            "flashlight",
+            "in",
+            "the",
+            "dark"
+          ]
+        },
+        {
+          "id": "microphone",
+          "en": "microphone",
+          "vi": "micro",
+          "emoji": "🎤",
+          "promptType": "identify",
+          "sentenceTemplate": "The singer holds a ___.",
+          "sentenceWords": [
+            "The",
+            "singer",
+            "holds",
+            "a",
+            "microphone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "opposites2_v1",
+      "title": "Opposites 2",
+      "emoji": "⚖️",
+      "words": [
+        {
+          "id": "young",
+          "en": "young",
+          "vi": "trẻ",
+          "emoji": "👶",
+          "promptType": "identify",
+          "sentenceTemplate": "The baby is very ___.",
+          "sentenceWords": [
+            "The",
+            "baby",
+            "is",
+            "very",
+            "young"
+          ]
+        },
+        {
+          "id": "old",
+          "en": "old",
+          "vi": "già",
+          "emoji": "👴",
+          "promptType": "identify",
+          "sentenceTemplate": "My grandpa is ___.",
+          "sentenceWords": [
+            "My",
+            "grandpa",
+            "is",
+            "old"
+          ]
+        },
+        {
+          "id": "tall",
+          "en": "tall",
+          "vi": "cao",
+          "emoji": "🦒",
+          "promptType": "identify",
+          "sentenceTemplate": "The giraffe is very ___.",
+          "sentenceWords": [
+            "The",
+            "giraffe",
+            "is",
+            "very",
+            "tall"
+          ]
+        },
+        {
+          "id": "wet",
+          "en": "wet",
+          "vi": "ướt",
+          "emoji": "💦",
+          "promptType": "identify",
+          "sentenceTemplate": "My clothes are ___ from the rain.",
+          "sentenceWords": [
+            "My",
+            "clothes",
+            "are",
+            "wet",
+            "from",
+            "the",
+            "rain"
+          ]
+        },
+        {
+          "id": "dry",
+          "en": "dry",
+          "vi": "khô",
+          "emoji": "🏜️",
+          "promptType": "identify",
+          "sentenceTemplate": "The desert is very ___.",
+          "sentenceWords": [
+            "The",
+            "desert",
+            "is",
+            "very",
+            "dry"
+          ]
+        },
+        {
+          "id": "loud",
+          "en": "loud",
+          "vi": "ồn ào",
+          "emoji": "📢",
+          "promptType": "identify",
+          "sentenceTemplate": "The music is too ___.",
+          "sentenceWords": [
+            "The",
+            "music",
+            "is",
+            "too",
+            "loud"
+          ]
+        },
+        {
+          "id": "quiet",
+          "en": "quiet",
+          "vi": "yên lặng",
+          "emoji": "🤫",
+          "promptType": "identify",
+          "sentenceTemplate": "Please be ___ in the library.",
+          "sentenceWords": [
+            "Please",
+            "be",
+            "quiet",
+            "in",
+            "the",
+            "library"
+          ]
+        },
+        {
+          "id": "soft",
+          "en": "soft",
+          "vi": "mềm",
+          "emoji": "🧸",
+          "promptType": "identify",
+          "sentenceTemplate": "My teddy bear is ___.",
+          "sentenceWords": [
+            "My",
+            "teddy",
+            "bear",
+            "is",
+            "soft"
+          ]
+        },
+        {
+          "id": "hard",
+          "en": "hard",
+          "vi": "cứng",
+          "emoji": "🧱",
+          "promptType": "identify",
+          "sentenceTemplate": "The brick is very ___.",
+          "sentenceWords": [
+            "The",
+            "brick",
+            "is",
+            "very",
+            "hard"
+          ]
+        },
+        {
+          "id": "new",
+          "en": "new",
+          "vi": "mới",
+          "emoji": "✨",
+          "promptType": "identify",
+          "sentenceTemplate": "I have a ___ bike.",
+          "sentenceWords": [
+            "I",
+            "have",
+            "a",
+            "new",
+            "bike"
+          ]
         }
       ]
     }
