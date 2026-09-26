@@ -20,13 +20,12 @@ enum ChatInputMode { text, voice }
 /// đọc to câu trả lời của thú cưng qua [TtsService].
 class ChatController extends ChangeNotifier {
   ChatController({
-    required ChatReplyService chatService,
+    required this._chatService,
     required TtsService ttsService,
     required SpeechService speechService,
     required PetCharacterController petCharacterController,
     required ChildNameController childNameController,
-  }) : _chatService = chatService,
-       _tts = ttsService,
+  }) : _tts = ttsService,
        _speech = speechService,
        _petCharacter = petCharacterController,
        _childName = childNameController;

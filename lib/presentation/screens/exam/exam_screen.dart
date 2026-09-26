@@ -326,6 +326,80 @@ class _PhotoCard extends StatelessWidget {
   }
 }
 
+/// Đề câu hỏi. Câu TOEIC dạng bảng biểu có định dạng
+/// `Look at the graphic. [Tiêu đề] dòng 1 | dòng 2 | ... | dòng cuối. Câu hỏi?`
+/// được vẽ thành bảng giống đề thật thay vì 1 dòng chữ dài.
+class _PromptText extends StatelessWidget {
+  final String prompt;
+
+  const _PromptText({required this.prompt});
+
+  static final _graphic = RegExp(r'^Look at the graphic\.\s*\[([^\]]+)\]\s*(.+)$');
+  static const _style = TextStyle(fontSize: 17, height: 1.4);
+
+  @override
+  Widget build(BuildContext context) {
+    final m = _graphic.firstMatch(prompt);
+    if (m == null) return Text(prompt, style: _style);
+    final rows = m.group(2)!.split(' | ');
+    final last = rows.removeLast();
+    final cut = last.indexOf('. ');
+    if (cut < 0) return Text(prompt, style: _style);
+    rows.add(last.substring(0, cut));
+    final questionText = last.substring(cut + 2);
+
+    List<String> cells(String row) {
+      for (final sep in [': ', ' – ', ' - ']) {
+        final i = row.indexOf(sep);
+        if (i > 0) return [row.substring(0, i), row.substring(i + sep.length)];
+      }
+      final space = row.indexOf(' ');
+      return space > 0 ? [row.substring(0, space), row.substring(space + 1)] : [row, ''];
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text('Look at the graphic.', style: TextStyle(fontSize: 14, color: AppColors.textMuted)),
+        const SizedBox(height: 8),
+        Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.black26),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                decoration: const BoxDecoration(
+                  color: Color(0xFFF3F4F6),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                ),
+                child: Text(m.group(1)!, style: const TextStyle(fontWeight: FontWeight.bold)),
+              ),
+              for (final row in rows)
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 12),
+                  decoration: const BoxDecoration(border: Border(top: BorderSide(color: Colors.black12))),
+                  child: Row(
+                    children: [
+                      Expanded(child: Text(cells(row)[0], style: const TextStyle(fontWeight: FontWeight.w600))),
+                      Expanded(child: Text(cells(row)[1])),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 10),
+        Text(questionText, style: _style),
+      ],
+    );
+  }
+}
+
 class _QuestionCard extends StatelessWidget {
   final Question question;
 
@@ -365,7 +439,7 @@ class _QuestionCard extends StatelessWidget {
             _PhotoCard(emoji: question.imageEmoji!),
             const SizedBox(height: 12),
           ],
-          Text(question.prompt, style: const TextStyle(fontSize: 17, height: 1.4)),
+          _PromptText(prompt: question.prompt),
           // media.type == 'audio' xảy ra ở CẢ 2 trường hợp: đã có url thật lẫn
           // url == null (chưa có file audio thật, xem THIET_KE_SCHEMA_CHUNG.md
           // mục 5/10) - khi chưa có url, dùng TTS đọc [audioScript] (nội dung

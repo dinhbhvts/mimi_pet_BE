@@ -19,11 +19,10 @@ class ExamSessionController extends ChangeNotifier {
     required QuestionBank bank,
     required TrackLevelConfig config,
     required TestMode mode,
-    void Function(TestScore score)? onFinished,
+    this._onFinished,
   })  : _engine = MockTestEngine(bank),
         config = config,
-        mode = mode,
-        _onFinished = onFinished {
+        mode = mode {
     _session = _engine.startSession(config, mode: mode);
     if (_session.timeLimitSeconds > 0) {
       _ticker = Timer.periodic(const Duration(seconds: 1), (_) => _onTick());

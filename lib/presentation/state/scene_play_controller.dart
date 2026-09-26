@@ -54,7 +54,25 @@ class ScenePlayController extends ChangeNotifier {
        _sound = soundService,
        _evaluate = evaluateAnswer;
 
+  /// Mỗi lượt chơi bốc ngẫu nhiên tối đa chừng này câu từ ngân hàng câu hỏi
+  /// của tranh - chơi lại cùng 1 tranh sẽ gặp câu khác, lượt chơi không quá dài.
+  static const int questionsPerSession = 6;
+
   final PictureScene _scene;
+  late final List<SceneQuestion> _questions = (List<SceneQuestion>.of(_scene.questions)..shuffle())
+      .take(questionsPerSession)
+      .map(
+        (q) => q.kind == SceneQuestionKind.choice
+            ? SceneQuestion(
+                id: q.id,
+                prompt: q.prompt,
+                kind: q.kind,
+                options: List<String>.of(q.options)..shuffle(),
+                answer: q.answer,
+              )
+            : q,
+      )
+      .toList();
   final TtsService _tts;
   final SpeechService _speech;
   final ProgressController _progress;
@@ -72,9 +90,9 @@ class ScenePlayController extends ChangeNotifier {
   String? _selectedOption;
 
   PictureScene get scene => _scene;
-  SceneQuestion get currentQuestion => _scene.questions[_index];
+  SceneQuestion get currentQuestion => _questions[_index];
   int get currentIndex => _index;
-  int get totalQuestions => _scene.questions.length;
+  int get totalQuestions => _questions.length;
   ScenePlaySessionState get state => _state;
   int get correctCount => _correctCount;
   bool get isFinished => _state == ScenePlaySessionState.finished;

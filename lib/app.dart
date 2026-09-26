@@ -10,6 +10,7 @@ import 'data/repositories/cloud_pet_character_repository.dart';
 import 'data/repositories/cloud_pet_inventory_repository.dart';
 import 'data/repositories/cloud_pet_palette_repository.dart';
 import 'data/repositories/cloud_progress_repository.dart';
+import 'data/repositories/cloud_sticker_repository.dart';
 import 'data/repositories/cloud_streak_repository.dart';
 import 'data/repositories/json_exam_repository.dart';
 import 'data/repositories/json_lesson_repository.dart';
@@ -25,6 +26,7 @@ import 'domain/repositories/pet_inventory_repository.dart';
 import 'domain/repositories/pet_palette_repository.dart';
 import 'domain/repositories/picture_scene_repository.dart';
 import 'domain/repositories/progress_repository.dart';
+import 'domain/repositories/sticker_repository.dart';
 import 'domain/repositories/streak_repository.dart';
 import 'presentation/screens/auth/login_screen.dart';
 import 'presentation/screens/boot/boot_screen.dart';
@@ -43,6 +45,7 @@ import 'presentation/state/pet_inventory_controller.dart';
 import 'presentation/state/pet_palette_controller.dart';
 import 'presentation/state/picture_scenes_controller.dart';
 import 'presentation/state/progress_controller.dart';
+import 'presentation/state/sticker_controller.dart';
 import 'presentation/state/streak_controller.dart';
 import 'services/api_client.dart';
 import 'services/auth_service.dart';
@@ -239,6 +242,9 @@ class _AuthenticatedAppState extends State<_AuthenticatedApp> {
               Provider<StreakRepository>(
                 create: (context) => CloudStreakRepository(context.read<CloudStateStore>()),
               ),
+              Provider<StickerRepository>(
+                create: (context) => CloudStickerRepository(context.read<CloudStateStore>()),
+              ),
               Provider<LessonRepository>(create: (_) => JsonLessonRepository()),
               Provider<PictureSceneRepository>(create: (_) => JsonPictureSceneRepository()),
               Provider<ExamRepository>(create: (_) => JsonExamRepository()),
@@ -269,6 +275,9 @@ class _AuthenticatedAppState extends State<_AuthenticatedApp> {
               ),
               ChangeNotifierProvider<StreakController>(
                 create: (context) => StreakController(context.read<StreakRepository>())..load(),
+              ),
+              ChangeNotifierProvider<StickerController>(
+                create: (context) => StickerController(context.read<StickerRepository>())..load(),
               ),
               ChangeNotifierProvider<LessonsController>(
                 create: (context) => LessonsController(context.read<LessonRepository>())..load(),

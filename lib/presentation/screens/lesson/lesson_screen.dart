@@ -806,7 +806,7 @@ class _OutOfHeartsView extends StatelessWidget {
     final h = totalMinutes ~/ 60;
     final m = totalMinutes % 60;
     if (h > 0) return 'khoảng ${h}h ${m}p nữa';
-    return 'khoảng ${m} phút nữa';
+    return 'khoảng $m phút nữa';
   }
 
   @override

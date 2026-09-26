@@ -3,11 +3,14 @@ import 'package:provider/provider.dart';
 
 import 'package:mimi_pet/core/theme/app_colors.dart';
 import 'package:mimi_pet/domain/entities/pet_accessory.dart';
+import 'package:mimi_pet/domain/entities/sticker.dart';
 import 'package:mimi_pet/domain/entities/word.dart';
+import 'package:mimi_pet/presentation/screens/album/sticker_album_screen.dart';
 import 'package:mimi_pet/presentation/state/gem_reward_controller.dart';
 import 'package:mimi_pet/presentation/state/lessons_controller.dart';
 import 'package:mimi_pet/presentation/state/pet_inventory_controller.dart';
 import 'package:mimi_pet/presentation/state/progress_controller.dart';
+import 'package:mimi_pet/presentation/state/sticker_controller.dart';
 
 /// Tab "Rewards": tổng số sao, "Cửa hàng phụ kiện" (mở khoá dần bằng sao tích
 /// luỹ, mặc được cho thú cưng - xem `pet_accessory.dart`), mốc "Ngọc thưởng"
@@ -33,6 +36,7 @@ class RewardsScreen extends StatelessWidget {
     final lessonsCtrl = context.watch<LessonsController>();
     final inventory = context.watch<PetInventoryController>();
     final gems = context.watch<GemRewardController>();
+    final stickers = context.watch<StickerController>();
 
     if (!lessonsCtrl.loaded) {
       return const Center(child: CircularProgressIndicator());
@@ -110,26 +114,12 @@ class RewardsScreen extends StatelessWidget {
           const SizedBox(height: 24),
           _GemRewardSection(gems: gems, stars: progress.stars),
           const SizedBox(height: 24),
-          Text(
-            'Từ đã thuộc (${mastered.length}/${allWords.length})',
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          _AlbumEntryCard(
+            ownedWords: mastered,
+            totalWords: allWords.length,
+            ownedSpecial: stickers.ownedSpecialIds.length,
+            newCount: stickers.newCount(progress.masteredWordIds),
           ),
-          const SizedBox(height: 12),
-          if (mastered.isEmpty)
-            const Text(
-              'Bé chưa thuộc từ nào. Vào tab Play để học nhé! 🎮',
-              style: TextStyle(color: AppColors.textMuted),
-            )
-          else
-            Wrap(
-              // Cùng lý do đã sửa ở "Cửa hàng phụ kiện" phía trên - hàng cuối
-              // (thường không đầy vì số từ đã thuộc là số bất kỳ) canh giữa
-              // thay vì dồn sát trái.
-              alignment: WrapAlignment.center,
-              spacing: 12,
-              runSpacing: 12,
-              children: mastered.map((w) => _WordBadge(word: w)).toList(),
-            ),
         ],
       ),
     );
@@ -378,35 +368,87 @@ class _GemPendingCard extends StatelessWidget {
   }
 }
 
-class _WordBadge extends StatelessWidget {
-  final Word word;
+/// Lối vào Album sticker - thay cho lưới "Từ đã thuộc" trước đây (album
+/// hiển thị chính các từ đó, chia trang theo bài học, kèm sticker đặc biệt).
+class _AlbumEntryCard extends StatelessWidget {
+  final List<Word> ownedWords;
+  final int totalWords;
+  final int ownedSpecial;
+  final int newCount;
 
-  const _WordBadge({required this.word});
+  const _AlbumEntryCard({
+    required this.ownedWords,
+    required this.totalWords,
+    required this.ownedSpecial,
+    required this.newCount,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 80,
-      padding: const EdgeInsets.symmetric(vertical: 12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 8),
-        ],
-      ),
-      child: Column(
-        children: [
-          word.swatchColor != null
-              ? Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(color: word.swatchColor, shape: BoxShape.circle),
-                )
-              : Text(word.emoji ?? '⭐', style: const TextStyle(fontSize: 28)),
-          const SizedBox(height: 6),
-          Text(word.en, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
-        ],
+    final preview = ownedWords.reversed.take(6).toList();
+    return Material(
+      color: const Color(0xFFFFF1DC),
+      borderRadius: BorderRadius.circular(20),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const StickerAlbumScreen())),
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: const Color(0xFFF0C98A), width: 1.5),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Text('📒', style: TextStyle(fontSize: 30)),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Album sticker', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                        Text(
+                          'Từ vựng ${ownedWords.length}/$totalWords · Đặc biệt $ownedSpecial/${SpecialSticker.all.length}',
+                          style: const TextStyle(fontSize: 13, color: Colors.black54),
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (newCount > 0)
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(color: const Color(0xFFE84C3D), borderRadius: BorderRadius.circular(12)),
+                      child: Text('$newCount MỚI',
+                          style: const TextStyle(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold)),
+                    ),
+                  const Icon(Icons.chevron_right_rounded, color: Color(0xFFC98A3F)),
+                ],
+              ),
+              const SizedBox(height: 10),
+              if (preview.isEmpty)
+                const Text('Học từ ở tab Play hoặc chơi ở Góc trò chơi để nhận sticker nhé! 🎮',
+                    style: TextStyle(fontSize: 13, color: AppColors.textMuted))
+              else
+                Wrap(
+                  spacing: 6,
+                  children: [
+                    for (final w in preview)
+                      w.swatchColor != null
+                          ? Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(color: w.swatchColor, shape: BoxShape.circle),
+                            )
+                          : Text(w.emoji ?? '⭐', style: const TextStyle(fontSize: 28)),
+                  ],
+                ),
+            ],
+          ),
+        ),
       ),
     );
   }

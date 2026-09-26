@@ -53,6 +53,12 @@ class SceneIllustration extends StatelessWidget {
         return _GardenScenePainter();
       case 'birthday_v1':
         return _BirthdayScenePainter();
+      case 'rainy_v1':
+        return _RainyScenePainter();
+      case 'playground_v1':
+        return _PlaygroundScenePainter();
+      case 'snowy_v1':
+        return _SnowyScenePainter();
       default:
         return _UnknownScenePainter();
     }
@@ -1147,6 +1153,317 @@ class _BirthdayScenePainter extends CustomPainter {
     // 2 bạn nhỏ ngồi 2 bên bàn (đúng câu hỏi "how many children at the table" = Two).
     _drawSimplePerson(canvas, Offset(w * 0.3, h * 0.98), h * 0.28, shirtColor: const Color(0xFF6FBE7A));
     _drawSimplePerson(canvas, Offset(w * 0.72, h * 0.98), h * 0.28, shirtColor: const Color(0xFFB07AD1));
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// ---------------------------------------------------------------------------
+// Scene 11: "A Rainy Day" - trời xám, ĐÚNG 2 đám mây, mưa rơi, cây bên TRÁI,
+// bé gái áo ĐỎ cầm ô VÀNG, vũng nước có vịt VÀNG, ốc sên trên cỏ (khớp 10 câu).
+// ---------------------------------------------------------------------------
+class _RainyScenePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+
+    canvas.drawRect(Rect.fromLTWH(0, 0, w, h * 0.66), Paint()..color = const Color(0xFFB8C4CE));
+    canvas.drawRect(Rect.fromLTWH(0, h * 0.66, w, h * 0.34), Paint()..color = const Color(0xFF8FBF7F));
+
+    _drawCloud(canvas, Offset(w * 0.3, h * 0.13), w * 0.006, color: const Color(0xFF7D8A96));
+    _drawCloud(canvas, Offset(w * 0.72, h * 0.17), w * 0.0055, color: const Color(0xFF7D8A96));
+
+    final rainPaint = Paint()
+      ..color = const Color(0xFF5B8DB8)
+      ..strokeWidth = 1.6
+      ..strokeCap = StrokeCap.round;
+    for (var row = 0; row < 6; row++) {
+      for (var col = 0; col < 10; col++) {
+        final x = w * (0.04 + col * 0.1 + (row.isOdd ? 0.05 : 0));
+        final y = h * (0.28 + row * 0.065);
+        canvas.drawLine(Offset(x, y), Offset(x - w * 0.012, y + h * 0.035), rainPaint);
+      }
+    }
+
+    _drawTree(canvas, Offset(w * 0.1, h * 0.72), h * 0.16, w * 0.03, w * 0.08);
+
+    // Vũng nước + vịt vàng đang bơi.
+    final puddleCenter = Offset(w * 0.73, h * 0.86);
+    canvas.drawOval(
+      Rect.fromCenter(center: puddleCenter, width: w * 0.32, height: h * 0.09),
+      Paint()..color = const Color(0xFF6FA8DC),
+    );
+    final duckPaint = Paint()..color = const Color(0xFFFFC94A);
+    canvas.drawOval(
+      Rect.fromCenter(center: puddleCenter.translate(0, -h * 0.02), width: w * 0.08, height: h * 0.05),
+      duckPaint,
+    );
+    final duckHead = puddleCenter.translate(w * 0.035, -h * 0.06);
+    canvas.drawCircle(duckHead, w * 0.022, duckPaint);
+    canvas.drawCircle(duckHead.translate(w * 0.006, -h * 0.006), w * 0.004, Paint()..color = Colors.black87);
+    final beakPath = Path()
+      ..moveTo(duckHead.dx + w * 0.018, duckHead.dy - h * 0.004)
+      ..lineTo(duckHead.dx + w * 0.036, duckHead.dy + h * 0.004)
+      ..lineTo(duckHead.dx + w * 0.018, duckHead.dy + h * 0.012)
+      ..close();
+    canvas.drawPath(beakPath, Paint()..color = const Color(0xFFE8703C));
+
+    // Ốc sên: thân dài + vỏ tròn có đường xoắn.
+    final snailBase = Offset(w * 0.24, h * 0.9);
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(
+        Rect.fromLTWH(snailBase.dx - w * 0.05, snailBase.dy - h * 0.018, w * 0.1, h * 0.022),
+        Radius.circular(h * 0.011),
+      ),
+      Paint()..color = const Color(0xFFD9B98A),
+    );
+    final shellCenter = snailBase.translate(w * 0.005, -h * 0.04);
+    canvas.drawCircle(shellCenter, w * 0.03, Paint()..color = const Color(0xFFB0703C));
+    final spiralPaint = Paint()
+      ..color = const Color(0xFF7A4A22)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5;
+    canvas.drawArc(Rect.fromCircle(center: shellCenter, radius: w * 0.02), 0, 4.5, false, spiralPaint);
+    canvas.drawArc(Rect.fromCircle(center: shellCenter, radius: w * 0.009), 1.5, 4.5, false, spiralPaint);
+
+    // Bé gái áo đỏ + ô vàng che trên đầu.
+    final girlFeet = Offset(w * 0.44, h * 0.95);
+    _drawSimplePerson(canvas, girlFeet, h * 0.34, shirtColor: const Color(0xFFE84C3D));
+    // Ô lệch sang phải để cán ô nằm cạnh người, không cắt ngang mặt bé.
+    final canopyRect = Rect.fromCenter(center: Offset(girlFeet.dx + w * 0.07, h * 0.47), width: w * 0.3, height: h * 0.14);
+    final canopyPath = Path()
+      ..moveTo(canopyRect.left, canopyRect.bottom)
+      ..quadraticBezierTo(canopyRect.center.dx, canopyRect.top - h * 0.06, canopyRect.right, canopyRect.bottom)
+      ..close();
+    canvas.drawPath(canopyPath, Paint()..color = const Color(0xFFFFC94A));
+    final handlePaint = Paint()
+      ..color = const Color(0xFF6F5236)
+      ..strokeWidth = 2.5
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
+    final handleBottom = Offset(canopyRect.center.dx, h * 0.72);
+    canvas.drawLine(Offset(canopyRect.center.dx, canopyRect.bottom), handleBottom, handlePaint);
+    canvas.drawArc(
+      Rect.fromCircle(center: handleBottom.translate(-w * 0.012, 0), radius: w * 0.012),
+      0,
+      math.pi,
+      false,
+      handlePaint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// ---------------------------------------------------------------------------
+// Scene 12: "At the Playground" - cầu trượt ĐỎ bên trái, xích đu có ĐÚNG 2
+// ghế (bé gái áo TÍM ngồi 1 ghế), bé trai đứng gần cầu trượt, bóng XANH LÁ,
+// trời nắng có ĐÚNG 2 con chim (khớp 10 câu).
+// ---------------------------------------------------------------------------
+class _PlaygroundScenePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+
+    canvas.drawRect(Rect.fromLTWH(0, 0, w, h * 0.65), Paint()..color = const Color(0xFFBEE7FF));
+    canvas.drawRect(Rect.fromLTWH(0, h * 0.65, w, h * 0.35), Paint()..color = const Color(0xFF9BD98A));
+
+    _drawSun(canvas, Offset(w * 0.88, h * 0.13), w * 0.05, const Color(0xFFFFC94A));
+    _drawCloud(canvas, Offset(w * 0.18, h * 0.12), w * 0.005);
+    _drawBird(canvas, Offset(w * 0.42, h * 0.14), w * 0.004);
+    _drawBird(canvas, Offset(w * 0.58, h * 0.08), w * 0.004);
+
+    // Cầu trượt: thang xám + sàn và máng trượt màu đỏ.
+    final ladderPaint = Paint()
+      ..color = const Color(0xFF8A8F98)
+      ..strokeWidth = w * 0.012
+      ..strokeCap = StrokeCap.round;
+    canvas.drawLine(Offset(w * 0.08, h * 0.88), Offset(w * 0.1, h * 0.4), ladderPaint);
+    canvas.drawLine(Offset(w * 0.16, h * 0.88), Offset(w * 0.18, h * 0.4), ladderPaint);
+    for (var i = 1; i <= 5; i++) {
+      final y = h * (0.4 + i * 0.08);
+      final t = (y - h * 0.4) / (h * 0.48);
+      canvas.drawLine(
+        Offset(w * (0.1 - 0.02 * t), y),
+        Offset(w * (0.18 - 0.02 * t), y),
+        Paint()
+          ..color = ladderPaint.color
+          ..strokeWidth = w * 0.007,
+      );
+    }
+    const slideRed = Color(0xFFE84C3D);
+    canvas.drawRect(Rect.fromLTWH(w * 0.09, h * 0.37, w * 0.12, h * 0.035), Paint()..color = slideRed);
+    canvas.drawLine(
+      Offset(w * 0.2, h * 0.39),
+      Offset(w * 0.36, h * 0.86),
+      Paint()
+        ..color = slideRed
+        ..strokeWidth = w * 0.04
+        ..strokeCap = StrokeCap.round,
+    );
+
+    // Bé trai áo xanh dương đứng cạnh chân cầu trượt.
+    _drawSimplePerson(canvas, Offset(w * 0.45, h * 0.96), h * 0.3, shirtColor: const Color(0xFF4FA8E0));
+
+    // Bóng xanh lá trên cỏ.
+    final ballCenter = Offset(w * 0.56, h * 0.87);
+    canvas.drawCircle(ballCenter, w * 0.035, Paint()..color = const Color(0xFF3E8E41));
+    canvas.drawArc(
+      Rect.fromCircle(center: ballCenter, radius: w * 0.022),
+      3.6,
+      1.3,
+      false,
+      Paint()
+        ..color = Colors.white70
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2,
+    );
+
+    // Khung xích đu chữ A + 2 ghế.
+    final framePaint = Paint()
+      ..color = const Color(0xFF8D6748)
+      ..strokeWidth = w * 0.014
+      ..strokeCap = StrokeCap.round;
+    final barY = h * 0.34;
+    canvas.drawLine(Offset(w * 0.62, h * 0.9), Offset(w * 0.66, barY), framePaint);
+    canvas.drawLine(Offset(w * 0.98, h * 0.9), Offset(w * 0.94, barY), framePaint);
+    canvas.drawLine(Offset(w * 0.64, barY), Offset(w * 0.96, barY), framePaint);
+
+    final ropePaint = Paint()
+      ..color = const Color(0xFF5B4636)
+      ..strokeWidth = 1.5;
+    final seatPaint = Paint()..color = const Color(0xFF6F5236);
+
+    // Ghế 1 - bé gái áo tím đang ngồi (vẽ người trước, ghế đè lên ngang hông).
+    const seat1X = 0.73;
+    final seat1Y = h * 0.7;
+    _drawSimplePerson(canvas, Offset(w * seat1X, seat1Y + h * 0.28 * 0.34), h * 0.28, shirtColor: const Color(0xFFB07AD1));
+    canvas.drawLine(Offset(w * (seat1X - 0.045), barY), Offset(w * (seat1X - 0.045), seat1Y), ropePaint);
+    canvas.drawLine(Offset(w * (seat1X + 0.045), barY), Offset(w * (seat1X + 0.045), seat1Y), ropePaint);
+    canvas.drawRect(Rect.fromLTWH(w * (seat1X - 0.055), seat1Y, w * 0.11, h * 0.02), seatPaint);
+
+    // Ghế 2 - trống.
+    const seat2X = 0.87;
+    final seat2Y = h * 0.72;
+    canvas.drawLine(Offset(w * (seat2X - 0.035), barY), Offset(w * (seat2X - 0.035), seat2Y), ropePaint);
+    canvas.drawLine(Offset(w * (seat2X + 0.035), barY), Offset(w * (seat2X + 0.035), seat2Y), ropePaint);
+    canvas.drawRect(Rect.fromLTWH(w * (seat2X - 0.045), seat2Y, w * 0.09, h * 0.02), seatPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// ---------------------------------------------------------------------------
+// Scene 13: "A Snowy Day" - tuyết rơi, ĐÚNG 2 cây thông, người tuyết đội mũ
+// đen, mũi cà rốt, khăn ĐỎ; bé trai áo XANH LÁ đứng cạnh; nhà mái ĐỎ, ống
+// khói đang bốc khói (khớp 10 câu).
+// ---------------------------------------------------------------------------
+class _SnowyScenePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+
+    canvas.drawRect(Rect.fromLTWH(0, 0, w, h * 0.62), Paint()..color = const Color(0xFFBFD4E8));
+    canvas.drawRect(Rect.fromLTWH(0, h * 0.62, w, h * 0.38), Paint()..color = const Color(0xFFF4F8FC));
+
+    // 2 cây thông.
+    for (final base in [Offset(w * 0.1, h * 0.7), Offset(w * 0.23, h * 0.67)]) {
+      canvas.drawRect(
+        Rect.fromCenter(center: base.translate(0, -h * 0.03), width: w * 0.02, height: h * 0.06),
+        Paint()..color = const Color(0xFF8D6748),
+      );
+      for (var i = 0; i < 3; i++) {
+        final bottomY = base.dy - h * 0.05 - i * h * 0.08;
+        final halfWidth = w * (0.07 - i * 0.015);
+        final tier = Path()
+          ..moveTo(base.dx - halfWidth, bottomY)
+          ..lineTo(base.dx, bottomY - h * 0.13)
+          ..lineTo(base.dx + halfWidth, bottomY)
+          ..close();
+        canvas.drawPath(tier, Paint()..color = const Color(0xFF2E7D4F));
+      }
+    }
+
+    // Nhà mái đỏ + ống khói bốc khói.
+    final houseRect = Rect.fromLTWH(w * 0.7, h * 0.4, w * 0.25, h * 0.26);
+    canvas.drawRect(houseRect, Paint()..color = const Color(0xFFC98B5E));
+    canvas.drawRect(Rect.fromLTWH(w * 0.88, h * 0.25, w * 0.04, h * 0.1), Paint()..color = const Color(0xFF7A2E22));
+    final roofPath = Path()
+      ..moveTo(w * 0.67, h * 0.41)
+      ..lineTo(w * 0.825, h * 0.25)
+      ..lineTo(w * 0.98, h * 0.41)
+      ..close();
+    canvas.drawPath(roofPath, Paint()..color = const Color(0xFFD94F3D));
+    canvas.drawRect(Rect.fromLTWH(w * 0.8, h * 0.52, w * 0.05, h * 0.14), Paint()..color = const Color(0xFF6F5236));
+    canvas.drawRect(Rect.fromLTWH(w * 0.73, h * 0.46, w * 0.05, h * 0.05), Paint()..color = const Color(0xFFFFE9A8));
+    final smokePaint = Paint()..color = const Color(0xCC9EA7B0);
+    canvas.drawCircle(Offset(w * 0.9, h * 0.2), w * 0.018, smokePaint);
+    canvas.drawCircle(Offset(w * 0.925, h * 0.14), w * 0.024, smokePaint);
+    canvas.drawCircle(Offset(w * 0.955, h * 0.07), w * 0.03, smokePaint);
+
+    // Người tuyết.
+    final bodyCenter = Offset(w * 0.44, h * 0.82);
+    final headCenter = Offset(w * 0.44, h * 0.62);
+    final snowPaint = Paint()..color = Colors.white;
+    final outline = Paint()
+      ..color = const Color(0xFFB8C8D8)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5;
+    canvas.drawCircle(bodyCenter, w * 0.1, snowPaint);
+    canvas.drawCircle(bodyCenter, w * 0.1, outline);
+    canvas.drawCircle(headCenter, w * 0.065, snowPaint);
+    canvas.drawCircle(headCenter, w * 0.065, outline);
+    final stickPaint = Paint()
+      ..color = const Color(0xFF6F5236)
+      ..strokeWidth = 2.5
+      ..strokeCap = StrokeCap.round;
+    canvas.drawLine(bodyCenter.translate(-w * 0.09, -h * 0.06), bodyCenter.translate(-w * 0.18, -h * 0.14), stickPaint);
+    canvas.drawLine(bodyCenter.translate(w * 0.09, -h * 0.06), bodyCenter.translate(w * 0.17, -h * 0.15), stickPaint);
+    for (final dy in [-h * 0.05, 0.0, h * 0.05]) {
+      canvas.drawCircle(bodyCenter.translate(0, dy), w * 0.008, Paint()..color = Colors.black87);
+    }
+    canvas.drawCircle(headCenter.translate(-w * 0.022, -h * 0.02), w * 0.007, Paint()..color = Colors.black87);
+    canvas.drawCircle(headCenter.translate(w * 0.022, -h * 0.02), w * 0.007, Paint()..color = Colors.black87);
+    final nosePath = Path()
+      ..moveTo(headCenter.dx, headCenter.dy - h * 0.005)
+      ..lineTo(headCenter.dx + w * 0.06, headCenter.dy + h * 0.01)
+      ..lineTo(headCenter.dx, headCenter.dy + h * 0.02)
+      ..close();
+    canvas.drawPath(nosePath, Paint()..color = const Color(0xFFFF8A2A));
+    // Khăn đỏ quanh cổ + 1 vạt buông xuống.
+    final scarfPaint = Paint()..color = const Color(0xFFE84C3D);
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(
+        Rect.fromCenter(center: headCenter.translate(0, h * 0.075), width: w * 0.13, height: h * 0.035),
+        const Radius.circular(4),
+      ),
+      scarfPaint,
+    );
+    canvas.drawRect(Rect.fromLTWH(headCenter.dx + w * 0.03, headCenter.dy + h * 0.075, w * 0.025, h * 0.08), scarfPaint);
+    // Mũ đen.
+    final hatPaint = Paint()..color = const Color(0xFF2E2E2E);
+    canvas.drawRect(Rect.fromCenter(center: headCenter.translate(0, -h * 0.075), width: w * 0.13, height: h * 0.02), hatPaint);
+    canvas.drawRect(Rect.fromCenter(center: headCenter.translate(0, -h * 0.115), width: w * 0.08, height: h * 0.07), hatPaint);
+
+    // Bé trai áo khoác xanh lá đứng cạnh người tuyết.
+    _drawSimplePerson(canvas, Offset(w * 0.62, h * 0.96), h * 0.32, shirtColor: const Color(0xFF3E8E41));
+
+    // Bông tuyết rơi khắp nơi (vẽ sau cùng để rơi cả trước người/nhà).
+    final flakePaint = Paint()..color = Colors.white;
+    for (var row = 0; row < 7; row++) {
+      for (var col = 0; col < 9; col++) {
+        // Lệch nhẹ theo sin để bông tuyết không xếp thẳng hàng như chấm bi.
+        final x = w * (0.05 + col * 0.11 + (row.isOdd ? 0.055 : 0) + 0.025 * _sin(row * 2.3 + col * 1.7));
+        final y = h * (0.05 + row * 0.085 + 0.025 * _cos(row * 1.3 + col * 2.9));
+        canvas.drawCircle(Offset(x, y), w * (0.005 + 0.003 * ((row + col) % 3) / 2), flakePaint);
+      }
+    }
   }
 
   @override

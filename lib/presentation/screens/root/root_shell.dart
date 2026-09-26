@@ -80,15 +80,21 @@ class _RootShellState extends State<RootShell> {
               // hẹp hơn khối RewardsScreen có Container rộng hết cỡ), và tự
               // "hết lệch" sau khi tương tác vì lúc đó nội dung Home tình cờ
               // đủ rộng để lấp đầy khung.
+              // TickerMode tắt ở tab đang ẩn: dừng animation không ai nhìn thấy
+              // và cho Home biết khi nào bé KHÔNG ở tab Home (để thú cưng
+              // không tự lên tiếng rủ chơi lúc bé đang học/chat ở tab khác).
               child: IndexedStack(
                 index: _tabIndex,
                 sizing: StackFit.expand,
-                children: const [
-                  HomeScreen(),
-                  PlayScreen(),
-                  RewardsScreen(),
-                  ChatScreen(),
-                  DictionaryScreen(),
+                children: [
+                  for (final (i, tab) in const [
+                    HomeScreen(),
+                    PlayScreen(),
+                    RewardsScreen(),
+                    ChatScreen(),
+                    DictionaryScreen(),
+                  ].indexed)
+                    TickerMode(enabled: i == _tabIndex, child: tab),
                 ],
               ),
             ),

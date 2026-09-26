@@ -119,7 +119,11 @@ bool isAnswerCorrect(Question q, List<String>? userAnswer) {
     case QuestionType.ordering:
     case QuestionType.listenAndColor:
     case QuestionType.listenAndNumber:
-      return _listEquals(userAnswer, q.correctAnswer);
+      // So theo CHỮ hiển thị, không theo id: câu có 2 mảnh trùng chữ (vd hai
+      // chữ "we" hay hai dấu ",") xếp đổi chỗ 2 mảnh đó vẫn ra đúng câu.
+      String textOf(String id) =>
+          q.options.firstWhere((o) => o.id == id, orElse: () => AnswerOption(id: id, text: id)).text.trim();
+      return _listEquals(userAnswer.map(textOf).toList(), q.correctAnswer.map(textOf).toList());
     case QuestionType.matching:
       return userAnswer.length == q.correctAnswer.length &&
           Set.from(userAnswer).containsAll(q.correctAnswer);

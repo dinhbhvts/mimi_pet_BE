@@ -17,7 +17,31 @@ import 'pet_character_painters.dart';
 /// THÊM (2026-08-23): `bath` (tắm), `sleep` (đi ngủ), `exercise` (tập thể
 /// dục) - 3 hành động tương tác mới ở Home, xem doc comment tương ứng trong
 /// `_PetAvatarState._buildPose`/`_buildTrickDecorations`.
-enum MimiTrick { spin, bonusJump, eat, bath, sleep, exercise }
+///
+/// THÊM (2026-09-27): các phản ứng khi bé TRÊU - giggle (lắc cười), sneeze
+/// (hắt xì khi chạm mũi), bellyLaugh (cười lăn khi chạm bụng), footWiggle
+/// (giãy chân), dizzy (chóng mặt khi bị kéo mạnh), grumpy (giả vờ dỗi khi bị
+/// trêu dồn dập), yawn (ngáp), disgust (nhăn mặt với món ghét), fire (ăn ớt
+/// phun lửa), love (ăn món thích, tim bay), hide (rùa rụt đầu vào mai).
+enum MimiTrick {
+  spin,
+  bonusJump,
+  eat,
+  bath,
+  sleep,
+  exercise,
+  giggle,
+  sneeze,
+  bellyLaugh,
+  footWiggle,
+  dizzy,
+  grumpy,
+  yawn,
+  disgust,
+  fire,
+  love,
+  hide,
+}
 
 /// Kênh để 1 màn hình (ví dụ HomeScreen) yêu cầu [PetAvatar] chơi 1 "trò"
 /// mà không cần đổi [PetMood] - PetAvatar tự lắng nghe qua [stream].
@@ -45,6 +69,8 @@ class PetAvatarController {
 
   /// Mimi "tập thể dục" (nhảy nhịp vui vẻ vài cái, có tia năng lượng ✨).
   void exercise() => _tricksController.add(MimiTrick.exercise);
+
+  void play(MimiTrick trick) => _tricksController.add(trick);
 
   void dispose() => _tricksController.close();
 }
@@ -108,6 +134,14 @@ class PetAvatar extends StatefulWidget {
   /// trống nếu màn hình không cần các trò này.
   final PetAvatarController? controller;
 
+  /// Thú cưng đang NGỦ (kéo dài tới khi màn hình gọi đánh thức) - nhắm mắt,
+  /// cụp tai, 💤 bay lên liên tục.
+  final bool sleeping;
+
+  /// Bé thả tay sau khi KÉO thú cưng - [intensity] = tổng quãng đường kéo
+  /// chia cho kích thước avatar (kéo qua lại càng nhiều càng lớn).
+  final void Function(double intensity)? onDragEnd;
+
   const PetAvatar({
     super.key,
     required this.mood,
@@ -121,6 +155,8 @@ class PetAvatar extends StatefulWidget {
     this.onTickleStart,
     this.onTickleEnd,
     this.controller,
+    this.sleeping = false,
+    this.onDragEnd,
   });
 
   @override
@@ -143,6 +179,27 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
   late final AnimationController _sleepCtrl;
   late final AnimationController _exerciseCtrl;
   late final AnimationController _tickleCtrl;
+  late final AnimationController _sneezeCtrl;
+  late final AnimationController _laughCtrl;
+  late final AnimationController _wiggleCtrl;
+  late final AnimationController _dizzyCtrl;
+  late final AnimationController _grumpyCtrl;
+  late final AnimationController _yawnCtrl;
+  late final AnimationController _disgustCtrl;
+  late final AnimationController _fireCtrl;
+  late final AnimationController _loveCtrl;
+  late final AnimationController _hideCtrl;
+
+  /// Chạy lặp khi [PetAvatar.sleeping] để 💤 bay lên liên tục.
+  late final AnimationController _sleepLoopCtrl;
+
+  /// Tự nhận biết chạm 2 lần bằng mốc thời gian thay vì `onDoubleTap` của
+  /// GestureDetector - `onDoubleTap` bắt MỌI lần chạm đơn phải chờ ~300ms xem
+  /// có chạm lần 2 không, làm thú cưng phản ứng chậm.
+  DateTime? _lastTapAt;
+  static const _doubleTapWindow = Duration(milliseconds: 320);
+
+  double _panDistance = 0;
 
   Timer? _blinkTimer;
   Timer? _earTwitchTimer;
@@ -196,6 +253,18 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
     _sleepCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1800));
     _exerciseCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000));
     _tickleCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 260));
+    _sneezeCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1300));
+    _laughCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1400));
+    _wiggleCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000));
+    _dizzyCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1800));
+    _grumpyCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1600));
+    _yawnCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1900));
+    _disgustCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1300));
+    _fireCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1800));
+    _loveCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1500));
+    _hideCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1600));
+    _sleepLoopCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 2400));
+    if (widget.sleeping) _sleepLoopCtrl.repeat();
 
     _scheduleBlink();
     _scheduleEarTwitch();
@@ -213,6 +282,15 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
       _trickSub?.cancel();
       _trickSub = widget.controller?.stream.listen(_playTrick);
     }
+    if (oldWidget.sleeping != widget.sleeping) {
+      if (widget.sleeping) {
+        _sleepLoopCtrl.repeat();
+      } else {
+        _sleepLoopCtrl
+          ..stop()
+          ..value = 0;
+      }
+    }
   }
 
   void _syncMoodLoops() {
@@ -229,8 +307,9 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
     }
   }
 
-  bool get _canBlink => widget.mood != PetMood.happy;
-  bool get _canEarTwitch => widget.mood == PetMood.idle || widget.mood == PetMood.encourage;
+  bool get _canBlink => widget.mood != PetMood.happy && !widget.sleeping;
+  bool get _canEarTwitch =>
+      !widget.sleeping && (widget.mood == PetMood.idle || widget.mood == PetMood.encourage);
 
   void _scheduleBlink() {
     _blinkTimer?.cancel();
@@ -279,33 +358,58 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
       case MimiTrick.exercise:
         _exerciseCtrl.forward(from: 0);
         break;
+      case MimiTrick.giggle:
+        _giggleCtrl.forward(from: 0);
+      case MimiTrick.sneeze:
+        _sneezeCtrl.forward(from: 0);
+      case MimiTrick.bellyLaugh:
+        _laughCtrl.forward(from: 0);
+      case MimiTrick.footWiggle:
+        _wiggleCtrl.forward(from: 0);
+      case MimiTrick.dizzy:
+        _dizzyCtrl.forward(from: 0);
+      case MimiTrick.grumpy:
+        _grumpyCtrl.forward(from: 0);
+      case MimiTrick.yawn:
+        _yawnCtrl.forward(from: 0);
+      case MimiTrick.disgust:
+        _disgustCtrl.forward(from: 0);
+      case MimiTrick.fire:
+        _fireCtrl.forward(from: 0);
+      case MimiTrick.love:
+        _loveCtrl.forward(from: 0);
+      case MimiTrick.hide:
+        _hideCtrl.forward(from: 0);
     }
   }
 
   void _handleTapUp(TapUpDetails details) {
+    final now = DateTime.now();
+    final last = _lastTapAt;
+    if (widget.onDoubleTap != null && last != null && now.difference(last) < _doubleTapWindow) {
+      _lastTapAt = null;
+      widget.onDoubleTap!();
+      return;
+    }
+    _lastTapAt = now;
+
     final inset = widget.size * 0.1;
     final canvasSize = Size(widget.size - inset * 2, widget.size - inset * 2);
     final localInCanvas = details.localPosition - Offset(inset, inset);
     final region = hitTestPetCharacter(widget.character, localInCanvas, canvasSize);
 
-    if (region == MimiTapRegion.earLeft || region == MimiTapRegion.earRight) {
-      _activeEarPull = region;
-      _earPullCtrl.forward(from: 0);
-    } else {
-      _giggleCtrl.forward(from: 0);
+    // Phản hồi hình ảnh TỨC THÌ cho tai/thân; các vùng khác (mũi/bụng/chân)
+    // do màn hình quyết định trò qua [PetAvatarController] vì còn phụ thuộc
+    // mức bị trêu (dỗi, cười lăn...). Đang ngủ thì để màn hình xử lý hết.
+    if (!widget.sleeping) {
+      if (region == MimiTapRegion.earLeft || region == MimiTapRegion.earRight) {
+        _activeEarPull = region;
+        _earPullCtrl.forward(from: 0);
+      } else if (region == MimiTapRegion.body) {
+        _giggleCtrl.forward(from: 0);
+      }
     }
     widget.onTap?.call(region);
-  }
-
-  /// Chạm 2 lần liên tiếp - phản ứng MẠNH hơn hẳn 1 lần chạm (giật mình cười
-  /// phá lên): dùng LẠI [_giggleCtrl] nhưng cho chạy 2 vòng liền (forward rồi
-  /// forward lại) để biên độ cảm giác "nhiều" hơn, không cần thêm animation
-  /// riêng - đủ khác biệt để bé phân biệt được với 1 lần chạm.
-  void _handleDoubleTap() {
-    _giggleCtrl.forward(from: 0).then((_) {
-      if (mounted) _giggleCtrl.forward(from: 0);
-    });
-    widget.onDoubleTap?.call();
   }
 
   void _handleLongPressStart(LongPressStartDetails details) {
@@ -331,6 +435,7 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
 
   void _handlePanUpdate(DragUpdateDetails details) {
     _dragSnapCtrl.stop();
+    _panDistance += details.delta.distance;
     final maxOffset = widget.size * 0.18;
     setState(() {
       final next = _dragOffset + details.delta * 0.35;
@@ -342,6 +447,9 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
   }
 
   void _handlePanEnd(DragEndDetails details) {
+    final intensity = _panDistance / widget.size;
+    _panDistance = 0;
+    widget.onDragEnd?.call(intensity);
     final tween = Tween<Offset>(begin: _dragOffset, end: Offset.zero);
     _dragSnapAnimation = tween.animate(CurvedAnimation(parent: _dragSnapCtrl, curve: Curves.elasticOut));
     _dragSnapCtrl
@@ -375,6 +483,17 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
     _sleepCtrl.dispose();
     _exerciseCtrl.dispose();
     _tickleCtrl.dispose();
+    _sneezeCtrl.dispose();
+    _laughCtrl.dispose();
+    _wiggleCtrl.dispose();
+    _dizzyCtrl.dispose();
+    _grumpyCtrl.dispose();
+    _yawnCtrl.dispose();
+    _disgustCtrl.dispose();
+    _fireCtrl.dispose();
+    _loveCtrl.dispose();
+    _hideCtrl.dispose();
+    _sleepLoopCtrl.dispose();
     super.dispose();
   }
 
@@ -393,6 +512,63 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
       case PetMood.encourage:
         return const Color(0xFFE9D8FF);
     }
+  }
+
+  /// Giá trị (0..1) của 1 trò đang chạy dở, null nếu trò không chạy.
+  double? _running(AnimationController ctrl) {
+    final v = ctrl.value;
+    return (v > 0 && v < 1) ? v : null;
+  }
+
+  /// 0 -> 1 nhanh ở đầu, giữ 1, rồi về 0 ở cuối - cho các trạng thái "giữ"
+  /// một lúc (dỗi, rụt đầu).
+  double _envelope(double t) {
+    if (t < 0.15) return t / 0.15;
+    if (t > 0.85) return (1 - t) / 0.15;
+    return 1;
+  }
+
+  /// Rung lắc/nhảy CẢ NGƯỜI do các trò trêu gây ra: (dịch ngang, dịch dọc, xoay).
+  (double, double, double) _trickMotion() {
+    var dx = 0.0, dy = 0.0, rot = 0.0;
+    final sneezeT = _running(_sneezeCtrl);
+    if (sneezeT != null && sneezeT >= 0.62) {
+      final u = (sneezeT - 0.62) / 0.38;
+      rot += sin(u * pi) * 0.18;
+      dy += sin(u * pi) * 6;
+    }
+    final laughT = _running(_laughCtrl);
+    if (laughT != null) {
+      rot += sin(laughT * pi * 10) * 0.12 * (1 - laughT);
+      dy -= sin(laughT * pi * 5).abs() * 10 * (1 - laughT);
+    }
+    final wiggleT = _running(_wiggleCtrl);
+    if (wiggleT != null) {
+      dx += sin(wiggleT * pi * 8) * 12 * (1 - wiggleT);
+      dy -= sin(wiggleT * pi * 4).abs() * 12 * (1 - wiggleT);
+    }
+    final dizzyT = _running(_dizzyCtrl);
+    if (dizzyT != null) {
+      rot += sin(dizzyT * pi * 6) * 0.18 * (1 - dizzyT * 0.5);
+      dx += sin(dizzyT * pi * 3) * 8;
+    }
+    final grumpyT = _running(_grumpyCtrl);
+    if (grumpyT != null && grumpyT < 0.3) {
+      dx += sin(grumpyT * pi * 20) * 4;
+    }
+    final yawnT = _running(_yawnCtrl);
+    if (yawnT != null) {
+      dy -= sin(yawnT * pi) * 4;
+    }
+    final disgustT = _running(_disgustCtrl);
+    if (disgustT != null) {
+      dx += sin(disgustT * pi * 10) * 6 * (1 - disgustT);
+    }
+    final fireT = _running(_fireCtrl);
+    if (fireT != null) {
+      dy -= sin(fireT * pi * 6).abs() * 14 * (1 - fireT);
+    }
+    return (dx, dy, rot);
   }
 
   MimiPose _buildPose() {
@@ -447,6 +623,20 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
         break;
     }
 
+    // Dùng để ép mắt nhắm/híp bất kể mood (xem ghi chú ở phần "Tắm" bên dưới).
+    double? forcedEyeScaleY;
+
+    // Đang NGỦ (kéo dài): nhắm mắt, cụp tai, đầu cúi - các trò phía dưới vẫn
+    // đè lên được (ví dụ bị đánh thức).
+    if (widget.sleeping) {
+      happyEyes = false;
+      forcedEyeScaleY = 0.05;
+      mouth = MimiMouth.idle;
+      headOffsetY += 6;
+      earL += 0.25;
+      earR -= 0.25;
+    }
+
     // Kéo tai (nhất thời, đè lên animation theo mood) - chỉ ảnh hưởng đúng
     // bên tai vừa bị bé chạm vào.
     final pull = _earPullTween.evaluate(_earPullCtrl);
@@ -468,11 +658,9 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
       headOffsetY += 4 * sin(eatT * pi);
     }
 
-    // Dùng để ép mắt NHẮM TỊT trong lúc tắm/ngủ, bất kể mood hiện tại đang
-    // "happy" (nếu không ép `happyEyes = false`, painter sẽ vẽ mắt cười cong
-    // thay vì oval nhắm - xem `BunnyPainter`/`MimiCatPainter`: chỉ oval mới
-    // đọc `eyeScaleY`, đường cong "happy" luôn vẽ cố định).
-    double? forcedEyeScaleY;
+    // Ép mắt NHẮM TỊT trong lúc tắm/ngủ, bất kể mood hiện tại đang "happy"
+    // (nếu không ép `happyEyes = false`, painter sẽ vẽ mắt cười cong thay vì
+    // oval nhắm - chỉ oval mới đọc `eyeScaleY`).
 
     // "Tắm" (nhất thời) - lắc đầu/tai qua lại như đang được kỳ cọ, nhắm mắt
     // khoan khoái. Bọt xà phòng bay lên vẽ RIÊNG ở [_buildTrickDecorations],
@@ -509,6 +697,108 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
       earR -= sin(exerciseT * pi * 8) * 0.25;
       happyEyes = true;
       mouth = MimiMouth.happy;
+    }
+
+    // ---- Phản ứng khi bị trêu (nhất thời) ----
+    final sneezeT = _running(_sneezeCtrl);
+    if (sneezeT != null) {
+      happyEyes = false;
+      mouth = MimiMouth.talk;
+      if (sneezeT < 0.62) {
+        // Lấy đà: híp mắt, há miệng dần, ngửa đầu.
+        final build = sneezeT / 0.62;
+        forcedEyeScaleY = 1 - build * 0.8;
+        mouthOpen = 0.3 + build * 0.6;
+        headOffsetY -= build * 6;
+        earL -= build * 0.2;
+        earR += build * 0.2;
+      } else {
+        final u = (sneezeT - 0.62) / 0.38;
+        forcedEyeScaleY = 0.08;
+        mouthOpen = 1 - u * 0.7;
+      }
+    }
+
+    final laughT = _running(_laughCtrl);
+    if (laughT != null) {
+      happyEyes = true;
+      mouth = MimiMouth.talk;
+      mouthOpen = 0.6 + sin(laughT * pi * 8).abs() * 0.4;
+      earL = -0.3 + sin(laughT * pi * 8) * 0.25;
+      earR = 0.3 - sin(laughT * pi * 8) * 0.25;
+    }
+
+    final wiggleT = _running(_wiggleCtrl);
+    if (wiggleT != null) {
+      happyEyes = true;
+      mouth = MimiMouth.happy;
+      earL += sin(wiggleT * pi * 8) * 0.2;
+      earR -= sin(wiggleT * pi * 8) * 0.2;
+    }
+
+    final dizzyT = _running(_dizzyCtrl);
+    if (dizzyT != null) {
+      happyEyes = false;
+      forcedEyeScaleY = 0.4;
+      mouth = MimiMouth.talk;
+      mouthOpen = 0.35;
+      earL += 0.3;
+      earR -= 0.3;
+    }
+
+    final grumpyT = _running(_grumpyCtrl);
+    if (grumpyT != null) {
+      final env = _envelope(grumpyT);
+      happyEyes = false;
+      forcedEyeScaleY = 1 - env * 0.55;
+      mouth = MimiMouth.idle;
+      earL += 0.45 * env;
+      earR -= 0.45 * env;
+    }
+
+    final yawnT = _running(_yawnCtrl);
+    if (yawnT != null) {
+      final open = sin(yawnT * pi);
+      happyEyes = false;
+      forcedEyeScaleY = 1 - open * 0.9;
+      mouth = MimiMouth.talk;
+      mouthOpen = 0.2 + open * 0.8;
+      earL += open * 0.15;
+      earR -= open * 0.15;
+    }
+
+    final disgustT = _running(_disgustCtrl);
+    if (disgustT != null) {
+      happyEyes = false;
+      forcedEyeScaleY = 0.35;
+      mouth = MimiMouth.idle;
+    }
+
+    final fireT = _running(_fireCtrl);
+    if (fireT != null) {
+      happyEyes = false;
+      forcedEyeScaleY = 0.15;
+      mouth = MimiMouth.talk;
+      mouthOpen = 1.0;
+    }
+
+    final loveT = _running(_loveCtrl);
+    if (loveT != null) {
+      happyEyes = true;
+      if (loveT < 0.5) {
+        mouth = MimiMouth.talk;
+        mouthOpen = 0.2 + sin(loveT * pi * 6).abs() * 0.8;
+      } else {
+        mouth = MimiMouth.happy;
+      }
+    }
+
+    // Rùa rụt đầu vào mai (painter rùa đọc headOffsetY; các con khác chỉ nhắm mắt).
+    final hideT = _running(_hideCtrl);
+    if (hideT != null) {
+      headOffsetY += 22 * _envelope(hideT);
+      happyEyes = false;
+      forcedEyeScaleY = 0.05;
     }
 
     // "Bị trêu/cù" (LIÊN TỤC trong lúc bé giữ tay, xem [_handleLongPressStart])
@@ -606,7 +896,107 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
       }
     }
 
+    decorations.addAll(_buildTeaseDecorations());
     return decorations;
+  }
+
+  Widget _emoji(String emoji, {required double left, required double top, double size = 22, double opacity = 1}) {
+    return Positioned(
+      left: left,
+      top: top,
+      child: IgnorePointer(
+        child: Opacity(
+          opacity: opacity.clamp(0.0, 1.0),
+          child: Text(emoji, style: TextStyle(fontSize: size)),
+        ),
+      ),
+    );
+  }
+
+  /// Hiệu ứng emoji cho các phản ứng khi bị trêu - toạ độ tính trong khung
+  /// vẽ bên trong (kích thước `size * 0.8`, xem Padding ở [build]).
+  List<Widget> _buildTeaseDecorations() {
+    final inner = widget.size * 0.8;
+    final nose = petNoseAnchor(widget.character);
+    final noseX = nose.dx * inner;
+    final noseY = nose.dy * inner;
+    final out = <Widget>[];
+
+    if (widget.sleeping) {
+      for (var i = 0; i < 2; i++) {
+        final t = (_sleepLoopCtrl.value + i * 0.5) % 1.0;
+        out.add(_emoji('💤',
+            left: inner * 0.72 + sin(t * pi * 2) * 6,
+            top: inner * 0.15 - t * inner * 0.3,
+            size: 16 + t * 8,
+            opacity: t < 0.2 ? t / 0.2 : 1 - (t - 0.2) / 0.8));
+      }
+    }
+
+    final sneezeT = _running(_sneezeCtrl);
+    if (sneezeT != null && sneezeT >= 0.62) {
+      final u = (sneezeT - 0.62) / 0.38;
+      out.add(_emoji('💦', left: noseX - 34 - u * 26, top: noseY - 6 + u * 10, size: 18, opacity: 1 - u));
+      out.add(_emoji('💦', left: noseX + 14 + u * 26, top: noseY - 6 + u * 10, size: 18, opacity: 1 - u));
+    }
+
+    final laughT = _running(_laughCtrl);
+    if (laughT != null) {
+      out.add(_emoji('😂', left: inner * 0.02, top: inner * 0.25 - laughT * inner * 0.2, size: 20, opacity: 1 - laughT));
+      out.add(_emoji('😂', left: inner * 0.82, top: inner * 0.3 - laughT * inner * 0.2, size: 20, opacity: 1 - laughT));
+    }
+
+    final dizzyT = _running(_dizzyCtrl);
+    if (dizzyT != null) {
+      for (var i = 0; i < 2; i++) {
+        final a = dizzyT * pi * 6 + i * pi;
+        out.add(_emoji('💫',
+            left: inner * 0.44 + cos(a) * inner * 0.28, top: inner * 0.06 + sin(a) * inner * 0.06, size: 20));
+      }
+    }
+
+    final grumpyT = _running(_grumpyCtrl);
+    if (grumpyT != null) {
+      out.add(_emoji('💢',
+          left: inner * 0.74, top: inner * 0.08, size: 20 + sin(grumpyT * pi * 4).abs() * 6, opacity: _envelope(grumpyT)));
+    }
+
+    final disgustT = _running(_disgustCtrl);
+    if (disgustT != null) {
+      out.add(_emoji('🤢', left: inner * 0.76, top: inner * 0.08, size: 22, opacity: _envelope(disgustT)));
+    }
+
+    final fireT = _running(_fireCtrl);
+    if (fireT != null) {
+      // 2 luồng lửa phụt ngang ra 2 bên miệng (không đè lên người), to dần
+      // rồi tắt - kích thước theo khung vẽ để avatar nhỏ cũng không bị che.
+      final fireSize = inner * (0.1 + sin(fireT * pi) * 0.08);
+      for (final side in const [-1.0, 1.0]) {
+        final dx = side * (inner * 0.1 + fireT * inner * 0.2);
+        out.add(_emoji('🔥',
+            left: noseX + dx - fireSize / 2,
+            top: noseY - fireSize * 0.4,
+            size: fireSize,
+            opacity: 1 - fireT * 0.6));
+      }
+      if (fireT > 0.6) {
+        out.add(_emoji('💧', left: inner * 0.78, top: inner * 0.1, size: 18, opacity: (fireT - 0.6) / 0.4));
+      }
+    }
+
+    final loveT = _running(_loveCtrl);
+    if (loveT != null) {
+      for (var i = 0; i < 3; i++) {
+        final t = ((loveT - i * 0.15) / 0.7).clamp(0.0, 1.0);
+        if (t <= 0) continue;
+        out.add(_emoji('❤️',
+            left: inner * (0.2 + i * 0.28) + sin(t * pi * 2 + i) * 6,
+            top: inner * 0.2 - t * inner * 0.3,
+            size: 18,
+            opacity: 1 - t));
+      }
+    }
+    return out;
   }
 
   @override
@@ -626,6 +1016,17 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
       _sleepCtrl,
       _exerciseCtrl,
       _tickleCtrl,
+      _sneezeCtrl,
+      _laughCtrl,
+      _wiggleCtrl,
+      _dizzyCtrl,
+      _grumpyCtrl,
+      _yawnCtrl,
+      _disgustCtrl,
+      _fireCtrl,
+      _loveCtrl,
+      _hideCtrl,
+      _sleepLoopCtrl,
     ]);
 
     final avatar = AnimatedBuilder(
@@ -642,11 +1043,12 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
 
         final giggleRotate = _giggleTween.evaluate(_giggleCtrl);
         final spinRotate = _spinCtrl.value * 2 * pi;
+        final (motionX, motionY, motionRotate) = _trickMotion();
 
         return Transform.translate(
-          offset: Offset(_dragOffset.dx, _dragOffset.dy + lift),
+          offset: Offset(_dragOffset.dx + motionX, _dragOffset.dy + lift + motionY),
           child: Transform.rotate(
-            angle: giggleRotate + spinRotate,
+            angle: giggleRotate + spinRotate + motionRotate,
             child: TweenAnimationBuilder<double>(
               key: ValueKey((
                 widget.mood,
@@ -704,7 +1106,6 @@ class _PetAvatarState extends State<PetAvatar> with TickerProviderStateMixin {
 
     return GestureDetector(
       onTapUp: _handleTapUp,
-      onDoubleTap: _handleDoubleTap,
       onLongPressStart: _handleLongPressStart,
       onLongPressEnd: _handleLongPressEnd,
       onLongPressCancel: _handleLongPressCancel,

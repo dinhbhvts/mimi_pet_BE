@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +10,8 @@ import 'package:mimi_pet/domain/entities/pet_character.dart';
 import 'package:mimi_pet/domain/entities/pet_mood.dart';
 import 'package:mimi_pet/domain/entities/pet_palette.dart';
 import 'package:mimi_pet/presentation/screens/exam/exam_home_screen.dart';
+import 'package:mimi_pet/presentation/screens/games/games_hub_screen.dart';
+import 'package:mimi_pet/presentation/screens/home/pet_interactions.dart';
 import 'package:mimi_pet/presentation/screens/scenes/picture_scenes_screen.dart';
 import 'package:mimi_pet/presentation/state/child_name_controller.dart';
 import 'package:mimi_pet/presentation/state/pet_character_controller.dart';
@@ -42,49 +45,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // "{child}" (nếu có) được thay bằng tên riêng của bé đã đặt trong Cài đặt
-  // (xem [ChildNameController]/[_handlePetTap]) - KHÔNG phải mọi câu đều cần
-  // có {child}, chỉ vài câu để thỉnh thoảng thú cưng gọi tên bé, tránh lặp
-  // lại tên trong MỌI câu nghe cứng nhắc.
-  static const List<String> _petPhrases = [
-    'Hehe, that tickles! 😄',
-    'Yay! Hi again, {child}! 👋',
-    'I like you, {child}! 💜',
-    "You're my best friend!",
-    'Woohoo!',
-  ];
-
-  static const List<String> _earPullPhrases = [
-    'Hehe, my ear! 😆',
-    'Tickle tickle!',
-    "That's my ear!",
-    'Giggle giggle!',
-  ];
-
-  /// Câu Mimi nói khi bé chạm 2 lần liên tiếp - PHẢN ỨNG MẠNH hơn hẳn 1 lần
-  /// chạm thường (xem [_handlePetDoubleTap]/[PetAvatar.onDoubleTap]).
-  static const List<String> _doubleTapPhrases = [
-    'Whoa! Hehehe, again?! 😆',
-    'Hihi, you got me twice!',
-    'Ahaha, double tickle!',
-  ];
-
-  /// Câu Mimi nói LẶP LẠI trong lúc bé GIỮ TAY trêu (xem [_handleTickleStart]/
-  /// [PetAvatar.onTickleStart]) - xoay vòng ngẫu nhiên mỗi nhịp cho tới khi bé
-  /// thả tay, cảm giác thú cưng "cười không dừng được" càng trêu càng lâu.
-  static const List<String> _tickleLoopPhrases = [
-    'Hahaha! Stop, hihi! 😂',
-    "That tickles so much!",
-    'Hihihi, no more, hehe!',
-    'Ahaha, I can\'t stop laughing!',
-  ];
-
-  /// `null` nghĩa là chưa có tương tác gì - lúc đó bong bóng thoại hiển thị
-  /// câu chào MẶC ĐỊNH theo đúng tên nhân vật đang chọn (xem [build]), thay
-  /// vì cố định "Hi! I'm Mimi!" như trước (giờ bé có thể chọn Bunny/Moni).
   String? _bubbleText;
   bool _isBusy = false;
   DateTime? _lastPetAt;
+  DateTime? _lastDoubleTapAt;
   final _random = Random();
   late final PetAvatarController _mimiController;
 
@@ -94,79 +58,206 @@ class _HomeScreenState extends State<HomeScreen> {
   /// bình thường, chỉ cần bấm mở ra trước.
   bool _customizeExpanded = false;
 
-  /// Chạy lặp lại trong lúc bé GIỮ TAY trêu thú cưng (xem [_handleTickleStart]/
-  /// [_handleTickleEnd]) - đọc to 1 câu "cười" ngẫu nhiên + rung nhẹ mỗi
-  /// nhịp, dừng hẳn khi bé thả tay ra.
+  /// Chạy lặp lại trong lúc bé GIỮ TAY cù thú cưng (xem [_handleTickleStart]).
   Timer? _tickleTimer;
+  DateTime? _tickleStartedAt;
+
+  /// Đang đọc dở 1 câu cười - nhịp cù kế tiếp KHÔNG ngắt ngang câu đó (trước
+  /// đây cứ 0,9 giây đọc câu mới làm câu nào cũng bị cắt giữa chừng).
+  bool _tickleSpeaking = false;
+
+  /// Trêu dồn dập -> giả vờ dỗi -> phì cười -> mệt (xem [TeaseMeter]).
+  final _teaseMeter = TeaseMeter();
+
+  /// Ngủ kéo dài sau khi bấm "Đi ngủ" - chạm 1 lần chỉ trở mình, chạm tiếp
+  /// thì giật mình thức dậy; tự dậy sau [_sleepDuration].
+  bool _asleep = false;
+  int _sleepStirs = 0;
+  Timer? _autoWakeTimer;
+  static const _sleepDuration = Duration(seconds: 30);
+
+  /// Mốc các lần cho ăn gần đây - ăn quá nhiều liền nhau thì "no căng bụng".
+  final List<DateTime> _recentFeeds = [];
+
+  /// Thú cưng tự rủ bé chơi khi để yên lâu - chỉ khi bé đang ở tab Home và
+  /// không có màn hình khác đè lên, tối đa vài lần liên tiếp để không làm phiền.
+  Timer? _idleTimer;
+  DateTime _lastInteractionAt = DateTime.now();
+  int _idlePromptsInRow = 0;
+  Duration _nextIdleAfter = const Duration(seconds: 30);
+  static const _maxIdlePromptsInRow = 3;
+  ValueListenable<TickerModeData>? _tickerEnabled;
+  ModalRoute<Object?>? _route;
+  bool _wasHidden = false;
 
   @override
   void initState() {
     super.initState();
     _mimiController = PetAvatarController();
+    _nextIdleAfter = _randomIdleDelay();
+    _idleTimer = Timer.periodic(const Duration(seconds: 5), (_) => _checkIdle());
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _tickerEnabled = TickerMode.getValuesNotifier(context);
+    _route = ModalRoute.of(context);
   }
 
   @override
   void dispose() {
     _mimiController.dispose();
     _tickleTimer?.cancel();
+    _autoWakeTimer?.cancel();
+    _idleTimer?.cancel();
     super.dispose();
   }
 
-  /// Bé chạm/vuốt ve thú cưng ở Home - chỉ để vui, KHÔNG cộng sao (phân biệt
-  /// rõ với việc học ở tab Play, tránh bé bấm loạn để "cày" sao ảo). Chạm
-  /// vào tai (trái/phải) có câu thoại riêng, khác với chạm vào thân/đầu.
+  // ------------------------------------------------------------------ helpers
+
+  PetCharacter get _character => context.read<PetCharacterController>().character;
+
+  String _withName(String phrase) {
+    final name = context.read<ChildNameController>().name;
+    return phrase.replaceAll('{child}', (name == null || name.trim().isEmpty) ? 'friend' : name.trim());
+  }
+
+  /// Hiện câu trong bong bóng + đọc to + đổi mood. Các phản ứng "khó chịu"
+  /// (dỗi, chóng mặt, nhăn mặt) dùng mood idle để thú cưng không nhún nhảy vui.
+  void _say(String phrase, {PetMood mood = PetMood.happy, Duration idleAfter = const Duration(seconds: 2)}) {
+    final text = _withName(phrase);
+    setState(() => _bubbleText = text);
+    final pet = context.read<PetController>();
+    if (mood == PetMood.happy) {
+      pet.setMood(PetMood.happy, autoIdleAfter: idleAfter);
+    } else {
+      pet.setMood(mood);
+    }
+    context.read<TtsService>().speak(text);
+  }
+
+  void _markInteraction() {
+    _lastInteractionAt = DateTime.now();
+    _idlePromptsInRow = 0;
+  }
+
+  /// Phản ứng theo mức bị trêu - trả về true nếu đã xử lý (dỗi/cười/mệt).
+  bool _reactToTease(TeaseReaction reaction) {
+    switch (reaction) {
+      case TeaseReaction.grumpy:
+        _mimiController.play(MimiTrick.grumpy);
+        _say(PetPhrases.pick(PetPhrases.grumpy, _random), mood: PetMood.idle);
+        return true;
+      case TeaseReaction.burstLaugh:
+        _mimiController.play(MimiTrick.bellyLaugh);
+        _say(PetPhrases.pick(PetPhrases.burstLaugh, _random), idleAfter: const Duration(seconds: 3));
+        return true;
+      case TeaseReaction.tired:
+        _mimiController.play(MimiTrick.yawn);
+        _say(PetPhrases.pick(PetPhrases.tired, _random), mood: PetMood.idle);
+        return true;
+      case TeaseReaction.normal:
+        return false;
+    }
+  }
+
+  // ------------------------------------------------------------------ touch
+
+  /// Bé chạm/vuốt ve thú cưng ở Home - chỉ để vui, KHÔNG cộng sao. Mỗi vùng
+  /// (tai/mũi/bụng/chân/thân) có phản ứng riêng.
   void _handlePetTap(MimiTapRegion region) {
     if (_isBusy) return;
+    _markInteraction();
+    if (_asleep) {
+      _handleSleepingTap();
+      return;
+    }
 
     final now = DateTime.now();
     if (_lastPetAt != null && now.difference(_lastPetAt!) < const Duration(milliseconds: 900)) {
-      return; // chống bấm liên tục dồn dập
+      // Chạm dồn dập: không nói thêm câu mới (tránh câu nọ chèn câu kia) nhưng
+      // VẪN tính là đang trêu - nếu không, điểm trêu tự giảm nhanh hơn tốc độ
+      // cộng và thú cưng không bao giờ dỗi/phì cười dù bé chạm liên tục.
+      final reaction = _teaseMeter.add(0.5, now);
+      if (reaction == TeaseReaction.burstLaugh || reaction == TeaseReaction.tired) {
+        _lastPetAt = now;
+        _reactToTease(reaction);
+      }
+      return;
     }
     _lastPetAt = now;
 
-    final pet = context.read<PetController>();
-    final tts = context.read<TtsService>();
-    final isEar = region == MimiTapRegion.earLeft || region == MimiTapRegion.earRight;
-    final rawPhrase = isEar
-        ? _earPullPhrases[_random.nextInt(_earPullPhrases.length)]
-        : _petPhrases[_random.nextInt(_petPhrases.length)];
-    // "friend" khi bé chưa đặt tên riêng - đọc tự nhiên trong câu tiếng Anh
-    // (xem [_petPhrases]), khác cách xưng hô chung chung tiếng Việt "bạn"
-    // dùng ở những chỗ khác trong app (Cài đặt...).
-    final childName = context.read<ChildNameController>().name;
-    final phrase = rawPhrase.replaceAll(
-      '{child}',
-      (childName == null || childName.trim().isEmpty) ? 'friend' : childName.trim(),
-    );
-
     HapticFeedback.mediumImpact();
-    setState(() => _bubbleText = phrase);
-    pet.setMood(PetMood.happy, autoIdleAfter: const Duration(seconds: 2));
-    tts.speak(phrase);
+    final reaction = _teaseMeter.add(region == MimiTapRegion.body ? 1.0 : 1.5, now);
+    if (_reactToTease(reaction)) return;
+
+    switch (region) {
+      case MimiTapRegion.nose:
+        _mimiController.play(MimiTrick.sneeze);
+      case MimiTapRegion.belly:
+        _mimiController.play(_character == PetCharacter.moni ? MimiTrick.hide : MimiTrick.bellyLaugh);
+      case MimiTapRegion.feet:
+        _mimiController.play(MimiTrick.footWiggle);
+      case MimiTapRegion.earLeft:
+      case MimiTapRegion.earRight:
+      case MimiTapRegion.body:
+        break; // PetAvatar đã tự kéo tai/lắc cười ngay lúc chạm
+    }
+    _say(PetPhrases.pick(PetPhrases.forRegion(region, _character), _random));
   }
 
-  /// Chạm 2 lần liên tiếp (nhanh) - phản ứng MẠNH hơn hẳn 1 lần chạm thường,
-  /// đúng kiểu bé "trêu bất ngờ" thú cưng (xem [PetAvatar.onDoubleTap]).
+  /// Chạm 2 lần liên tiếp (nhanh) - phản ứng MẠNH: cười lăn.
   void _handlePetDoubleTap() {
     if (_isBusy) return;
-    final phrase = _doubleTapPhrases[_random.nextInt(_doubleTapPhrases.length)];
+    _markInteraction();
+    if (_asleep) {
+      _wake();
+      _mimiController.bonusJump();
+      _say(PetPhrases.pick(PetPhrases.sleepWake, _random));
+      return;
+    }
     HapticFeedback.heavyImpact();
-    setState(() => _bubbleText = phrase);
-    context.read<PetController>().setMood(PetMood.happy, autoIdleAfter: const Duration(seconds: 2));
-    context.read<TtsService>().speak(phrase);
+    final now = DateTime.now();
+    final reaction = _teaseMeter.add(2, now);
+    // Chạm liên hồi tạo ra double tap liên tục - chỉ phản ứng lại sau mỗi
+    // 1.5 giây (trừ lúc phì cười/mệt) để câu đang đọc không bị cắt ngang.
+    final lastDouble = _lastDoubleTapAt;
+    final tooSoon = lastDouble != null && now.difference(lastDouble) < const Duration(milliseconds: 1500);
+    if (tooSoon && reaction != TeaseReaction.burstLaugh && reaction != TeaseReaction.tired) return;
+    _lastDoubleTapAt = now;
+    _lastPetAt = now;
+    if (_reactToTease(reaction)) return;
+    _mimiController.play(MimiTrick.bellyLaugh);
+    _say(PetPhrases.pick(PetPhrases.doubleTap, _random));
   }
 
-  /// Bé bắt đầu GIỮ TAY trêu thú cưng - đọc ngay 1 câu, rồi lặp lại đều đặn
-  /// (kèm rung nhẹ mỗi nhịp) cho tới khi bé thả tay ([_handleTickleEnd]) -
-  /// đúng kiểu "trêu càng lâu thú cưng càng cười to" bé nhà bạn thích.
+  /// Bé bắt đầu GIỮ TAY cù - câu cười leo thang theo thời gian giữ (khúc
+  /// khích -> "Stop, stop!" -> "I can't breathe!"), không ngắt câu đang đọc.
   void _handleTickleStart() {
     if (_isBusy) return;
+    _markInteraction();
+    var firstPhrase = _asleep ? PetPhrases.pick(PetPhrases.sleepWakeLaugh, _random) : null;
+    if (_asleep) _wake();
     _tickleTimer?.cancel();
+    _tickleStartedAt = DateTime.now();
+
     void tick() {
       if (!mounted) return;
       HapticFeedback.lightImpact();
-      setState(() => _bubbleText = _tickleLoopPhrases[_random.nextInt(_tickleLoopPhrases.length)]);
-      context.read<TtsService>().speak(_bubbleText!);
+      final held = DateTime.now().difference(_tickleStartedAt!);
+      final tier = held < const Duration(seconds: 3)
+          ? PetPhrases.tickleMild
+          : held < const Duration(seconds: 7)
+              ? PetPhrases.tickleStrong
+              : PetPhrases.tickleMax;
+      final phrase = firstPhrase ?? PetPhrases.pick(tier, _random);
+      firstPhrase = null;
+      setState(() => _bubbleText = phrase);
+      if (!_tickleSpeaking) {
+        _tickleSpeaking = true;
+        context.read<TtsService>().speak(phrase).whenComplete(() => _tickleSpeaking = false);
+      }
     }
 
     tick();
@@ -174,18 +265,83 @@ class _HomeScreenState extends State<HomeScreen> {
     context.read<PetController>().setMood(PetMood.happy);
   }
 
-  /// Bé thả tay ra - dừng hẳn vòng lặp câu "cười", thú cưng thở phào trở lại
-  /// bình thường sau vài giây.
+  /// Bé thả tay: cù quá lâu thì thú cưng mệt ngáp dài, còn không thì thở phào.
   void _handleTickleEnd() {
     _tickleTimer?.cancel();
     _tickleTimer = null;
-    if (!mounted) return;
+    final started = _tickleStartedAt;
+    _tickleStartedAt = null;
+    if (!mounted || started == null) return;
+    _markInteraction();
+    final heldSeconds = DateTime.now().difference(started).inMilliseconds / 1000.0;
+    if (heldSeconds >= 7) {
+      _teaseMeter.reset();
+      _mimiController.play(MimiTrick.yawn);
+      _say(PetPhrases.pick(PetPhrases.tired, _random), mood: PetMood.idle);
+      return;
+    }
+    if (_reactToTease(_teaseMeter.add(heldSeconds * 0.5, DateTime.now()))) return;
     setState(() => _bubbleText = 'Phew! Hehe, that was fun! 😊');
     context.read<PetController>().setMood(PetMood.happy, autoIdleAfter: const Duration(seconds: 2));
   }
 
+  /// Bé thả tay sau khi KÉO thú cưng - kéo qua lại nhiều thì chóng mặt.
+  void _handleDragEnd(double intensity) {
+    if (_isBusy || intensity < 1.0) return;
+    _markInteraction();
+    if (_asleep) {
+      _wake();
+      _mimiController.bonusJump();
+      _say('Whoa! Am I sleepwalking?! 😳');
+      return;
+    }
+    if (intensity >= 5) {
+      _teaseMeter.add(2, DateTime.now());
+      _mimiController.play(MimiTrick.dizzy);
+      _say(PetPhrases.pick(PetPhrases.dragWild, _random), mood: PetMood.idle);
+    } else {
+      _teaseMeter.add(1, DateTime.now());
+      _say(PetPhrases.pick(PetPhrases.dragSmall, _random));
+    }
+  }
+
+  // ------------------------------------------------------------------ sleep
+
+  void _wake() {
+    _autoWakeTimer?.cancel();
+    _autoWakeTimer = null;
+    setState(() {
+      _asleep = false;
+      _sleepStirs = 0;
+    });
+  }
+
+  /// Nút chơi/nói bất kỳ trong lúc ngủ: đánh thức êm (không nói gì thêm).
+  void _wakeIfAsleep() {
+    if (_asleep) _wake();
+  }
+
+  void _handleSleepingTap() {
+    _sleepStirs++;
+    if (_sleepStirs < 2) {
+      HapticFeedback.lightImpact();
+      final phrase = PetPhrases.pick(PetPhrases.sleepStir, _random);
+      setState(() => _bubbleText = phrase);
+      context.read<TtsService>().speak(phrase);
+      return;
+    }
+    HapticFeedback.heavyImpact();
+    _wake();
+    _mimiController.bonusJump();
+    _say(PetPhrases.pick(PetPhrases.sleepWake, _random));
+  }
+
+  // ------------------------------------------------------------------ buttons
+
   void _handleSpin() {
     if (_isBusy) return;
+    _markInteraction();
+    _wakeIfAsleep();
     _mimiController.spin();
     HapticFeedback.lightImpact();
     setState(() => _bubbleText = 'Wheee! 🌀');
@@ -195,6 +351,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _handleBonusJump() {
     if (_isBusy) return;
+    _markInteraction();
+    _wakeIfAsleep();
     _mimiController.bonusJump();
     HapticFeedback.lightImpact();
     setState(() => _bubbleText = 'Boing boing! 🦘');
@@ -202,17 +360,52 @@ class _HomeScreenState extends State<HomeScreen> {
     context.read<TtsService>().speak('Boing boing! Jump with me!');
   }
 
-  void _handleFeed() {
+  /// "Cho ăn": bé chọn món - thú cưng có món THÍCH (tim bay), món GHÉT (nhăn
+  /// mặt), ăn ớt thì phun lửa, ăn liền nhiều món thì no căng bụng.
+  Future<void> _handleFeed() async {
     if (_isBusy) return;
-    _mimiController.eat();
+    _markInteraction();
+    _wakeIfAsleep();
+    final food = await showModalBottomSheet<PetFood>(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
+      builder: (sheetContext) => _FoodMenu(petName: PetCharacterInfo.all[_character]!.displayName),
+    );
+    if (food == null || !mounted) return;
+    _markInteraction();
     HapticFeedback.lightImpact();
-    setState(() => _bubbleText = 'Yummy carrot! 🥕');
-    context.read<PetController>().setMood(PetMood.happy, autoIdleAfter: const Duration(seconds: 2));
-    context.read<TtsService>().speak('Yummy! I love carrots!');
+
+    final now = DateTime.now();
+    _recentFeeds.removeWhere((t) => now.difference(t) > const Duration(minutes: 1));
+    if (_recentFeeds.length >= 5) {
+      _mimiController.play(MimiTrick.yawn);
+      _say("I'm so full! No more food, please! 😵", mood: PetMood.idle);
+      return;
+    }
+    _recentFeeds.add(now);
+
+    final reaction = foodReactionFor(_character, food);
+    switch (reaction) {
+      case FoodReaction.love:
+        _mimiController.play(MimiTrick.love);
+        _say(foodPhrase(reaction, food), idleAfter: const Duration(seconds: 3));
+      case FoodReaction.like:
+        _mimiController.eat();
+        _say(foodPhrase(reaction, food));
+      case FoodReaction.dislike:
+        _mimiController.play(MimiTrick.disgust);
+        _say(foodPhrase(reaction, food), mood: PetMood.idle);
+      case FoodReaction.spicy:
+        _mimiController.play(MimiTrick.fire);
+        _say(foodPhrase(reaction, food), mood: PetMood.idle);
+    }
   }
 
   void _handleBath() {
     if (_isBusy) return;
+    _markInteraction();
+    _wakeIfAsleep();
     _mimiController.bath();
     HapticFeedback.lightImpact();
     setState(() => _bubbleText = 'Splish splash! Bath time! 🛁');
@@ -220,25 +413,79 @@ class _HomeScreenState extends State<HomeScreen> {
     context.read<TtsService>().speak('Splish splash! I love bath time!');
   }
 
-  /// KHÔNG đặt mood `happy` (khác các trò khác) - "đi ngủ" cần đứng yên,
-  /// mắt nhắm, không nhún nhảy (mood happy sẽ làm Mimi nhảy trong lúc đang
-  /// "ngủ", nhìn kỳ - xem `PetAvatarController.sleep`/`_PetAvatarState._buildPose`).
+  /// Ngủ KÉO DÀI (xem [_asleep]) - mood idle để không nhún nhảy trong lúc ngủ.
   void _handleSleep() {
     if (_isBusy) return;
+    _markInteraction();
     _mimiController.sleep();
     HapticFeedback.lightImpact();
-    setState(() => _bubbleText = 'Good night! Sweet dreams! 🌙');
+    _autoWakeTimer?.cancel();
+    setState(() {
+      _asleep = true;
+      _sleepStirs = 0;
+      _bubbleText = 'Good night! Sweet dreams! 🌙';
+    });
     context.read<PetController>().setMood(PetMood.idle);
     context.read<TtsService>().speak('Good night! Sweet dreams!');
+    _autoWakeTimer = Timer(_sleepDuration, () {
+      if (!mounted || !_asleep) return;
+      _wake();
+      _mimiController.bonusJump();
+      _say(PetPhrases.sleepAutoWake);
+    });
   }
 
   void _handleExercise() {
     if (_isBusy) return;
+    _markInteraction();
+    _wakeIfAsleep();
     _mimiController.exercise();
     HapticFeedback.lightImpact();
     setState(() => _bubbleText = "Let's exercise! One, two, three! 🤸");
     context.read<PetController>().setMood(PetMood.happy, autoIdleAfter: const Duration(seconds: 2));
     context.read<TtsService>().speak("Let's exercise together!");
+  }
+
+  // ------------------------------------------------------------------ idle
+
+  Duration _randomIdleDelay() => Duration(seconds: 25 + _random.nextInt(16));
+
+  /// Thú cưng tự rủ chơi - CHỈ khi bé đang nhìn thấy Home (đúng tab, không
+  /// có màn hình khác đè lên, app đang mở) và không đang ngủ/cù/bận.
+  void _checkIdle() {
+    if (!mounted || _isBusy || _asleep || _tickleTimer != null) return;
+    if (_idlePromptsInRow >= _maxIdlePromptsInRow) return;
+    final lifecycle = WidgetsBinding.instance.lifecycleState;
+    final visible = (_tickerEnabled?.value.enabled ?? true) &&
+        (_route?.isCurrent ?? true) &&
+        (lifecycle == null || lifecycle == AppLifecycleState.resumed);
+    final now = DateTime.now();
+    if (!visible) {
+      _wasHidden = true;
+      return;
+    }
+    if (_wasHidden) {
+      // Bé vừa quay lại Home: đếm lại từ đầu, không "nhảy vào nói" ngay.
+      _wasHidden = false;
+      _lastInteractionAt = now;
+      return;
+    }
+    if (now.difference(_lastInteractionAt) < _nextIdleAfter) return;
+
+    final prompts = IdlePrompt.forCharacter(_character);
+    final prompt = prompts[_random.nextInt(prompts.length)];
+    switch (prompt.action) {
+      case IdleAction.wiggle:
+        _mimiController.play(MimiTrick.footWiggle);
+      case IdleAction.yawn:
+        _mimiController.play(MimiTrick.yawn);
+      case IdleAction.jump:
+        _mimiController.bonusJump();
+    }
+    _say(prompt.text, mood: prompt.action == IdleAction.yawn ? PetMood.idle : PetMood.happy);
+    _idlePromptsInRow++;
+    _lastInteractionAt = now;
+    _nextIdleAfter = _randomIdleDelay();
   }
 
   /// Bé chọn đổi nhân vật - chỉ đổi hình vẽ + câu chào, KHÔNG reset mood hay
@@ -247,6 +494,9 @@ class _HomeScreenState extends State<HomeScreen> {
     if (_isBusy) return;
     final controller = context.read<PetCharacterController>();
     if (controller.character == character) return;
+    _markInteraction();
+    _wakeIfAsleep();
+    _teaseMeter.reset();
     HapticFeedback.selectionClick();
     controller.select(character);
     final info = PetCharacterInfo.all[character]!;
@@ -260,6 +510,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (_isBusy) return;
     final controller = context.read<PetPaletteController>();
     if (controller.paletteFor(character) == palette) return;
+    _markInteraction();
     HapticFeedback.selectionClick();
     controller.select(character, palette);
     setState(() => _bubbleText = 'Ooh, I love this color! ✨');
@@ -267,6 +518,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _handleTalkPressed() async {
     if (_isBusy) return;
+    _markInteraction();
+    _wakeIfAsleep();
 
     final pet = context.read<PetController>();
     final speech = context.read<SpeechService>();
@@ -300,6 +553,8 @@ class _HomeScreenState extends State<HomeScreen> {
   /// nên KHÔNG cần bọc try/catch/timeout của speech_to_text.
   Future<void> _handleTypedTalk(String text) async {
     if (_isBusy) return;
+    _markInteraction();
+    _wakeIfAsleep();
     setState(() => _isBusy = true);
     try {
       await _respondToHeard(text);
@@ -347,6 +602,12 @@ class _HomeScreenState extends State<HomeScreen> {
   void _openExam(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => const ExamHomeScreen()),
+    );
+  }
+
+  void _openGames(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => const GamesHubScreen()),
     );
   }
 
@@ -539,6 +800,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onDoubleTap: _handlePetDoubleTap,
                     onTickleStart: _handleTickleStart,
                     onTickleEnd: _handleTickleEnd,
+                    onDragEnd: _handleDragEnd,
+                    sleeping: _asleep,
                     controller: _mimiController,
                   ),
                   const SizedBox(height: 8),
@@ -588,6 +851,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   // chính là nguyên nhân card "biến mất" trên máy nhỏ/khi mở
                   // bàn phím, xem ghi chú ở đầu `build()`).
                   _PictureScenesCard(onTap: () => _openPictureScenes(context)),
+                  const SizedBox(height: 10),
+                  _GamesCard(onTap: () => _openGames(context)),
                   const SizedBox(height: 10),
                   _ExamCard(onTap: () => _openExam(context)),
                 ],
@@ -652,6 +917,53 @@ class _PictureScenesCard extends StatelessWidget {
   }
 }
 
+/// Thẻ lối vào "Góc trò chơi" (minigame + album sticker) - màu xanh lá để
+/// phân biệt với "Bài tranh" (cam) và "Thi thử" (tím).
+class _GamesCard extends StatelessWidget {
+  final VoidCallback onTap;
+
+  const _GamesCard({required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: const Color(0xFFE9F7EC),
+      borderRadius: BorderRadius.circular(20),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: onTap,
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: const Color(0xFFA8DDB5), width: 1.5),
+          ),
+          child: const Row(
+            children: [
+              Text('🎲', style: TextStyle(fontSize: 30)),
+              SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Góc trò chơi', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    Text(
+                      'Lật thẻ, chạm bong bóng, sưu tập sticker',
+                      style: TextStyle(fontSize: 12, color: Colors.black54),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right_rounded, color: Color(0xFF3FAE5A)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 /// Thẻ lối vào "Thi thử" (xem [HomeScreen._openExam]) - đặt ngay dưới thẻ
 /// "Bài tranh", cùng kiểu thẻ nổi bật nhưng dùng màu tím (đồng bộ AppColors.primary)
 /// để phân biệt trực quan với thẻ "Bài tranh" (màu cam).
@@ -697,6 +1009,64 @@ class _ExamCard extends StatelessWidget {
               const Icon(Icons.chevron_right_rounded, color: Color(0xFF8B6FD9)),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Menu "Cho ăn": bé chọn 1 món (hình + tên tiếng Anh để học từ).
+class _FoodMenu extends StatelessWidget {
+  final String petName;
+
+  const _FoodMenu({required this.petName});
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 18, 20, 20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Cho $petName ăn gì nào? 🍽️',
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 4),
+            const Text('Có món bạn ấy rất thích, có món bạn ấy chê đấy!',
+                style: TextStyle(fontSize: 13, color: Colors.black54)),
+            const SizedBox(height: 14),
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: [
+                for (final food in PetFood.all)
+                  Material(
+                    color: const Color(0xFFFFF6EA),
+                    borderRadius: BorderRadius.circular(16),
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(16),
+                      onTap: () => Navigator.of(context).pop(food),
+                      child: SizedBox(
+                        width: 76,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          child: Column(
+                            children: [
+                              Text(food.emoji, style: const TextStyle(fontSize: 32)),
+                              const SizedBox(height: 4),
+                              Text(food.en,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ],
         ),
       ),
     );

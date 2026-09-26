@@ -36,9 +36,7 @@ bool _isTemporaryGeminiError(String? errorCode) {
 ///    (key sai/hết hạn, nội dung bị chặn an toàn) vẫn được báo thật cho phụ
 ///    huynh qua `ChatController.friendlyErrorMessage`, KHÔNG âm thầm che đi.
 class CompositeChatService implements ChatReplyService {
-  CompositeChatService({required GeminiChatService gemini, required OfflineChatService offline})
-    : _gemini = gemini,
-      _offline = offline;
+  CompositeChatService({required this._gemini, required this._offline});
 
   final GeminiChatService _gemini;
   final OfflineChatService _offline;

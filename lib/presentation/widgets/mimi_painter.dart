@@ -56,4 +56,4 @@ class MimiPalette {
 /// (thân/đầu) với "kéo tai" (tai trái/phải), cho 2 phản ứng khác nhau. Xem
 /// `hitTestPetCharacter` trong `pet_character_painters.dart` để biết cách
 /// xác định vùng này theo từng nhân vật (rùa Moni không có tai).
-enum MimiTapRegion { earLeft, earRight, body }
+enum MimiTapRegion { earLeft, earRight, nose, belly, feet, body }

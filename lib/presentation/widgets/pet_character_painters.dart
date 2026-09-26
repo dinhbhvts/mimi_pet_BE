@@ -1052,9 +1052,73 @@ MimiTapRegion hitTestPetCharacter(PetCharacter character, Offset localPoint, Siz
     (localPoint.dx - offsetX) / scale,
     (localPoint.dy - offsetY) / scale,
   );
+  // Mũi kiểm tra TRƯỚC tai: mũi rất nhỏ, còn vùng tai thỏ/mèo khá rộng lấn
+  // cả 2 bên mặt.
+  if (_noseHitBox(character).contains(referencePoint)) return MimiTapRegion.nose;
   final earLeft = _earLeftHitBox(character);
   final earRight = _earRightHitBox(character);
   if (earLeft != null && earLeft.contains(referencePoint)) return MimiTapRegion.earLeft;
   if (earRight != null && earRight.contains(referencePoint)) return MimiTapRegion.earRight;
+  if (_feetHitBoxes(character).any((r) => r.contains(referencePoint))) return MimiTapRegion.feet;
+  if (_bellyHitBox(character).contains(referencePoint)) return MimiTapRegion.belly;
   return MimiTapRegion.body;
+}
+
+/// Mũi (mỏ với chim cánh cụt, cả khuôn mặt với rùa) trong khung tham chiếu.
+Rect _noseHitBox(PetCharacter character) {
+  switch (character) {
+    case PetCharacter.bunny:
+      return const Rect.fromLTWH(97, 110, 26, 20);
+    case PetCharacter.mimi:
+      return const Rect.fromLTWH(97, 108, 26, 20);
+    case PetCharacter.moni:
+      return const Rect.fromLTWH(92, 72, 36, 34);
+    case PetCharacter.squirrel:
+      return const Rect.fromLTWH(98, 112, 24, 18);
+    case PetCharacter.penguin:
+      return const Rect.fromLTWH(98, 72, 24, 24);
+  }
+}
+
+/// Bụng (mai với rùa).
+Rect _bellyHitBox(PetCharacter character) {
+  switch (character) {
+    case PetCharacter.bunny:
+      return const Rect.fromLTWH(86, 160, 48, 30);
+    case PetCharacter.mimi:
+      return const Rect.fromLTWH(90, 150, 40, 24);
+    case PetCharacter.moni:
+      return const Rect.fromLTWH(62, 105, 96, 52);
+    case PetCharacter.squirrel:
+      return const Rect.fromLTWH(92, 150, 36, 40);
+    case PetCharacter.penguin:
+      return const Rect.fromLTWH(88, 100, 44, 90);
+  }
+}
+
+List<Rect> _feetHitBoxes(PetCharacter character) {
+  switch (character) {
+    case PetCharacter.bunny:
+      return const [Rect.fromLTWH(55, 186, 32, 20), Rect.fromLTWH(133, 186, 32, 20)];
+    case PetCharacter.mimi:
+      return const [Rect.fromLTWH(82, 172, 20, 28), Rect.fromLTWH(118, 172, 20, 28)];
+    case PetCharacter.moni:
+      return const [
+        Rect.fromLTWH(50, 134, 30, 22),
+        Rect.fromLTWH(140, 134, 30, 22),
+        Rect.fromLTWH(60, 160, 30, 20),
+        Rect.fromLTWH(130, 160, 30, 20),
+      ];
+    case PetCharacter.squirrel:
+      return const [Rect.fromLTWH(72, 187, 28, 18), Rect.fromLTWH(120, 187, 28, 18)];
+    case PetCharacter.penguin:
+      return const [Rect.fromLTWH(72, 204, 32, 16), Rect.fromLTWH(116, 204, 32, 16)];
+  }
+}
+
+/// Vị trí mũi theo TỈ LỆ khung vẽ (0..1) - để đặt hiệu ứng hắt xì 💦 / lửa 🔥
+/// đúng chỗ trên từng nhân vật.
+Offset petNoseAnchor(PetCharacter character) {
+  final box = _noseHitBox(character);
+  return Offset(box.center.dx / petCharacterReferenceSize, box.center.dy / petCharacterReferenceSize);
 }

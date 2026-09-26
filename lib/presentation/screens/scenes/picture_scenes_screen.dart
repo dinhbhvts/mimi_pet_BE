@@ -135,7 +135,9 @@ class _SceneCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      '${scene.questions.length} câu hỏi',
+                      scene.questions.length > ScenePlayController.questionsPerSession
+                          ? '${ScenePlayController.questionsPerSession} câu/lượt · ${scene.questions.length} câu hỏi'
+                          : '${scene.questions.length} câu hỏi',
                       style: const TextStyle(fontSize: 12, color: AppColors.primary, fontWeight: FontWeight.w600),
                     ),
                   ],
