@@ -15,6 +15,7 @@ import 'package:mimi_pet/presentation/state/streak_controller.dart';
 import 'package:mimi_pet/services/sound_service.dart';
 import 'package:mimi_pet/services/speech_service.dart';
 import 'package:mimi_pet/services/tts_service.dart';
+import 'package:mimi_pet/presentation/widgets/emoji_art.dart';
 
 /// Tab "Play": bản đồ các bài học kiểu Duolingo - mỗi bài học là 1 điểm
 /// dừng trên con đường ngoằn ngoèo (thay cho danh sách thẻ đơn giản trước
@@ -219,7 +220,7 @@ class _LessonNode extends StatelessWidget {
               child: Center(
                 child: isLocked
                     ? const Icon(Icons.lock_rounded, color: Colors.white, size: 32)
-                    : Text(lesson.emoji, style: const TextStyle(fontSize: 36)),
+                    : EmojiArt(lesson.emoji, size: 42),
               ),
             ),
           ),

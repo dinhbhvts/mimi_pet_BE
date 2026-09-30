@@ -292,7 +292,10 @@ class _PhotoCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
         border: Border.all(color: Colors.black12),
       ),
-      child: Text(emoji, style: const TextStyle(fontSize: 56)),
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(emoji, textScaler: TextScaler.noScaling, style: const TextStyle(fontSize: 56)),
+      ),
     );
   }
 }

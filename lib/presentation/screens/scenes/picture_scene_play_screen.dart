@@ -152,12 +152,14 @@ class _ScenePlayBody extends StatelessWidget {
                         const SizedBox(height: 16),
                         SpeechBubble(text: ctrl.currentQuestion.prompt),
                         const SizedBox(height: 10),
-                        SizedBox(
-                          height: 20,
+                        // Tự giãn theo chữ - xem ghi chú cùng chỗ ở lesson_screen.dart.
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(minHeight: 22),
                           child: statusText.isEmpty
                               ? null
                               : Text(
                                   statusText,
+                                  textAlign: TextAlign.center,
                                   style: const TextStyle(fontSize: 15, color: AppColors.textMuted),
                                 ),
                         ),

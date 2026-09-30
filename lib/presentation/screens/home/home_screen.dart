@@ -25,6 +25,7 @@ import 'package:mimi_pet/presentation/widgets/talk_button.dart';
 import 'package:mimi_pet/presentation/widgets/type_instead_of_talk.dart';
 import 'package:mimi_pet/services/speech_service.dart';
 import 'package:mimi_pet/services/tts_service.dart';
+import 'package:mimi_pet/presentation/widgets/emoji_art.dart';
 
 /// Tab "Home": nơi bé gặp thú cưng (Bunny/Mimi/Moni - bé tự chọn) và có thể
 /// chào hỏi tự do (không tính vào bài học/điểm sao) - đúng bước 6-8 trong kế
@@ -949,7 +950,7 @@ class _GamesCard extends StatelessWidget {
                   children: [
                     Text('Góc trò chơi', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     Text(
-                      'Lật thẻ, chạm bong bóng, sưu tập sticker',
+                      'Lật thẻ, chạm bong bóng, ếch qua sông, sưu tập sticker',
                       style: TextStyle(fontSize: 12, color: Colors.black54),
                     ),
                   ],
@@ -1053,7 +1054,7 @@ class _FoodMenu extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(vertical: 10),
                           child: Column(
                             children: [
-                              Text(food.emoji, style: const TextStyle(fontSize: 32)),
+                              EmojiArt(food.emoji, size: 36),
                               const SizedBox(height: 4),
                               Text(food.en,
                                   textAlign: TextAlign.center,

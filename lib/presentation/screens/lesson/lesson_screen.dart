@@ -16,6 +16,7 @@ import 'package:mimi_pet/presentation/widgets/speech_bubble.dart';
 import 'package:mimi_pet/presentation/widgets/streak_celebration.dart';
 import 'package:mimi_pet/presentation/widgets/talk_button.dart';
 import 'package:mimi_pet/presentation/widgets/type_instead_of_talk.dart';
+import 'package:mimi_pet/presentation/widgets/emoji_art.dart';
 
 /// Màn hình chơi 1 bài học - Mimi hỏi (nhiều KIỂU: nói/chọn/điền từ/sắp xếp
 /// câu/chính tả/luyện phát âm, xem [QuestionKind]) -> bé trả lời -> Mimi
@@ -280,8 +281,11 @@ class _LessonPlayViewState extends State<_LessonPlayView> with TickerProviderSta
                         const SizedBox(height: 16),
                         _buildVisual(lessonCtrl),
                         const SizedBox(height: 12),
-                        SizedBox(
-                          height: 20,
+                        // Ô gợi ý TỰ GIÃN theo chữ (không cố định chiều cao): chữ
+                        // tiếng Việt có dấu / cỡ chữ hệ thống lớn cao hơn 20px sẽ
+                        // tràn xuống và bị khu vực đáp án bên dưới che mất.
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(minHeight: 22),
                           child: _StatusHint(
                             state: lessonCtrl.state,
                             kind: lessonCtrl.currentQuestionKind,
@@ -348,7 +352,7 @@ class _StatusHint extends StatelessWidget {
         text = null;
     }
     if (text == null) return const SizedBox.shrink();
-    return Text(text, style: const TextStyle(fontSize: 15, color: AppColors.textMuted));
+    return Text(text, textAlign: TextAlign.center, style: const TextStyle(fontSize: 15, color: AppColors.textMuted));
   }
 }
 
@@ -712,7 +716,7 @@ class _WordPromptVisual extends StatelessWidget {
         ),
       );
     }
-    return Text(word.emoji ?? '❓', style: const TextStyle(fontSize: 70));
+    return EmojiArt(word.emoji ?? '❓', size: 84);
   }
 }
 

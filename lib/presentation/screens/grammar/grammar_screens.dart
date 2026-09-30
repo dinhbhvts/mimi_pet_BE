@@ -11,6 +11,7 @@ import 'package:mimi_pet/presentation/screens/exam/exam_launcher.dart';
 import 'package:mimi_pet/presentation/state/exam_catalog_controller.dart';
 import 'package:mimi_pet/presentation/state/mistake_book_controller.dart';
 import 'package:mimi_pet/services/tts_service.dart';
+import 'package:mimi_pet/presentation/widgets/emoji_art.dart';
 
 /// Số câu trong ngân hàng thuộc bài [lesson] và số câu trong đó đang nằm
 /// trong Sổ câu sai.
@@ -94,7 +95,7 @@ class _LessonTile extends StatelessWidget {
           padding: const EdgeInsets.all(14),
           child: Row(
             children: [
-              Text(lesson.emoji, style: const TextStyle(fontSize: 30)),
+              EmojiArt(lesson.emoji, size: 34),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(

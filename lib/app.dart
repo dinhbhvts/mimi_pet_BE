@@ -61,6 +61,12 @@ import 'services/sound_service.dart';
 import 'services/speech_service.dart';
 import 'services/tts_service.dart';
 
+/// Giới hạn mức phóng chữ theo cỡ chữ hệ thống ở 1.3 lần: phụ huynh để chữ to
+/// trên điện thoại vẫn được phóng, nhưng không tới mức vỡ bố cục (chữ tràn
+/// ô, emoji bị cắt...). Dùng cho MỌI MaterialApp của app.
+Widget clampTextScale(BuildContext context, Widget? child) =>
+    MediaQuery.withClampedTextScaling(maxScaleFactor: 1.3, child: child ?? const SizedBox.shrink());
+
 /// Composition root của app: đây là NƠI DUY NHẤT "biết" implementation cụ
 /// thể phía sau các interface (ví dụ [CloudProgressRepository] cho
 /// [ProgressRepository]). Toàn bộ UI/state phía dưới chỉ làm việc với
@@ -120,12 +126,14 @@ class _AuthGate extends StatelessWidget {
     if (!auth.loaded) {
       return const MaterialApp(
         debugShowCheckedModeBanner: false,
+        builder: clampTextScale,
         home: Scaffold(body: Center(child: CircularProgressIndicator())),
       );
     }
     if (!auth.isLoggedIn) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
+        builder: clampTextScale,
         title: 'Mimi English Pet',
         theme: AppTheme.light,
         home: const LoginScreen(),
@@ -179,6 +187,7 @@ class _AuthenticatedAppState extends State<_AuthenticatedApp> {
           // trọi, xem `boot_screen.dart`.
           return MaterialApp(
             debugShowCheckedModeBanner: false,
+            builder: clampTextScale,
             theme: AppTheme.light,
             home: BootScreen(future: _loadFuture),
           );
@@ -317,6 +326,7 @@ class _AuthenticatedAppState extends State<_AuthenticatedApp> {
             ],
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
+              builder: clampTextScale,
               title: 'Mimi English Pet',
               theme: AppTheme.light,
               home: const RootShell(),

@@ -245,7 +245,7 @@ class _FlipCard extends StatelessWidget {
       child: FittedBox(
         fit: BoxFit.scaleDown,
         child: card.face == MemoryCardFace.picture
-            ? Text(card.word.emoji ?? '⭐', style: const TextStyle(fontSize: 44))
+            ? Text(card.word.emoji ?? '⭐', textScaler: TextScaler.noScaling, style: const TextStyle(fontSize: 44))
             : Text(
                 card.word.en,
                 style: TextStyle(

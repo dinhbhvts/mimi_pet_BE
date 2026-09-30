@@ -137,7 +137,7 @@ class ReviewItemCard extends StatelessWidget {
             if (question.imageEmoji != null)
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),
-                child: Text(question.imageEmoji!, style: const TextStyle(fontSize: 36)),
+                child: Text(question.imageEmoji!, textScaler: TextScaler.noScaling, style: const TextStyle(fontSize: 36)),
               ),
             SelectableText(question.prompt, style: const TextStyle(fontSize: 15, height: 1.4)),
             if (question.media.type == 'audio') ...[

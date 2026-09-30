@@ -7,13 +7,16 @@ import 'package:mimi_pet/domain/entities/sticker.dart';
 import 'package:mimi_pet/domain/entities/word.dart';
 import 'package:mimi_pet/presentation/screens/album/sticker_album_screen.dart';
 import 'package:mimi_pet/presentation/screens/games/bubble_game_screen.dart';
+import 'package:mimi_pet/presentation/screens/games/frog_game_screen.dart';
 import 'package:mimi_pet/presentation/screens/games/memory_game_screen.dart';
+import 'package:mimi_pet/presentation/state/games/frog_game_controller.dart';
 import 'package:mimi_pet/presentation/state/games/game_words.dart';
 import 'package:mimi_pet/presentation/state/lessons_controller.dart';
 import 'package:mimi_pet/presentation/state/progress_controller.dart';
 import 'package:mimi_pet/presentation/state/sticker_controller.dart';
+import 'package:mimi_pet/presentation/widgets/emoji_art.dart';
 
-enum _GameKind { memory, bubble }
+enum _GameKind { memory, bubble, frog }
 
 /// "Góc trò chơi": minigame dùng lại từ vựng trong các bài học. Thắng mỗi ván
 /// được 1 sticker đặc biệt (+ sao trong giới hạn mỗi ngày, xem
@@ -43,9 +46,11 @@ class GamesHubScreen extends StatelessWidget {
 
     await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => kind == _GameKind.memory
-            ? MemoryGameScreen(pickWords: pick)
-            : BubbleGameScreen(pickWords: pick),
+        builder: (_) => switch (kind) {
+          _GameKind.memory => MemoryGameScreen(pickWords: pick),
+          _GameKind.bubble => BubbleGameScreen(pickWords: pick),
+          _GameKind.frog => FrogGameScreen(pickWords: pick, difficulty: choice.frogDifficulty),
+        },
       ),
     );
   }
@@ -113,6 +118,15 @@ class GamesHubScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   _GameCard(
+                    emoji: '🐸',
+                    title: 'Ếch nhảy qua sông',
+                    subtitle: 'Nghe Mimi đọc, chạm đúng lá sen để giúp ếch qua sông',
+                    color: const Color(0xFFE3F6DE),
+                    border: const Color(0xFFA7D99A),
+                    onTap: () => _openSetup(context, _GameKind.frog),
+                  ),
+                  const SizedBox(height: 12),
+                  _GameCard(
                     emoji: '📒',
                     title: 'Album sticker',
                     subtitle: '${stickers.ownedSpecialIds.length}/${SpecialSticker.all.length} sticker đặc biệt đã sưu tập',
@@ -162,7 +176,7 @@ class _GameCard extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Text(emoji, style: const TextStyle(fontSize: 40)),
+              EmojiArt(emoji, size: 44),
               const SizedBox(width: 14),
               Expanded(
                 child: Column(
@@ -187,8 +201,9 @@ class _GameSetup {
   final GameWordSource source;
   final String? lessonId;
   final int wordCount;
+  final FrogDifficulty frogDifficulty;
 
-  const _GameSetup(this.source, this.lessonId, this.wordCount);
+  const _GameSetup(this.source, this.lessonId, this.wordCount, {this.frogDifficulty = FrogDifficulty.normal});
 }
 
 class _GameSetupSheet extends StatefulWidget {
@@ -207,6 +222,7 @@ class _GameSetupSheetState extends State<_GameSetupSheet> {
       widget.masteredCount >= 4 ? GameWordSource.mastered : GameWordSource.random;
   String? _lessonId;
   int _pairs = 6;
+  FrogDifficulty _frog = FrogDifficulty.normal;
 
   static const _sizes = {4: 'Dễ · 4 cặp', 6: 'Vừa · 6 cặp', 8: 'Khó · 8 cặp'};
 
@@ -220,6 +236,7 @@ class _GameSetupSheetState extends State<_GameSetupSheet> {
   @override
   Widget build(BuildContext context) {
     final isMemory = widget.kind == _GameKind.memory;
+    final isFrog = widget.kind == _GameKind.frog;
     return SafeArea(
       child: ConstrainedBox(
         constraints: BoxConstraints(maxHeight: MediaQuery.sizeOf(context).height * 0.85),
@@ -229,7 +246,12 @@ class _GameSetupSheetState extends State<_GameSetupSheet> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(isMemory ? 'Lật thẻ tìm cặp 🃏' : 'Chạm bong bóng 🎈',
+              Text(
+                  switch (widget.kind) {
+                    _GameKind.memory => 'Lật thẻ tìm cặp 🃏',
+                    _GameKind.bubble => 'Chạm bong bóng 🎈',
+                    _GameKind.frog => 'Ếch nhảy qua sông 🐸',
+                  },
                   style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               const SizedBox(height: 14),
               const Text('Chọn từ để chơi', style: TextStyle(fontWeight: FontWeight.w600)),
@@ -274,12 +296,25 @@ class _GameSetupSheetState extends State<_GameSetupSheet> {
                   ],
                 ),
               ],
+              if (isFrog) ...[
+                const SizedBox(height: 16),
+                const Text('Độ khó', style: TextStyle(fontWeight: FontWeight.w600)),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    for (final d in FrogDifficulty.values) _chip(d.label, _frog == d, () => _frog = d),
+                  ],
+                ),
+              ],
               const SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () => Navigator.of(context).pop(
-                    _GameSetup(_source, _lessonId, isMemory ? _pairs : 8),
+                    // Ếch cần nhiều từ hơn để các hàng lá sen ít lặp lại.
+                    _GameSetup(_source, _lessonId, isMemory ? _pairs : (isFrog ? 12 : 8), frogDifficulty: _frog),
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primary,

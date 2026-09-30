@@ -24,8 +24,25 @@ bool isGameFriendlyWord(Word w) =>
 List<Lesson> gameFriendlyLessons(List<Lesson> lessons, {int minWords = 4}) =>
     lessons.where((l) => l.words.where(isGameFriendlyWord).length >= minWords).toList();
 
-/// Chọn [count] từ KHÔNG trùng emoji/chữ để 2 thẻ/bong bóng khác nhau luôn
-/// phân biệt được bằng mắt.
+/// Nhóm hình NHÌN GẦN GIỐNG NHAU (vd 😴 tired / 😪 sleepy) - không cho 2 từ
+/// cùng nhóm xuất hiện chung 1 ván để bé không bị "bẫy" bởi hình vẽ.
+const List<Set<String>> confusableEmojiGroups = [
+  {'😴', '😪', '🥱'},
+  {'🌞', '☀️'},
+  {'😨', '😲', '😱'},
+  {'🎨', '🖌️'},
+  {'😀', '😃', '😄', '😁', '😊'},
+];
+
+int? _confusableGroup(String emoji) {
+  for (var i = 0; i < confusableEmojiGroups.length; i++) {
+    if (confusableEmojiGroups[i].contains(emoji)) return i;
+  }
+  return null;
+}
+
+/// Chọn [count] từ KHÔNG trùng emoji/chữ (và không 2 hình dễ nhầm, xem
+/// [confusableEmojiGroups]) để các thẻ/bong bóng/lá sen luôn phân biệt được.
 List<Word> pickGameWords({
   required List<Lesson> lessons,
   required Set<String> masteredWordIds,
@@ -53,13 +70,15 @@ List<Word> pickGameWords({
   final picked = <Word>[];
   final seenEmoji = <String>{};
   final seenText = <String>{};
+  final seenGroups = <int>{};
   for (final w in [...preferred, ...all]) {
     if (picked.length >= count) break;
-    if (!seenEmoji.add(w.emoji!)) continue;
-    if (!seenText.add(w.en.toLowerCase())) {
-      seenEmoji.remove(w.emoji!);
-      continue;
-    }
+    if (seenEmoji.contains(w.emoji!) || seenText.contains(w.en.toLowerCase())) continue;
+    final group = _confusableGroup(w.emoji!);
+    if (group != null && seenGroups.contains(group)) continue;
+    seenEmoji.add(w.emoji!);
+    seenText.add(w.en.toLowerCase());
+    if (group != null) seenGroups.add(group);
     picked.add(w);
   }
   return picked;

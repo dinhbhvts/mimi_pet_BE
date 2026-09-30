@@ -4,6 +4,7 @@ import 'package:mimi_pet/core/theme/app_colors.dart';
 import 'package:mimi_pet/domain/entities/sticker.dart';
 import 'package:mimi_pet/presentation/screens/album/sticker_album_screen.dart';
 import 'package:mimi_pet/presentation/state/sticker_controller.dart';
+import 'package:mimi_pet/presentation/widgets/emoji_art.dart';
 
 Color rarityColor(StickerRarity rarity) => switch (rarity) {
       StickerRarity.common => const Color(0xFF4FA8E0),
@@ -148,7 +149,7 @@ class _StickerReveal extends StatelessWidget {
           children: [
             const Text('🎁 Sticker mới!', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
             const SizedBox(height: 6),
-            Text(sticker.emoji, style: const TextStyle(fontSize: 64)),
+            EmojiArt(sticker.emoji, size: 70),
             Text(sticker.nameEn, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             Text(sticker.nameVi, style: const TextStyle(fontSize: 13, color: AppColors.textMuted)),
             const SizedBox(height: 6),

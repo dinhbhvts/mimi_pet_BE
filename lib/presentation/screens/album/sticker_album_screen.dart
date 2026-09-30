@@ -10,6 +10,7 @@ import 'package:mimi_pet/presentation/state/lessons_controller.dart';
 import 'package:mimi_pet/presentation/state/progress_controller.dart';
 import 'package:mimi_pet/presentation/state/sticker_controller.dart';
 import 'package:mimi_pet/services/tts_service.dart';
+import 'package:mimi_pet/presentation/widgets/emoji_art.dart';
 
 /// Album sticker: tab "Từ vựng" (mỗi bài học là 1 trang, sticker mở khi bé
 /// thuộc từ) và tab "Đặc biệt" (sticker nhận khi thắng minigame).
@@ -72,8 +73,13 @@ class _StickerAlbumScreenState extends State<StickerAlbumScreen> {
             labelColor: AppColors.primary,
             indicatorColor: AppColors.primary,
             tabs: [
-              Tab(text: 'Từ vựng ($ownedWords/$totalWords)'),
-              Tab(text: 'Đặc biệt ✨ (${stickers.ownedSpecialIds.length}/${SpecialSticker.all.length})'),
+              Tab(child: FittedBox(fit: BoxFit.scaleDown, child: Text('Từ vựng ($ownedWords/$totalWords)'))),
+              Tab(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text('Đặc biệt ✨ (${stickers.ownedSpecialIds.length}/${SpecialSticker.all.length})'),
+                ),
+              ),
             ],
           ),
         ),
@@ -146,7 +152,7 @@ class _StickerSlot extends StatelessWidget {
                     child: Center(
                       child: owned
                           ? art
-                          : const Text('?', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Color(0xFFBDB6CC))),
+                          : const Text('?', textScaler: TextScaler.noScaling, style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Color(0xFFBDB6CC))),
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -177,7 +183,7 @@ class _WordPages extends StatelessWidget {
 
   Widget _art(Word w) => w.swatchColor != null
       ? Container(width: 30, height: 30, decoration: BoxDecoration(color: w.swatchColor, shape: BoxShape.circle))
-      : Text(w.emoji ?? '⭐', style: const TextStyle(fontSize: 30));
+      : EmojiArt(w.emoji ?? '⭐', size: 34);
 
   @override
   Widget build(BuildContext context) {
@@ -284,7 +290,7 @@ class _SpecialPage extends StatelessWidget {
             children: [
               for (final s in SpecialSticker.all.where((s) => s.rarity == rarity))
                 _StickerSlot(
-                  art: Text(s.emoji, style: const TextStyle(fontSize: 30)),
+                  art: EmojiArt(s.emoji, size: 34),
                   label: s.nameEn,
                   owned: owned.contains(s.id),
                   isNew: newKeys.contains(StickerController.specialKey(s.id)),

@@ -253,7 +253,7 @@ class _BubbleView extends StatelessWidget {
             boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.08), blurRadius: 6)],
           ),
           alignment: Alignment.center,
-          child: Text(bubble.word.emoji ?? '⭐', style: TextStyle(fontSize: radius * 0.9)),
+          child: Text(bubble.word.emoji ?? '⭐', textScaler: TextScaler.noScaling, style: TextStyle(fontSize: radius * 0.9)),
         ),
       ),
     );
