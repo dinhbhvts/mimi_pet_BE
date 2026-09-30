@@ -64,9 +64,9 @@ void main() {
   });
 
   test('có bài cho cả 3 cấp và câu hỏi tìm được bài liên quan', () {
-    expect(GrammarLessons.forLevel(ExamTrack.yle, 'Movers'), hasLength(8));
-    expect(GrammarLessons.forLevel(ExamTrack.yle, 'Flyers'), hasLength(8));
-    expect(GrammarLessons.forLevel(ExamTrack.toeic, 'Standard'), hasLength(9));
+    expect(GrammarLessons.forLevel(ExamTrack.yle, 'Movers'), hasLength(11));
+    expect(GrammarLessons.forLevel(ExamTrack.yle, 'Flyers'), hasLength(11));
+    expect(GrammarLessons.forLevel(ExamTrack.toeic, 'Standard'), hasLength(12));
     final pastSimple = bank.questions.firstWhere((q) => q.level == 'Movers' && q.topic == 'Past Simple');
     expect(GrammarLessons.forQuestion(pastSimple)!.id, 'mov_past');
     final wordForm = bank.questions.firstWhere((q) => q.topic == 'Word form');
