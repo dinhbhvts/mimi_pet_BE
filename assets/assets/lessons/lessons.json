@@ -3130,12 +3130,12 @@
           "vi": "mười",
           "emoji": "🔟",
           "promptType": "identify",
-          "sentenceTemplate": "I have ___ fingers and toes.",
+          "sentenceTemplate": "I have ___ fingers.",
           "sentenceWords": [
             "I",
             "have",
             "ten",
-            "toes"
+            "fingers"
           ]
         },
         {
@@ -6559,6 +6559,1147 @@
             "a",
             "new",
             "bike"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pets_v1",
+      "title": "Pets & Pet Care",
+      "emoji": "🐾",
+      "words": [
+        {
+          "id": "puppy",
+          "en": "puppy",
+          "vi": "chó con",
+          "emoji": "🐶",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ wants to play.",
+          "sentenceWords": [
+            "The",
+            "puppy",
+            "wants",
+            "to",
+            "play"
+          ]
+        },
+        {
+          "id": "kitten",
+          "en": "kitten",
+          "vi": "mèo con",
+          "emoji": "🐱",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ drinks milk.",
+          "sentenceWords": [
+            "The",
+            "kitten",
+            "drinks",
+            "milk"
+          ]
+        },
+        {
+          "id": "goldfish",
+          "en": "goldfish",
+          "vi": "cá vàng",
+          "emoji": "🐠",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ swims in the bowl.",
+          "sentenceWords": [
+            "The",
+            "goldfish",
+            "swims",
+            "in",
+            "the",
+            "bowl"
+          ]
+        },
+        {
+          "id": "bone",
+          "en": "bone",
+          "vi": "khúc xương",
+          "emoji": "🦴",
+          "promptType": "identify",
+          "sentenceTemplate": "The dog has a ___.",
+          "sentenceWords": [
+            "The",
+            "dog",
+            "has",
+            "a",
+            "bone"
+          ]
+        },
+        {
+          "id": "paw",
+          "en": "paw",
+          "vi": "bàn chân (thú)",
+          "emoji": "🐾",
+          "promptType": "identify",
+          "sentenceTemplate": "The cat licks its ___.",
+          "sentenceWords": [
+            "The",
+            "cat",
+            "licks",
+            "its",
+            "paw"
+          ]
+        },
+        {
+          "id": "vet",
+          "en": "vet",
+          "vi": "bác sĩ thú y",
+          "emoji": "🧑‍⚕️",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ helps sick animals.",
+          "sentenceWords": [
+            "The",
+            "vet",
+            "helps",
+            "sick",
+            "animals"
+          ]
+        },
+        {
+          "id": "feather",
+          "en": "feather",
+          "vi": "lông vũ",
+          "emoji": "🪶",
+          "promptType": "identify",
+          "sentenceTemplate": "I found a ___ in the garden.",
+          "sentenceWords": [
+            "I",
+            "found",
+            "a",
+            "feather",
+            "in",
+            "the",
+            "garden"
+          ]
+        },
+        {
+          "id": "lizard",
+          "en": "lizard",
+          "vi": "con thằn lằn",
+          "emoji": "🦎",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is on the wall.",
+          "sentenceWords": [
+            "The",
+            "lizard",
+            "is",
+            "on",
+            "the",
+            "wall"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bathroom_v1",
+      "title": "Bathroom & Hygiene",
+      "emoji": "🛁",
+      "words": [
+        {
+          "id": "toothbrush",
+          "en": "toothbrush",
+          "vi": "bàn chải đánh răng",
+          "emoji": "🪥",
+          "promptType": "identify",
+          "sentenceTemplate": "This is my ___.",
+          "sentenceWords": [
+            "This",
+            "is",
+            "my",
+            "toothbrush"
+          ]
+        },
+        {
+          "id": "soap",
+          "en": "soap",
+          "vi": "xà phòng",
+          "emoji": "🧼",
+          "promptType": "identify",
+          "sentenceTemplate": "Wash your hands with ___.",
+          "sentenceWords": [
+            "Wash",
+            "your",
+            "hands",
+            "with",
+            "soap"
+          ]
+        },
+        {
+          "id": "bathtub",
+          "en": "bathtub",
+          "vi": "bồn tắm",
+          "emoji": "🛁",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is full of water.",
+          "sentenceWords": [
+            "The",
+            "bathtub",
+            "is",
+            "full",
+            "of",
+            "water"
+          ]
+        },
+        {
+          "id": "toilet",
+          "en": "toilet",
+          "vi": "bồn cầu, nhà vệ sinh",
+          "emoji": "🚽",
+          "promptType": "identify",
+          "sentenceTemplate": "Where is the ___?",
+          "sentenceWords": [
+            "Where",
+            "is",
+            "the",
+            "toilet"
+          ]
+        },
+        {
+          "id": "sponge",
+          "en": "sponge",
+          "vi": "miếng bọt biển",
+          "emoji": "🧽",
+          "promptType": "identify",
+          "sentenceTemplate": "I clean the plate with a ___.",
+          "sentenceWords": [
+            "I",
+            "clean",
+            "the",
+            "plate",
+            "with",
+            "a",
+            "sponge"
+          ]
+        },
+        {
+          "id": "bucket",
+          "en": "bucket",
+          "vi": "cái xô",
+          "emoji": "🪣",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is full of water.",
+          "sentenceWords": [
+            "The",
+            "bucket",
+            "is",
+            "full",
+            "of",
+            "water"
+          ]
+        },
+        {
+          "id": "lotion",
+          "en": "lotion",
+          "vi": "kem dưỡng da",
+          "emoji": "🧴",
+          "promptType": "identify",
+          "sentenceTemplate": "Put some ___ on your hands.",
+          "sentenceWords": [
+            "Put",
+            "some",
+            "lotion",
+            "on",
+            "your",
+            "hands"
+          ]
+        },
+        {
+          "id": "toilet_paper",
+          "en": "toilet paper",
+          "vi": "giấy vệ sinh",
+          "emoji": "🧻",
+          "promptType": "repeat"
+        }
+      ]
+    },
+    {
+      "id": "camping_v1",
+      "title": "Camping",
+      "emoji": "⛺",
+      "words": [
+        {
+          "id": "tent",
+          "en": "tent",
+          "vi": "cái lều",
+          "emoji": "⛺",
+          "promptType": "identify",
+          "sentenceTemplate": "We sleep in a ___.",
+          "sentenceWords": [
+            "We",
+            "sleep",
+            "in",
+            "a",
+            "tent"
+          ]
+        },
+        {
+          "id": "campfire",
+          "en": "campfire",
+          "vi": "lửa trại",
+          "emoji": "🔥",
+          "promptType": "identify",
+          "sentenceTemplate": "We sing around the ___.",
+          "sentenceWords": [
+            "We",
+            "sing",
+            "around",
+            "the",
+            "campfire"
+          ]
+        },
+        {
+          "id": "compass",
+          "en": "compass",
+          "vi": "la bàn",
+          "emoji": "🧭",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ shows the way.",
+          "sentenceWords": [
+            "The",
+            "compass",
+            "shows",
+            "the",
+            "way"
+          ]
+        },
+        {
+          "id": "canoe",
+          "en": "canoe",
+          "vi": "xuồng",
+          "emoji": "🛶",
+          "promptType": "identify",
+          "sentenceTemplate": "We paddle the ___ on the lake.",
+          "sentenceWords": [
+            "We",
+            "paddle",
+            "the",
+            "canoe",
+            "on",
+            "the",
+            "lake"
+          ]
+        },
+        {
+          "id": "lake",
+          "en": "lake",
+          "vi": "cái hồ",
+          "emoji": "🏞️",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is blue and quiet.",
+          "sentenceWords": [
+            "The",
+            "lake",
+            "is",
+            "blue",
+            "and",
+            "quiet"
+          ]
+        },
+        {
+          "id": "log",
+          "en": "log",
+          "vi": "khúc gỗ",
+          "emoji": "🪵",
+          "promptType": "identify",
+          "sentenceTemplate": "Put a ___ on the fire.",
+          "sentenceWords": [
+            "Put",
+            "a",
+            "log",
+            "on",
+            "the",
+            "fire"
+          ]
+        },
+        {
+          "id": "rock",
+          "en": "rock",
+          "vi": "hòn đá",
+          "emoji": "🪨",
+          "promptType": "identify",
+          "sentenceTemplate": "I sit on a big ___.",
+          "sentenceWords": [
+            "I",
+            "sit",
+            "on",
+            "a",
+            "big",
+            "rock"
+          ]
+        },
+        {
+          "id": "picnic",
+          "en": "picnic",
+          "vi": "buổi dã ngoại",
+          "emoji": "🧺",
+          "promptType": "identify",
+          "sentenceTemplate": "Let's have a ___ today.",
+          "sentenceWords": [
+            "Let's",
+            "have",
+            "a",
+            "picnic",
+            "today"
+          ]
+        },
+        {
+          "id": "hiking_boots",
+          "en": "hiking boots",
+          "vi": "giày đi bộ đường dài",
+          "emoji": "🥾",
+          "promptType": "repeat"
+        },
+        {
+          "id": "sleeping_bag",
+          "en": "sleeping bag",
+          "vi": "túi ngủ",
+          "emoji": "🛌",
+          "promptType": "repeat"
+        }
+      ]
+    },
+    {
+      "id": "shopping_v1",
+      "title": "Shopping",
+      "emoji": "🛍️",
+      "words": [
+        {
+          "id": "cart",
+          "en": "cart",
+          "vi": "xe đẩy hàng",
+          "emoji": "🛒",
+          "promptType": "identify",
+          "sentenceTemplate": "Put the milk in the ___.",
+          "sentenceWords": [
+            "Put",
+            "the",
+            "milk",
+            "in",
+            "the",
+            "cart"
+          ]
+        },
+        {
+          "id": "basket",
+          "en": "basket",
+          "vi": "cái giỏ",
+          "emoji": "🧺",
+          "promptType": "identify",
+          "sentenceTemplate": "I carry a ___.",
+          "sentenceWords": [
+            "I",
+            "carry",
+            "a",
+            "basket"
+          ]
+        },
+        {
+          "id": "money",
+          "en": "money",
+          "vi": "tiền",
+          "emoji": "💵",
+          "promptType": "identify",
+          "sentenceTemplate": "I have some ___.",
+          "sentenceWords": [
+            "I",
+            "have",
+            "some",
+            "money"
+          ]
+        },
+        {
+          "id": "coin",
+          "en": "coin",
+          "vi": "đồng xu",
+          "emoji": "🪙",
+          "promptType": "identify",
+          "sentenceTemplate": "I have one ___.",
+          "sentenceWords": [
+            "I",
+            "have",
+            "one",
+            "coin"
+          ]
+        },
+        {
+          "id": "wallet",
+          "en": "wallet",
+          "vi": "cái ví",
+          "emoji": "👛",
+          "promptType": "identify",
+          "sentenceTemplate": "My money is in my ___.",
+          "sentenceWords": [
+            "My",
+            "money",
+            "is",
+            "in",
+            "my",
+            "wallet"
+          ]
+        },
+        {
+          "id": "receipt",
+          "en": "receipt",
+          "vi": "hoá đơn",
+          "emoji": "🧾",
+          "promptType": "identify",
+          "sentenceTemplate": "Here is your ___.",
+          "sentenceWords": [
+            "Here",
+            "is",
+            "your",
+            "receipt"
+          ]
+        },
+        {
+          "id": "shop",
+          "en": "shop",
+          "vi": "cửa hàng",
+          "emoji": "🏪",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ opens at nine.",
+          "sentenceWords": [
+            "The",
+            "shop",
+            "opens",
+            "at",
+            "nine"
+          ]
+        },
+        {
+          "id": "price_tag",
+          "en": "price tag",
+          "vi": "nhãn giá",
+          "emoji": "🏷️",
+          "promptType": "repeat"
+        },
+        {
+          "id": "shopping_bag",
+          "en": "shopping bag",
+          "vi": "túi mua sắm",
+          "emoji": "🛍️",
+          "promptType": "repeat"
+        },
+        {
+          "id": "credit_card",
+          "en": "credit card",
+          "vi": "thẻ tín dụng",
+          "emoji": "💳",
+          "promptType": "repeat"
+        }
+      ]
+    },
+    {
+      "id": "instruments_v1",
+      "title": "Musical Instruments",
+      "emoji": "🎺",
+      "words": [
+        {
+          "id": "trumpet",
+          "en": "trumpet",
+          "vi": "kèn trumpet",
+          "emoji": "🎺",
+          "promptType": "identify",
+          "sentenceTemplate": "He plays the ___.",
+          "sentenceWords": [
+            "He",
+            "plays",
+            "the",
+            "trumpet"
+          ]
+        },
+        {
+          "id": "saxophone",
+          "en": "saxophone",
+          "vi": "kèn saxophone",
+          "emoji": "🎷",
+          "promptType": "identify",
+          "sentenceTemplate": "She plays the ___.",
+          "sentenceWords": [
+            "She",
+            "plays",
+            "the",
+            "saxophone"
+          ]
+        },
+        {
+          "id": "accordion",
+          "en": "accordion",
+          "vi": "đàn phong cầm",
+          "emoji": "🪗",
+          "promptType": "identify",
+          "sentenceTemplate": "Grandpa plays the ___.",
+          "sentenceWords": [
+            "Grandpa",
+            "plays",
+            "the",
+            "accordion"
+          ]
+        },
+        {
+          "id": "banjo",
+          "en": "banjo",
+          "vi": "đàn banjo",
+          "emoji": "🪕",
+          "promptType": "identify",
+          "sentenceTemplate": "I can play the ___.",
+          "sentenceWords": [
+            "I",
+            "can",
+            "play",
+            "the",
+            "banjo"
+          ]
+        },
+        {
+          "id": "bell",
+          "en": "bell",
+          "vi": "cái chuông",
+          "emoji": "🔔",
+          "promptType": "identify",
+          "sentenceTemplate": "Ring the ___, please.",
+          "sentenceWords": [
+            "Ring",
+            "the",
+            "bell,",
+            "please"
+          ]
+        },
+        {
+          "id": "song",
+          "en": "song",
+          "vi": "bài hát",
+          "emoji": "🎵",
+          "promptType": "identify",
+          "sentenceTemplate": "Let's sing a ___.",
+          "sentenceWords": [
+            "Let's",
+            "sing",
+            "a",
+            "song"
+          ]
+        },
+        {
+          "id": "concert",
+          "en": "concert",
+          "vi": "buổi hoà nhạc",
+          "emoji": "🎶",
+          "promptType": "identify",
+          "sentenceTemplate": "We go to a ___ tonight.",
+          "sentenceWords": [
+            "We",
+            "go",
+            "to",
+            "a",
+            "concert",
+            "tonight"
+          ]
+        },
+        {
+          "id": "band",
+          "en": "band",
+          "vi": "ban nhạc",
+          "emoji": "🎸",
+          "promptType": "identify",
+          "sentenceTemplate": "My brother is in a ___.",
+          "sentenceWords": [
+            "My",
+            "brother",
+            "is",
+            "in",
+            "a",
+            "band"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garden_v1",
+      "title": "Garden & Plants",
+      "emoji": "🌷",
+      "words": [
+        {
+          "id": "rose",
+          "en": "rose",
+          "vi": "hoa hồng",
+          "emoji": "🌹",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is red.",
+          "sentenceWords": [
+            "The",
+            "rose",
+            "is",
+            "red"
+          ]
+        },
+        {
+          "id": "daisy",
+          "en": "daisy",
+          "vi": "hoa cúc",
+          "emoji": "🌼",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is white and yellow.",
+          "sentenceWords": [
+            "The",
+            "daisy",
+            "is",
+            "white",
+            "and",
+            "yellow"
+          ]
+        },
+        {
+          "id": "tulip",
+          "en": "tulip",
+          "vi": "hoa tulip",
+          "emoji": "🌷",
+          "promptType": "identify",
+          "sentenceTemplate": "I like the pink ___.",
+          "sentenceWords": [
+            "I",
+            "like",
+            "the",
+            "pink",
+            "tulip"
+          ]
+        },
+        {
+          "id": "seed",
+          "en": "seed",
+          "vi": "hạt giống",
+          "emoji": "🌱",
+          "promptType": "identify",
+          "sentenceTemplate": "Plant the ___ in the soil.",
+          "sentenceWords": [
+            "Plant",
+            "the",
+            "seed",
+            "in",
+            "the",
+            "soil"
+          ]
+        },
+        {
+          "id": "leaf",
+          "en": "leaf",
+          "vi": "chiếc lá",
+          "emoji": "🍃",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is green.",
+          "sentenceWords": [
+            "The",
+            "leaf",
+            "is",
+            "green"
+          ]
+        },
+        {
+          "id": "cactus",
+          "en": "cactus",
+          "vi": "cây xương rồng",
+          "emoji": "🌵",
+          "promptType": "identify",
+          "sentenceTemplate": "A ___ lives in the desert.",
+          "sentenceWords": [
+            "A",
+            "cactus",
+            "lives",
+            "in",
+            "the",
+            "desert"
+          ]
+        },
+        {
+          "id": "blossom",
+          "en": "blossom",
+          "vi": "hoa (nở trên cây)",
+          "emoji": "🌸",
+          "promptType": "identify",
+          "sentenceTemplate": "Look at the pink ___.",
+          "sentenceWords": [
+            "Look",
+            "at",
+            "the",
+            "pink",
+            "blossom"
+          ]
+        },
+        {
+          "id": "gardener",
+          "en": "gardener",
+          "vi": "người làm vườn",
+          "emoji": "🧑‍🌾",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ waters the flowers.",
+          "sentenceWords": [
+            "The",
+            "gardener",
+            "waters",
+            "the",
+            "flowers"
+          ]
+        },
+        {
+          "id": "bouquet",
+          "en": "bouquet",
+          "vi": "bó hoa",
+          "emoji": "💐",
+          "promptType": "identify",
+          "sentenceTemplate": "I give Mom a ___.",
+          "sentenceWords": [
+            "I",
+            "give",
+            "Mom",
+            "a",
+            "bouquet"
+          ]
+        },
+        {
+          "id": "palm_tree",
+          "en": "palm tree",
+          "vi": "cây cọ",
+          "emoji": "🌴",
+          "promptType": "repeat"
+        }
+      ]
+    },
+    {
+      "id": "helpers_v1",
+      "title": "Helpers & Emergencies",
+      "emoji": "🚨",
+      "words": [
+        {
+          "id": "ambulance",
+          "en": "ambulance",
+          "vi": "xe cứu thương",
+          "emoji": "🚑",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is going to the hospital.",
+          "sentenceWords": [
+            "The",
+            "ambulance",
+            "is",
+            "going",
+            "to",
+            "the",
+            "hospital"
+          ]
+        },
+        {
+          "id": "siren",
+          "en": "siren",
+          "vi": "còi hú",
+          "emoji": "🚨",
+          "promptType": "identify",
+          "sentenceTemplate": "I can hear a ___.",
+          "sentenceWords": [
+            "I",
+            "can",
+            "hear",
+            "a",
+            "siren"
+          ]
+        },
+        {
+          "id": "bandage",
+          "en": "bandage",
+          "vi": "băng dán vết thương",
+          "emoji": "🩹",
+          "promptType": "identify",
+          "sentenceTemplate": "Put a ___ on your knee.",
+          "sentenceWords": [
+            "Put",
+            "a",
+            "bandage",
+            "on",
+            "your",
+            "knee"
+          ]
+        },
+        {
+          "id": "thermometer",
+          "en": "thermometer",
+          "vi": "nhiệt kế",
+          "emoji": "🌡️",
+          "promptType": "identify",
+          "sentenceTemplate": "The nurse uses a ___.",
+          "sentenceWords": [
+            "The",
+            "nurse",
+            "uses",
+            "a",
+            "thermometer"
+          ]
+        },
+        {
+          "id": "fire_engine",
+          "en": "fire engine",
+          "vi": "xe cứu hoả",
+          "emoji": "🚒",
+          "promptType": "repeat"
+        },
+        {
+          "id": "police_car",
+          "en": "police car",
+          "vi": "xe cảnh sát",
+          "emoji": "🚓",
+          "promptType": "repeat"
+        },
+        {
+          "id": "fire_extinguisher",
+          "en": "fire extinguisher",
+          "vi": "bình chữa cháy",
+          "emoji": "🧯",
+          "promptType": "repeat"
+        }
+      ]
+    },
+    {
+      "id": "breakfast_v1",
+      "title": "Breakfast",
+      "emoji": "🥞",
+      "words": [
+        {
+          "id": "pancake",
+          "en": "pancake",
+          "vi": "bánh kếp",
+          "emoji": "🥞",
+          "promptType": "identify",
+          "sentenceTemplate": "I eat a ___ for breakfast.",
+          "sentenceWords": [
+            "I",
+            "eat",
+            "a",
+            "pancake",
+            "for",
+            "breakfast"
+          ]
+        },
+        {
+          "id": "waffle",
+          "en": "waffle",
+          "vi": "bánh quế",
+          "emoji": "🧇",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is hot.",
+          "sentenceWords": [
+            "The",
+            "waffle",
+            "is",
+            "hot"
+          ]
+        },
+        {
+          "id": "bacon",
+          "en": "bacon",
+          "vi": "thịt xông khói",
+          "emoji": "🥓",
+          "promptType": "identify",
+          "sentenceTemplate": "Dad likes ___.",
+          "sentenceWords": [
+            "Dad",
+            "likes",
+            "bacon"
+          ]
+        },
+        {
+          "id": "cereal",
+          "en": "cereal",
+          "vi": "ngũ cốc",
+          "emoji": "🥣",
+          "promptType": "identify",
+          "sentenceTemplate": "I have ___ with milk.",
+          "sentenceWords": [
+            "I",
+            "have",
+            "cereal",
+            "with",
+            "milk"
+          ]
+        },
+        {
+          "id": "butter",
+          "en": "butter",
+          "vi": "bơ",
+          "emoji": "🧈",
+          "promptType": "identify",
+          "sentenceTemplate": "Put some ___ on the bread.",
+          "sentenceWords": [
+            "Put",
+            "some",
+            "butter",
+            "on",
+            "the",
+            "bread"
+          ]
+        },
+        {
+          "id": "honey",
+          "en": "honey",
+          "vi": "mật ong",
+          "emoji": "🍯",
+          "promptType": "identify",
+          "sentenceTemplate": "Bees make ___.",
+          "sentenceWords": [
+            "Bees",
+            "make",
+            "honey"
+          ]
+        },
+        {
+          "id": "toast",
+          "en": "toast",
+          "vi": "bánh mì nướng",
+          "emoji": "🍞",
+          "promptType": "identify",
+          "sentenceTemplate": "I like ___ with jam.",
+          "sentenceWords": [
+            "I",
+            "like",
+            "toast",
+            "with",
+            "jam"
+          ]
+        },
+        {
+          "id": "avocado",
+          "en": "avocado",
+          "vi": "quả bơ",
+          "emoji": "🥑",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is green.",
+          "sentenceWords": [
+            "The",
+            "avocado",
+            "is",
+            "green"
+          ]
+        },
+        {
+          "id": "croissant",
+          "en": "croissant",
+          "vi": "bánh sừng bò",
+          "emoji": "🥐",
+          "promptType": "identify",
+          "sentenceTemplate": "This ___ is yummy.",
+          "sentenceWords": [
+            "This",
+            "croissant",
+            "is",
+            "yummy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beach_v1",
+      "title": "At the Beach",
+      "emoji": "🏖️",
+      "words": [
+        {
+          "id": "shell",
+          "en": "shell",
+          "vi": "vỏ sò",
+          "emoji": "🐚",
+          "promptType": "identify",
+          "sentenceTemplate": "I found a pretty ___.",
+          "sentenceWords": [
+            "I",
+            "found",
+            "a",
+            "pretty",
+            "shell"
+          ]
+        },
+        {
+          "id": "sand",
+          "en": "sand",
+          "vi": "cát",
+          "emoji": "🏖️",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is hot.",
+          "sentenceWords": [
+            "The",
+            "sand",
+            "is",
+            "hot"
+          ]
+        },
+        {
+          "id": "island",
+          "en": "island",
+          "vi": "hòn đảo",
+          "emoji": "🏝️",
+          "promptType": "identify",
+          "sentenceTemplate": "We visit a small ___.",
+          "sentenceWords": [
+            "We",
+            "visit",
+            "a",
+            "small",
+            "island"
+          ]
+        },
+        {
+          "id": "sailboat",
+          "en": "sailboat",
+          "vi": "thuyền buồm",
+          "emoji": "⛵",
+          "promptType": "identify",
+          "sentenceTemplate": "The ___ is on the sea.",
+          "sentenceWords": [
+            "The",
+            "sailboat",
+            "is",
+            "on",
+            "the",
+            "sea"
+          ]
+        },
+        {
+          "id": "anchor",
+          "en": "anchor",
+          "vi": "cái mỏ neo",
+          "emoji": "⚓",
+          "promptType": "identify",
+          "sentenceTemplate": "The ship has an ___.",
+          "sentenceWords": [
+            "The",
+            "ship",
+            "has",
+            "an",
+            "anchor"
+          ]
+        },
+        {
+          "id": "swimsuit",
+          "en": "swimsuit",
+          "vi": "đồ bơi",
+          "emoji": "👙",
+          "promptType": "identify",
+          "sentenceTemplate": "Put on your ___.",
+          "sentenceWords": [
+            "Put",
+            "on",
+            "your",
+            "swimsuit"
+          ]
+        },
+        {
+          "id": "surfboard",
+          "en": "surfboard",
+          "vi": "ván lướt sóng",
+          "emoji": "🏄",
+          "promptType": "identify",
+          "sentenceTemplate": "He rides a ___.",
+          "sentenceWords": [
+            "He",
+            "rides",
+            "a",
+            "surfboard"
           ]
         }
       ]
