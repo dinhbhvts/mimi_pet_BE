@@ -20,10 +20,23 @@ class ExamSessionController extends ChangeNotifier {
     required TrackLevelConfig config,
     required TestMode mode,
     this._onFinished,
+    this._onAnswerGraded,
+    this.fixedQuestions,
   })  : _engine = MockTestEngine(bank),
         config = config,
         mode = mode {
-    _session = _engine.startSession(config, mode: mode);
+    // Phiên ôn "Sổ câu sai" dùng đúng danh sách câu truyền vào thay vì bốc
+    // ngẫu nhiên theo cấu hình đề.
+    _session = fixedQuestions != null
+        ? TestSession(
+            sessionId: 'review_${DateTime.now().millisecondsSinceEpoch}',
+            track: config.track,
+            level: config.level,
+            mode: mode,
+            questions: List.of(fixedQuestions!),
+            timeLimitSeconds: 0,
+          )
+        : _engine.startSession(config, mode: mode);
     if (_session.timeLimitSeconds > 0) {
       _ticker = Timer.periodic(const Duration(seconds: 1), (_) => _onTick());
     }
@@ -36,6 +49,16 @@ class ExamSessionController extends ChangeNotifier {
   // CloudStateStore (xem `exam_home_screen.dart`/`exam_screen.dart`), TÁCH
   // RIÊNG khỏi engine để file này không cần biết gì về cloud/backend.
   final void Function(TestScore score)? _onFinished;
+
+  /// Gọi đúng 1 LẦN cho mỗi câu đã trả lời trong lượt này (lần "Kiểm tra đáp
+  /// án" ĐẦU TIÊN ở luyện tập, hoặc lúc nộp bài với câu chưa kiểm tra) - dùng
+  /// để cập nhật "Sổ câu sai" (xem [MistakeBookController]). Đổi đáp án rồi
+  /// kiểm tra lại KHÔNG tính thêm lần nữa, tránh "sửa cho đúng" để rời sổ.
+  final void Function(Question question, bool correct)? _onAnswerGraded;
+  final Set<String> _graded = {};
+
+  /// Danh sách câu cố định (phiên ôn câu sai) - null với đề bốc ngẫu nhiên.
+  final List<Question>? fixedQuestions;
   late final TestSession _session;
   Timer? _ticker;
 
@@ -87,8 +110,17 @@ class ExamSessionController extends ChangeNotifier {
   /// [finish], không phụ thuộc bé đã "kiểm tra" bao nhiêu câu).
   void checkAnswer() {
     if (isFinished || answerFor(currentQuestion.id) == null) return;
+    _grade(currentQuestion);
     _showFeedback = true;
     notifyListeners();
+  }
+
+  void _grade(Question q) {
+    if (_graded.contains(q.id) || q.questionType == QuestionType.speakingPrompt) return;
+    final answer = answerFor(q.id);
+    if (answer == null || answer.isEmpty || answer.every((a) => a.trim().isEmpty)) return;
+    _graded.add(q.id);
+    _onAnswerGraded?.call(q, isAnswerCorrect(q, answer));
   }
 
   void _onTick() {
@@ -129,6 +161,9 @@ class ExamSessionController extends ChangeNotifier {
   void finish() {
     if (isFinished) return;
     _ticker?.cancel();
+    for (final q in _session.questions) {
+      _grade(q);
+    }
     _score = _engine.finishAndScore(_session, config);
     _report = buildReport(_score!);
     _onFinished?.call(_score!);

@@ -75,6 +75,13 @@ class CloudStateStore {
     _scheduleSync();
   }
 
+  void removeMapEntry(String key, String subKey) {
+    final current = getMap(key);
+    if (current.remove(subKey) == null) return;
+    _state[key] = current;
+    _scheduleSync();
+  }
+
   void _scheduleSync() {
     _persistLocal();
     _pushDebounce?.cancel();

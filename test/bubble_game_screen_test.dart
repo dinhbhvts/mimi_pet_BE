@@ -15,7 +15,7 @@ class _SilentTts extends TtsService {
   final spoken = <String>[];
 
   @override
-  Future<void> speak(String text, {double? rate, double? pitch}) async => spoken.add(text);
+  Future<void> speak(String text, {VoiceKind kind = VoiceKind.kid, double speed = 1.0}) async => spoken.add(text);
 
   @override
   Future<void> stop() async {}

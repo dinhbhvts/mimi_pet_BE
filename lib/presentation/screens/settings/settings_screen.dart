@@ -12,6 +12,7 @@ import 'package:mimi_pet/presentation/state/child_name_controller.dart';
 import 'package:mimi_pet/presentation/state/gem_reward_controller.dart';
 import 'package:mimi_pet/presentation/state/pet_character_controller.dart';
 import 'package:mimi_pet/presentation/state/pet_inventory_controller.dart';
+import 'package:mimi_pet/presentation/screens/settings/voice_settings_screen.dart';
 import 'package:mimi_pet/presentation/state/progress_controller.dart';
 import 'package:mimi_pet/services/api_client.dart';
 import 'package:mimi_pet/services/auth_service.dart';
@@ -203,6 +204,15 @@ class SettingsScreen extends StatelessWidget {
             title: 'Kiểm tra micro & giọng nói',
             subtitle: '$characterName sẽ nói thử một câu tiếng Anh',
             onTap: () => context.read<TtsService>().speak('Hello! Can you hear me?'),
+          ),
+          const SizedBox(height: 12),
+          _SettingsTile(
+            icon: Icons.record_voice_over_rounded,
+            title: 'Giọng đọc & tốc độ',
+            subtitle: 'Chỉnh riêng giọng của bé và giọng luyện nghe TOEIC',
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const VoiceSettingsScreen()),
+            ),
           ),
           const SizedBox(height: 12),
           _SettingsTile(

@@ -26511,5 +26511,5778 @@
     "difficulty": 2,
     "tags": [],
     "points": 0
+  },
+  {
+    "id": "yle_mov_403",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Animals",
+    "questionType": "multipleChoice",
+    "prompt": "Which animal has black and white stripes?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "elephant"
+      },
+      {
+        "id": "b",
+        "text": "zebra"
+      },
+      {
+        "id": "c",
+        "text": "crocodile"
+      },
+      {
+        "id": "d",
+        "text": "camel"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Ngựa vằn (zebra) có sọc đen trắng.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_404",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Animals",
+    "questionType": "multipleChoice",
+    "prompt": "A ____ has eight legs and makes a web.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "bee"
+      },
+      {
+        "id": "b",
+        "text": "snail"
+      },
+      {
+        "id": "c",
+        "text": "butterfly"
+      },
+      {
+        "id": "d",
+        "text": "spider"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Nhện (spider) có 8 chân và giăng tơ.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_405",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Animals",
+    "questionType": "multipleChoice",
+    "prompt": "Which animal can live on land and in water?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "sheep"
+      },
+      {
+        "id": "b",
+        "text": "parrot"
+      },
+      {
+        "id": "c",
+        "text": "frog"
+      },
+      {
+        "id": "d",
+        "text": "tiger"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Ếch sống được cả trên cạn và dưới nước.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_406",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Animals",
+    "questionType": "multipleChoice",
+    "prompt": "A ____ is a very big grey animal with a long nose.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "elephant"
+      },
+      {
+        "id": "b",
+        "text": "mouse"
+      },
+      {
+        "id": "c",
+        "text": "fox"
+      },
+      {
+        "id": "d",
+        "text": "rabbit"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Voi có vòi dài.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_407",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Body",
+    "questionType": "multipleChoice",
+    "prompt": "You have ten ____ on your hands.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "fingers"
+      },
+      {
+        "id": "b",
+        "text": "ears"
+      },
+      {
+        "id": "c",
+        "text": "teeth"
+      },
+      {
+        "id": "d",
+        "text": "toes"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "10 ngón tay (fingers); ngón chân là toes.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_408",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Body",
+    "questionType": "multipleChoice",
+    "prompt": "I've got a ____. I ate too much cake!",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "stomach-ache"
+      },
+      {
+        "id": "b",
+        "text": "backpack"
+      },
+      {
+        "id": "c",
+        "text": "toothbrush"
+      },
+      {
+        "id": "d",
+        "text": "headache"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Ăn nhiều bánh -> đau bụng (stomach-ache).",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_409",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Clothes",
+    "questionType": "multipleChoice",
+    "prompt": "When it's sunny, I wear a ____ to protect my head.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "cap"
+      },
+      {
+        "id": "b",
+        "text": "sock"
+      },
+      {
+        "id": "c",
+        "text": "scarf"
+      },
+      {
+        "id": "d",
+        "text": "glove"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Đội mũ lưỡi trai che nắng.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_410",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Clothes",
+    "questionType": "multipleChoice",
+    "prompt": "Put on your ____ before you go out in the rain.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "T-shirt"
+      },
+      {
+        "id": "b",
+        "text": "raincoat"
+      },
+      {
+        "id": "c",
+        "text": "pyjamas"
+      },
+      {
+        "id": "d",
+        "text": "swimsuit"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Mặc áo mưa khi trời mưa.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_411",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Food",
+    "questionType": "multipleChoice",
+    "prompt": "I have ____ for breakfast with milk.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "pizza"
+      },
+      {
+        "id": "b",
+        "text": "soup"
+      },
+      {
+        "id": "c",
+        "text": "dinner"
+      },
+      {
+        "id": "d",
+        "text": "cereal"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Ăn ngũ cốc (cereal) với sữa buổi sáng.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_412",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Food",
+    "questionType": "multipleChoice",
+    "prompt": "Which one is a drink?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "noodles"
+      },
+      {
+        "id": "b",
+        "text": "lemonade"
+      },
+      {
+        "id": "c",
+        "text": "sandwich"
+      },
+      {
+        "id": "d",
+        "text": "sausage"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Nước chanh (lemonade) là đồ uống.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_413",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "House",
+    "questionType": "multipleChoice",
+    "prompt": "We keep food cold in the ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "bath"
+      },
+      {
+        "id": "b",
+        "text": "cupboard"
+      },
+      {
+        "id": "c",
+        "text": "fridge"
+      },
+      {
+        "id": "d",
+        "text": "garden"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Giữ lạnh đồ ăn trong tủ lạnh.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_414",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "House",
+    "questionType": "multipleChoice",
+    "prompt": "You can look at yourself in a ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "window"
+      },
+      {
+        "id": "b",
+        "text": "sofa"
+      },
+      {
+        "id": "c",
+        "text": "mirror"
+      },
+      {
+        "id": "d",
+        "text": "lamp"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Soi gương (mirror).",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_415",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Jobs",
+    "questionType": "multipleChoice",
+    "prompt": "A ____ helps you when your teeth hurt.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "dentist"
+      },
+      {
+        "id": "b",
+        "text": "pilot"
+      },
+      {
+        "id": "c",
+        "text": "driver"
+      },
+      {
+        "id": "d",
+        "text": "farmer"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Nha sĩ chữa răng.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_416",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Jobs",
+    "questionType": "multipleChoice",
+    "prompt": "A ____ brings letters to your house.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "nurse"
+      },
+      {
+        "id": "b",
+        "text": "cook"
+      },
+      {
+        "id": "c",
+        "text": "clown"
+      },
+      {
+        "id": "d",
+        "text": "postman"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Người đưa thư (postman).",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_417",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Places",
+    "questionType": "multipleChoice",
+    "prompt": "You catch a train at the ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "library"
+      },
+      {
+        "id": "b",
+        "text": "hospital"
+      },
+      {
+        "id": "c",
+        "text": "station"
+      },
+      {
+        "id": "d",
+        "text": "market"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Bắt tàu ở nhà ga.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_418",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Places",
+    "questionType": "multipleChoice",
+    "prompt": "You can swim at the ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "bank"
+      },
+      {
+        "id": "b",
+        "text": "bookshop"
+      },
+      {
+        "id": "c",
+        "text": "swimming pool"
+      },
+      {
+        "id": "d",
+        "text": "post office"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Bơi ở hồ bơi.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_419",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Transport",
+    "questionType": "multipleChoice",
+    "prompt": "A ____ can fly and has a big propeller on top.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "ship"
+      },
+      {
+        "id": "b",
+        "text": "lorry"
+      },
+      {
+        "id": "c",
+        "text": "helicopter"
+      },
+      {
+        "id": "d",
+        "text": "tram"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Trực thăng có cánh quạt trên nóc.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_420",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Weather",
+    "questionType": "multipleChoice",
+    "prompt": "It's very ____ today. Let's fly our kites!",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "foggy"
+      },
+      {
+        "id": "b",
+        "text": "snowy"
+      },
+      {
+        "id": "c",
+        "text": "windy"
+      },
+      {
+        "id": "d",
+        "text": "wet"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Có gió -> thả diều.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_421",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Time",
+    "questionType": "multipleChoice",
+    "prompt": "The month after March is ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "May"
+      },
+      {
+        "id": "b",
+        "text": "April"
+      },
+      {
+        "id": "c",
+        "text": "June"
+      },
+      {
+        "id": "d",
+        "text": "February"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Sau tháng Ba là tháng Tư.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_422",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Time",
+    "questionType": "multipleChoice",
+    "prompt": "We have breakfast in the ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "afternoon"
+      },
+      {
+        "id": "b",
+        "text": "night"
+      },
+      {
+        "id": "c",
+        "text": "evening"
+      },
+      {
+        "id": "d",
+        "text": "morning"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Ăn sáng vào buổi sáng (in the morning).",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_423",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "School",
+    "questionType": "multipleChoice",
+    "prompt": "Our teacher writes on the ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "floor"
+      },
+      {
+        "id": "b",
+        "text": "desk drawer"
+      },
+      {
+        "id": "c",
+        "text": "board"
+      },
+      {
+        "id": "d",
+        "text": "bag"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Cô viết lên bảng.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_424",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Sport",
+    "questionType": "multipleChoice",
+    "prompt": "In ____, you hit a small ball over a net with a racket.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "swimming"
+      },
+      {
+        "id": "b",
+        "text": "football"
+      },
+      {
+        "id": "c",
+        "text": "tennis"
+      },
+      {
+        "id": "d",
+        "text": "basketball"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Quần vợt dùng vợt đánh qua lưới.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_425",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Toys",
+    "questionType": "multipleChoice",
+    "prompt": "You can build a tower with these ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "blocks"
+      },
+      {
+        "id": "b",
+        "text": "dolls"
+      },
+      {
+        "id": "c",
+        "text": "balls"
+      },
+      {
+        "id": "d",
+        "text": "kites"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Xếp tháp bằng khối gỗ.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_426",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Emotions",
+    "questionType": "multipleChoice",
+    "prompt": "Sam's friend is ill. Sam is ____ about him.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "hungry"
+      },
+      {
+        "id": "b",
+        "text": "excited"
+      },
+      {
+        "id": "c",
+        "text": "worried"
+      },
+      {
+        "id": "d",
+        "text": "funny"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Bạn ốm -> lo lắng.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_427",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Opposites",
+    "questionType": "multipleChoice",
+    "prompt": "The opposite of 'young' is ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "old"
+      },
+      {
+        "id": "b",
+        "text": "tall"
+      },
+      {
+        "id": "c",
+        "text": "small"
+      },
+      {
+        "id": "d",
+        "text": "new"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Trái nghĩa với trẻ là già.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_428",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Nature",
+    "questionType": "multipleChoice",
+    "prompt": "Water from the sky is called ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "rain"
+      },
+      {
+        "id": "b",
+        "text": "wind"
+      },
+      {
+        "id": "c",
+        "text": "grass"
+      },
+      {
+        "id": "d",
+        "text": "sand"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Nước từ trời rơi xuống là mưa.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_429",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Shapes",
+    "questionType": "multipleChoice",
+    "prompt": "A ball is the shape of a ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "square"
+      },
+      {
+        "id": "b",
+        "text": "triangle"
+      },
+      {
+        "id": "c",
+        "text": "circle"
+      },
+      {
+        "id": "d",
+        "text": "rectangle"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Quả bóng hình tròn.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_430",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Colours",
+    "questionType": "multipleChoice",
+    "prompt": "If you mix blue and yellow, you get ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "purple"
+      },
+      {
+        "id": "b",
+        "text": "green"
+      },
+      {
+        "id": "c",
+        "text": "pink"
+      },
+      {
+        "id": "d",
+        "text": "orange"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Xanh dương + vàng = xanh lá.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_431",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "vocabulary",
+    "topic": "Animals",
+    "questionType": "matching",
+    "prompt": "Match the animal to where it lives.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "L1",
+        "text": "fish"
+      },
+      {
+        "id": "L2",
+        "text": "bird"
+      },
+      {
+        "id": "L3",
+        "text": "bee"
+      },
+      {
+        "id": "R1",
+        "text": "sea"
+      },
+      {
+        "id": "R2",
+        "text": "nest"
+      },
+      {
+        "id": "R3",
+        "text": "hive"
+      }
+    ],
+    "correctAnswer": [
+      "L1:R1",
+      "L2:R2",
+      "L3:R3"
+    ],
+    "explanation": "fish - sea, bird - nest, bee - hive.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_432",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Past Simple",
+    "questionType": "multipleChoice",
+    "prompt": "We ____ a lot of photos on holiday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "took"
+      },
+      {
+        "id": "b",
+        "text": "taked"
+      },
+      {
+        "id": "c",
+        "text": "take"
+      },
+      {
+        "id": "d",
+        "text": "takes"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "take -> took (bất quy tắc).",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_433",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Past Simple",
+    "questionType": "multipleChoice",
+    "prompt": "Mum ____ me a story last night.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "tell"
+      },
+      {
+        "id": "b",
+        "text": "tells"
+      },
+      {
+        "id": "c",
+        "text": "telled"
+      },
+      {
+        "id": "d",
+        "text": "told"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "tell -> told.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_434",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Past Simple",
+    "questionType": "multipleChoice",
+    "prompt": "____ you see the elephants at the zoo?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Do"
+      },
+      {
+        "id": "b",
+        "text": "Did"
+      },
+      {
+        "id": "c",
+        "text": "Were"
+      },
+      {
+        "id": "d",
+        "text": "Are"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Câu hỏi quá khứ đơn: Did + S + V?",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_435",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Present Continuous",
+    "questionType": "multipleChoice",
+    "prompt": "What ____ you doing now? – I'm drawing.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "are"
+      },
+      {
+        "id": "b",
+        "text": "do"
+      },
+      {
+        "id": "c",
+        "text": "did"
+      },
+      {
+        "id": "d",
+        "text": "is"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "you -> are + V-ing.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_436",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Present Simple",
+    "questionType": "multipleChoice",
+    "prompt": "My dad ____ coffee every morning.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "drink"
+      },
+      {
+        "id": "b",
+        "text": "drinking"
+      },
+      {
+        "id": "c",
+        "text": "drinks"
+      },
+      {
+        "id": "d",
+        "text": "is drink"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Ngôi 3 số ít: drinks.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_437",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Comparatives",
+    "questionType": "multipleChoice",
+    "prompt": "My sister is ____ than my brother.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "younger"
+      },
+      {
+        "id": "b",
+        "text": "more young"
+      },
+      {
+        "id": "c",
+        "text": "young"
+      },
+      {
+        "id": "d",
+        "text": "youngest"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "young -> younger.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_438",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Comparatives",
+    "questionType": "multipleChoice",
+    "prompt": "This book is ____ than that one.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "more good"
+      },
+      {
+        "id": "b",
+        "text": "gooder"
+      },
+      {
+        "id": "c",
+        "text": "best"
+      },
+      {
+        "id": "d",
+        "text": "better"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "good -> better.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_439",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Superlatives",
+    "questionType": "multipleChoice",
+    "prompt": "Which is the ____ planet? – Jupiter.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "big"
+      },
+      {
+        "id": "b",
+        "text": "bigger"
+      },
+      {
+        "id": "c",
+        "text": "biggest"
+      },
+      {
+        "id": "d",
+        "text": "most big"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "So sánh nhất: the biggest.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_440",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Adverbs of Frequency",
+    "questionType": "multipleChoice",
+    "prompt": "I ____ eat vegetables. I don't like them!",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "usually"
+      },
+      {
+        "id": "b",
+        "text": "always"
+      },
+      {
+        "id": "c",
+        "text": "often"
+      },
+      {
+        "id": "d",
+        "text": "never"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Không thích -> không bao giờ ăn.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_441",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Must/Have to",
+    "questionType": "multipleChoice",
+    "prompt": "You ____ do your homework before you play.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "must"
+      },
+      {
+        "id": "b",
+        "text": "can't"
+      },
+      {
+        "id": "c",
+        "text": "don't"
+      },
+      {
+        "id": "d",
+        "text": "mustn't"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Phải làm bài trước.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_442",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Question Words",
+    "questionType": "multipleChoice",
+    "prompt": "____ is your teacher? – Mrs Brown.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "When"
+      },
+      {
+        "id": "b",
+        "text": "What"
+      },
+      {
+        "id": "c",
+        "text": "Where"
+      },
+      {
+        "id": "d",
+        "text": "Who"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Hỏi người -> Who.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_443",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Question Words",
+    "questionType": "multipleChoice",
+    "prompt": "____ is the bus stop? – Next to the park.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Why"
+      },
+      {
+        "id": "b",
+        "text": "When"
+      },
+      {
+        "id": "c",
+        "text": "Where"
+      },
+      {
+        "id": "d",
+        "text": "Who"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Hỏi nơi chốn -> Where.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_444",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Some/Any",
+    "questionType": "multipleChoice",
+    "prompt": "There aren't ____ apples left.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "a"
+      },
+      {
+        "id": "b",
+        "text": "some"
+      },
+      {
+        "id": "c",
+        "text": "many of"
+      },
+      {
+        "id": "d",
+        "text": "any"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Phủ định -> any.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_445",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Much/Many",
+    "questionType": "multipleChoice",
+    "prompt": "How ____ water do you drink every day?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "lot"
+      },
+      {
+        "id": "b",
+        "text": "many"
+      },
+      {
+        "id": "c",
+        "text": "any"
+      },
+      {
+        "id": "d",
+        "text": "much"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "water không đếm được -> much.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_446",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Prepositions of Place",
+    "questionType": "multipleChoice",
+    "prompt": "The ball is ____ the sofa. I can see it under there!",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "in"
+      },
+      {
+        "id": "b",
+        "text": "above"
+      },
+      {
+        "id": "c",
+        "text": "under"
+      },
+      {
+        "id": "d",
+        "text": "on"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "'under there' -> dưới ghế.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_447",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Prepositions of Time",
+    "questionType": "multipleChoice",
+    "prompt": "My birthday is ____ July.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "at"
+      },
+      {
+        "id": "b",
+        "text": "by"
+      },
+      {
+        "id": "c",
+        "text": "in"
+      },
+      {
+        "id": "d",
+        "text": "on"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Tháng -> in.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_448",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Going to Future",
+    "questionType": "multipleChoice",
+    "prompt": "We ____ visit Grandma tomorrow.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "go to"
+      },
+      {
+        "id": "b",
+        "text": "are going to"
+      },
+      {
+        "id": "c",
+        "text": "going to"
+      },
+      {
+        "id": "d",
+        "text": "is going"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "we -> are going to.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_449",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Object Pronouns",
+    "questionType": "multipleChoice",
+    "prompt": "Tom and I are friends. He plays with ____ every day.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "me"
+      },
+      {
+        "id": "b",
+        "text": "my"
+      },
+      {
+        "id": "c",
+        "text": "mine"
+      },
+      {
+        "id": "d",
+        "text": "I"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Tân ngữ -> me.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_450",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Possessives",
+    "questionType": "multipleChoice",
+    "prompt": "This is ____ dog. Its name is Rex.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "us"
+      },
+      {
+        "id": "b",
+        "text": "our"
+      },
+      {
+        "id": "c",
+        "text": "we"
+      },
+      {
+        "id": "d",
+        "text": "ours"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Tính từ sở hữu + danh từ -> our dog.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_451",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "There is/are",
+    "questionType": "multipleChoice",
+    "prompt": "There ____ a cat on the roof.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "are"
+      },
+      {
+        "id": "b",
+        "text": "am"
+      },
+      {
+        "id": "c",
+        "text": "is"
+      },
+      {
+        "id": "d",
+        "text": "be"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Số ít -> there is.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_452",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Conjunctions",
+    "questionType": "multipleChoice",
+    "prompt": "I was tired, ____ I went to bed early.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "because"
+      },
+      {
+        "id": "b",
+        "text": "or"
+      },
+      {
+        "id": "c",
+        "text": "but"
+      },
+      {
+        "id": "d",
+        "text": "so"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Kết quả -> so.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_453",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Would Like",
+    "questionType": "multipleChoice",
+    "prompt": "What would you like to ____? – Orange juice, please.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "drinking"
+      },
+      {
+        "id": "b",
+        "text": "drink"
+      },
+      {
+        "id": "c",
+        "text": "drinks"
+      },
+      {
+        "id": "d",
+        "text": "drank"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "would like to + V.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_454",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Past Simple",
+    "questionType": "fillBlank",
+    "prompt": "Yesterday, the dog ____ (run) after the ball.",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "ran"
+    ],
+    "explanation": "run -> ran.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_455",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Past Simple",
+    "questionType": "fillBlank",
+    "prompt": "We ____ (have) pizza for dinner last night.",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "had"
+    ],
+    "explanation": "have -> had.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_456",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Comparatives",
+    "questionType": "fillBlank",
+    "prompt": "An elephant is ____ (heavy) than a horse.",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "heavier"
+    ],
+    "explanation": "heavy -> heavier.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_457",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Plurals",
+    "questionType": "fillBlank",
+    "prompt": "I can see three ____ (mouse) in the kitchen!",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "mice"
+    ],
+    "explanation": "mouse -> mice (bất quy tắc).",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_458",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Plurals",
+    "questionType": "fillBlank",
+    "prompt": "My grandma has two ____ (sheep).",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "sheep"
+    ],
+    "explanation": "sheep số nhiều không đổi.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_459",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "grammar",
+    "topic": "Present Continuous",
+    "questionType": "fillBlank",
+    "prompt": "Look! It ____ (snow).",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "is snowing",
+      "'s snowing"
+    ],
+    "explanation": "Look! -> đang xảy ra.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_460",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "listening",
+    "topic": "Animals",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. What is the parrot doing?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Talking"
+      },
+      {
+        "id": "b",
+        "text": "Flying"
+      },
+      {
+        "id": "c",
+        "text": "Eating"
+      },
+      {
+        "id": "d",
+        "text": "Sleeping"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Con vẹt đang nói chuyện.",
+    "difficulty": 1,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Listen to our parrot! It's talking. It can say 'Hello' and 'Good morning'."
+  },
+  {
+    "id": "yle_mov_461",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "listening",
+    "topic": "Family",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. Who is wearing glasses?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Mum"
+      },
+      {
+        "id": "b",
+        "text": "Grandpa"
+      },
+      {
+        "id": "c",
+        "text": "The baby"
+      },
+      {
+        "id": "d",
+        "text": "Uncle Tom"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Ông đeo kính.",
+    "difficulty": 1,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "This is my family photo. My grandpa is the man with glasses. My mum has long hair."
+  },
+  {
+    "id": "yle_mov_462",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "listening",
+    "topic": "Food",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. What does Ben want to eat?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A burger and chips"
+      },
+      {
+        "id": "b",
+        "text": "Fish and rice"
+      },
+      {
+        "id": "c",
+        "text": "Pasta and salad"
+      },
+      {
+        "id": "d",
+        "text": "Soup and bread"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Ben muốn burger và khoai chiên.",
+    "difficulty": 1,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Waiter: What would you like? Ben: A burger and chips, please. Dad: And I'd like the fish."
+  },
+  {
+    "id": "yle_mov_463",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "listening",
+    "topic": "School",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. What subject does Kim like best?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "English"
+      },
+      {
+        "id": "b",
+        "text": "Maths"
+      },
+      {
+        "id": "c",
+        "text": "Art"
+      },
+      {
+        "id": "d",
+        "text": "Music"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Kim thích âm nhạc nhất.",
+    "difficulty": 1,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Kim likes English and art, but her favourite subject is music. She plays the piano."
+  },
+  {
+    "id": "yle_mov_464",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "listening",
+    "topic": "Weekend",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. Where did Anna go on Saturday?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "To the park"
+      },
+      {
+        "id": "b",
+        "text": "To the zoo"
+      },
+      {
+        "id": "c",
+        "text": "To the beach"
+      },
+      {
+        "id": "d",
+        "text": "To the cinema"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Thứ Bảy đi biển.",
+    "difficulty": 1,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "On Saturday, Anna went to the beach with her cousins. On Sunday, she stayed at home."
+  },
+  {
+    "id": "yle_mov_465",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "listening",
+    "topic": "Time",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. What time does Jack go to bed?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "At seven o'clock"
+      },
+      {
+        "id": "b",
+        "text": "At eight o'clock"
+      },
+      {
+        "id": "c",
+        "text": "At nine o'clock"
+      },
+      {
+        "id": "d",
+        "text": "At half past eight"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Đi ngủ lúc 8 rưỡi.",
+    "difficulty": 1,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Jack has dinner at seven o'clock. He goes to bed at half past eight."
+  },
+  {
+    "id": "yle_mov_466",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "listening",
+    "topic": "Shopping",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. How much is the ball?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Fifteen pounds"
+      },
+      {
+        "id": "b",
+        "text": "Five pounds"
+      },
+      {
+        "id": "c",
+        "text": "Four pounds"
+      },
+      {
+        "id": "d",
+        "text": "Fifty pounds"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Quả bóng giá 5 bảng.",
+    "difficulty": 1,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Girl: How much is this ball? Shopkeeper: It's five pounds. Girl: OK, I'll take it."
+  },
+  {
+    "id": "yle_mov_467",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "listening",
+    "topic": "House",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. Where is the cat?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "In the garden"
+      },
+      {
+        "id": "b",
+        "text": "Under the table"
+      },
+      {
+        "id": "c",
+        "text": "Behind the door"
+      },
+      {
+        "id": "d",
+        "text": "On the bed"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Con mèo trên giường.",
+    "difficulty": 1,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Where's the cat? I can't find it. Oh, there it is! It's sleeping on my bed."
+  },
+  {
+    "id": "yle_mov_468",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "listening",
+    "topic": "Daily Routine",
+    "questionType": "ordering",
+    "prompt": "Listen and number the actions in the order you hear them.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "have a snack"
+      },
+      {
+        "id": "w2",
+        "text": "do homework"
+      },
+      {
+        "id": "w3",
+        "text": "play with friends"
+      },
+      {
+        "id": "w4",
+        "text": "have a bath"
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4"
+    ],
+    "explanation": "Thứ tự sau giờ học theo bài nghe.",
+    "difficulty": 1,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "After school, I have a snack. Then I do my homework. After that, I play with my friends. In the evening, I have a bath."
+  },
+  {
+    "id": "yle_mov_469",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "reading",
+    "topic": "Animals",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'Dolphins live in the sea, but they are not fish. They need air, so they come up to breathe.' True or False: Dolphins need air.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "'They need air' - cá heo cần không khí.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_470",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "reading",
+    "topic": "School",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'Mr. Lee is our music teacher. He can play the guitar and the drums, but he can't play the piano.' True or False: Mr. Lee can play the piano.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "'he can't play the piano'.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_471",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "reading",
+    "topic": "Friends",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'Mia and Lily are best friends. They sit next to each other in class and walk home together.' True or False: Mia and Lily walk home together.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Hai bạn cùng đi bộ về nhà.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_472",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "reading",
+    "topic": "Weather",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'It was cold and snowy yesterday, so the children built a big snowman in the park.' True or False: The children went swimming yesterday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Trời tuyết -> nặn người tuyết, không đi bơi.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_473",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "reading",
+    "topic": "Pets",
+    "questionType": "shortAnswer",
+    "prompt": "Read: 'Kate has two pets: a black cat called Midnight and a small brown hamster.' What colour is the hamster?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "brown",
+      "small brown"
+    ],
+    "explanation": "Chuột hamster màu nâu.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_474",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "reading",
+    "topic": "Family",
+    "questionType": "shortAnswer",
+    "prompt": "Read: 'My uncle is a doctor. He works in a big hospital in the city.' What is the uncle's job?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "doctor",
+      "a doctor",
+      "he is a doctor"
+    ],
+    "explanation": "Chú là bác sĩ.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_475",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "reading",
+    "topic": "Places",
+    "questionType": "shortAnswer",
+    "prompt": "Read: 'The library opens at nine o'clock and closes at five o'clock.' What time does the library close?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "five o'clock",
+      "5 o'clock",
+      "at five o'clock",
+      "5:00",
+      "five"
+    ],
+    "explanation": "Đóng cửa lúc 5 giờ.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_476",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "writing",
+    "topic": "Sentence Order",
+    "questionType": "ordering",
+    "prompt": "Put the words in the correct order to make a sentence.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "The"
+      },
+      {
+        "id": "w2",
+        "text": "cat"
+      },
+      {
+        "id": "w3",
+        "text": "is"
+      },
+      {
+        "id": "w4",
+        "text": "sitting"
+      },
+      {
+        "id": "w5",
+        "text": "on"
+      },
+      {
+        "id": "w6",
+        "text": "the"
+      },
+      {
+        "id": "w7",
+        "text": "wall."
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4",
+      "w5",
+      "w6",
+      "w7"
+    ],
+    "explanation": "Câu đúng: 'The cat is sitting on the wall.'",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_477",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "writing",
+    "topic": "Sentence Order",
+    "questionType": "ordering",
+    "prompt": "Put the words in the correct order to make a sentence.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "I"
+      },
+      {
+        "id": "w2",
+        "text": "don't"
+      },
+      {
+        "id": "w3",
+        "text": "like"
+      },
+      {
+        "id": "w4",
+        "text": "cold"
+      },
+      {
+        "id": "w5",
+        "text": "weather."
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4",
+      "w5"
+    ],
+    "explanation": "Câu đúng: 'I don't like cold weather.'",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_478",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "writing",
+    "topic": "Sentence Order",
+    "questionType": "ordering",
+    "prompt": "Put the words in the correct order to make a sentence.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "Where"
+      },
+      {
+        "id": "w2",
+        "text": "did"
+      },
+      {
+        "id": "w3",
+        "text": "you"
+      },
+      {
+        "id": "w4",
+        "text": "go"
+      },
+      {
+        "id": "w5",
+        "text": "yesterday?"
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4",
+      "w5"
+    ],
+    "explanation": "Câu đúng: 'Where did you go yesterday?'",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_479",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "writing",
+    "topic": "Sentence Order",
+    "questionType": "ordering",
+    "prompt": "Put the words in the correct order to make a sentence.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "My"
+      },
+      {
+        "id": "w2",
+        "text": "brother"
+      },
+      {
+        "id": "w3",
+        "text": "can"
+      },
+      {
+        "id": "w4",
+        "text": "swim"
+      },
+      {
+        "id": "w5",
+        "text": "very"
+      },
+      {
+        "id": "w6",
+        "text": "well."
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4",
+      "w5",
+      "w6"
+    ],
+    "explanation": "Câu đúng: 'My brother can swim very well.'",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_480",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "writing",
+    "topic": "Sentence Order",
+    "questionType": "ordering",
+    "prompt": "Put the words in the correct order to make a sentence.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "There"
+      },
+      {
+        "id": "w2",
+        "text": "is"
+      },
+      {
+        "id": "w3",
+        "text": "a"
+      },
+      {
+        "id": "w4",
+        "text": "big"
+      },
+      {
+        "id": "w5",
+        "text": "tree"
+      },
+      {
+        "id": "w6",
+        "text": "in"
+      },
+      {
+        "id": "w7",
+        "text": "the"
+      },
+      {
+        "id": "w8",
+        "text": "garden."
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4",
+      "w5",
+      "w6",
+      "w7",
+      "w8"
+    ],
+    "explanation": "Câu đúng: 'There is a big tree in the garden.'",
+    "difficulty": 1,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_mov_481",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "speaking",
+    "topic": "Family",
+    "questionType": "speakingPrompt",
+    "prompt": "Who is the tallest person in your family?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [],
+    "explanation": "Câu hỏi speaking — phụ huynh/giáo viên nghe và đánh giá trực tiếp, engine không tự chấm.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 0
+  },
+  {
+    "id": "yle_mov_482",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "speaking",
+    "topic": "Toys",
+    "questionType": "speakingPrompt",
+    "prompt": "What is your favourite toy? What colour is it?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [],
+    "explanation": "Câu hỏi speaking — phụ huynh/giáo viên nghe và đánh giá trực tiếp, engine không tự chấm.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 0
+  },
+  {
+    "id": "yle_mov_483",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "speaking",
+    "topic": "Places",
+    "questionType": "speakingPrompt",
+    "prompt": "Tell me about a park near your home.",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [],
+    "explanation": "Câu hỏi speaking — phụ huynh/giáo viên nghe và đánh giá trực tiếp, engine không tự chấm.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 0
+  },
+  {
+    "id": "yle_mov_484",
+    "track": "yle",
+    "level": "Movers",
+    "skill": "speaking",
+    "topic": "Food",
+    "questionType": "speakingPrompt",
+    "prompt": "What food don't you like? Why?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [],
+    "explanation": "Câu hỏi speaking — phụ huynh/giáo viên nghe và đánh giá trực tiếp, engine không tự chấm.",
+    "difficulty": 1,
+    "tags": [],
+    "points": 0
+  },
+  {
+    "id": "yle_fly_326",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Environment",
+    "questionType": "multipleChoice",
+    "prompt": "We can save ____ by turning off the lights.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "energy"
+      },
+      {
+        "id": "b",
+        "text": "rubbish"
+      },
+      {
+        "id": "c",
+        "text": "pollution"
+      },
+      {
+        "id": "d",
+        "text": "plastic"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Tắt đèn tiết kiệm năng lượng.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_327",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Environment",
+    "questionType": "multipleChoice",
+    "prompt": "Cars and factories cause air ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "population"
+      },
+      {
+        "id": "b",
+        "text": "protection"
+      },
+      {
+        "id": "c",
+        "text": "position"
+      },
+      {
+        "id": "d",
+        "text": "pollution"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Ô nhiễm không khí.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_328",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Space",
+    "questionType": "multipleChoice",
+    "prompt": "Our ____ has eight planets.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "space station"
+      },
+      {
+        "id": "b",
+        "text": "solar system"
+      },
+      {
+        "id": "c",
+        "text": "rocket"
+      },
+      {
+        "id": "d",
+        "text": "galaxy map"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Hệ Mặt Trời có 8 hành tinh.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_329",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Geography",
+    "questionType": "multipleChoice",
+    "prompt": "An ____ is land with water all around it.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "island"
+      },
+      {
+        "id": "b",
+        "text": "hill"
+      },
+      {
+        "id": "c",
+        "text": "valley"
+      },
+      {
+        "id": "d",
+        "text": "ocean"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Đảo có nước bao quanh.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_330",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Geography",
+    "questionType": "multipleChoice",
+    "prompt": "Mount Everest is the highest ____ in the world.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "river"
+      },
+      {
+        "id": "b",
+        "text": "desert"
+      },
+      {
+        "id": "c",
+        "text": "forest"
+      },
+      {
+        "id": "d",
+        "text": "mountain"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Everest là ngọn núi cao nhất.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_331",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Health",
+    "questionType": "multipleChoice",
+    "prompt": "You should wear a ____ when you ride a bike.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "belt"
+      },
+      {
+        "id": "b",
+        "text": "necklace"
+      },
+      {
+        "id": "c",
+        "text": "helmet"
+      },
+      {
+        "id": "d",
+        "text": "scarf"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Đội mũ bảo hiểm khi đạp xe.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_332",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Health",
+    "questionType": "multipleChoice",
+    "prompt": "I cut my finger, so Mum put a ____ on it.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "blanket"
+      },
+      {
+        "id": "b",
+        "text": "plaster"
+      },
+      {
+        "id": "c",
+        "text": "pillow"
+      },
+      {
+        "id": "d",
+        "text": "stamp"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Dán băng cá nhân (plaster).",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_333",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Jobs",
+    "questionType": "multipleChoice",
+    "prompt": "A ____ repairs cars.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "photographer"
+      },
+      {
+        "id": "b",
+        "text": "firefighter"
+      },
+      {
+        "id": "c",
+        "text": "mechanic"
+      },
+      {
+        "id": "d",
+        "text": "businessman"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Thợ sửa xe (mechanic).",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_334",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Jobs",
+    "questionType": "multipleChoice",
+    "prompt": "A ____ puts out fires.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "police officer"
+      },
+      {
+        "id": "b",
+        "text": "pilot"
+      },
+      {
+        "id": "c",
+        "text": "firefighter"
+      },
+      {
+        "id": "d",
+        "text": "waiter"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Lính cứu hoả dập lửa.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_335",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Materials",
+    "questionType": "multipleChoice",
+    "prompt": "Coins are usually made of ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "metal"
+      },
+      {
+        "id": "b",
+        "text": "wool"
+      },
+      {
+        "id": "c",
+        "text": "glass"
+      },
+      {
+        "id": "d",
+        "text": "paper"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Đồng xu làm bằng kim loại.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_336",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Technology",
+    "questionType": "multipleChoice",
+    "prompt": "I saved my homework on a ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "clock"
+      },
+      {
+        "id": "b",
+        "text": "cooker"
+      },
+      {
+        "id": "c",
+        "text": "computer"
+      },
+      {
+        "id": "d",
+        "text": "calendar"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Lưu bài trên máy tính.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_337",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Travel",
+    "questionType": "multipleChoice",
+    "prompt": "We looked at a ____ to find the way to the castle.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "menu"
+      },
+      {
+        "id": "b",
+        "text": "map"
+      },
+      {
+        "id": "c",
+        "text": "message"
+      },
+      {
+        "id": "d",
+        "text": "magazine"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Xem bản đồ tìm đường.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_338",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Travel",
+    "questionType": "multipleChoice",
+    "prompt": "The plane lands at the ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "garage"
+      },
+      {
+        "id": "b",
+        "text": "harbour"
+      },
+      {
+        "id": "c",
+        "text": "station"
+      },
+      {
+        "id": "d",
+        "text": "airport"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Máy bay hạ cánh ở sân bay.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_339",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Weather Phenomena",
+    "questionType": "multipleChoice",
+    "prompt": "The ____ was so strong that it blew the roof off the house.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "frost"
+      },
+      {
+        "id": "b",
+        "text": "sunshine"
+      },
+      {
+        "id": "c",
+        "text": "storm"
+      },
+      {
+        "id": "d",
+        "text": "rainbow"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Bão mạnh thổi bay mái nhà.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_340",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Emotions",
+    "questionType": "multipleChoice",
+    "prompt": "The film was so sad that Lucy felt ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "excited"
+      },
+      {
+        "id": "b",
+        "text": "upset"
+      },
+      {
+        "id": "c",
+        "text": "proud"
+      },
+      {
+        "id": "d",
+        "text": "delighted"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Phim buồn -> buồn bã.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_341",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Emotions",
+    "questionType": "multipleChoice",
+    "prompt": "Tom was ____ because he had to wait for two hours.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "friendly"
+      },
+      {
+        "id": "b",
+        "text": "surprised"
+      },
+      {
+        "id": "c",
+        "text": "brave"
+      },
+      {
+        "id": "d",
+        "text": "bored"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Chờ 2 tiếng -> chán.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_342",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Adjectives",
+    "questionType": "multipleChoice",
+    "prompt": "The mountain path was very ____, so we walked slowly.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "comfortable"
+      },
+      {
+        "id": "b",
+        "text": "dangerous"
+      },
+      {
+        "id": "c",
+        "text": "delicious"
+      },
+      {
+        "id": "d",
+        "text": "tidy"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Đường nguy hiểm nên đi chậm.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_343",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Shopping",
+    "questionType": "multipleChoice",
+    "prompt": "Can I ____ these shoes on, please?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "wear"
+      },
+      {
+        "id": "b",
+        "text": "put"
+      },
+      {
+        "id": "c",
+        "text": "try"
+      },
+      {
+        "id": "d",
+        "text": "fit"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "try on = thử (quần áo, giày).",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_344",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Communication",
+    "questionType": "multipleChoice",
+    "prompt": "Please ____ me a postcard from your holiday!",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "speak"
+      },
+      {
+        "id": "b",
+        "text": "talk"
+      },
+      {
+        "id": "c",
+        "text": "say"
+      },
+      {
+        "id": "d",
+        "text": "send"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "send a postcard = gửi bưu thiếp.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_345",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "School Subjects",
+    "questionType": "multipleChoice",
+    "prompt": "In ____ we do experiments.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "science"
+      },
+      {
+        "id": "b",
+        "text": "history"
+      },
+      {
+        "id": "c",
+        "text": "music"
+      },
+      {
+        "id": "d",
+        "text": "geography"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Làm thí nghiệm trong môn khoa học.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_346",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Time Expressions",
+    "questionType": "multipleChoice",
+    "prompt": "I'll finish my project ____ Friday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "since"
+      },
+      {
+        "id": "b",
+        "text": "during"
+      },
+      {
+        "id": "c",
+        "text": "ago"
+      },
+      {
+        "id": "d",
+        "text": "by"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "by Friday = trước/muộn nhất thứ Sáu.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_347",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Hobbies",
+    "questionType": "multipleChoice",
+    "prompt": "My aunt loves ____. She has hundreds of stamps.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "collecting"
+      },
+      {
+        "id": "b",
+        "text": "cooking"
+      },
+      {
+        "id": "c",
+        "text": "climbing"
+      },
+      {
+        "id": "d",
+        "text": "cycling"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Sưu tầm tem (collecting).",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_348",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Sports Equipment",
+    "questionType": "multipleChoice",
+    "prompt": "You need a ____ to play badminton.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "helmet"
+      },
+      {
+        "id": "b",
+        "text": "racket"
+      },
+      {
+        "id": "c",
+        "text": "bat"
+      },
+      {
+        "id": "d",
+        "text": "goal"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Chơi cầu lông cần vợt.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_349",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Animal Habitats",
+    "questionType": "multipleChoice",
+    "prompt": "Penguins live where it is very ____.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "dry"
+      },
+      {
+        "id": "b",
+        "text": "cold"
+      },
+      {
+        "id": "c",
+        "text": "hot"
+      },
+      {
+        "id": "d",
+        "text": "sandy"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Chim cánh cụt sống ở nơi rất lạnh.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_350",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "vocabulary",
+    "topic": "Jobs",
+    "questionType": "matching",
+    "prompt": "Match the job to what the person uses.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "L1",
+        "text": "photographer"
+      },
+      {
+        "id": "L2",
+        "text": "chef"
+      },
+      {
+        "id": "L3",
+        "text": "mechanic"
+      },
+      {
+        "id": "R1",
+        "text": "camera"
+      },
+      {
+        "id": "R2",
+        "text": "pan"
+      },
+      {
+        "id": "R3",
+        "text": "spanner"
+      }
+    ],
+    "correctAnswer": [
+      "L1:R1",
+      "L2:R2",
+      "L3:R3"
+    ],
+    "explanation": "photographer - camera, chef - pan, mechanic - spanner.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_351",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Present Perfect",
+    "questionType": "multipleChoice",
+    "prompt": "I ____ just ____ my lunch.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "have / finish"
+      },
+      {
+        "id": "b",
+        "text": "am / finished"
+      },
+      {
+        "id": "c",
+        "text": "has / finished"
+      },
+      {
+        "id": "d",
+        "text": "have / finished"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "have just + V3.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_352",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Present Perfect",
+    "questionType": "multipleChoice",
+    "prompt": "How long ____ you known your best friend?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "are"
+      },
+      {
+        "id": "b",
+        "text": "do"
+      },
+      {
+        "id": "c",
+        "text": "did"
+      },
+      {
+        "id": "d",
+        "text": "have"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "How long + have + V3.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_353",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Past Continuous",
+    "questionType": "multipleChoice",
+    "prompt": "While we ____ dinner, the lights went out.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "were having"
+      },
+      {
+        "id": "b",
+        "text": "have"
+      },
+      {
+        "id": "c",
+        "text": "had"
+      },
+      {
+        "id": "d",
+        "text": "are having"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "While + quá khứ tiếp diễn.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_354",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Future Tense",
+    "questionType": "multipleChoice",
+    "prompt": "Look at those clouds! It ____ rain.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "is going to"
+      },
+      {
+        "id": "b",
+        "text": "going"
+      },
+      {
+        "id": "c",
+        "text": "rains"
+      },
+      {
+        "id": "d",
+        "text": "will to"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Dự đoán có dấu hiệu -> be going to.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_355",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Conditionals",
+    "questionType": "multipleChoice",
+    "prompt": "If you ____ hard, you will pass the test.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "studied"
+      },
+      {
+        "id": "b",
+        "text": "studying"
+      },
+      {
+        "id": "c",
+        "text": "will study"
+      },
+      {
+        "id": "d",
+        "text": "study"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Loại 1: If + hiện tại đơn.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_356",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Second Conditional",
+    "questionType": "multipleChoice",
+    "prompt": "What would you do if you ____ a million pounds?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "win"
+      },
+      {
+        "id": "b",
+        "text": "won"
+      },
+      {
+        "id": "c",
+        "text": "wins"
+      },
+      {
+        "id": "d",
+        "text": "will win"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Loại 2: If + quá khứ đơn.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_357",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Passive Voice",
+    "questionType": "multipleChoice",
+    "prompt": "The Mona Lisa ____ by Leonardo da Vinci.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "painted"
+      },
+      {
+        "id": "b",
+        "text": "was painted"
+      },
+      {
+        "id": "c",
+        "text": "has paint"
+      },
+      {
+        "id": "d",
+        "text": "is painting"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Bị động quá khứ.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_358",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Passive Voice",
+    "questionType": "multipleChoice",
+    "prompt": "Cheese ____ from milk.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "is making"
+      },
+      {
+        "id": "b",
+        "text": "makes"
+      },
+      {
+        "id": "c",
+        "text": "is made"
+      },
+      {
+        "id": "d",
+        "text": "made"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Bị động hiện tại (sự thật).",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_359",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Relative Clauses",
+    "questionType": "multipleChoice",
+    "prompt": "This is the book ____ I told you about.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "whose"
+      },
+      {
+        "id": "b",
+        "text": "that"
+      },
+      {
+        "id": "c",
+        "text": "where"
+      },
+      {
+        "id": "d",
+        "text": "who"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Vật -> that/which.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_360",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Relative Clauses",
+    "questionType": "multipleChoice",
+    "prompt": "He's the boy ____ dad is a pilot.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "which"
+      },
+      {
+        "id": "b",
+        "text": "that"
+      },
+      {
+        "id": "c",
+        "text": "who"
+      },
+      {
+        "id": "d",
+        "text": "whose"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Sở hữu -> whose.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_361",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Question Tags",
+    "questionType": "multipleChoice",
+    "prompt": "It's cold today, ____?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "is it"
+      },
+      {
+        "id": "b",
+        "text": "wasn't it"
+      },
+      {
+        "id": "c",
+        "text": "isn't it"
+      },
+      {
+        "id": "d",
+        "text": "doesn't it"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Khẳng định với 'is' -> isn't it?",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_362",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Question Tags",
+    "questionType": "multipleChoice",
+    "prompt": "You went to the party, ____?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "don't you"
+      },
+      {
+        "id": "b",
+        "text": "didn't you"
+      },
+      {
+        "id": "c",
+        "text": "weren't you"
+      },
+      {
+        "id": "d",
+        "text": "did you"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Quá khứ khẳng định -> didn't you?",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_363",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Used To",
+    "questionType": "multipleChoice",
+    "prompt": "My grandpa ____ live on a farm when he was young.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "is used to"
+      },
+      {
+        "id": "b",
+        "text": "used to"
+      },
+      {
+        "id": "c",
+        "text": "using to"
+      },
+      {
+        "id": "d",
+        "text": "uses to"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "used to + V: thói quen/tình trạng trong quá khứ.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_364",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Too/Enough",
+    "questionType": "multipleChoice",
+    "prompt": "The box is too heavy ____ me to carry.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "of"
+      },
+      {
+        "id": "b",
+        "text": "to"
+      },
+      {
+        "id": "c",
+        "text": "for"
+      },
+      {
+        "id": "d",
+        "text": "with"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "too + adj + for sb + to V.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_365",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Gerunds vs Infinitives",
+    "questionType": "multipleChoice",
+    "prompt": "Would you mind ____ the window?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "opening"
+      },
+      {
+        "id": "b",
+        "text": "open"
+      },
+      {
+        "id": "c",
+        "text": "to open"
+      },
+      {
+        "id": "d",
+        "text": "opened"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "mind + V-ing.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_366",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Gerunds vs Infinitives",
+    "questionType": "multipleChoice",
+    "prompt": "I hope ____ Japan one day.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "visiting"
+      },
+      {
+        "id": "b",
+        "text": "visit"
+      },
+      {
+        "id": "c",
+        "text": "to visit"
+      },
+      {
+        "id": "d",
+        "text": "visited"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "hope + to V.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_367",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Modals of Deduction",
+    "questionType": "multipleChoice",
+    "prompt": "That ____ be Tom's bike. His bike is red, and this one is blue.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "should"
+      },
+      {
+        "id": "b",
+        "text": "can't"
+      },
+      {
+        "id": "c",
+        "text": "must"
+      },
+      {
+        "id": "d",
+        "text": "will"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Suy luận chắc chắn là không phải -> can't.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_368",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Reported Speech",
+    "questionType": "multipleChoice",
+    "prompt": "She told me that she ____ a new puppy.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "has"
+      },
+      {
+        "id": "b",
+        "text": "had"
+      },
+      {
+        "id": "c",
+        "text": "having"
+      },
+      {
+        "id": "d",
+        "text": "have"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Tường thuật lùi thì: has -> had.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_369",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Indefinite Pronouns",
+    "questionType": "multipleChoice",
+    "prompt": "I'm bored. There's ____ to do!",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "everything"
+      },
+      {
+        "id": "b",
+        "text": "nothing"
+      },
+      {
+        "id": "c",
+        "text": "anything"
+      },
+      {
+        "id": "d",
+        "text": "something"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Không có gì để làm -> nothing.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_370",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Articles",
+    "questionType": "multipleChoice",
+    "prompt": "____ sun is very hot today.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A"
+      },
+      {
+        "id": "b",
+        "text": "An"
+      },
+      {
+        "id": "c",
+        "text": "-"
+      },
+      {
+        "id": "d",
+        "text": "The"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Vật duy nhất -> the sun.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_371",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Adverbs of Manner",
+    "questionType": "multipleChoice",
+    "prompt": "Emma sings ____. Everyone loves listening to her.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "more beautiful"
+      },
+      {
+        "id": "b",
+        "text": "beautiful"
+      },
+      {
+        "id": "c",
+        "text": "beauty"
+      },
+      {
+        "id": "d",
+        "text": "beautifully"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Bổ nghĩa cho động từ -> trạng từ.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_372",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Comparatives",
+    "questionType": "multipleChoice",
+    "prompt": "Travelling by plane is ____ than travelling by bus.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "more fast"
+      },
+      {
+        "id": "b",
+        "text": "faster"
+      },
+      {
+        "id": "c",
+        "text": "fastest"
+      },
+      {
+        "id": "d",
+        "text": "fast"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "fast -> faster.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_373",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Present Perfect",
+    "questionType": "fillBlank",
+    "prompt": "Have you ever ____ (see) a whale?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "seen"
+    ],
+    "explanation": "see -> seen (V3).",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_374",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Passive Voice",
+    "questionType": "fillBlank",
+    "prompt": "This castle ____ (build) 500 years ago.",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "was built"
+    ],
+    "explanation": "Bị động quá khứ: was + V3.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_375",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Past Continuous",
+    "questionType": "fillBlank",
+    "prompt": "At 8 o'clock last night, I ____ (read) a book.",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "was reading"
+    ],
+    "explanation": "Đang làm gì tại mốc quá khứ.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_376",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Superlatives",
+    "questionType": "fillBlank",
+    "prompt": "That was the ____ (bad) film I have ever seen!",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "worst"
+    ],
+    "explanation": "bad -> worse -> worst.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_377",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "grammar",
+    "topic": "Used To",
+    "questionType": "fillBlank",
+    "prompt": "I ____ (use) to hate vegetables, but now I love them.",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "used"
+    ],
+    "explanation": "used to + V.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_378",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "listening",
+    "topic": "Holidays",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. Where did Sarah go on holiday?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "To the seaside"
+      },
+      {
+        "id": "b",
+        "text": "To the mountains"
+      },
+      {
+        "id": "c",
+        "text": "To a big city"
+      },
+      {
+        "id": "d",
+        "text": "To her grandparents' farm"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Sarah đi núi.",
+    "difficulty": 2,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Sarah usually goes to the seaside in summer, but this year her family went to the mountains. They went walking every day."
+  },
+  {
+    "id": "yle_fly_379",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "listening",
+    "topic": "Phone Call",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. What time will they meet?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "At quarter to three"
+      },
+      {
+        "id": "b",
+        "text": "At quarter past three"
+      },
+      {
+        "id": "c",
+        "text": "At three o'clock"
+      },
+      {
+        "id": "d",
+        "text": "At half past two"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Hẹn lúc 3 giờ kém 15.",
+    "difficulty": 2,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Boy: Shall we meet at three? Girl: Can we meet a bit earlier? Quarter to three? Boy: OK, quarter to three at the park."
+  },
+  {
+    "id": "yle_fly_380",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "listening",
+    "topic": "Books",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. What is the book about?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A girl who finds a dragon"
+      },
+      {
+        "id": "b",
+        "text": "A family who moves to London"
+      },
+      {
+        "id": "c",
+        "text": "A boy who travels to space"
+      },
+      {
+        "id": "d",
+        "text": "A dog who can talk"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Cô bé tìm thấy con rồng.",
+    "difficulty": 2,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "I'm reading a great book. It's about a girl who finds a baby dragon in her garden and has to keep it secret."
+  },
+  {
+    "id": "yle_fly_381",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "listening",
+    "topic": "Weather",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. What will the weather be like tomorrow?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Warm and rainy"
+      },
+      {
+        "id": "b",
+        "text": "Hot and windy"
+      },
+      {
+        "id": "c",
+        "text": "Snowy"
+      },
+      {
+        "id": "d",
+        "text": "Sunny but cold"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Ngày mai nắng nhưng lạnh.",
+    "difficulty": 2,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Tomorrow will be sunny, but it will be very cold, so wear a warm coat."
+  },
+  {
+    "id": "yle_fly_382",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "listening",
+    "topic": "Emotions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. How does David feel?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Nervous"
+      },
+      {
+        "id": "b",
+        "text": "Bored"
+      },
+      {
+        "id": "c",
+        "text": "Angry"
+      },
+      {
+        "id": "d",
+        "text": "Sleepy"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "David hồi hộp vì sắp thi đấu.",
+    "difficulty": 2,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Mum: Are you OK, David? David: Not really. I've got my first swimming competition today, and I'm really nervous."
+  },
+  {
+    "id": "yle_fly_383",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "listening",
+    "topic": "Places",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. Which place did the class visit first?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The aquarium"
+      },
+      {
+        "id": "b",
+        "text": "The museum"
+      },
+      {
+        "id": "c",
+        "text": "The castle"
+      },
+      {
+        "id": "d",
+        "text": "The park"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Đến thuỷ cung trước.",
+    "difficulty": 2,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "On our trip, we visited the aquarium first. Then we had lunch in the park, and after that we went to the museum."
+  },
+  {
+    "id": "yle_fly_384",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "listening",
+    "topic": "Homework",
+    "questionType": "multipleChoice",
+    "prompt": "Listen. What does Mr. Brown want the children to do?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Write a story about an animal"
+      },
+      {
+        "id": "b",
+        "text": "Draw a picture of a house"
+      },
+      {
+        "id": "c",
+        "text": "Learn ten new words"
+      },
+      {
+        "id": "d",
+        "text": "Read a book about space"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Viết truyện về một con vật.",
+    "difficulty": 2,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "For homework this week, please write a short story about an animal. It should be about one page long."
+  },
+  {
+    "id": "yle_fly_385",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "listening",
+    "topic": "Science",
+    "questionType": "ordering",
+    "prompt": "Listen and number the actions in the order you hear them.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "fill a glass with water"
+      },
+      {
+        "id": "w2",
+        "text": "add salt and stir"
+      },
+      {
+        "id": "w3",
+        "text": "put an egg in"
+      },
+      {
+        "id": "w4",
+        "text": "watch the egg float"
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4"
+    ],
+    "explanation": "Thứ tự thí nghiệm trứng nổi.",
+    "difficulty": 2,
+    "tags": [
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "In our experiment, first we filled a glass with water. Then we added some salt and stirred it. Next, we put an egg in the glass. Finally, we watched the egg float!"
+  },
+  {
+    "id": "yle_fly_386",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "reading",
+    "topic": "Environment",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'Bees are very important because they help flowers and fruit trees to grow. Without bees, we would have much less fruit.' Why are bees important?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "They help plants grow"
+      },
+      {
+        "id": "b",
+        "text": "They clean rivers"
+      },
+      {
+        "id": "c",
+        "text": "They eat insects"
+      },
+      {
+        "id": "d",
+        "text": "They make houses"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Ong giúp cây ra hoa kết trái.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_387",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "reading",
+    "topic": "History",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'The Great Wall of China is thousands of kilometres long. People started building it more than 2,000 years ago to protect the country.' Why was the Great Wall built?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "To protect the country"
+      },
+      {
+        "id": "b",
+        "text": "To attract tourists"
+      },
+      {
+        "id": "c",
+        "text": "To help farmers"
+      },
+      {
+        "id": "d",
+        "text": "To make a road for cars"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Xây để bảo vệ đất nước.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_388",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "reading",
+    "topic": "Science",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'Water boils at 100 degrees Celsius and freezes at 0 degrees Celsius.' What happens to water at 0 degrees?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "It disappears"
+      },
+      {
+        "id": "b",
+        "text": "It gets warmer"
+      },
+      {
+        "id": "c",
+        "text": "It boils"
+      },
+      {
+        "id": "d",
+        "text": "It freezes"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "0 độ C nước đóng băng.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_389",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "reading",
+    "topic": "Inference",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'Jack opened his umbrella and put on his boots before leaving the house.' What is the weather probably like?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Rainy"
+      },
+      {
+        "id": "b",
+        "text": "Sunny"
+      },
+      {
+        "id": "c",
+        "text": "Snowy and windy"
+      },
+      {
+        "id": "d",
+        "text": "Very hot"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Mở ô, đi ủng -> trời mưa.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_390",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "reading",
+    "topic": "Inference",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'Helen practised the piano for three hours every day. On the day of the concert, everyone clapped loudly when she finished.' What can we say about Helen?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "She worked hard and played well"
+      },
+      {
+        "id": "b",
+        "text": "She was late for the concert"
+      },
+      {
+        "id": "c",
+        "text": "She forgot the music"
+      },
+      {
+        "id": "d",
+        "text": "She didn't like music"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Luyện tập chăm và được vỗ tay nhiệt liệt.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_391",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "reading",
+    "topic": "Sport",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'In a triathlon, athletes swim, then cycle, and finally run.' What is the last part of a triathlon?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Walking"
+      },
+      {
+        "id": "b",
+        "text": "Running"
+      },
+      {
+        "id": "c",
+        "text": "Cycling"
+      },
+      {
+        "id": "d",
+        "text": "Swimming"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Phần cuối là chạy.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_392",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "reading",
+    "topic": "Invention",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'The first computers were so big that they filled a whole room. Today, a mobile phone is more powerful than those computers.' True or False: The first computers were very small.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Máy tính đầu tiên to bằng cả căn phòng.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_393",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "reading",
+    "topic": "Travel",
+    "questionType": "multipleChoice",
+    "prompt": "Read: 'Venice is a city in Italy with many canals. People travel around the city by boat instead of by car.' True or False: People in Venice often travel by boat.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "True"
+      },
+      {
+        "id": "b",
+        "text": "False"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Đi lại bằng thuyền.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_394",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "reading",
+    "topic": "School Trip",
+    "questionType": "shortAnswer",
+    "prompt": "Read: 'Our class visited the science museum on Tuesday. We took the train because the museum is far from our school.' How did the class travel to the museum?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "by train",
+      "train",
+      "they took the train",
+      "on the train"
+    ],
+    "explanation": "Đi bằng tàu hoả.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_395",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "reading",
+    "topic": "Free Time",
+    "questionType": "shortAnswer",
+    "prompt": "Read: 'Oliver has been learning karate for three years. He goes to lessons every Wednesday evening.' When does Oliver have karate lessons?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [
+      "on Wednesday evening",
+      "Wednesday evening",
+      "every Wednesday evening",
+      "on Wednesdays"
+    ],
+    "explanation": "Học tối thứ Tư.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_396",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "writing",
+    "topic": "Sentence Order",
+    "questionType": "ordering",
+    "prompt": "Put the words in the correct order to make a sentence.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "We"
+      },
+      {
+        "id": "w2",
+        "text": "have"
+      },
+      {
+        "id": "w3",
+        "text": "lived"
+      },
+      {
+        "id": "w4",
+        "text": "here"
+      },
+      {
+        "id": "w5",
+        "text": "since"
+      },
+      {
+        "id": "w6",
+        "text": "2019."
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4",
+      "w5",
+      "w6"
+    ],
+    "explanation": "Câu đúng: 'We have lived here since 2019.'",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_397",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "writing",
+    "topic": "Sentence Order",
+    "questionType": "ordering",
+    "prompt": "Put the words in the correct order to make a sentence.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "The"
+      },
+      {
+        "id": "w2",
+        "text": "bridge"
+      },
+      {
+        "id": "w3",
+        "text": "was"
+      },
+      {
+        "id": "w4",
+        "text": "built"
+      },
+      {
+        "id": "w5",
+        "text": "a"
+      },
+      {
+        "id": "w6",
+        "text": "long"
+      },
+      {
+        "id": "w7",
+        "text": "time"
+      },
+      {
+        "id": "w8",
+        "text": "ago."
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4",
+      "w5",
+      "w6",
+      "w7",
+      "w8"
+    ],
+    "explanation": "Câu đúng: 'The bridge was built a long time ago.'",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_398",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "writing",
+    "topic": "Sentence Order",
+    "questionType": "ordering",
+    "prompt": "Put the words in the correct order to make a sentence.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "If"
+      },
+      {
+        "id": "w2",
+        "text": "I"
+      },
+      {
+        "id": "w3",
+        "text": "were"
+      },
+      {
+        "id": "w4",
+        "text": "you,"
+      },
+      {
+        "id": "w5",
+        "text": "I"
+      },
+      {
+        "id": "w6",
+        "text": "would"
+      },
+      {
+        "id": "w7",
+        "text": "take"
+      },
+      {
+        "id": "w8",
+        "text": "an"
+      },
+      {
+        "id": "w9",
+        "text": "umbrella."
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4",
+      "w5",
+      "w6",
+      "w7",
+      "w8",
+      "w9"
+    ],
+    "explanation": "Câu đúng: 'If I were you, I would take an umbrella.'",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_399",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "writing",
+    "topic": "Sentence Order",
+    "questionType": "ordering",
+    "prompt": "Put the words in the correct order to make a sentence.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "She"
+      },
+      {
+        "id": "w2",
+        "text": "asked"
+      },
+      {
+        "id": "w3",
+        "text": "me"
+      },
+      {
+        "id": "w4",
+        "text": "where"
+      },
+      {
+        "id": "w5",
+        "text": "I"
+      },
+      {
+        "id": "w6",
+        "text": "lived."
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4",
+      "w5",
+      "w6"
+    ],
+    "explanation": "Câu đúng: 'She asked me where I lived.'",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_400",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "writing",
+    "topic": "Sentence Order",
+    "questionType": "ordering",
+    "prompt": "Put the words in the correct order to make a sentence.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "w1",
+        "text": "I"
+      },
+      {
+        "id": "w2",
+        "text": "used"
+      },
+      {
+        "id": "w3",
+        "text": "to"
+      },
+      {
+        "id": "w4",
+        "text": "play"
+      },
+      {
+        "id": "w5",
+        "text": "with"
+      },
+      {
+        "id": "w6",
+        "text": "dolls"
+      },
+      {
+        "id": "w7",
+        "text": "when"
+      },
+      {
+        "id": "w8",
+        "text": "I"
+      },
+      {
+        "id": "w9",
+        "text": "was"
+      },
+      {
+        "id": "w10",
+        "text": "little."
+      }
+    ],
+    "correctAnswer": [
+      "w1",
+      "w2",
+      "w3",
+      "w4",
+      "w5",
+      "w6",
+      "w7",
+      "w8",
+      "w9",
+      "w10"
+    ],
+    "explanation": "Câu đúng: 'I used to play with dolls when I was little.'",
+    "difficulty": 2,
+    "tags": [],
+    "points": 1
+  },
+  {
+    "id": "yle_fly_401",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "speaking",
+    "topic": "School",
+    "questionType": "speakingPrompt",
+    "prompt": "What would you like to change about your school? Why?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [],
+    "explanation": "Câu hỏi speaking — phụ huynh/giáo viên nghe và đánh giá trực tiếp, engine không tự chấm.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 0
+  },
+  {
+    "id": "yle_fly_402",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "speaking",
+    "topic": "Helping Others",
+    "questionType": "speakingPrompt",
+    "prompt": "How do you help at home?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [],
+    "explanation": "Câu hỏi speaking — phụ huynh/giáo viên nghe và đánh giá trực tiếp, engine không tự chấm.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 0
+  },
+  {
+    "id": "yle_fly_403",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "speaking",
+    "topic": "Future Plans",
+    "questionType": "speakingPrompt",
+    "prompt": "Where would you like to travel in the future? Why?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [],
+    "explanation": "Câu hỏi speaking — phụ huynh/giáo viên nghe và đánh giá trực tiếp, engine không tự chấm.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 0
+  },
+  {
+    "id": "yle_fly_404",
+    "track": "yle",
+    "level": "Flyers",
+    "skill": "speaking",
+    "topic": "Technology",
+    "questionType": "speakingPrompt",
+    "prompt": "What will phones be like in 20 years?",
+    "media": {
+      "type": "none"
+    },
+    "options": [],
+    "correctAnswer": [],
+    "explanation": "Câu hỏi speaking — phụ huynh/giáo viên nghe và đánh giá trực tiếp, engine không tự chấm.",
+    "difficulty": 2,
+    "tags": [],
+    "points": 0
   }
 ]

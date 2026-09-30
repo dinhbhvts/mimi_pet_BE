@@ -4,10 +4,10 @@ import 'package:provider/provider.dart';
 import 'package:mimi_pet/core/theme/app_colors.dart';
 import 'package:mimi_pet/exam_engine/mock_test_engine.dart';
 import 'package:mimi_pet/exam_engine/question_bank_models.dart';
-import 'package:mimi_pet/presentation/screens/exam/exam_screen.dart';
+import 'package:mimi_pet/presentation/screens/exam/exam_launcher.dart';
+import 'package:mimi_pet/presentation/screens/grammar/grammar_screens.dart';
 import 'package:mimi_pet/presentation/state/exam_catalog_controller.dart';
-import 'package:mimi_pet/presentation/state/exam_session_controller.dart';
-import 'package:mimi_pet/services/cloud_state_store.dart';
+import 'package:mimi_pet/presentation/state/mistake_book_controller.dart';
 
 /// Danh sách đề thi thử có sẵn (YLE Movers/Flyers, TOEIC Full Test) - bé chọn
 /// 1 đề rồi chọn "Luyện tập" (không giới hạn giờ) hoặc "Thi thử có giờ"
@@ -20,30 +20,27 @@ class ExamHomeScreen extends StatelessWidget {
   const ExamHomeScreen({super.key});
 
   void _start(BuildContext context, TrackLevelConfig config, TestMode mode) {
+    openExamSession(context, config: config, mode: mode);
+  }
+
+  /// Ôn "Sổ câu sai" của đúng track/level này - tối đa 20 câu/lượt, câu đến
+  /// hạn và câu sai nhiều lần được ưu tiên (xem [MistakeBookController]).
+  void _reviewMistakes(BuildContext context, TrackLevelConfig config, {required bool dueOnly}) {
     final bank = context.read<ExamCatalogController>().bank!;
-    final cloudStore = context.read<CloudStateStore>();
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => ChangeNotifierProvider<ExamSessionController>(
-          create: (_) => ExamSessionController(
-            bank: bank,
-            config: config,
-            mode: mode,
-            // Đồng bộ điểm lên cloud ngay khi nộp bài (best-effort, không
-            // chặn UI) - xem `CloudStateStore.setMapEntry`. Dùng ĐÚNG
-            // track/level của đề GỐC (không phải đề đã tuỳ chỉnh phần/chủ đề
-            // ở [_openPracticeSetup]) để điểm luyện tập tuỳ chỉnh vẫn gộp
-            // chung lịch sử với đề đầy đủ, không tách vụn theo từng lần
-            // chọn phần khác nhau.
-            onFinished: (score) => cloudStore.setMapEntry(
-              'examResults',
-              '${config.track.name}_${config.level}',
-              score.toJson(),
-            ),
-          ),
-          child: const ExamScreen(),
-        ),
-      ),
+    final questions = context
+        .read<MistakeBookController>()
+        .questionsToReview(bank, config.track, config.level, dueOnly: dueOnly);
+    if (questions.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Chưa có câu nào đến hạn ôn - quay lại sau nhé!')),
+      );
+      return;
+    }
+    openExamSession(
+      context,
+      config: mistakeReviewConfig(config.track, config.level),
+      mode: TestMode.practice,
+      fixedQuestions: questions,
     );
   }
 
@@ -74,6 +71,7 @@ class ExamHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final catalog = context.watch<ExamCatalogController>();
+    final mistakes = context.watch<MistakeBookController>();
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -101,11 +99,21 @@ class ExamHomeScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 13, color: AppColors.textMuted),
                       ),
                       const SizedBox(height: 16),
+                      _GrammarEntryCard(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute<void>(builder: (_) => const GrammarHomeScreen()),
+                        ),
+                      ),
+                      const SizedBox(height: 14),
                       for (final config in catalog.configs) ...[
                         _ExamConfigCard(
                           config: config,
                           onPractice: () => _openPracticeSetup(context, config),
                           onMockTest: () => _start(context, config, TestMode.mockTest),
+                          mistakeCount: mistakes.countFor(config.track, config.level),
+                          mistakeDueCount: mistakes.dueCountFor(config.track, config.level),
+                          onReviewDue: () => _reviewMistakes(context, config, dueOnly: true),
+                          onReviewAll: () => _reviewMistakes(context, config, dueOnly: false),
                         ),
                         const SizedBox(height: 14),
                       ],
@@ -120,8 +128,20 @@ class _ExamConfigCard extends StatelessWidget {
   final TrackLevelConfig config;
   final VoidCallback onPractice;
   final VoidCallback onMockTest;
+  final int mistakeCount;
+  final int mistakeDueCount;
+  final VoidCallback onReviewDue;
+  final VoidCallback onReviewAll;
 
-  const _ExamConfigCard({required this.config, required this.onPractice, required this.onMockTest});
+  const _ExamConfigCard({
+    required this.config,
+    required this.onPractice,
+    required this.onMockTest,
+    required this.mistakeCount,
+    required this.mistakeDueCount,
+    required this.onReviewDue,
+    required this.onReviewAll,
+  });
 
   int get _totalQuestions =>
       config.sections.fold<int>(0, (sum, s) => sum + s.questionCount);
@@ -187,6 +207,64 @@ class _ExamConfigCard extends StatelessWidget {
                   child: const Text('Thi thử có giờ', style: TextStyle(color: Colors.white)),
                 ),
               ),
+            ],
+          ),
+          if (mistakeCount > 0) ...[
+            const SizedBox(height: 12),
+            _MistakeBookRow(
+              count: mistakeCount,
+              dueCount: mistakeDueCount,
+              onReviewDue: onReviewDue,
+              onReviewAll: onReviewAll,
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+/// Dòng "Sổ câu sai" trong thẻ đề - chỉ hiện khi đã có câu sai của đề này.
+class _MistakeBookRow extends StatelessWidget {
+  final int count;
+  final int dueCount;
+  final VoidCallback onReviewDue;
+  final VoidCallback onReviewAll;
+
+  const _MistakeBookRow({
+    required this.count,
+    required this.dueCount,
+    required this.onReviewDue,
+    required this.onReviewAll,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(12, 10, 12, 4),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFF1E6),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '📕 Sổ câu sai: $count câu · $dueCount câu đến hạn ôn',
+            style: const TextStyle(fontWeight: FontWeight.w600),
+          ),
+          const Text(
+            'Sai -> ôn lại sau 1 ngày -> đúng thì 3 ngày sau ôn tiếp -> đúng 2 lần liền là thuộc, rời sổ.',
+            style: TextStyle(fontSize: 11.5, color: AppColors.textMuted),
+          ),
+          Row(
+            children: [
+              TextButton(
+                onPressed: dueCount > 0 ? onReviewDue : null,
+                child: Text('Ôn câu đến hạn ($dueCount)'),
+              ),
+              TextButton(onPressed: onReviewAll, child: const Text('Ôn tất cả')),
             ],
           ),
         ],
@@ -454,6 +532,48 @@ class _SectionSelectTile extends StatelessWidget {
             ),
           ],
         ],
+      ),
+    );
+  }
+}
+
+/// Lối vào "Ngữ pháp theo chủ đề" (xem `grammar_screens.dart`).
+class _GrammarEntryCard extends StatelessWidget {
+  final VoidCallback onTap;
+
+  const _GrammarEntryCard({required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: const Color(0xFFE6F4FF),
+      borderRadius: BorderRadius.circular(20),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: onTap,
+        child: const Padding(
+          padding: EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Text('📘', style: TextStyle(fontSize: 30)),
+              SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Ngữ pháp theo chủ đề', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    SizedBox(height: 2),
+                    Text(
+                      'Công thức, dấu hiệu, ví dụ đúng/sai + luyện ngay câu cùng chủ đề (Movers, Flyers, TOEIC)',
+                      style: TextStyle(fontSize: 12.5, color: AppColors.textMuted),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right_rounded),
+            ],
+          ),
+        ),
       ),
     );
   }

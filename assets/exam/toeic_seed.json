@@ -53015,5 +53015,7061 @@
       "Reading Comprehension"
     ],
     "points": 1
+  },
+  {
+    "id": "toeic_p1_081",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 1,
+    "topic": "People",
+    "questionType": "multipleChoice",
+    "prompt": "Look at the picture and choose the statement that best describes it.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A man is erasing a whiteboard."
+      },
+      {
+        "id": "b",
+        "text": "A man is writing on a whiteboard."
+      },
+      {
+        "id": "c",
+        "text": "A man is hanging a whiteboard."
+      },
+      {
+        "id": "d",
+        "text": "Students are leaving a classroom."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Đang viết lên bảng trắng.",
+    "difficulty": 3,
+    "tags": [
+      "Photographs",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A. A man is erasing a whiteboard. B. A man is writing on a whiteboard. C. A man is hanging a whiteboard. D. Students are leaving a classroom.",
+    "imageEmoji": "👨‍🏫🧑‍🎓📝"
+  },
+  {
+    "id": "toeic_p1_082",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 1,
+    "topic": "People",
+    "questionType": "multipleChoice",
+    "prompt": "Look at the picture and choose the statement that best describes it.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A nurse is making a bed."
+      },
+      {
+        "id": "b",
+        "text": "A patient is paying at a counter."
+      },
+      {
+        "id": "c",
+        "text": "A nurse is washing her hands."
+      },
+      {
+        "id": "d",
+        "text": "A nurse is giving a patient an injection."
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Y tá đang tiêm cho bệnh nhân.",
+    "difficulty": 3,
+    "tags": [
+      "Photographs",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A. A nurse is making a bed. B. A patient is paying at a counter. C. A nurse is washing her hands. D. A nurse is giving a patient an injection.",
+    "imageEmoji": "👩‍⚕️💉🧑"
+  },
+  {
+    "id": "toeic_p1_083",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 1,
+    "topic": "People",
+    "questionType": "multipleChoice",
+    "prompt": "Look at the picture and choose the statement that best describes it.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A customer is ordering a pizza."
+      },
+      {
+        "id": "b",
+        "text": "A cook is cleaning an oven."
+      },
+      {
+        "id": "c",
+        "text": "A cook is placing a pizza in an oven."
+      },
+      {
+        "id": "d",
+        "text": "A cook is slicing a pizza."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Đầu bếp đang cho pizza vào lò.",
+    "difficulty": 3,
+    "tags": [
+      "Photographs",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A. A customer is ordering a pizza. B. A cook is cleaning an oven. C. A cook is placing a pizza in an oven. D. A cook is slicing a pizza.",
+    "imageEmoji": "🧑‍🍳🍕🔥"
+  },
+  {
+    "id": "toeic_p1_084",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 1,
+    "topic": "People",
+    "questionType": "multipleChoice",
+    "prompt": "Look at the picture and choose the statement that best describes it.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A woman is talking on the phone at her desk."
+      },
+      {
+        "id": "b",
+        "text": "A woman is repairing a computer."
+      },
+      {
+        "id": "c",
+        "text": "A woman is leaving her desk."
+      },
+      {
+        "id": "d",
+        "text": "A woman is unplugging a phone."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Đang nói điện thoại tại bàn.",
+    "difficulty": 3,
+    "tags": [
+      "Photographs",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A. A woman is talking on the phone at her desk. B. A woman is repairing a computer. C. A woman is leaving her desk. D. A woman is unplugging a phone.",
+    "imageEmoji": "👩‍💼📞💻"
+  },
+  {
+    "id": "toeic_p1_085",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 1,
+    "topic": "People",
+    "questionType": "multipleChoice",
+    "prompt": "Look at the picture and choose the statement that best describes it.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Some people are waiting at a bus stop."
+      },
+      {
+        "id": "b",
+        "text": "People are crossing the street."
+      },
+      {
+        "id": "c",
+        "text": "A bus is being repaired."
+      },
+      {
+        "id": "d",
+        "text": "Some people are getting off a bus."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Mọi người đang chờ ở trạm xe buýt.",
+    "difficulty": 3,
+    "tags": [
+      "Photographs",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A. Some people are waiting at a bus stop. B. People are crossing the street. C. A bus is being repaired. D. Some people are getting off a bus.",
+    "imageEmoji": "🧍‍♂️🧍‍♀️🚌"
+  },
+  {
+    "id": "toeic_p1_086",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 1,
+    "topic": "Objects & scenes",
+    "questionType": "multipleChoice",
+    "prompt": "Look at the picture and choose the statement that best describes it.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The beds have been made."
+      },
+      {
+        "id": "b",
+        "text": "Guests are sleeping in a room."
+      },
+      {
+        "id": "c",
+        "text": "Pillows are being delivered."
+      },
+      {
+        "id": "d",
+        "text": "A housekeeper is making the beds."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Giường ĐÃ được dọn (have been made) - không có người.",
+    "difficulty": 3,
+    "tags": [
+      "Photographs",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A. The beds have been made. B. Guests are sleeping in a room. C. Pillows are being delivered. D. A housekeeper is making the beds.",
+    "imageEmoji": "🛏️🛏️🏨"
+  },
+  {
+    "id": "toeic_p1_087",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 1,
+    "topic": "Objects & scenes",
+    "questionType": "multipleChoice",
+    "prompt": "Look at the picture and choose the statement that best describes it.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A bench has been placed between two trees."
+      },
+      {
+        "id": "b",
+        "text": "Some trees are being cut down."
+      },
+      {
+        "id": "c",
+        "text": "A bench is being painted."
+      },
+      {
+        "id": "d",
+        "text": "A man is sitting on a bench."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Ghế băng đặt giữa 2 cây.",
+    "difficulty": 3,
+    "tags": [
+      "Photographs",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A. A bench has been placed between two trees. B. Some trees are being cut down. C. A bench is being painted. D. A man is sitting on a bench.",
+    "imageEmoji": "🌳🪑🌳"
+  },
+  {
+    "id": "toeic_p1_088",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 1,
+    "topic": "Objects & scenes",
+    "questionType": "multipleChoice",
+    "prompt": "Look at the picture and choose the statement that best describes it.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A basket is being carried outside."
+      },
+      {
+        "id": "b",
+        "text": "Fruit has been arranged in a basket."
+      },
+      {
+        "id": "c",
+        "text": "Fruit is being picked from trees."
+      },
+      {
+        "id": "d",
+        "text": "Someone is peeling a banana."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Trái cây đã được xếp trong giỏ.",
+    "difficulty": 3,
+    "tags": [
+      "Photographs",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A. A basket is being carried outside. B. Fruit has been arranged in a basket. C. Fruit is being picked from trees. D. Someone is peeling a banana.",
+    "imageEmoji": "🍎🍊🍌🧺"
+  },
+  {
+    "id": "toeic_p1_089",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 1,
+    "topic": "Objects & scenes",
+    "questionType": "multipleChoice",
+    "prompt": "Look at the picture and choose the statement that best describes it.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A boat is sinking."
+      },
+      {
+        "id": "b",
+        "text": "Boats are being pulled onto the beach."
+      },
+      {
+        "id": "c",
+        "text": "People are rowing boats."
+      },
+      {
+        "id": "d",
+        "text": "Some boats are floating near the shore."
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Thuyền đang nổi gần bờ.",
+    "difficulty": 3,
+    "tags": [
+      "Photographs",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A. A boat is sinking. B. Boats are being pulled onto the beach. C. People are rowing boats. D. Some boats are floating near the shore.",
+    "imageEmoji": "⛵⛵🌅"
+  },
+  {
+    "id": "toeic_p1_090",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 1,
+    "topic": "Objects & scenes",
+    "questionType": "multipleChoice",
+    "prompt": "Look at the picture and choose the statement that best describes it.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Someone is watering a plant."
+      },
+      {
+        "id": "b",
+        "text": "A plant has been set beside a door."
+      },
+      {
+        "id": "c",
+        "text": "A door is being unlocked."
+      },
+      {
+        "id": "d",
+        "text": "A door is being painted."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Chậu cây đặt cạnh cửa.",
+    "difficulty": 3,
+    "tags": [
+      "Photographs",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A. Someone is watering a plant. B. A plant has been set beside a door. C. A door is being unlocked. D. A door is being painted.",
+    "imageEmoji": "🚪🔑🪴"
+  },
+  {
+    "id": "toeic_p2_198",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Last year in March."
+      },
+      {
+        "id": "b",
+        "text": "Ask Jenny, she keeps all the records."
+      },
+      {
+        "id": "c",
+        "text": "They went up by ten percent."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Trả lời gián tiếp: chỉ người biết thông tin.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Where can I find the sales figures from last year? A. Last year in March. B. Ask Jenny, she keeps all the records. C. They went up by ten percent."
+  },
+  {
+    "id": "toeic_p2_199",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "On Park Avenue."
+      },
+      {
+        "id": "b",
+        "text": "It's a big branch."
+      },
+      {
+        "id": "c",
+        "text": "The date hasn't been announced yet."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "'Chưa công bố' - kiểu đáp án đúng rất hay gặp.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "When does the new branch open? A. On Park Avenue. B. It's a big branch. C. The date hasn't been announced yet."
+  },
+  {
+    "id": "toeic_p2_200",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "It's very heavy."
+      },
+      {
+        "id": "b",
+        "text": "Tomorrow morning."
+      },
+      {
+        "id": "c",
+        "text": "Just leave it at the front desk."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Trả lời gián tiếp: để ở quầy lễ tân.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Who should I give this package to? A. It's very heavy. B. Tomorrow morning. C. Just leave it at the front desk."
+  },
+  {
+    "id": "toeic_p2_201",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "There's a big sale this weekend."
+      },
+      {
+        "id": "b",
+        "text": "It closes at nine."
+      },
+      {
+        "id": "c",
+        "text": "About two hundred people."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Why -> lý do.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Why is the store so crowded today? A. There's a big sale this weekend. B. It closes at nine. C. About two hundred people."
+  },
+  {
+    "id": "toeic_p2_202",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "That depends on the weight."
+      },
+      {
+        "id": "b",
+        "text": "To Japan."
+      },
+      {
+        "id": "c",
+        "text": "By air mail."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "'Tuỳ cân nặng' - trả lời gián tiếp.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "How much does it cost to ship this box overseas? A. That depends on the weight. B. To Japan. C. By air mail."
+  },
+  {
+    "id": "toeic_p2_203",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "She seems very organized."
+      },
+      {
+        "id": "b",
+        "text": "I think it's on Monday."
+      },
+      {
+        "id": "c",
+        "text": "Yes, I met her."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Hỏi ý kiến -> nhận xét.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "What did you think of the new manager? A. She seems very organized. B. I think it's on Monday. C. Yes, I met her."
+  },
+  {
+    "id": "toeic_p2_204",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "It's a large center."
+      },
+      {
+        "id": "b",
+        "text": "Every ten minutes."
+      },
+      {
+        "id": "c",
+        "text": "The number 15 stops right in front."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Which -> xe số mấy.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Which bus goes to the convention center? A. It's a large center. B. Every ten minutes. C. The number 15 stops right in front."
+  },
+  {
+    "id": "toeic_p2_205",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "It looks very nice."
+      },
+      {
+        "id": "b",
+        "text": "By the end of the week."
+      },
+      {
+        "id": "c",
+        "text": "I designed it myself."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "How soon -> khi nào xong.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "How soon can you finish the design? A. It looks very nice. B. By the end of the week. C. I designed it myself."
+  },
+  {
+    "id": "toeic_p2_206",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "All the staff members."
+      },
+      {
+        "id": "b",
+        "text": "At three o'clock."
+      },
+      {
+        "id": "c",
+        "text": "Didn't you get the email?"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Hỏi ngược lại - dạng trả lời gián tiếp khó ở mức 650.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Where is the staff meeting being held? A. All the staff members. B. At three o'clock. C. Didn't you get the email?"
+  },
+  {
+    "id": "toeic_p2_207",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Paper and ink."
+      },
+      {
+        "id": "b",
+        "text": "Yes, I ordered them."
+      },
+      {
+        "id": "c",
+        "text": "That's Mr. Kim's job now."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Who -> người phụ trách.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Who's responsible for ordering supplies? A. Paper and ink. B. Yes, I ordered them. C. That's Mr. Kim's job now."
+  },
+  {
+    "id": "toeic_p2_208",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "It was broken."
+      },
+      {
+        "id": "b",
+        "text": "They said by Thursday at the latest."
+      },
+      {
+        "id": "c",
+        "text": "The repair shop on Main Street."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "When -> thời điểm.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "When will the repairs be finished? A. It was broken. B. They said by Thursday at the latest. C. The repair shop on Main Street."
+  },
+  {
+    "id": "toeic_p2_209",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Wh- questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "By email."
+      },
+      {
+        "id": "b",
+        "text": "Some numbers still need to be checked."
+      },
+      {
+        "id": "c",
+        "text": "The client is in London."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Why -> lý do.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Why wasn't the report sent to the client? A. By email. B. Some numbers still need to be checked. C. The client is in London."
+  },
+  {
+    "id": "toeic_p2_210",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Yes/No questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "There's one inside the shopping mall."
+      },
+      {
+        "id": "b",
+        "text": "The medicine is expensive."
+      },
+      {
+        "id": "c",
+        "text": "Yes, I'm a pharmacist."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Trả lời gián tiếp bằng vị trí.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Is there a pharmacy near here? A. There's one inside the shopping mall. B. The medicine is expensive. C. Yes, I'm a pharmacist."
+  },
+  {
+    "id": "toeic_p2_211",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Yes/No questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The conference was great."
+      },
+      {
+        "id": "b",
+        "text": "I'm doing it right now."
+      },
+      {
+        "id": "c",
+        "text": "It's a five-star hotel."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "'Đang làm đây' - gián tiếp.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Have you booked the hotel for the conference yet? A. The conference was great. B. I'm doing it right now. C. It's a five-star hotel."
+  },
+  {
+    "id": "toeic_p2_212",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Yes/No questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "He's retiring next month."
+      },
+      {
+        "id": "b",
+        "text": "I wouldn't miss it."
+      },
+      {
+        "id": "c",
+        "text": "At eight o'clock."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "'Không thể bỏ lỡ' = chắc chắn đi.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Are you coming to the retirement party tonight? A. He's retiring next month. B. I wouldn't miss it. C. At eight o'clock."
+  },
+  {
+    "id": "toeic_p2_213",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Yes/No questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The door is made of wood."
+      },
+      {
+        "id": "b",
+        "text": "Oh no, I'll go check."
+      },
+      {
+        "id": "c",
+        "text": "I remember him."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Phản hồi tự nhiên: quên, đi kiểm tra.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Did you remember to lock the back door? A. The door is made of wood. B. Oh no, I'll go check. C. I remember him."
+  },
+  {
+    "id": "toeic_p2_214",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Yes/No questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "It's a history museum."
+      },
+      {
+        "id": "b",
+        "text": "Only for local residents."
+      },
+      {
+        "id": "c",
+        "text": "I'm free on Sunday."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Trả lời có điều kiện.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Isn't the museum free on Sundays? A. It's a history museum. B. Only for local residents. C. I'm free on Sunday."
+  },
+  {
+    "id": "toeic_p2_215",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Yes/No questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "On Saturday morning."
+      },
+      {
+        "id": "b",
+        "text": "It works well."
+      },
+      {
+        "id": "c",
+        "text": "I have a family event, unfortunately."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Từ chối gián tiếp.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Can you work this Saturday? A. On Saturday morning. B. It works well. C. I have a family event, unfortunately."
+  },
+  {
+    "id": "toeic_p2_216",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Yes/No questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The window is open."
+      },
+      {
+        "id": "b",
+        "text": "Let me check what's available."
+      },
+      {
+        "id": "c",
+        "text": "Yes, it's possible to see."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Kiểm tra giúp - phản hồi hợp lý.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Would it be possible to get a window seat? A. The window is open. B. Let me check what's available. C. Yes, it's possible to see."
+  },
+  {
+    "id": "toeic_p2_217",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Yes/No questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "He said to begin without him."
+      },
+      {
+        "id": "b",
+        "text": "Yes, the start button."
+      },
+      {
+        "id": "c",
+        "text": "We waited for an hour."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Gián tiếp: ông ấy dặn cứ bắt đầu.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Shouldn't we wait for Mr. Lee before we start? A. He said to begin without him. B. Yes, the start button. C. We waited for an hour."
+  },
+  {
+    "id": "toeic_p2_218",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Choice questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Let's finish this section first."
+      },
+      {
+        "id": "b",
+        "text": "Yes, a short one."
+      },
+      {
+        "id": "c",
+        "text": "It broke yesterday."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Chọn tiếp tục làm (gián tiếp).",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Do you want to take a break now or keep working? A. Let's finish this section first. B. Yes, a short one. C. It broke yesterday."
+  },
+  {
+    "id": "toeic_p2_219",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Choice questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "She's a new client."
+      },
+      {
+        "id": "b",
+        "text": "An email would be better for the record."
+      },
+      {
+        "id": "c",
+        "text": "Yes, you should."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Chọn email + lý do.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Should I call the client or send an email? A. She's a new client. B. An email would be better for the record. C. Yes, you should."
+  },
+  {
+    "id": "toeic_p2_220",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Choice questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "It's a two-day training."
+      },
+      {
+        "id": "b",
+        "text": "Yes, for new staff."
+      },
+      {
+        "id": "c",
+        "text": "It's mandatory for all employees."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "'Bắt buộc cho tất cả' = for everyone.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Is the training for new staff or for everyone? A. It's a two-day training. B. Yes, for new staff. C. It's mandatory for all employees."
+  },
+  {
+    "id": "toeic_p2_221",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Choice questions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "I'll pay when I pick it up."
+      },
+      {
+        "id": "b",
+        "text": "Yes, I'd like to."
+      },
+      {
+        "id": "c",
+        "text": "It's twenty dollars."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Chọn 1 trong 2 thời điểm.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Would you like to pay now or when you pick it up? A. I'll pay when I pick it up. B. Yes, I'd like to. C. It's twenty dollars."
+  },
+  {
+    "id": "toeic_p2_222",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Statements",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "I'll send it again as a PDF."
+      },
+      {
+        "id": "b",
+        "text": "It's attached to the wall."
+      },
+      {
+        "id": "c",
+        "text": "The door is open."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Giải pháp: gửi lại dạng PDF.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "I can't open the attachment you sent. A. I'll send it again as a PDF. B. It's attached to the wall. C. The door is open."
+  },
+  {
+    "id": "toeic_p2_223",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Statements",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "I don't drink coffee in the morning."
+      },
+      {
+        "id": "b",
+        "text": "Maintenance is already on the way."
+      },
+      {
+        "id": "c",
+        "text": "It's a short break."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Đã có người xử lý.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "The coffee machine in the break room isn't working. A. I don't drink coffee in the morning. B. Maintenance is already on the way. C. It's a short break."
+  },
+  {
+    "id": "toeic_p2_224",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Statements",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "There are some in the storage room."
+      },
+      {
+        "id": "b",
+        "text": "Please have a seat."
+      },
+      {
+        "id": "c",
+        "text": "It's a great seminar."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Chỉ chỗ lấy thêm ghế.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "We need more chairs for the seminar. A. There are some in the storage room. B. Please have a seat. C. It's a great seminar."
+  },
+  {
+    "id": "toeic_p2_225",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Requests & suggestions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "I rode my bike."
+      },
+      {
+        "id": "b",
+        "text": "The station is closed."
+      },
+      {
+        "id": "c",
+        "text": "Sure, I'm leaving at six."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Đồng ý + thông tin giờ đi.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Could you give me a ride to the station after work? A. I rode my bike. B. The station is closed. C. Sure, I'm leaving at six."
+  },
+  {
+    "id": "toeic_p2_226",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Requests & suggestions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The manager is out."
+      },
+      {
+        "id": "b",
+        "text": "Because it was posted online."
+      },
+      {
+        "id": "c",
+        "text": "I don't think I have enough experience."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "'Why don't you' = gợi ý -> phản hồi về gợi ý.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Why don't you apply for the manager position? A. The manager is out. B. Because it was posted online. C. I don't think I have enough experience."
+  },
+  {
+    "id": "toeic_p2_227",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 2,
+    "topic": "Requests & suggestions",
+    "questionType": "multipleChoice",
+    "prompt": "Listen to the question and choose the best response.",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The printer is new."
+      },
+      {
+        "id": "b",
+        "text": "Thanks, that would save me time."
+      },
+      {
+        "id": "c",
+        "text": "It's on the agenda."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Nhận lời đề nghị.",
+    "difficulty": 3,
+    "tags": [
+      "Question-Response",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Would you like me to print the agenda for you? A. The printer is new. B. Thanks, that would save me time. C. It's on the agenda."
+  },
+  {
+    "id": "toeic_p3_101_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Main idea & purpose",
+    "questionType": "multipleChoice",
+    "prompt": "Why is the woman calling?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "To order a new printer"
+      },
+      {
+        "id": "b",
+        "text": "To cancel a delivery"
+      },
+      {
+        "id": "c",
+        "text": "To ask about store hours"
+      },
+      {
+        "id": "d",
+        "text": "To report a problem with a product"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Máy in bị kẹt giấy.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Hi, I'm calling about the printer I bought from your store last week. It keeps jamming. B: I'm sorry about that. Is it still under warranty? A: Yes, it has a one-year warranty. B: Then bring it in with your receipt, and we'll replace it for free."
+  },
+  {
+    "id": "toeic_p3_101_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What does the man ask about?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A model number"
+      },
+      {
+        "id": "b",
+        "text": "A delivery date"
+      },
+      {
+        "id": "c",
+        "text": "A warranty"
+      },
+      {
+        "id": "d",
+        "text": "A price"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Hỏi còn bảo hành không.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Hi, I'm calling about the printer I bought from your store last week. It keeps jamming. B: I'm sorry about that. Is it still under warranty? A: Yes, it has a one-year warranty. B: Then bring it in with your receipt, and we'll replace it for free."
+  },
+  {
+    "id": "toeic_p3_101_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Next action & requests",
+    "questionType": "multipleChoice",
+    "prompt": "What should the woman bring to the store?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A warranty card"
+      },
+      {
+        "id": "b",
+        "text": "A credit card"
+      },
+      {
+        "id": "c",
+        "text": "A receipt"
+      },
+      {
+        "id": "d",
+        "text": "A printer cable"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Mang theo hoá đơn.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Hi, I'm calling about the printer I bought from your store last week. It keeps jamming. B: I'm sorry about that. Is it still under warranty? A: Yes, it has a one-year warranty. B: Then bring it in with your receipt, and we'll replace it for free."
+  },
+  {
+    "id": "toeic_p3_102_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Speaker & place",
+    "questionType": "multipleChoice",
+    "prompt": "Where most likely are the speakers?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "At a bus terminal"
+      },
+      {
+        "id": "b",
+        "text": "At a theater"
+      },
+      {
+        "id": "c",
+        "text": "At a museum"
+      },
+      {
+        "id": "d",
+        "text": "At a hotel"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Tour có hướng dẫn ở bảo tàng.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Excuse me, is this the line for the museum's guided tour? B: Yes, but the 2 o'clock tour is already full. A: Oh, that's disappointing. When's the next one? B: At 3:30. You can also rent an audio guide if you'd rather not wait."
+  },
+  {
+    "id": "toeic_p3_102_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What problem does the man mention?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The museum is closing"
+      },
+      {
+        "id": "b",
+        "text": "An audio guide is broken"
+      },
+      {
+        "id": "c",
+        "text": "A tour is full"
+      },
+      {
+        "id": "d",
+        "text": "A ticket is too expensive"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Tour 2 giờ đã kín.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Excuse me, is this the line for the museum's guided tour? B: Yes, but the 2 o'clock tour is already full. A: Oh, that's disappointing. When's the next one? B: At 3:30. You can also rent an audio guide if you'd rather not wait."
+  },
+  {
+    "id": "toeic_p3_102_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Next action & requests",
+    "questionType": "multipleChoice",
+    "prompt": "What does the man suggest?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Buying a membership"
+      },
+      {
+        "id": "b",
+        "text": "Renting an audio guide"
+      },
+      {
+        "id": "c",
+        "text": "Joining a different museum tour"
+      },
+      {
+        "id": "d",
+        "text": "Coming back tomorrow"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Gợi ý thuê thiết bị thuyết minh.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Excuse me, is this the line for the museum's guided tour? B: Yes, but the 2 o'clock tour is already full. A: Oh, that's disappointing. When's the next one? B: At 3:30. You can also rent an audio guide if you'd rather not wait."
+  },
+  {
+    "id": "toeic_p3_103_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What is the woman working on?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A travel schedule"
+      },
+      {
+        "id": "b",
+        "text": "A sales contract"
+      },
+      {
+        "id": "c",
+        "text": "A job advertisement"
+      },
+      {
+        "id": "d",
+        "text": "Presentation slides"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Làm slide thuyết trình.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Susan, have you finished the slides for tomorrow's client presentation? B: Almost. I just need the sales numbers from Ken. A: He's out sick today. B: Hmm, then I'll check the shared folder. He usually saves everything there."
+  },
+  {
+    "id": "toeic_p3_103_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Implied meaning",
+    "questionType": "multipleChoice",
+    "prompt": "Why does the man say, 'He's out sick today'?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Ken cannot provide the numbers now"
+      },
+      {
+        "id": "b",
+        "text": "The meeting should be canceled"
+      },
+      {
+        "id": "c",
+        "text": "Ken finished the slides"
+      },
+      {
+        "id": "d",
+        "text": "Ken needs a doctor"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Hàm ý: Ken không gửi số liệu được.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Susan, have you finished the slides for tomorrow's client presentation? B: Almost. I just need the sales numbers from Ken. A: He's out sick today. B: Hmm, then I'll check the shared folder. He usually saves everything there."
+  },
+  {
+    "id": "toeic_p3_103_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Next action & requests",
+    "questionType": "multipleChoice",
+    "prompt": "What will the woman do next?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Ask the client for data"
+      },
+      {
+        "id": "b",
+        "text": "Call Ken"
+      },
+      {
+        "id": "c",
+        "text": "Postpone the presentation"
+      },
+      {
+        "id": "d",
+        "text": "Check a shared folder"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Tìm trong thư mục chung.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Susan, have you finished the slides for tomorrow's client presentation? B: Almost. I just need the sales numbers from Ken. A: He's out sick today. B: Hmm, then I'll check the shared folder. He usually saves everything there."
+  },
+  {
+    "id": "toeic_p3_104_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Speaker & place",
+    "questionType": "multipleChoice",
+    "prompt": "Where does the conversation take place?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "At a farm"
+      },
+      {
+        "id": "b",
+        "text": "In a bakery kitchen"
+      },
+      {
+        "id": "c",
+        "text": "In a grocery store"
+      },
+      {
+        "id": "d",
+        "text": "In a restaurant"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Siêu thị Fresh Market.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Welcome to Fresh Market. Can I help you find something? B: Yes, I'm looking for gluten-free bread. A: It's in aisle 7, next to the cereal. But we only have a few loaves left today. B: I'd better hurry, then. Thanks!"
+  },
+  {
+    "id": "toeic_p3_104_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "Where is the bread located?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Next to the dairy section"
+      },
+      {
+        "id": "b",
+        "text": "At the front counter"
+      },
+      {
+        "id": "c",
+        "text": "In aisle 3"
+      },
+      {
+        "id": "d",
+        "text": "In aisle 7"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Lối số 7 cạnh ngũ cốc.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Welcome to Fresh Market. Can I help you find something? B: Yes, I'm looking for gluten-free bread. A: It's in aisle 7, next to the cereal. But we only have a few loaves left today. B: I'd better hurry, then. Thanks!"
+  },
+  {
+    "id": "toeic_p3_104_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Implied meaning",
+    "questionType": "multipleChoice",
+    "prompt": "Why does the woman say, 'I'd better hurry, then'?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "She is late for work"
+      },
+      {
+        "id": "b",
+        "text": "The store is closing soon"
+      },
+      {
+        "id": "c",
+        "text": "Her car is parked illegally"
+      },
+      {
+        "id": "d",
+        "text": "The product may sell out"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Sắp hết hàng nên phải nhanh.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Welcome to Fresh Market. Can I help you find something? B: Yes, I'm looking for gluten-free bread. A: It's in aisle 7, next to the cereal. But we only have a few loaves left today. B: I'd better hurry, then. Thanks!"
+  },
+  {
+    "id": "toeic_p3_105_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Speaker & place",
+    "questionType": "multipleChoice",
+    "prompt": "Who most likely is the woman?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A bank teller"
+      },
+      {
+        "id": "b",
+        "text": "A job applicant"
+      },
+      {
+        "id": "c",
+        "text": "A hiring manager"
+      },
+      {
+        "id": "d",
+        "text": "A finance director"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Người phụ trách tuyển dụng.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Mr. Patel, we've reviewed your application for the accountant position. We'd like you to come in for a second interview. B: That's great news. When would you like me to come? A: How about Monday at 10? You'll meet our finance director. B: Monday works for me."
+  },
+  {
+    "id": "toeic_p3_105_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What position did the man apply for?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Sales manager"
+      },
+      {
+        "id": "b",
+        "text": "Receptionist"
+      },
+      {
+        "id": "c",
+        "text": "Accountant"
+      },
+      {
+        "id": "d",
+        "text": "Finance director"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Vị trí kế toán.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Mr. Patel, we've reviewed your application for the accountant position. We'd like you to come in for a second interview. B: That's great news. When would you like me to come? A: How about Monday at 10? You'll meet our finance director. B: Monday works for me."
+  },
+  {
+    "id": "toeic_p3_105_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "Who will the man meet on Monday?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Another applicant"
+      },
+      {
+        "id": "b",
+        "text": "The finance director"
+      },
+      {
+        "id": "c",
+        "text": "The CEO"
+      },
+      {
+        "id": "d",
+        "text": "The HR assistant"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Gặp giám đốc tài chính.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Mr. Patel, we've reviewed your application for the accountant position. We'd like you to come in for a second interview. B: That's great news. When would you like me to come? A: How about Monday at 10? You'll meet our finance director. B: Monday works for me."
+  },
+  {
+    "id": "toeic_p3_106_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What is the problem?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Bad weather is expected"
+      },
+      {
+        "id": "b",
+        "text": "The picnic is too expensive"
+      },
+      {
+        "id": "c",
+        "text": "Few people signed up"
+      },
+      {
+        "id": "d",
+        "text": "The cafeteria is closed"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Dự báo mưa cả ngày.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: I just checked the weather forecast. It's going to rain all day Saturday. B: Oh no, the company picnic is on Saturday. A: Should we move it indoors? B: The cafeteria is big enough. I'll ask the building manager if we can use it."
+  },
+  {
+    "id": "toeic_p3_106_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What do the speakers plan to do?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Cancel the picnic"
+      },
+      {
+        "id": "b",
+        "text": "Hold the event indoors"
+      },
+      {
+        "id": "c",
+        "text": "Change the date"
+      },
+      {
+        "id": "d",
+        "text": "Rent tents"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Chuyển vào trong nhà.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: I just checked the weather forecast. It's going to rain all day Saturday. B: Oh no, the company picnic is on Saturday. A: Should we move it indoors? B: The cafeteria is big enough. I'll ask the building manager if we can use it."
+  },
+  {
+    "id": "toeic_p3_106_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Next action & requests",
+    "questionType": "multipleChoice",
+    "prompt": "Who will the woman contact?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A caterer"
+      },
+      {
+        "id": "b",
+        "text": "The company president"
+      },
+      {
+        "id": "c",
+        "text": "The building manager"
+      },
+      {
+        "id": "d",
+        "text": "The weather service"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Hỏi quản lý toà nhà.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: I just checked the weather forecast. It's going to rain all day Saturday. B: Oh no, the company picnic is on Saturday. A: Should we move it indoors? B: The cafeteria is big enough. I'll ask the building manager if we can use it."
+  },
+  {
+    "id": "toeic_p3_107_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What has been delayed?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A customs form"
+      },
+      {
+        "id": "b",
+        "text": "A software update"
+      },
+      {
+        "id": "c",
+        "text": "A job interview"
+      },
+      {
+        "id": "d",
+        "text": "A laptop shipment"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Lô laptop chưa tới.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Hi, Carlos. The shipment of laptops for our new employees hasn't arrived yet. B: I tracked it this morning. It's stuck at customs. A: The new hires start on Wednesday. B: I'll call the shipping company and ask them to speed things up. Worst case, we can lend them older laptops for a few days."
+  },
+  {
+    "id": "toeic_p3_107_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "Why has it been delayed?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The order was canceled"
+      },
+      {
+        "id": "b",
+        "text": "It is held at customs"
+      },
+      {
+        "id": "c",
+        "text": "The address was wrong"
+      },
+      {
+        "id": "d",
+        "text": "A truck broke down"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Kẹt ở hải quan.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Hi, Carlos. The shipment of laptops for our new employees hasn't arrived yet. B: I tracked it this morning. It's stuck at customs. A: The new hires start on Wednesday. B: I'll call the shipping company and ask them to speed things up. Worst case, we can lend them older laptops for a few days."
+  },
+  {
+    "id": "toeic_p3_107_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Next action & requests",
+    "questionType": "multipleChoice",
+    "prompt": "What does the man say they can do if necessary?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Lend older laptops"
+      },
+      {
+        "id": "b",
+        "text": "Cancel the order"
+      },
+      {
+        "id": "c",
+        "text": "Buy laptops locally"
+      },
+      {
+        "id": "d",
+        "text": "Delay the start date"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Cho mượn laptop cũ vài ngày.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Hi, Carlos. The shipment of laptops for our new employees hasn't arrived yet. B: I tracked it this morning. It's stuck at customs. A: The new hires start on Wednesday. B: I'll call the shipping company and ask them to speed things up. Worst case, we can lend them older laptops for a few days."
+  },
+  {
+    "id": "toeic_p3_108_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Speaker & place",
+    "questionType": "multipleChoice",
+    "prompt": "Where does the conversation take place?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "At a passport office"
+      },
+      {
+        "id": "b",
+        "text": "At a bank"
+      },
+      {
+        "id": "c",
+        "text": "At a travel agency"
+      },
+      {
+        "id": "d",
+        "text": "At a post office"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Mở tài khoản tiết kiệm -> ngân hàng.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Good morning. I'd like to open a savings account. B: Certainly. Do you have a photo ID with you? A: I have my passport. B: That's fine. You'll also need to make a minimum deposit of 50 dollars. A: No problem. I can do that today."
+  },
+  {
+    "id": "toeic_p3_108_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What does the woman show?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A passport"
+      },
+      {
+        "id": "b",
+        "text": "A credit card"
+      },
+      {
+        "id": "c",
+        "text": "A driver's license"
+      },
+      {
+        "id": "d",
+        "text": "A utility bill"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Xuất trình hộ chiếu.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Good morning. I'd like to open a savings account. B: Certainly. Do you have a photo ID with you? A: I have my passport. B: That's fine. You'll also need to make a minimum deposit of 50 dollars. A: No problem. I can do that today."
+  },
+  {
+    "id": "toeic_p3_108_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 3,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What is required to open the account?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A monthly fee"
+      },
+      {
+        "id": "b",
+        "text": "A reference letter"
+      },
+      {
+        "id": "c",
+        "text": "An appointment"
+      },
+      {
+        "id": "d",
+        "text": "A minimum deposit"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Nạp tối thiểu 50 đô.",
+    "difficulty": 3,
+    "tags": [
+      "Conversations",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "A: Good morning. I'd like to open a savings account. B: Certainly. Do you have a photo ID with you? A: I have my passport. B: That's fine. You'll also need to make a minimum deposit of 50 dollars. A: No problem. I can do that today."
+  },
+  {
+    "id": "toeic_p4_077_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What is on the third floor?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "An information desk"
+      },
+      {
+        "id": "b",
+        "text": "A café"
+      },
+      {
+        "id": "c",
+        "text": "A special exhibit"
+      },
+      {
+        "id": "d",
+        "text": "A gift shop"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Triển lãm tranh Nhật.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Welcome to the Greenfield Art Museum. Our special exhibit on Japanese paintings is located on the third floor. Please note that the exhibit closes one hour earlier than the rest of the museum, at 4 P.M. Guided tours in English start every hour at the information desk. Enjoy your visit!"
+  },
+  {
+    "id": "toeic_p4_077_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What time does the special exhibit close?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "At 6 P.M."
+      },
+      {
+        "id": "b",
+        "text": "At 5 P.M."
+      },
+      {
+        "id": "c",
+        "text": "At 3 P.M."
+      },
+      {
+        "id": "d",
+        "text": "At 4 P.M."
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Đóng sớm hơn 1 tiếng: 4 giờ.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Welcome to the Greenfield Art Museum. Our special exhibit on Japanese paintings is located on the third floor. Please note that the exhibit closes one hour earlier than the rest of the museum, at 4 P.M. Guided tours in English start every hour at the information desk. Enjoy your visit!"
+  },
+  {
+    "id": "toeic_p4_077_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "Where do guided tours start?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "On the third floor"
+      },
+      {
+        "id": "b",
+        "text": "At the information desk"
+      },
+      {
+        "id": "c",
+        "text": "At the entrance gate"
+      },
+      {
+        "id": "d",
+        "text": "In the gift shop"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Tour xuất phát ở quầy thông tin.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Welcome to the Greenfield Art Museum. Our special exhibit on Japanese paintings is located on the third floor. Please note that the exhibit closes one hour earlier than the rest of the museum, at 4 P.M. Guided tours in English start every hour at the information desk. Enjoy your visit!"
+  },
+  {
+    "id": "toeic_p4_078_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Speaker & place",
+    "questionType": "multipleChoice",
+    "prompt": "Who most likely is the speaker?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A tour guide"
+      },
+      {
+        "id": "b",
+        "text": "A hotel receptionist"
+      },
+      {
+        "id": "c",
+        "text": "A flight attendant"
+      },
+      {
+        "id": "d",
+        "text": "A travel agent"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Nhân viên công ty du lịch.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Hi, this is Maria from Sunny Travel. I'm calling about your trip to Rome next month. Unfortunately, the hotel you chose is fully booked for those dates. However, we found a similar hotel nearby at the same price, and it includes free breakfast. Please call me back by Friday to confirm."
+  },
+  {
+    "id": "toeic_p4_078_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What problem does the speaker mention?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A hotel is fully booked"
+      },
+      {
+        "id": "b",
+        "text": "A flight was canceled"
+      },
+      {
+        "id": "c",
+        "text": "A passport has expired"
+      },
+      {
+        "id": "d",
+        "text": "A price has increased"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Khách sạn hết phòng.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Hi, this is Maria from Sunny Travel. I'm calling about your trip to Rome next month. Unfortunately, the hotel you chose is fully booked for those dates. However, we found a similar hotel nearby at the same price, and it includes free breakfast. Please call me back by Friday to confirm."
+  },
+  {
+    "id": "toeic_p4_078_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What does the new hotel offer?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A free airport shuttle"
+      },
+      {
+        "id": "b",
+        "text": "A room upgrade"
+      },
+      {
+        "id": "c",
+        "text": "A lower price"
+      },
+      {
+        "id": "d",
+        "text": "Free breakfast"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Kèm bữa sáng miễn phí.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Hi, this is Maria from Sunny Travel. I'm calling about your trip to Rome next month. Unfortunately, the hotel you chose is fully booked for those dates. However, we found a similar hotel nearby at the same price, and it includes free breakfast. Please call me back by Friday to confirm."
+  },
+  {
+    "id": "toeic_p4_079_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Main idea & purpose",
+    "questionType": "multipleChoice",
+    "prompt": "What is the workshop about?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Computer skills"
+      },
+      {
+        "id": "b",
+        "text": "Time management"
+      },
+      {
+        "id": "c",
+        "text": "Public speaking"
+      },
+      {
+        "id": "d",
+        "text": "Customer service"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Chủ đề quản lý thời gian.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Good afternoon, everyone. Thank you for coming to today's workshop on time management. First, I'll share some simple tips for planning your week. Then, you'll work in small groups to practice. Please make sure you've picked up a workbook from the table at the back of the room."
+  },
+  {
+    "id": "toeic_p4_079_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Next action & requests",
+    "questionType": "multipleChoice",
+    "prompt": "What will listeners do after the tips?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Work in small groups"
+      },
+      {
+        "id": "b",
+        "text": "Have lunch"
+      },
+      {
+        "id": "c",
+        "text": "Take a test"
+      },
+      {
+        "id": "d",
+        "text": "Watch a video"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Làm việc nhóm nhỏ.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Good afternoon, everyone. Thank you for coming to today's workshop on time management. First, I'll share some simple tips for planning your week. Then, you'll work in small groups to practice. Please make sure you've picked up a workbook from the table at the back of the room."
+  },
+  {
+    "id": "toeic_p4_079_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Next action & requests",
+    "questionType": "multipleChoice",
+    "prompt": "What are listeners reminded to do?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Turn off their phones"
+      },
+      {
+        "id": "b",
+        "text": "Sign an attendance sheet"
+      },
+      {
+        "id": "c",
+        "text": "Fill out a survey"
+      },
+      {
+        "id": "d",
+        "text": "Pick up a workbook"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Lấy sách bài tập ở bàn cuối phòng.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Good afternoon, everyone. Thank you for coming to today's workshop on time management. First, I'll share some simple tips for planning your week. Then, you'll work in small groups to practice. Please make sure you've picked up a workbook from the table at the back of the room."
+  },
+  {
+    "id": "toeic_p4_080_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Main idea & purpose",
+    "questionType": "multipleChoice",
+    "prompt": "What is the news mainly about?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A mayoral election"
+      },
+      {
+        "id": "b",
+        "text": "A company merger"
+      },
+      {
+        "id": "c",
+        "text": "A new factory"
+      },
+      {
+        "id": "d",
+        "text": "A product recall"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Xây nhà máy mới.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "And now for the business news. Local electronics maker Voltex announced today that it will build a new factory in the city of Clearwater. The factory will employ about 800 people and should be ready by next spring. The mayor of Clearwater said the project will greatly help the local economy."
+  },
+  {
+    "id": "toeic_p4_080_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "How many people will the factory employ?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "About 8,000"
+      },
+      {
+        "id": "b",
+        "text": "About 800"
+      },
+      {
+        "id": "c",
+        "text": "About 80"
+      },
+      {
+        "id": "d",
+        "text": "About 180"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Khoảng 800 người.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "And now for the business news. Local electronics maker Voltex announced today that it will build a new factory in the city of Clearwater. The factory will employ about 800 people and should be ready by next spring. The mayor of Clearwater said the project will greatly help the local economy."
+  },
+  {
+    "id": "toeic_p4_080_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What did the mayor say about the project?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "It needs more funding"
+      },
+      {
+        "id": "b",
+        "text": "It will cause traffic problems"
+      },
+      {
+        "id": "c",
+        "text": "It will help the local economy"
+      },
+      {
+        "id": "d",
+        "text": "It will be delayed"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Giúp kinh tế địa phương.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "And now for the business news. Local electronics maker Voltex announced today that it will build a new factory in the city of Clearwater. The factory will employ about 800 people and should be ready by next spring. The mayor of Clearwater said the project will greatly help the local economy."
+  },
+  {
+    "id": "toeic_p4_081_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Main idea & purpose",
+    "questionType": "multipleChoice",
+    "prompt": "What is the purpose of the announcement?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "To announce a fire drill schedule for next month"
+      },
+      {
+        "id": "b",
+        "text": "To introduce a new safety officer"
+      },
+      {
+        "id": "c",
+        "text": "To inform staff about an alarm test"
+      },
+      {
+        "id": "d",
+        "text": "To report a fire"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Thông báo thử hệ thống báo cháy.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Attention, all staff. The fire alarm system will be tested tomorrow between 10 and 11 A.M. You will hear the alarm several times during this period. There is no need to leave the building. However, if the alarm rings after 11, please follow the normal evacuation procedure."
+  },
+  {
+    "id": "toeic_p4_081_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What are staff told NOT to do during the test?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Leave the building"
+      },
+      {
+        "id": "b",
+        "text": "Call the fire department"
+      },
+      {
+        "id": "c",
+        "text": "Turn off their computers"
+      },
+      {
+        "id": "d",
+        "text": "Use the elevators"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Không cần rời toà nhà.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Attention, all staff. The fire alarm system will be tested tomorrow between 10 and 11 A.M. You will hear the alarm several times during this period. There is no need to leave the building. However, if the alarm rings after 11, please follow the normal evacuation procedure."
+  },
+  {
+    "id": "toeic_p4_081_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Implied meaning",
+    "questionType": "multipleChoice",
+    "prompt": "What should staff do if the alarm rings after 11 A.M.?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Call the front desk"
+      },
+      {
+        "id": "b",
+        "text": "Ignore it"
+      },
+      {
+        "id": "c",
+        "text": "Follow the evacuation procedure"
+      },
+      {
+        "id": "d",
+        "text": "Wait for another announcement"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Sơ tán như bình thường.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Attention, all staff. The fire alarm system will be tested tomorrow between 10 and 11 A.M. You will hear the alarm several times during this period. There is no need to leave the building. However, if the alarm rings after 11, please follow the normal evacuation procedure."
+  },
+  {
+    "id": "toeic_p4_082_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Main idea & purpose",
+    "questionType": "multipleChoice",
+    "prompt": "Why is the speaker calling?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "To confirm a payment"
+      },
+      {
+        "id": "b",
+        "text": "To report a delay"
+      },
+      {
+        "id": "c",
+        "text": "To cancel a service"
+      },
+      {
+        "id": "d",
+        "text": "To offer a discount"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Báo thợ đến trễ.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Hello, Mr. Grant. This is Paula from Ace Plumbing. I'm calling to let you know that our technician is running about 30 minutes late because of heavy traffic. He should arrive at your home around 2:30 instead of 2. If that doesn't work for you, please call us to reschedule. Sorry for the inconvenience."
+  },
+  {
+    "id": "toeic_p4_082_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What caused the problem?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Bad weather"
+      },
+      {
+        "id": "b",
+        "text": "A broken vehicle"
+      },
+      {
+        "id": "c",
+        "text": "A scheduling error"
+      },
+      {
+        "id": "d",
+        "text": "Heavy traffic"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Kẹt xe.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Hello, Mr. Grant. This is Paula from Ace Plumbing. I'm calling to let you know that our technician is running about 30 minutes late because of heavy traffic. He should arrive at your home around 2:30 instead of 2. If that doesn't work for you, please call us to reschedule. Sorry for the inconvenience."
+  },
+  {
+    "id": "toeic_p4_082_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "listening",
+    "partNumber": 4,
+    "topic": "Specific details",
+    "questionType": "multipleChoice",
+    "prompt": "What time will the technician probably arrive?",
+    "media": {
+      "type": "audio",
+      "url": null
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Around 1:30"
+      },
+      {
+        "id": "b",
+        "text": "At 2:00"
+      },
+      {
+        "id": "c",
+        "text": "Around 2:30"
+      },
+      {
+        "id": "d",
+        "text": "At 3:30"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Khoảng 2 giờ 30.",
+    "difficulty": 3,
+    "tags": [
+      "Short Talks",
+      "needsAudio"
+    ],
+    "points": 1,
+    "audioScript": "Hello, Mr. Grant. This is Paula from Ace Plumbing. I'm calling to let you know that our technician is running about 30 minutes late because of heavy traffic. He should arrive at your home around 2:30 instead of 2. If that doesn't work for you, please call us to reschedule. Sorry for the inconvenience."
+  },
+  {
+    "id": "toeic_p5_247",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Word form",
+    "questionType": "multipleChoice",
+    "prompt": "The marketing team presented an ___ plan for the product launch.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "innovatively"
+      },
+      {
+        "id": "b",
+        "text": "innovative"
+      },
+      {
+        "id": "c",
+        "text": "innovation"
+      },
+      {
+        "id": "d",
+        "text": "innovate"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Trước danh từ 'plan' cần tính từ.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_248",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Word form",
+    "questionType": "multipleChoice",
+    "prompt": "Customers can ___ their orders online at any time.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "tracked"
+      },
+      {
+        "id": "b",
+        "text": "tracking"
+      },
+      {
+        "id": "c",
+        "text": "tracker"
+      },
+      {
+        "id": "d",
+        "text": "track"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Sau modal 'can' dùng V nguyên mẫu.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_249",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Word form",
+    "questionType": "multipleChoice",
+    "prompt": "Ms. Rivera works ___ with the design department.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "close"
+      },
+      {
+        "id": "b",
+        "text": "closely"
+      },
+      {
+        "id": "c",
+        "text": "closed"
+      },
+      {
+        "id": "d",
+        "text": "closeness"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Bổ nghĩa cho động từ 'works' -> trạng từ.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_250",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Word form",
+    "questionType": "multipleChoice",
+    "prompt": "The ___ of the two companies was announced yesterday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "merged"
+      },
+      {
+        "id": "b",
+        "text": "merge"
+      },
+      {
+        "id": "c",
+        "text": "merger"
+      },
+      {
+        "id": "d",
+        "text": "merging"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Sau 'The' và trước 'of' cần danh từ.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_251",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Word form",
+    "questionType": "multipleChoice",
+    "prompt": "All staff should read the new safety guidelines ___.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "thoroughness"
+      },
+      {
+        "id": "b",
+        "text": "more thorough"
+      },
+      {
+        "id": "c",
+        "text": "thorough"
+      },
+      {
+        "id": "d",
+        "text": "thoroughly"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Cuối câu bổ nghĩa cho động từ 'read' -> trạng từ.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_252",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Word form",
+    "questionType": "multipleChoice",
+    "prompt": "The hotel is ___ located near the airport.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "conveniently"
+      },
+      {
+        "id": "b",
+        "text": "convenient"
+      },
+      {
+        "id": "c",
+        "text": "convenience"
+      },
+      {
+        "id": "d",
+        "text": "conveniences"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Trước phân từ 'located' -> trạng từ.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_253",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Word form",
+    "questionType": "multipleChoice",
+    "prompt": "Please keep your receipt as ___ of purchase.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "prove"
+      },
+      {
+        "id": "b",
+        "text": "proving"
+      },
+      {
+        "id": "c",
+        "text": "proven"
+      },
+      {
+        "id": "d",
+        "text": "proof"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "proof of purchase = bằng chứng mua hàng (danh từ).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_254",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Word form",
+    "questionType": "multipleChoice",
+    "prompt": "The factory has become much more ___ since installing new machines.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "productive"
+      },
+      {
+        "id": "b",
+        "text": "production"
+      },
+      {
+        "id": "c",
+        "text": "produce"
+      },
+      {
+        "id": "d",
+        "text": "productively"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Sau 'become' + more cần tính từ.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_255",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Word form",
+    "questionType": "multipleChoice",
+    "prompt": "Mr. Hughes is an ___ speaker who has given talks around the world.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "experiencing"
+      },
+      {
+        "id": "b",
+        "text": "experienced"
+      },
+      {
+        "id": "c",
+        "text": "experience"
+      },
+      {
+        "id": "d",
+        "text": "experiences"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Tính từ dạng V-ed chỉ người có kinh nghiệm.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_256",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Word form",
+    "questionType": "multipleChoice",
+    "prompt": "The ___ for the design award will be announced next week.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "winning"
+      },
+      {
+        "id": "b",
+        "text": "winners"
+      },
+      {
+        "id": "c",
+        "text": "wins"
+      },
+      {
+        "id": "d",
+        "text": "won"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Chủ ngữ cần danh từ (người thắng giải).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_257",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense & form",
+    "questionType": "multipleChoice",
+    "prompt": "Our company ___ three new stores since January.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "opened"
+      },
+      {
+        "id": "b",
+        "text": "is opening"
+      },
+      {
+        "id": "c",
+        "text": "opens"
+      },
+      {
+        "id": "d",
+        "text": "has opened"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "'since' -> hiện tại hoàn thành.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_258",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense & form",
+    "questionType": "multipleChoice",
+    "prompt": "When the manager arrived, the meeting ___ already.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "has started"
+      },
+      {
+        "id": "b",
+        "text": "will start"
+      },
+      {
+        "id": "c",
+        "text": "starts"
+      },
+      {
+        "id": "d",
+        "text": "had started"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Việc xảy ra trước 1 mốc quá khứ -> QKHT.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_259",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense & form",
+    "questionType": "multipleChoice",
+    "prompt": "The new policy ___ to all employees last week.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "was explained"
+      },
+      {
+        "id": "b",
+        "text": "has explained"
+      },
+      {
+        "id": "c",
+        "text": "explained"
+      },
+      {
+        "id": "d",
+        "text": "is explaining"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Chính sách được giải thích -> bị động quá khứ.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_260",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense & form",
+    "questionType": "multipleChoice",
+    "prompt": "Ms. Tan is responsible for ___ new clients.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "contacting"
+      },
+      {
+        "id": "b",
+        "text": "contacted"
+      },
+      {
+        "id": "c",
+        "text": "to contact"
+      },
+      {
+        "id": "d",
+        "text": "contact"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Sau giới từ 'for' -> V-ing.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_261",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense & form",
+    "questionType": "multipleChoice",
+    "prompt": "By next June, Mr. Clark ___ at the firm for twenty years.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "works"
+      },
+      {
+        "id": "b",
+        "text": "worked"
+      },
+      {
+        "id": "c",
+        "text": "has worked"
+      },
+      {
+        "id": "d",
+        "text": "will have worked"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "'By + mốc tương lai' -> tương lai hoàn thành.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_262",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense & form",
+    "questionType": "multipleChoice",
+    "prompt": "The board decided ___ the headquarters to Singapore.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "moving"
+      },
+      {
+        "id": "b",
+        "text": "to move"
+      },
+      {
+        "id": "c",
+        "text": "move"
+      },
+      {
+        "id": "d",
+        "text": "moved"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "decide + to V.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_263",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense & form",
+    "questionType": "multipleChoice",
+    "prompt": "The documents need ___ before Friday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "signing to"
+      },
+      {
+        "id": "b",
+        "text": "to be signed"
+      },
+      {
+        "id": "c",
+        "text": "sign"
+      },
+      {
+        "id": "d",
+        "text": "signed"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "need + to be V3 (bị động).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_264",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense & form",
+    "questionType": "multipleChoice",
+    "prompt": "Had we known about the traffic, we ___ earlier.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "left"
+      },
+      {
+        "id": "b",
+        "text": "will leave"
+      },
+      {
+        "id": "c",
+        "text": "would have left"
+      },
+      {
+        "id": "d",
+        "text": "had left"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Đảo ngữ điều kiện loại 3: would have + V3.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_265",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense & form",
+    "questionType": "multipleChoice",
+    "prompt": "The seminar, which ___ next Tuesday, is open to all staff.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "taking place"
+      },
+      {
+        "id": "b",
+        "text": "will take place"
+      },
+      {
+        "id": "c",
+        "text": "has taken place"
+      },
+      {
+        "id": "d",
+        "text": "took place"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "'next Tuesday' -> tương lai.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_266",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense & form",
+    "questionType": "multipleChoice",
+    "prompt": "Visitors are required ___ a badge at all times.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "wear"
+      },
+      {
+        "id": "b",
+        "text": "worn"
+      },
+      {
+        "id": "c",
+        "text": "wearing"
+      },
+      {
+        "id": "d",
+        "text": "to wear"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "be required + to V.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_267",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Prepositions",
+    "questionType": "multipleChoice",
+    "prompt": "The concert was canceled ___ the heavy rain.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "because"
+      },
+      {
+        "id": "b",
+        "text": "despite of"
+      },
+      {
+        "id": "c",
+        "text": "because of"
+      },
+      {
+        "id": "d",
+        "text": "although"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "because of + danh từ.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_268",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Prepositions",
+    "questionType": "multipleChoice",
+    "prompt": "Please wait ___ the lobby until your name is called.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "to"
+      },
+      {
+        "id": "b",
+        "text": "in"
+      },
+      {
+        "id": "c",
+        "text": "into"
+      },
+      {
+        "id": "d",
+        "text": "on"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Trong không gian sảnh -> in the lobby.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_269",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Prepositions",
+    "questionType": "multipleChoice",
+    "prompt": "The report must be finished ___ the end of the day.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "since"
+      },
+      {
+        "id": "b",
+        "text": "by"
+      },
+      {
+        "id": "c",
+        "text": "within"
+      },
+      {
+        "id": "d",
+        "text": "until"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Hạn chót -> by.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_270",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Prepositions",
+    "questionType": "multipleChoice",
+    "prompt": "Ms. Ortiz has worked in marketing ___ over ten years.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "during"
+      },
+      {
+        "id": "b",
+        "text": "since"
+      },
+      {
+        "id": "c",
+        "text": "for"
+      },
+      {
+        "id": "d",
+        "text": "at"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "for + khoảng thời gian.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_271",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Prepositions",
+    "questionType": "multipleChoice",
+    "prompt": "The restaurant is located ___ the corner of Fifth Street and Main.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "on"
+      },
+      {
+        "id": "b",
+        "text": "to"
+      },
+      {
+        "id": "c",
+        "text": "in"
+      },
+      {
+        "id": "d",
+        "text": "from"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "on the corner of = ở góc đường.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_272",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Prepositions",
+    "questionType": "multipleChoice",
+    "prompt": "The price of the tour includes transportation ___ meals.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "as good as"
+      },
+      {
+        "id": "b",
+        "text": "so as"
+      },
+      {
+        "id": "c",
+        "text": "as well as"
+      },
+      {
+        "id": "d",
+        "text": "as long as"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "as well as = cũng như, cùng với.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_273",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Prepositions",
+    "questionType": "multipleChoice",
+    "prompt": "The project was completed ___ schedule and under budget.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "before of"
+      },
+      {
+        "id": "b",
+        "text": "ahead of"
+      },
+      {
+        "id": "c",
+        "text": "in front"
+      },
+      {
+        "id": "d",
+        "text": "prior"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "ahead of schedule = sớm hơn kế hoạch.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_274",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conjunctions & connectors",
+    "questionType": "multipleChoice",
+    "prompt": "The office will be closed on Monday ___ it is a national holiday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "because of"
+      },
+      {
+        "id": "b",
+        "text": "because"
+      },
+      {
+        "id": "c",
+        "text": "so"
+      },
+      {
+        "id": "d",
+        "text": "despite"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "because + mệnh đề.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_275",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conjunctions & connectors",
+    "questionType": "multipleChoice",
+    "prompt": "___ the manager nor her assistant was available to answer questions.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Not only"
+      },
+      {
+        "id": "b",
+        "text": "Neither"
+      },
+      {
+        "id": "c",
+        "text": "Either"
+      },
+      {
+        "id": "d",
+        "text": "Both"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "neither ... nor.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_276",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conjunctions & connectors",
+    "questionType": "multipleChoice",
+    "prompt": "Please arrive early ___ you can find a good seat.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "even if"
+      },
+      {
+        "id": "b",
+        "text": "unless"
+      },
+      {
+        "id": "c",
+        "text": "whereas"
+      },
+      {
+        "id": "d",
+        "text": "so that"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "so that = để mà.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_277",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conjunctions & connectors",
+    "questionType": "multipleChoice",
+    "prompt": "The product is expensive; ___, it sells very well.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "in addition"
+      },
+      {
+        "id": "b",
+        "text": "therefore"
+      },
+      {
+        "id": "c",
+        "text": "for example"
+      },
+      {
+        "id": "d",
+        "text": "however"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Tương phản -> however.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_278",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conjunctions & connectors",
+    "questionType": "multipleChoice",
+    "prompt": "___ you have any questions, please contact customer service.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Although"
+      },
+      {
+        "id": "b",
+        "text": "If"
+      },
+      {
+        "id": "c",
+        "text": "Unless"
+      },
+      {
+        "id": "d",
+        "text": "Whether"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "If = nếu.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_279",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conjunctions & connectors",
+    "questionType": "multipleChoice",
+    "prompt": "Not only is the hotel affordable, ___ it is also close to the beach.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "and"
+      },
+      {
+        "id": "b",
+        "text": "but"
+      },
+      {
+        "id": "c",
+        "text": "so"
+      },
+      {
+        "id": "d",
+        "text": "or"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "not only ... but (also).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_280",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "Employees ___ want to attend the workshop should register by Friday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "who"
+      },
+      {
+        "id": "b",
+        "text": "whom"
+      },
+      {
+        "id": "c",
+        "text": "which"
+      },
+      {
+        "id": "d",
+        "text": "whose"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Chủ ngữ người -> who.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_281",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "Mr. Park and ___ will lead the training session.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "I"
+      },
+      {
+        "id": "b",
+        "text": "myself"
+      },
+      {
+        "id": "c",
+        "text": "me"
+      },
+      {
+        "id": "d",
+        "text": "my"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Chủ ngữ -> đại từ chủ ngữ 'I'.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_282",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "The company rewards ___ top salespeople every year.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "it's"
+      },
+      {
+        "id": "b",
+        "text": "itself"
+      },
+      {
+        "id": "c",
+        "text": "it"
+      },
+      {
+        "id": "d",
+        "text": "its"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Tính từ sở hữu của 'company' -> its.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_283",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "The manager ___ I spoke to was very helpful.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "whom"
+      },
+      {
+        "id": "b",
+        "text": "which"
+      },
+      {
+        "id": "c",
+        "text": "whose"
+      },
+      {
+        "id": "d",
+        "text": "what"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Tân ngữ người -> whom (hoặc who/that).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_284",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "Please let ___ know if you need any help.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "us"
+      },
+      {
+        "id": "b",
+        "text": "our"
+      },
+      {
+        "id": "c",
+        "text": "we"
+      },
+      {
+        "id": "d",
+        "text": "ourselves"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Sau động từ 'let' -> tân ngữ 'us'.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_285",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "This is ___ expensive hotel in the city.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "the most"
+      },
+      {
+        "id": "b",
+        "text": "more"
+      },
+      {
+        "id": "c",
+        "text": "most"
+      },
+      {
+        "id": "d",
+        "text": "much"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "So sánh nhất: the most + adj.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_286",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "Our new laptop is ___ lighter than the previous model.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "much"
+      },
+      {
+        "id": "b",
+        "text": "more"
+      },
+      {
+        "id": "c",
+        "text": "many"
+      },
+      {
+        "id": "d",
+        "text": "very"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Nhấn mạnh so sánh hơn: much + adj-er.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_287",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "___ of the employees has a parking pass.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Each"
+      },
+      {
+        "id": "b",
+        "text": "Both"
+      },
+      {
+        "id": "c",
+        "text": "All"
+      },
+      {
+        "id": "d",
+        "text": "Many"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Each of + N số nhiều + V số ít (has).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_288",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "The more you practice, ___ you will become.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "the most confident"
+      },
+      {
+        "id": "b",
+        "text": "most confident"
+      },
+      {
+        "id": "c",
+        "text": "more confident"
+      },
+      {
+        "id": "d",
+        "text": "the more confident"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "The more ..., the more ... (càng ... càng).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_289",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "The store offers free ___ for purchases over $100.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "delivery"
+      },
+      {
+        "id": "b",
+        "text": "deliver"
+      },
+      {
+        "id": "c",
+        "text": "delivered"
+      },
+      {
+        "id": "d",
+        "text": "deliverer"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "free delivery = miễn phí giao hàng (danh từ).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_290",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Please ___ from smoking inside the building.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "refrain"
+      },
+      {
+        "id": "b",
+        "text": "stop"
+      },
+      {
+        "id": "c",
+        "text": "prevent"
+      },
+      {
+        "id": "d",
+        "text": "avoid"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "refrain from + V-ing - collocation cố định (avoid không đi với 'from').",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_291",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "The new CEO will ___ the company's expansion into Asia.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "overhear"
+      },
+      {
+        "id": "b",
+        "text": "oversee"
+      },
+      {
+        "id": "c",
+        "text": "overcome"
+      },
+      {
+        "id": "d",
+        "text": "overlook"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "oversee = giám sát; overlook = bỏ sót.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_292",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Our team was able to ___ the deadline despite the problems.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "reach"
+      },
+      {
+        "id": "b",
+        "text": "arrive"
+      },
+      {
+        "id": "c",
+        "text": "meet"
+      },
+      {
+        "id": "d",
+        "text": "make up"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "meet the deadline - collocation chuẩn.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_293",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Please ___ the enclosed form and return it to us.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "fill out"
+      },
+      {
+        "id": "b",
+        "text": "fill with"
+      },
+      {
+        "id": "c",
+        "text": "fill up"
+      },
+      {
+        "id": "d",
+        "text": "fill off"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "fill out a form = điền mẫu đơn.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_294",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "The event was ___ by more than 500 guests.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "participated"
+      },
+      {
+        "id": "b",
+        "text": "presented"
+      },
+      {
+        "id": "c",
+        "text": "attended"
+      },
+      {
+        "id": "d",
+        "text": "joined"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "be attended by = có ... tham dự; participate cần 'in'.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_295",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Due to high ___, we are hiring more staff.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "request"
+      },
+      {
+        "id": "b",
+        "text": "require"
+      },
+      {
+        "id": "c",
+        "text": "demand"
+      },
+      {
+        "id": "d",
+        "text": "order"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "high demand = nhu cầu cao.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_042_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Dear valued customer, we are writing to inform you that your subscription will ___ on March 31.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "expiration"
+      },
+      {
+        "id": "b",
+        "text": "expired"
+      },
+      {
+        "id": "c",
+        "text": "expire"
+      },
+      {
+        "id": "d",
+        "text": "expiring"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Sau 'will' dùng V nguyên mẫu.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_042_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "To continue enjoying our service, please renew your subscription ___ that date.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "before"
+      },
+      {
+        "id": "b",
+        "text": "since"
+      },
+      {
+        "id": "c",
+        "text": "while"
+      },
+      {
+        "id": "d",
+        "text": "until"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Gia hạn TRƯỚC ngày đó.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_042_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Sentence insertion",
+    "questionType": "multipleChoice",
+    "prompt": "Which sentence best fits the blank? (Context: benefits of renewing.)",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Customers who renew early will receive a 15% discount."
+      },
+      {
+        "id": "b",
+        "text": "Our office is closed on weekends."
+      },
+      {
+        "id": "c",
+        "text": "We opened our first store in 2005."
+      },
+      {
+        "id": "d",
+        "text": "Thank you for your job application."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Nêu ưu đãi khi gia hạn - khớp mạch văn.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_042_4",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "If you have any questions, please do not ___ to contact us.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "hesitate"
+      },
+      {
+        "id": "b",
+        "text": "hesitated"
+      },
+      {
+        "id": "c",
+        "text": "hesitant"
+      },
+      {
+        "id": "d",
+        "text": "hesitation"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "do not hesitate to = cứ tự nhiên.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_043_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Memo: Starting next Monday, the company cafeteria will offer a ___ selection of healthy meals.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "wider"
+      },
+      {
+        "id": "b",
+        "text": "widen"
+      },
+      {
+        "id": "c",
+        "text": "widely"
+      },
+      {
+        "id": "d",
+        "text": "width"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Trước danh từ 'selection' cần tính từ (so sánh hơn).",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_043_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Sentence insertion",
+    "questionType": "multipleChoice",
+    "prompt": "Which sentence best fits the blank? (Context: the new menu.)",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The new menu includes salads, soups, and vegetarian dishes."
+      },
+      {
+        "id": "b",
+        "text": "Please park in the east parking lot."
+      },
+      {
+        "id": "c",
+        "text": "The fire drill will begin at 10 A.M."
+      },
+      {
+        "id": "d",
+        "text": "Our sales grew last quarter."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Chi tiết thực đơn mới.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_043_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Prices will remain the same, ___ some dishes may cost slightly more.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "because"
+      },
+      {
+        "id": "b",
+        "text": "unless"
+      },
+      {
+        "id": "c",
+        "text": "so"
+      },
+      {
+        "id": "d",
+        "text": "although"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Tương phản -> although.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_043_4",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "We welcome your ___ about the new menu.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "suggestive"
+      },
+      {
+        "id": "b",
+        "text": "suggest"
+      },
+      {
+        "id": "c",
+        "text": "suggestions"
+      },
+      {
+        "id": "d",
+        "text": "suggested"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Sau tính từ sở hữu 'your' cần danh từ.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_044_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Thank you for choosing Blue Sky Airlines. Your flight to Paris has been ___ confirmed.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "success"
+      },
+      {
+        "id": "b",
+        "text": "succeed"
+      },
+      {
+        "id": "c",
+        "text": "successfully"
+      },
+      {
+        "id": "d",
+        "text": "successful"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Bổ nghĩa cho 'confirmed' -> trạng từ.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_044_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Please check in online no later than 24 hours ___ departure.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "since"
+      },
+      {
+        "id": "b",
+        "text": "during"
+      },
+      {
+        "id": "c",
+        "text": "after"
+      },
+      {
+        "id": "d",
+        "text": "before"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Làm thủ tục TRƯỚC giờ bay.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_044_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Sentence insertion",
+    "questionType": "multipleChoice",
+    "prompt": "Which sentence best fits the blank? (Context: baggage information.)",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Our pilots have many years of experience."
+      },
+      {
+        "id": "b",
+        "text": "Each passenger may bring one carry-on bag free of charge."
+      },
+      {
+        "id": "c",
+        "text": "The hotel offers free breakfast."
+      },
+      {
+        "id": "d",
+        "text": "Paris is famous for its museums."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Thông tin hành lý - khớp email hãng bay.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_044_4",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "We look forward to ___ you on board.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "welcomed"
+      },
+      {
+        "id": "b",
+        "text": "welcome"
+      },
+      {
+        "id": "c",
+        "text": "be welcoming"
+      },
+      {
+        "id": "d",
+        "text": "welcoming"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "look forward to + V-ing.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_214_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Notice: 'Riverside Community Center is offering free computer classes for adults this fall. Classes meet every Tuesday and Thursday evening from 6 to 8 P.M. Topics include email, online banking, and word processing. Space is limited to 15 people per class, so please register early at the front desk. Participants should bring a notebook; computers will be provided.' Question: Who are the classes intended for?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Teachers"
+      },
+      {
+        "id": "b",
+        "text": "Senior managers"
+      },
+      {
+        "id": "c",
+        "text": "Adults"
+      },
+      {
+        "id": "d",
+        "text": "Children"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Lớp dành cho người lớn.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_214_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Notice: 'Riverside Community Center is offering free computer classes for adults this fall. Classes meet every Tuesday and Thursday evening from 6 to 8 P.M. Topics include email, online banking, and word processing. Space is limited to 15 people per class, so please register early at the front desk. Participants should bring a notebook; computers will be provided.' Question: What is NOT listed as a class topic?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Email"
+      },
+      {
+        "id": "b",
+        "text": "Graphic design"
+      },
+      {
+        "id": "c",
+        "text": "Word processing"
+      },
+      {
+        "id": "d",
+        "text": "Online banking"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Thiết kế đồ hoạ không có trong danh sách.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_214_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Notice: 'Riverside Community Center is offering free computer classes for adults this fall. Classes meet every Tuesday and Thursday evening from 6 to 8 P.M. Topics include email, online banking, and word processing. Space is limited to 15 people per class, so please register early at the front desk. Participants should bring a notebook; computers will be provided.' Question: What should participants bring?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A notebook"
+      },
+      {
+        "id": "b",
+        "text": "A registration fee"
+      },
+      {
+        "id": "c",
+        "text": "A laptop"
+      },
+      {
+        "id": "d",
+        "text": "A photo ID"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Mang vở; máy tính đã có sẵn.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_215_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Email: 'Hi team, as you know, our client Harper Foods has asked us to redesign their website by November 15. I've divided the work as follows: Ana will handle the design, Ben will write the content, and Chris will test the site on mobile devices. Please send me a progress update every Friday. Let me know if you have any concerns. – Diana' Question: What is the purpose of the email?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "To introduce a new client"
+      },
+      {
+        "id": "b",
+        "text": "To cancel a deadline"
+      },
+      {
+        "id": "c",
+        "text": "To assign tasks for a project"
+      },
+      {
+        "id": "d",
+        "text": "To announce a promotion"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Phân công việc cho dự án.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_215_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Email: 'Hi team, as you know, our client Harper Foods has asked us to redesign their website by November 15. I've divided the work as follows: Ana will handle the design, Ben will write the content, and Chris will test the site on mobile devices. Please send me a progress update every Friday. Let me know if you have any concerns. – Diana' Question: Who will write the website content?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Ana"
+      },
+      {
+        "id": "b",
+        "text": "Chris"
+      },
+      {
+        "id": "c",
+        "text": "Diana"
+      },
+      {
+        "id": "d",
+        "text": "Ben"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Ben viết nội dung.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_215_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Email: 'Hi team, as you know, our client Harper Foods has asked us to redesign their website by November 15. I've divided the work as follows: Ana will handle the design, Ben will write the content, and Chris will test the site on mobile devices. Please send me a progress update every Friday. Let me know if you have any concerns. – Diana' Question: What are team members asked to do every Friday?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Test the website"
+      },
+      {
+        "id": "b",
+        "text": "Submit a timesheet"
+      },
+      {
+        "id": "c",
+        "text": "Meet the client"
+      },
+      {
+        "id": "d",
+        "text": "Send a progress update"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Gửi cập nhật tiến độ.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_216_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Advertisement: 'Clean & Go Laundry – Open 7 days a week, 6 A.M. to 11 P.M. Self-service washers and dryers. Same-day dry cleaning if dropped off before 10 A.M. Free Wi-Fi and a comfortable waiting area. Bring this ad on your first visit and get one free wash!' Question: What is indicated about Clean & Go Laundry?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "It offers home delivery"
+      },
+      {
+        "id": "b",
+        "text": "It is a new business"
+      },
+      {
+        "id": "c",
+        "text": "It closes at 10 P.M."
+      },
+      {
+        "id": "d",
+        "text": "It is open every day"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Mở cửa 7 ngày/tuần.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_216_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Advertisement: 'Clean & Go Laundry – Open 7 days a week, 6 A.M. to 11 P.M. Self-service washers and dryers. Same-day dry cleaning if dropped off before 10 A.M. Free Wi-Fi and a comfortable waiting area. Bring this ad on your first visit and get one free wash!' Question: How can customers get dry cleaning the same day?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "By dropping clothes off before 10 A.M."
+      },
+      {
+        "id": "b",
+        "text": "By becoming a member"
+      },
+      {
+        "id": "c",
+        "text": "By ordering online"
+      },
+      {
+        "id": "d",
+        "text": "By paying an extra fee"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Gửi trước 10 giờ sáng.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_216_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Advertisement: 'Clean & Go Laundry – Open 7 days a week, 6 A.M. to 11 P.M. Self-service washers and dryers. Same-day dry cleaning if dropped off before 10 A.M. Free Wi-Fi and a comfortable waiting area. Bring this ad on your first visit and get one free wash!' Question: What can first-time customers receive?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A free dry cleaning"
+      },
+      {
+        "id": "b",
+        "text": "A discount card"
+      },
+      {
+        "id": "c",
+        "text": "Free Wi-Fi for a month"
+      },
+      {
+        "id": "d",
+        "text": "A free wash"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Mang tờ quảng cáo được giặt miễn phí 1 lần.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_217_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Letter: 'Dear Mr. Owens, thank you for your 12 years of service as a board member of the City Arts Council. Your leadership helped us raise funds for three new community theaters. As a token of our appreciation, we would like to invite you to be our guest of honor at the annual gala on December 5. Sincerely, Lucy Chan, Director' Question: Why was the letter written?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "To offer someone a job"
+      },
+      {
+        "id": "b",
+        "text": "To request a donation"
+      },
+      {
+        "id": "c",
+        "text": "To announce a theater opening"
+      },
+      {
+        "id": "d",
+        "text": "To thank someone and invite him to an event"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Cảm ơn và mời dự tiệc.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_217_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Letter: 'Dear Mr. Owens, thank you for your 12 years of service as a board member of the City Arts Council. Your leadership helped us raise funds for three new community theaters. As a token of our appreciation, we would like to invite you to be our guest of honor at the annual gala on December 5. Sincerely, Lucy Chan, Director' Question: What is suggested about Mr. Owens?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "He is a theater actor"
+      },
+      {
+        "id": "b",
+        "text": "He founded the council"
+      },
+      {
+        "id": "c",
+        "text": "He will become director"
+      },
+      {
+        "id": "d",
+        "text": "He helped raise money"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Giúp gây quỹ cho 3 nhà hát - suy luận.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_217_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Single passage",
+    "questionType": "multipleChoice",
+    "prompt": "Letter: 'Dear Mr. Owens, thank you for your 12 years of service as a board member of the City Arts Council. Your leadership helped us raise funds for three new community theaters. As a token of our appreciation, we would like to invite you to be our guest of honor at the annual gala on December 5. Sincerely, Lucy Chan, Director' Question: The word 'token' is closest in meaning to",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "coin"
+      },
+      {
+        "id": "b",
+        "text": "sign"
+      },
+      {
+        "id": "c",
+        "text": "ticket"
+      },
+      {
+        "id": "d",
+        "text": "password"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "'a token of appreciation' = dấu hiệu/biểu hiện lòng biết ơn.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_218_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Multiple passages",
+    "questionType": "multipleChoice",
+    "prompt": "Email 1 (from Tom Reyes to Office Supply Co.): 'I ordered 20 boxes of printer paper (Order #5521), but only 15 boxes arrived. Please send the missing boxes as soon as possible. We need them for a big printing job on Thursday.' | Email 2 (from Office Supply Co.): 'Dear Mr. Reyes, we apologize for the error. The remaining boxes will be delivered tomorrow, Wednesday, by noon. We have also added a 10% credit to your account for your next order.' Question: How many boxes of paper are missing?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "5"
+      },
+      {
+        "id": "b",
+        "text": "15"
+      },
+      {
+        "id": "c",
+        "text": "10"
+      },
+      {
+        "id": "d",
+        "text": "20"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Đặt 20, nhận 15 -> thiếu 5.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_218_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Multiple passages",
+    "questionType": "multipleChoice",
+    "prompt": "Email 1 (from Tom Reyes to Office Supply Co.): 'I ordered 20 boxes of printer paper (Order #5521), but only 15 boxes arrived. Please send the missing boxes as soon as possible. We need them for a big printing job on Thursday.' | Email 2 (from Office Supply Co.): 'Dear Mr. Reyes, we apologize for the error. The remaining boxes will be delivered tomorrow, Wednesday, by noon. We have also added a 10% credit to your account for your next order.' Question: When will the missing boxes arrive?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "On Wednesday"
+      },
+      {
+        "id": "b",
+        "text": "Next week"
+      },
+      {
+        "id": "c",
+        "text": "On Tuesday"
+      },
+      {
+        "id": "d",
+        "text": "On Thursday"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Giao ngày mai - thứ Tư.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_218_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Multiple passages",
+    "questionType": "multipleChoice",
+    "prompt": "Email 1 (from Tom Reyes to Office Supply Co.): 'I ordered 20 boxes of printer paper (Order #5521), but only 15 boxes arrived. Please send the missing boxes as soon as possible. We need them for a big printing job on Thursday.' | Email 2 (from Office Supply Co.): 'Dear Mr. Reyes, we apologize for the error. The remaining boxes will be delivered tomorrow, Wednesday, by noon. We have also added a 10% credit to your account for your next order.' Question: What did Office Supply Co. give Mr. Reyes?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Free shipping for a year"
+      },
+      {
+        "id": "b",
+        "text": "A credit for a future order"
+      },
+      {
+        "id": "c",
+        "text": "A cash refund"
+      },
+      {
+        "id": "d",
+        "text": "A free printer"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Tặng 10% tín dụng cho đơn sau.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_219_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Multiple passages",
+    "questionType": "multipleChoice",
+    "prompt": "Schedule: 'Annual Tech Conference – Day 1: 9:00 Opening speech (Hall A) | 10:30 AI in Business (Room 201) | 1:00 Lunch | 2:00 Cloud Security (Room 305) | 4:00 Networking event (Lobby)' | Text message from Jenna: 'I'm stuck in traffic and won't get there until around noon. I'll miss the first two sessions, but I don't want to miss the security talk. Save me a seat?' Question: Which session does Jenna most want to attend?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Networking event"
+      },
+      {
+        "id": "b",
+        "text": "Opening speech"
+      },
+      {
+        "id": "c",
+        "text": "AI in Business"
+      },
+      {
+        "id": "d",
+        "text": "Cloud Security"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "'Security talk' = Cloud Security - kết hợp 2 văn bản.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_219_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Multiple passages",
+    "questionType": "multipleChoice",
+    "prompt": "Schedule: 'Annual Tech Conference – Day 1: 9:00 Opening speech (Hall A) | 10:30 AI in Business (Room 201) | 1:00 Lunch | 2:00 Cloud Security (Room 305) | 4:00 Networking event (Lobby)' | Text message from Jenna: 'I'm stuck in traffic and won't get there until around noon. I'll miss the first two sessions, but I don't want to miss the security talk. Save me a seat?' Question: Where will Jenna's preferred session be held?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Hall A"
+      },
+      {
+        "id": "b",
+        "text": "Room 305"
+      },
+      {
+        "id": "c",
+        "text": "Room 201"
+      },
+      {
+        "id": "d",
+        "text": "The lobby"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Cloud Security ở phòng 305.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_219_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Multiple passages",
+    "questionType": "multipleChoice",
+    "prompt": "Schedule: 'Annual Tech Conference – Day 1: 9:00 Opening speech (Hall A) | 10:30 AI in Business (Room 201) | 1:00 Lunch | 2:00 Cloud Security (Room 305) | 4:00 Networking event (Lobby)' | Text message from Jenna: 'I'm stuck in traffic and won't get there until around noon. I'll miss the first two sessions, but I don't want to miss the security talk. Save me a seat?' Question: Why will Jenna arrive late?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Her flight was delayed"
+      },
+      {
+        "id": "b",
+        "text": "She is stuck in traffic"
+      },
+      {
+        "id": "c",
+        "text": "She is not feeling well"
+      },
+      {
+        "id": "d",
+        "text": "She has another meeting"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Kẹt xe.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_220_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Text & chat messages",
+    "questionType": "multipleChoice",
+    "prompt": "Text message chain: [4:40] Alex Moore: The caterer just called. They can't deliver the sandwiches for tomorrow's training until 12:30. [4:41] Priya Shah: The lunch break starts at noon, though. [4:43] Alex Moore: I know. Should we move lunch to 12:30? [4:44] Priya Shah: That's fine. I'll change the schedule and let the trainer know. [4:45] Alex Moore: Thanks. I'll tell the participants. Question: What problem does Mr. Moore report?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A trainer canceled"
+      },
+      {
+        "id": "b",
+        "text": "Sandwiches were not ordered"
+      },
+      {
+        "id": "c",
+        "text": "A food delivery will be late"
+      },
+      {
+        "id": "d",
+        "text": "A room is unavailable"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Giao đồ ăn trễ.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_220_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Text & chat messages",
+    "questionType": "multipleChoice",
+    "prompt": "Text message chain: [4:40] Alex Moore: The caterer just called. They can't deliver the sandwiches for tomorrow's training until 12:30. [4:41] Priya Shah: The lunch break starts at noon, though. [4:43] Alex Moore: I know. Should we move lunch to 12:30? [4:44] Priya Shah: That's fine. I'll change the schedule and let the trainer know. [4:45] Alex Moore: Thanks. I'll tell the participants. Question: At 4:41, what does Ms. Shah imply when she writes, 'The lunch break starts at noon, though'?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "The training is too short"
+      },
+      {
+        "id": "b",
+        "text": "She wants to cancel lunch"
+      },
+      {
+        "id": "c",
+        "text": "She will buy the sandwiches herself"
+      },
+      {
+        "id": "d",
+        "text": "The delivery time is a problem"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Hàm ý: 12:30 là trễ so với giờ nghỉ trưa.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_220_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Text & chat messages",
+    "questionType": "multipleChoice",
+    "prompt": "Text message chain: [4:40] Alex Moore: The caterer just called. They can't deliver the sandwiches for tomorrow's training until 12:30. [4:41] Priya Shah: The lunch break starts at noon, though. [4:43] Alex Moore: I know. Should we move lunch to 12:30? [4:44] Priya Shah: That's fine. I'll change the schedule and let the trainer know. [4:45] Alex Moore: Thanks. I'll tell the participants. Question: What will Ms. Shah do next?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Order more food"
+      },
+      {
+        "id": "b",
+        "text": "Call the caterer"
+      },
+      {
+        "id": "c",
+        "text": "Tell the participants"
+      },
+      {
+        "id": "d",
+        "text": "Update the schedule"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Đổi lịch và báo giảng viên.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_221_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Text & chat messages",
+    "questionType": "multipleChoice",
+    "prompt": "Online chat: [10:02] Mark (Customer): Hi, I bought a jacket from your site, but it's too small. Can I exchange it? [10:03] Sofia (Support): Of course! Items can be exchanged within 30 days. When did you receive it? [10:04] Mark (Customer): Last Monday. [10:05] Sofia (Support): Great. I'll email you a prepaid return label. Once we receive the jacket, we'll send the larger size. Question: Why did Mark contact the company?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "To complain about delivery"
+      },
+      {
+        "id": "b",
+        "text": "To exchange an item"
+      },
+      {
+        "id": "c",
+        "text": "To cancel an order"
+      },
+      {
+        "id": "d",
+        "text": "To track an order"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Đổi áo vì quá nhỏ.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_221_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Text & chat messages",
+    "questionType": "multipleChoice",
+    "prompt": "Online chat: [10:02] Mark (Customer): Hi, I bought a jacket from your site, but it's too small. Can I exchange it? [10:03] Sofia (Support): Of course! Items can be exchanged within 30 days. When did you receive it? [10:04] Mark (Customer): Last Monday. [10:05] Sofia (Support): Great. I'll email you a prepaid return label. Once we receive the jacket, we'll send the larger size. Question: What is suggested about Mark's request?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "It is within the exchange period"
+      },
+      {
+        "id": "b",
+        "text": "It must be done in a store"
+      },
+      {
+        "id": "c",
+        "text": "It requires a fee"
+      },
+      {
+        "id": "d",
+        "text": "It will be rejected"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Nhận hàng thứ Hai tuần trước -> trong 30 ngày.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_221_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Text & chat messages",
+    "questionType": "multipleChoice",
+    "prompt": "Online chat: [10:02] Mark (Customer): Hi, I bought a jacket from your site, but it's too small. Can I exchange it? [10:03] Sofia (Support): Of course! Items can be exchanged within 30 days. When did you receive it? [10:04] Mark (Customer): Last Monday. [10:05] Sofia (Support): Great. I'll email you a prepaid return label. Once we receive the jacket, we'll send the larger size. Question: What will Sofia send Mark?",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "A discount code"
+      },
+      {
+        "id": "b",
+        "text": "A refund"
+      },
+      {
+        "id": "c",
+        "text": "A return label"
+      },
+      {
+        "id": "d",
+        "text": "A new jacket immediately"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Gửi nhãn trả hàng trả trước.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_222",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Sentence position",
+    "questionType": "multipleChoice",
+    "prompt": "Notice: 'Our store will begin a new recycling program next month. [1] Customers can bring used batteries and old phones to the drop-off box near the entrance. [2] For each item, they will receive a coupon for 5% off their next purchase. [3] The program is part of our commitment to the environment. [4]' Question: In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? 'Coupons are valid for three months.'",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "[1]"
+      },
+      {
+        "id": "b",
+        "text": "[2]"
+      },
+      {
+        "id": "c",
+        "text": "[3]"
+      },
+      {
+        "id": "d",
+        "text": "[4]"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Nói thêm về coupon ngay sau câu giới thiệu coupon.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_223",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Sentence position",
+    "questionType": "multipleChoice",
+    "prompt": "Email: 'Thank you for registering for the Business Leaders Summit. [1] Your registration includes access to all sessions and lunch on both days. [2] Please bring a photo ID to pick up your name badge. [3] We look forward to seeing you there. [4]' Question: In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? 'Badges can be collected at the main entrance starting at 8 A.M.'",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "[1]"
+      },
+      {
+        "id": "b",
+        "text": "[2]"
+      },
+      {
+        "id": "c",
+        "text": "[3]"
+      },
+      {
+        "id": "d",
+        "text": "[4]"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Nói tiếp về việc nhận thẻ tên.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_224",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Sentence position",
+    "questionType": "multipleChoice",
+    "prompt": "Article: 'Hartwell Bakery, a family business, celebrated its 50th anniversary on Saturday. [1] The bakery was opened by Rose Hartwell in 1976. [2] Today, it is run by her grandson, Daniel. [3] To celebrate, the bakery gave away free cupcakes to the first 200 customers. [4]' Question: In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? 'At that time, it sold only three kinds of bread.'",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "[1]"
+      },
+      {
+        "id": "b",
+        "text": "[2]"
+      },
+      {
+        "id": "c",
+        "text": "[3]"
+      },
+      {
+        "id": "d",
+        "text": "[4]"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "'At that time' chỉ năm 1976 ngay trước.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_225",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Vocabulary in context",
+    "questionType": "multipleChoice",
+    "prompt": "Memo: 'The new software will streamline the ordering process.' Question: The word 'streamline' is closest in meaning to",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "decorate"
+      },
+      {
+        "id": "b",
+        "text": "simplify"
+      },
+      {
+        "id": "c",
+        "text": "slow down"
+      },
+      {
+        "id": "d",
+        "text": "record"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "streamline = làm gọn, đơn giản hoá.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_226",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Vocabulary in context",
+    "questionType": "multipleChoice",
+    "prompt": "Email: 'We have secured funding for the project.' Question: The word 'secured' is closest in meaning to",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "locked"
+      },
+      {
+        "id": "b",
+        "text": "hidden"
+      },
+      {
+        "id": "c",
+        "text": "obtained"
+      },
+      {
+        "id": "d",
+        "text": "protected"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "secure funding = giành được, có được -> obtained.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p7_227",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 7,
+    "topic": "Vocabulary in context",
+    "questionType": "multipleChoice",
+    "prompt": "Notice: 'Please observe all safety rules in the laboratory.' Question: The word 'observe' is closest in meaning to",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "study"
+      },
+      {
+        "id": "b",
+        "text": "follow"
+      },
+      {
+        "id": "c",
+        "text": "notice"
+      },
+      {
+        "id": "d",
+        "text": "watch"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "observe rules = tuân thủ quy định -> follow.",
+    "difficulty": 3,
+    "tags": [
+      "Reading Comprehension"
+    ],
+    "points": 1
   }
 ]

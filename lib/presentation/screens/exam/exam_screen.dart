@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:mimi_pet/core/grammar_lessons.dart';
 import 'package:mimi_pet/core/theme/app_colors.dart';
+import 'package:mimi_pet/exam_engine/mock_test_engine.dart';
 import 'package:mimi_pet/exam_engine/question_bank_models.dart';
-import 'package:mimi_pet/presentation/state/exam_catalog_controller.dart';
+import 'package:mimi_pet/presentation/screens/exam/exam_answer_text.dart';
+import 'package:mimi_pet/presentation/screens/exam/exam_launcher.dart';
+import 'package:mimi_pet/presentation/screens/exam/exam_review_screen.dart';
+import 'package:mimi_pet/presentation/screens/grammar/grammar_screens.dart';
 import 'package:mimi_pet/presentation/state/exam_session_controller.dart';
-import 'package:mimi_pet/services/cloud_state_store.dart';
 import 'package:mimi_pet/services/tts_service.dart';
 
 /// Màn hình LÀM BÀI + KẾT QUẢ cho 1 lượt thi thử - dùng 1 route DUY NHẤT, tự
@@ -134,7 +138,7 @@ class _ExamQuizView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  _QuestionCard(question: question),
+                  _QuestionCard(question: question, practiceMode: ctrl.isPracticeMode),
                   const SizedBox(height: 16),
                   _AnswerArea(ctrl: ctrl, question: question),
                   // Panel "Đúng/Sai" + giải thích - CHỈ ở chế độ luyện tập
@@ -213,41 +217,6 @@ class _PrimaryActionButton extends StatelessWidget {
   }
 }
 
-/// Chuyển [Question.correctAnswer] (toàn ID nội bộ) thành chữ DỄ ĐỌC cho bé -
-/// mỗi dạng câu hỏi cần cách "dịch" khác nhau (xem comment ở
-/// `question_bank_models.dart` giải thích ý nghĩa `correctAnswer` theo từng
-/// [QuestionType]).
-String _correctAnswerText(Question q) {
-  String textOf(String id) => q.options
-      .firstWhere((o) => o.id == id, orElse: () => AnswerOption(id: id, text: id))
-      .text;
-
-  switch (q.questionType) {
-    case QuestionType.multipleChoice:
-    case QuestionType.trueFalse:
-      // Part 1/2 TOEIC ẩn chữ lúc làm bài (xem [Question.isAudioOnlyChoice])
-      // nên lúc xem đáp án cần kèm CHỮ CÁI để bé đối chiếu với nút đã bấm.
-      if (q.isAudioOnlyChoice) {
-        return q.correctAnswer.map((id) => '${id.toUpperCase()}. ${textOf(id)}').join(', ');
-      }
-      return q.correctAnswer.map(textOf).join(', ');
-    case QuestionType.ordering:
-    case QuestionType.listenAndColor:
-    case QuestionType.listenAndNumber:
-      return q.correctAnswer.map(textOf).join(' → ');
-    case QuestionType.matching:
-      return q.correctAnswer.map((pair) {
-        final parts = pair.split(':');
-        return '${textOf(parts[0])} - ${textOf(parts[1])}';
-      }).join(', ');
-    case QuestionType.fillBlank:
-    case QuestionType.shortAnswer:
-      return q.correctAnswer.join(' / ');
-    case QuestionType.speakingPrompt:
-      return '';
-  }
-}
-
 /// Panel hiện NGAY sau khi bé bấm "Kiểm tra đáp án" - tô xanh/đỏ theo đúng
 /// [ExamSessionController.isCurrentAnswerCorrect], luôn hiện đáp án đúng
 /// (kể cả khi bé làm đúng, để củng cố lại) + giải thích nếu ngân hàng câu hỏi
@@ -287,7 +256,7 @@ class _FeedbackPanel extends StatelessWidget {
           if (!isCorrect) ...[
             const SizedBox(height: 8),
             Text(
-              'Đáp án đúng: ${_correctAnswerText(question)}',
+              'Đáp án đúng: ${correctAnswerText(question)}',
               style: const TextStyle(fontWeight: FontWeight.w600),
             ),
           ],
@@ -295,6 +264,8 @@ class _FeedbackPanel extends StatelessWidget {
             const SizedBox(height: 8),
             Text(question.explanation!, style: const TextStyle(color: AppColors.textMuted)),
           ],
+          if (GrammarLessons.forQuestion(question) case final lesson?)
+            GrammarLessonLink(lesson: lesson),
         ],
       ),
     );
@@ -402,8 +373,28 @@ class _PromptText extends StatelessWidget {
 
 class _QuestionCard extends StatelessWidget {
   final Question question;
+  final bool practiceMode;
 
-  const _QuestionCard({required this.question});
+  const _QuestionCard({required this.question, required this.practiceMode});
+
+  /// Hệ số tốc độ của nút "Nghe chậm" (nhân thêm vào tốc độ đã chỉnh trong
+  /// Cài đặt, không thay đổi cấu hình đã lưu).
+  static const slowSpeed = 0.75;
+
+  static final _audioButtonStyle = OutlinedButton.styleFrom(
+    foregroundColor: AppColors.primary,
+    side: const BorderSide(color: AppColors.primary, width: 1.5),
+    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+  );
+
+  void _listen(BuildContext context, {double speed = 1.0}) {
+    context.read<TtsService>().speakScript(
+          question.audioScript ?? question.prompt,
+          // TOEIC dùng giọng người lớn tự nhiên, YLE dùng giọng chậm của bé.
+          kind: question.track == ExamTrack.toeic ? VoiceKind.toeic : VoiceKind.kid,
+          speed: speed,
+        );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -450,26 +441,33 @@ class _QuestionCard extends StatelessWidget {
           // (hợp với bé nhỏ tuổi ở track YLE, không hợp ngữ cảnh công sở).
           if (question.media.type == 'audio') ...[
             const SizedBox(height: 10),
-            // Bấm được NHIỀU LẦN (TtsService.speak tự dừng lượt đọc trước đó
-            // rồi đọc lại từ đầu) - bé yếu phần nghe có thể nghe lại thoải
-            // mái, không giới hạn số lần như thi thật.
-            OutlinedButton.icon(
-              onPressed: () => context.read<TtsService>().speak(
-                    question.audioScript ?? question.prompt,
-                    rate: question.track == ExamTrack.toeic ? 0.5 : null,
-                    pitch: question.track == ExamTrack.toeic ? 1.0 : null,
+            // Bấm được NHIỀU LẦN (TtsService tự dừng lượt đọc trước đó rồi đọc
+            // lại từ đầu) - nghe lại thoải mái, không giới hạn số lần như thi
+            // thật. Hội thoại (A:/B:, Man:/Woman:...) được đọc mỗi người 1
+            // giọng - xem TtsService.speakScript.
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                OutlinedButton.icon(
+                  onPressed: () => _listen(context),
+                  icon: const Icon(Icons.replay_rounded, size: 18),
+                  label: Text(
+                    question.audioScript != null
+                        ? '🔊 Nghe lại nội dung'
+                        : '🔊 Nghe lại (giọng đọc tạm thay audio thật)',
                   ),
-              icon: const Icon(Icons.replay_rounded, size: 18),
-              label: Text(
-                question.audioScript != null
-                    ? '🔊 Nghe lại nội dung'
-                    : '🔊 Nghe lại (giọng đọc tạm thay audio thật)',
-              ),
-              style: OutlinedButton.styleFrom(
-                foregroundColor: AppColors.primary,
-                side: const BorderSide(color: AppColors.primary, width: 1.5),
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-              ),
+                  style: _audioButtonStyle,
+                ),
+                // Chỉ ở chế độ luyện tập - thi thử giữ đúng tốc độ như thi thật.
+                if (practiceMode)
+                  OutlinedButton.icon(
+                    onPressed: () => _listen(context, speed: slowSpeed),
+                    icon: const Text('🐢'),
+                    label: const Text('Nghe chậm 0.75x'),
+                    style: _audioButtonStyle,
+                  ),
+              ],
             ),
             if (question.isAudioOnlyChoice) ...[
               const SizedBox(height: 8),
@@ -951,32 +949,79 @@ class _ExamResultView extends StatelessWidget {
   const _ExamResultView({required this.ctrl});
 
   void _retry(BuildContext context) {
-    final bank = context.read<ExamCatalogController>().bank!;
-    final cloudStore = context.read<CloudStateStore>();
-    final config = ctrl.config;
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (_) => ChangeNotifierProvider<ExamSessionController>(
-          create: (_) => ExamSessionController(
-            bank: bank,
-            config: config,
-            mode: ctrl.mode,
-            onFinished: (score) => cloudStore.setMapEntry(
-              'examResults',
-              '${config.track.name}_${config.level}',
-              score.toJson(),
-            ),
-          ),
-          child: const ExamScreen(),
+    openExamSession(
+      context,
+      config: ctrl.config,
+      mode: ctrl.mode,
+      fixedQuestions: ctrl.fixedQuestions,
+      // Cấu hình "rawPercentage" = phiên tự tạo (ôn câu sai, luyện 1 chủ đề)
+      // - không lưu vào lịch sử điểm đề thi thử.
+      saveScore: ctrl.config.scoringStrategyId != 'rawPercentage',
+      replace: true,
+    );
+  }
+
+  void _openReview(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => ExamReviewScreen(
+          title: ctrl.config.displayName,
+          questions: ctrl.questions,
+          answers: {for (final q in ctrl.questions) q.id: ctrl.answerFor(q.id)},
         ),
       ),
     );
+  }
+
+  void _practiceTopic(BuildContext context, Question sample) {
+    final topic = sample.topic!;
+    openExamSession(
+      context,
+      config: topicPracticeConfig(
+        track: sample.track,
+        level: sample.level,
+        skill: sample.skill,
+        partNumber: sample.track == ExamTrack.toeic ? sample.partNumber : null,
+        topics: [topic],
+        title: 'Luyện thêm: $topic',
+      ),
+      mode: TestMode.practice,
+      saveScore: false,
+    );
+  }
+
+  bool _isRight(Question q) {
+    final answer = ctrl.answerFor(q.id);
+    return answer != null && answer.isNotEmpty && isAnswerCorrect(q, answer);
+  }
+
+  /// Chủ đề có từ 2 câu sai trở lên (nhiều nhất trước, tối đa 4) - mỗi chủ
+  /// đề giữ 1 câu mẫu để biết skill/part khi mở phiên luyện thêm.
+  static List<(Question, int)> _topicsByMistakes(List<Question> wrong) {
+    final counts = <String, (Question, int)>{};
+    for (final q in wrong) {
+      final topic = q.topic;
+      if (topic == null) continue;
+      final key = '${q.skill.name}|${q.partNumber}|$topic';
+      final current = counts[key];
+      counts[key] = (current?.$1 ?? q, (current?.$2 ?? 0) + 1);
+    }
+    final list = counts.values.where((e) => e.$2 >= 2).toList()..sort((a, b) => b.$2.compareTo(a.$2));
+    return list.take(4).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     final score = ctrl.score!;
     final percent = (score.percentage * 100).round();
+    final wrong = [
+      for (final q in ctrl.questions)
+        if (q.questionType != QuestionType.speakingPrompt && !_isRight(q)) q,
+    ];
+    final wrongCount = wrong.length;
+    // Chỉ câu ĐÃ trả lời mà sai mới vào Sổ câu sai (câu bỏ trống thì không).
+    final answeredWrong = wrong.where((q) => ctrl.answerFor(q.id)?.isNotEmpty ?? false).length;
+    final weakTopics = _topicsByMistakes(wrong);
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
@@ -1011,6 +1056,35 @@ class _ExamResultView extends StatelessWidget {
           if (score.weakTags.isNotEmpty) ...[
             const SizedBox(height: 16),
             _WeakTagsCard(tags: score.weakTags),
+          ],
+          if (weakTopics.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            _WeakTopicsCard(
+              topics: weakTopics,
+              onPractice: (sample) => _practiceTopic(context, sample),
+            ),
+          ],
+          const SizedBox(height: 16),
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: () => _openReview(context),
+              icon: const Icon(Icons.fact_check_rounded),
+              label: Text(wrongCount > 0 ? 'Xem lại bài làm ($wrongCount câu sai/bỏ trống)' : 'Xem lại bài làm'),
+              style: OutlinedButton.styleFrom(
+                foregroundColor: AppColors.primary,
+                side: const BorderSide(color: AppColors.primary, width: 1.5),
+                padding: const EdgeInsets.symmetric(vertical: 14),
+              ),
+            ),
+          ),
+          if (answeredWrong > 0) ...[
+            const SizedBox(height: 6),
+            Text(
+              '📕 $answeredWrong câu làm sai đã được thêm vào Sổ câu sai - vào mục Thi thử để ôn lại theo lịch.',
+              style: TextStyle(fontSize: 12, color: AppColors.textMuted),
+              textAlign: TextAlign.center,
+            ),
           ],
           const SizedBox(height: 24),
           Row(
@@ -1161,6 +1235,43 @@ class _WeakTagsCard extends StatelessWidget {
             spacing: 8,
             runSpacing: 8,
             children: tags.map((t) => Chip(label: Text(t), backgroundColor: AppColors.idleBubble)).toList(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Chủ đề làm sai nhiều trong lượt này + nút luyện ngay 10 câu cùng chủ đề.
+class _WeakTopicsCard extends StatelessWidget {
+  final List<(Question, int)> topics;
+  final ValueChanged<Question> onPractice;
+
+  const _WeakTopicsCard({required this.topics, required this.onPractice});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(18)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('Chủ đề hay sai - luyện ngay', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+          const SizedBox(height: 10),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final (sample, count) in topics)
+                ActionChip(
+                  avatar: const Icon(Icons.play_arrow_rounded, size: 18, color: AppColors.primary),
+                  label: Text('${sample.topic} · $count câu chưa đúng'),
+                  backgroundColor: AppColors.idleBubble,
+                  onPressed: () => onPractice(sample),
+                ),
+            ],
           ),
         ],
       ),

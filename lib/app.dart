@@ -39,6 +39,7 @@ import 'presentation/state/exam_catalog_controller.dart';
 import 'presentation/state/gem_reward_controller.dart';
 import 'presentation/state/hearts_controller.dart';
 import 'presentation/state/lessons_controller.dart';
+import 'presentation/state/mistake_book_controller.dart';
 import 'presentation/state/pet_character_controller.dart';
 import 'presentation/state/pet_controller.dart';
 import 'presentation/state/pet_inventory_controller.dart';
@@ -287,6 +288,10 @@ class _AuthenticatedAppState extends State<_AuthenticatedApp> {
               ),
               ChangeNotifierProvider<ExamCatalogController>(
                 create: (context) => ExamCatalogController(context.read<ExamRepository>())..load(),
+              ),
+              // Sổ câu sai + lịch ôn giãn cách, lưu trong state đồng bộ cloud.
+              ChangeNotifierProvider<MistakeBookController>(
+                create: (context) => MistakeBookController(CloudMistakeStorage(context.read<CloudStateStore>())),
               ),
               // Đăng ký ở cấp app (không phải riêng tab Chat) để lịch sử hội
               // thoại không bị mất khi bé chuyển qua tab khác rồi quay lại
