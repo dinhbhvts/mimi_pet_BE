@@ -26,6 +26,7 @@ import 'package:mimi_pet/presentation/widgets/type_instead_of_talk.dart';
 import 'package:mimi_pet/services/speech_service.dart';
 import 'package:mimi_pet/services/tts_service.dart';
 import 'package:mimi_pet/presentation/widgets/emoji_art.dart';
+import 'package:mimi_pet/presentation/widgets/ios_web_tips.dart';
 
 /// Tab "Home": nơi bé gặp thú cưng (Bunny/Mimi/Moni - bé tự chọn) và có thể
 /// chào hỏi tự do (không tính vào bài học/điểm sao) - đúng bước 6-8 trong kế
@@ -548,8 +549,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   /// Fallback KHÔNG dùng giọng nói - xem `TypeInsteadOfTalk` (widget) để biết
-  /// lý do cần cái này (Safari trên iPhone/iPad hầu như không hỗ trợ
-  /// speech_to_text). Dùng LẠI ĐÚNG logic phản hồi với [_handleTalkPressed]
+  /// lý do cần cái này (mic của Safari trên iPhone/iPad hay chập chờn -
+  /// xem `deployment.md`). Dùng LẠI ĐÚNG logic phản hồi với [_handleTalkPressed]
   /// (xem [_respondToHeard]) - chỉ khác nguồn lấy chữ (bàn phím thay vì mic),
   /// nên KHÔNG cần bọc try/catch/timeout của speech_to_text.
   Future<void> _handleTypedTalk(String text) async {
@@ -757,6 +758,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  const IosWebTipsBanner(),
                   _customizeToggle(info),
                   AnimatedSize(
                     duration: const Duration(milliseconds: 220),
@@ -839,8 +841,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     label: isListening ? 'Listening...' : 'Tap to talk',
                   ),
                   const SizedBox(height: 6),
-                  // Fallback cho Safari trên iPhone/iPad (hầu như không hỗ
-                  // trợ speech_to_text) - xem `TypeInsteadOfTalk`.
+                  // Fallback cho Safari trên iPhone/iPad (mic hay chập
+                  // chờn) - xem `TypeInsteadOfTalk`.
                   TypeInsteadOfTalk(
                     enabled: !_isBusy,
                     onSubmitted: _handleTypedTalk,

@@ -314,6 +314,7 @@ class _AuthenticatedAppState extends State<_AuthenticatedApp> {
                   speechService: context.read<SpeechService>(),
                   petCharacterController: context.read<PetCharacterController>(),
                   childNameController: context.read<ChildNameController>(),
+                  historyStorage: CloudChatHistoryStorage(context.read<CloudStateStore>()),
                 ),
               ),
               ChangeNotifierProvider<DictionaryController>(

@@ -46,23 +46,86 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final _scrollController = ScrollController();
   final _textController = TextEditingController();
+  final _draftController = TextEditingController();
+
+  /// Bản nháp giọng nói đã đổ vào [_draftController] ở lần build trước.
+  String? _syncedDraft;
 
   @override
   void dispose() {
     _scrollController.dispose();
     _textController.dispose();
+    _draftController.dispose();
     super.dispose();
   }
 
-  void _scrollToBottomSoon() {
+  /// Số tin nhắn + tin cuối ở lần build trước - CHỈ tự cuộn xuống cuối khi có
+  /// tin mới (hoặc tin cuối vừa đổi, vd vừa hiện bản dịch), không cuộn khi
+  /// build lại vì lý do khác (trước 2026-10-01 bấm dịch 1 tin CŨ cũng bị
+  /// kéo tuột xuống cuối).
+  int _lastMessageCount = -1;
+  ChatMessage? _lastTail;
+
+  void _scrollToBottomIfChanged(List<ChatMessage> messages) {
+    final tail = messages.isEmpty ? null : messages.last;
+    if (messages.length == _lastMessageCount && identical(tail, _lastTail)) return;
+    final jump = _lastMessageCount < 0; // lần đầu mở: nhảy thẳng, không animate
+    _lastMessageCount = messages.length;
+    _lastTail = tail;
+    _scrollToBottomSoon(jump: jump);
+  }
+
+  void _scrollToBottomSoon({bool jump = false}) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!_scrollController.hasClients) return;
+      if (jump) {
+        _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+        return;
+      }
       _scrollController.animateTo(
         _scrollController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 250),
         curve: Curves.easeOut,
       );
     });
+  }
+
+  Future<void> _confirmClear(BuildContext context, ChatController chat) async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Xoá cuộc trò chuyện?'),
+        content: const Text('Toàn bộ tin nhắn với thú cưng sẽ bị xoá trên mọi thiết bị.'),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Huỷ')),
+          FilledButton(onPressed: () => Navigator.pop(context, true), child: const Text('Xoá')),
+        ],
+      ),
+    );
+    if (ok == true) await chat.clearHistory();
+  }
+
+  void _useSuggestion(ChatController chat, String text) {
+    if (chat.inputMode == ChatInputMode.text) {
+      _textController.value = TextEditingValue(
+        text: text,
+        selection: TextSelection.collapsed(offset: text.length),
+      );
+    }
+    chat.useSuggestion(text);
+  }
+
+  /// Đổ bản nháp mới (mic vừa nghe xong / bé chạm câu gợi ý) vào ô sửa - chỉ
+  /// khi bản nháp ĐỔI, không ghi đè lúc bé đang tự sửa chữ.
+  void _syncDraft(String? draft) {
+    if (draft == _syncedDraft) return;
+    _syncedDraft = draft;
+    if (draft != null) {
+      _draftController.value = TextEditingValue(
+        text: draft,
+        selection: TextSelection.collapsed(offset: draft.length),
+      );
+    }
   }
 
   void _handleSend(ChatController chat) {
@@ -91,15 +154,31 @@ class _ChatScreenState extends State<ChatScreen> {
     final inventory = context.watch<PetInventoryController>();
     final childAvatar = context.watch<ChildAvatarController>().avatar;
 
-    _scrollToBottomSoon();
+    _scrollToBottomIfChanged(chat.messages);
+    _syncDraft(chat.voiceDraft);
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
       child: Column(
         children: [
-          Text(
-            'Tâm sự với $characterName 💬',
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Text(
+                'Tâm sự với $characterName 💬',
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              if (chat.messages.isNotEmpty)
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                    onPressed: chat.isSending ? null : () => _confirmClear(context, chat),
+                    icon: const Icon(Icons.delete_sweep_rounded),
+                    color: AppColors.textMuted,
+                    tooltip: 'Xoá cuộc trò chuyện',
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 4),
           PetAvatar(
@@ -165,8 +244,51 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
               ),
             ),
-          _InputRow(controller: _textController, chat: chat, onSend: () => _handleSend(chat)),
+          _SuggestionBar(suggestions: chat.suggestions, onTap: (text) => _useSuggestion(chat, text)),
+          const SizedBox(height: 6),
+          _InputRow(
+            controller: _textController,
+            draftController: _draftController,
+            chat: chat,
+            onSend: () => _handleSend(chat),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+/// Hàng nút câu gợi ý (bé chưa biết nói gì tiếp): chạm 1 câu -> Mimi đọc
+/// mẫu, câu được điền sẵn để bé gửi (hoặc tự nói lại ở chế độ nói).
+class _SuggestionBar extends StatelessWidget {
+  final List<String> suggestions;
+  final ValueChanged<String> onTap;
+
+  const _SuggestionBar({required this.suggestions, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    if (suggestions.isEmpty) return const SizedBox.shrink();
+    return SizedBox(
+      height: 40,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: suggestions.length + 1,
+        separatorBuilder: (_, _) => const SizedBox(width: 6),
+        itemBuilder: (context, i) {
+          if (i == 0) {
+            return const Center(child: Text('💡', style: TextStyle(fontSize: 18)));
+          }
+          final text = suggestions[i - 1];
+          return ActionChip(
+            label: Text(text, style: const TextStyle(fontSize: 13)),
+            onPressed: () => onTap(text),
+            backgroundColor: Colors.white,
+            side: BorderSide(color: AppColors.primary.withValues(alpha: 0.35)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            visualDensity: VisualDensity.compact,
+          );
+        },
       ),
     );
   }
@@ -174,15 +296,48 @@ class _ChatScreenState extends State<ChatScreen> {
 
 class _InputRow extends StatelessWidget {
   final TextEditingController controller;
+
+  /// Ô sửa bản nháp giọng nói (xem [ChatController.voiceDraft]).
+  final TextEditingController draftController;
   final ChatController chat;
   final VoidCallback onSend;
 
-  const _InputRow({required this.controller, required this.chat, required this.onSend});
+  const _InputRow({
+    required this.controller,
+    required this.draftController,
+    required this.chat,
+    required this.onSend,
+  });
+
+  Widget _sendButton({required VoidCallback? onTap}) => Material(
+    color: onTap == null ? AppColors.disabled : AppColors.primary,
+    borderRadius: BorderRadius.circular(20),
+    child: InkWell(
+      borderRadius: BorderRadius.circular(20),
+      onTap: onTap,
+      child: const Padding(
+        padding: EdgeInsets.all(12),
+        child: Icon(Icons.send_rounded, color: Colors.white, size: 22),
+      ),
+    ),
+  );
+
+  InputDecoration _fieldDecoration(String hint) => InputDecoration(
+    hintText: hint,
+    filled: true,
+    fillColor: Colors.white,
+    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(20),
+      borderSide: BorderSide.none,
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
     final busy = chat.isSending || chat.isListening;
     final isTextMode = chat.inputMode == ChatInputMode.text;
+    final hasDraft = !isTextMode && chat.voiceDraft != null && !busy;
 
     return Row(
       children: [
@@ -200,14 +355,21 @@ class _InputRow extends StatelessWidget {
                   enabled: !busy,
                   textInputAction: TextInputAction.send,
                   onSubmitted: (_) => onSend(),
-                  decoration: InputDecoration(
-                    hintText: 'Gõ điều bé muốn nói...',
-                    filled: true,
-                    fillColor: Colors.white,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide.none,
+                  decoration: _fieldDecoration('Gõ điều bé muốn nói...'),
+                )
+              : hasDraft
+              // XEM LẠI TRƯỚC KHI GỬI (2026-10-01): mic nghe sai thì bé sửa
+              // chữ ngay tại đây, hoặc bấm 🎤 để nói lại.
+              ? TextField(
+                  controller: draftController,
+                  textInputAction: TextInputAction.send,
+                  onSubmitted: chat.sendVoiceDraft,
+                  decoration: _fieldDecoration('Sửa lại nếu Mimi nghe sai...').copyWith(
+                    suffixIcon: IconButton(
+                      onPressed: chat.startVoiceInput,
+                      icon: const Icon(Icons.mic_rounded),
+                      color: AppColors.primary,
+                      tooltip: 'Nói lại',
                     ),
                   ),
                 )
@@ -226,10 +388,17 @@ class _InputRow extends StatelessWidget {
                         ? null
                         : (chat.isListening ? chat.stopVoiceInput : chat.startVoiceInput),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
                       child: Center(
                         child: Text(
-                          chat.isListening ? 'Đang nghe... (chạm để dừng)' : 'Chạm để nói',
+                          !chat.isListening
+                              ? 'Chạm để nói'
+                              : (chat.partialTranscript.isEmpty
+                                    ? 'Đang nghe... (chạm để dừng)'
+                                    : '🎤 ${chat.partialTranscript}'),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -239,18 +408,15 @@ class _InputRow extends StatelessWidget {
         ),
         if (isTextMode) ...[
           const SizedBox(width: 8),
-          Material(
-            color: AppColors.primary,
-            borderRadius: BorderRadius.circular(20),
-            child: InkWell(
-              borderRadius: BorderRadius.circular(20),
-              onTap: busy ? null : onSend,
-              child: const Padding(
-                padding: EdgeInsets.all(12),
-                child: Icon(Icons.send_rounded, color: Colors.white, size: 22),
-              ),
-            ),
+          _sendButton(onTap: busy ? null : onSend),
+        ],
+        if (hasDraft) ...[
+          IconButton(
+            onPressed: chat.discardVoiceDraft,
+            icon: const Icon(Icons.close_rounded),
+            tooltip: 'Bỏ câu này',
           ),
+          _sendButton(onTap: () => chat.sendVoiceDraft(draftController.text)),
         ],
       ],
     );

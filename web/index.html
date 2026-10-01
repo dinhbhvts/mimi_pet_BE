@@ -18,18 +18,22 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="Vừa chơi vừa học tiếng Anh cùng thú cưng Mimi.">
 
-  <!-- iOS meta tags & icons -->
+  <!-- iOS: "Thêm vào Màn hình chính" -> mở toàn màn hình như app, tên + icon riêng.
+       Thanh trạng thái để "default" (không phải black-translucent) để nội dung
+       app không bị đè dưới tai thỏ/Dynamic Island. -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="mimi_pet">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Mimi Pet">
+  <meta name="theme-color" content="#7C5CFC">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>mimi_pet</title>
+  <title>Mimi English Pet</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -41,6 +45,41 @@
     For more details:
     * https://docs.flutter.dev/platform-integration/web/initialization
   -->
+  <!--
+    Safari trên iPhone/iPad (và Chrome ngày càng giống vậy) chỉ cho trang web
+    PHÁT giọng đọc/âm thanh sau khi người dùng đã chạm vào trang ít nhất 1 lần,
+    và lần phát ĐẦU TIÊN phải nằm ngay trong lúc chạm. Câu trả lời ở Chat về
+    SAU khi chờ mạng (không còn "trong lúc chạm") nên nếu chưa từng phát gì
+    trước đó, Mimi sẽ im lặng. Đoạn này "mở khoá" ngay ở lần chạm đầu tiên
+    bất kỳ: đọc 1 câu rỗng âm lượng 0 + phát 1 mẫu âm thanh rỗng.
+  -->
+  <script>
+    (function () {
+      var events = ['touchend', 'click', 'keydown'];
+      function unlock() {
+        events.forEach(function (t) { window.removeEventListener(t, unlock, true); });
+        try {
+          if (window.speechSynthesis && window.SpeechSynthesisUtterance) {
+            var u = new SpeechSynthesisUtterance(' ');
+            u.volume = 0;
+            window.speechSynthesis.speak(u);
+          }
+        } catch (e) {}
+        try {
+          var Ctx = window.AudioContext || window.webkitAudioContext;
+          if (Ctx) {
+            var ctx = new Ctx();
+            var src = ctx.createBufferSource();
+            src.buffer = ctx.createBuffer(1, 1, 22050);
+            src.connect(ctx.destination);
+            src.start(0);
+            if (ctx.resume) ctx.resume();
+          }
+        } catch (e) {}
+      }
+      events.forEach(function (t) { window.addEventListener(t, unlock, true); });
+    })();
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

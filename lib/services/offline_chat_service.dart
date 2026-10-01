@@ -111,6 +111,26 @@ class OfflineChatService implements ChatReplyService {
     'Cool! What else happened today?',
   ];
 
+  /// Câu gợi ý cho bé nói tiếp (nút gợi ý nhanh) - chatbot offline không
+  /// hiểu ngữ cảnh nên lấy ngẫu nhiên 3 câu dễ, an toàn, hợp với các từ khoá
+  /// ở [_rules] (bé bấm câu nào cũng nhận được câu trả lời có nghĩa).
+  static const List<String> suggestionPool = [
+    'How are you?',
+    "What's your name?",
+    'What is your favorite color?',
+    'What is your favorite animal?',
+    'What is your favorite food?',
+    'Tell me a joke!',
+    'I love you!',
+    'I like dogs.',
+    'I am happy today.',
+    'I am hungry!',
+    "Let's play a game!",
+    'Good night!',
+  ];
+
+  List<String> _pickSuggestions() => (List.of(suggestionPool)..shuffle(_random)).take(3).toList();
+
   @override
   Future<ChatReplyResult> sendMessage({
     required String petDisplayName,
@@ -135,6 +155,7 @@ class OfflineChatService implements ChatReplyService {
         return ChatReplyResult.success(
           reply.replaceAll('{pet}', petDisplayName).replaceAll('{child}', childWord),
           viaOffline: true,
+          suggestions: _pickSuggestions(),
         );
       }
     }
@@ -143,6 +164,7 @@ class OfflineChatService implements ChatReplyService {
     return ChatReplyResult.success(
       reply.replaceAll('{pet}', petDisplayName).replaceAll('{child}', childWord),
       viaOffline: true,
+      suggestions: _pickSuggestions(),
     );
   }
 

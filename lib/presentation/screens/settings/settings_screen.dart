@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:mimi_pet/core/theme/app_colors.dart';
+import 'package:mimi_pet/presentation/widgets/ios_web_tips.dart';
 import 'package:mimi_pet/domain/entities/child_avatar.dart';
 import 'package:mimi_pet/domain/entities/pet_character.dart';
 import 'package:mimi_pet/presentation/state/child_avatar_controller.dart';
@@ -206,6 +208,15 @@ class SettingsScreen extends StatelessWidget {
             onTap: () => context.read<TtsService>().speak('Hello! Can you hear me?'),
           ),
           const SizedBox(height: 12),
+          if (kIsWeb) ...[
+            _SettingsTile(
+              icon: Icons.phone_iphone_rounded,
+              title: 'Dùng trên iPhone/iPad',
+              subtitle: 'Thêm vào Màn hình chính, bật micro và giọng đọc trên Safari',
+              onTap: () => showIosWebTipsDialog(context),
+            ),
+            const SizedBox(height: 12),
+          ],
           _SettingsTile(
             icon: Icons.record_voice_over_rounded,
             title: 'Giọng đọc & tốc độ',

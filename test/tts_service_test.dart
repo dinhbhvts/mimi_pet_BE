@@ -22,6 +22,19 @@ void main() {
       expect(lines.map((l) => l.speaker), ['Man', 'Maria', 'Ken']);
     });
 
+    test('hội thoại 3 người kiểu TOEIC: "Woman 1" / "Woman 2" là 2 người khác nhau, đều là nữ', () {
+      final lines = TtsService.parseDialogue('Woman 1: Have you heard? Man: Yes. Woman 2: Great news. Woman 1: Indeed.');
+      expect(lines.map((l) => l.speaker), ['Woman 1', 'Man', 'Woman 2', 'Woman 1']);
+      expect(TtsService.genderOfLabel('Woman 2'), SpeakerGender.female);
+      final a = TtsService.assignVoices(lines.map((l) => l.speaker).toList(), const [
+        {'name': 'Microsoft David - English (United States)', 'locale': 'en-US'},
+        {'name': 'Microsoft Zira - English (United States)', 'locale': 'en-US'},
+      ]);
+      expect(a['Woman 1']!.voice!['name'], contains('Zira'));
+      expect(a['Woman 2']!.voice!['name'], contains('Zira'));
+      expect(a['Woman 2']!.pitch, isNot(a['Woman 1']!.pitch), reason: 'cùng giọng thì lệch cao độ để phân biệt');
+    });
+
     test('độc thoại hoặc câu có giờ giấc/nhãn đáp án thì không coi là hội thoại', () {
       expect(TtsService.parseDialogue('Attention shoppers. The store closes at 9:30 tonight.'), isEmpty);
       expect(TtsService.parseDialogue('Where is the bank? A. Next to the park. B. At noon. C. Yes.'), isEmpty);

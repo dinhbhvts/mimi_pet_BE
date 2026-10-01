@@ -186,8 +186,8 @@ class _LessonPlayViewState extends State<_LessonPlayView> with TickerProviderSta
               label: isListening ? 'Listening...' : 'Tap to talk',
             ),
             const SizedBox(height: 8),
-            // Fallback cho Safari trên iPhone/iPad (hầu như không hỗ trợ
-            // speech_to_text) - xem `TypeInsteadOfTalk`.
+            // Fallback cho Safari trên iPhone/iPad (mic hay chập
+            // chờn) - xem `TypeInsteadOfTalk`.
             TypeInsteadOfTalk(
               enabled: ctrl.canTapTalk,
               onSubmitted: ctrl.onTypedAnswerSubmitted,

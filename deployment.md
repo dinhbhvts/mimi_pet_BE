@@ -13,37 +13,53 @@ qua lại thay vì mỗi máy 1 bản riêng.
 
 ## Điều quan trọng cần biết trước khi deploy
 
-### Safari trên iPhone/iPad hầu như không hỗ trợ nghe giọng nói (speech_to_text) - ĐÃ CÓ PHƯƠNG ÁN KHẮC PHỤC
+### Dùng trên iPhone/iPad (Safari) - cập nhật 2026-10-01
 
-- **Đọc giọng nói (flutter_tts, Mimi nói)**: dùng Web Speech Synthesis, chạy
-  tốt trên Safari.
-- **Nghe giọng nói (speech_to_text)**: dùng Web Speech API của trình duyệt -
-  **Chrome/Edge chạy tốt**, nhưng **Safari (iPhone/iPad) hầu như KHÔNG hỗ
-  trợ**. Đây là giới hạn của Apple/Safari (mọi trình duyệt trên iOS, kể cả
-  Chrome for iOS, đều dùng chung engine WebKit của Apple nên đổi trình duyệt
-  KHÔNG giúp được gì) - không có cách khắc phục ở tầng Web Speech API.
-- **Bắt buộc HTTPS**: trình duyệt chỉ cho phép truy cập micro trên trang
-  HTTPS. GitHub Pages/Render đều tự cấp HTTPS miễn phí nên không cần lo.
+Mọi trình duyệt trên iPhone/iPad (kể cả Chrome cho iOS) đều chạy engine
+WebKit của Apple, nên giới hạn dưới đây áp dụng cho tất cả.
 
-**Phương án khắc phục đã áp dụng (2026-09-16)**: những màn CHỈ có "Tap to
-talk" (Bài học dạng nói/lặp âm, Home "Tap to talk") giờ có thêm 1 dòng nhỏ
-**"Không nói được? Gõ thay vào đây"** bên dưới nút mic, mở ra 1 ô nhập chữ.
-Mẹo: ô nhập chữ này vẫn dùng được nút **đọc chính tả (dictation) ngay trên
-bàn phím iOS** (biểu tượng mic trên chính bàn phím, KHÁC với cơ chế
-JS SpeechRecognition mà `speech_to_text` dùng và bị Safari chặn) - bé chạm
-vào ô, bấm mic bàn phím, đọc to, chữ tự động điền vào - vẫn "nói" được gián
-tiếp qua đường này, hoạt động trên MỌI nền tảng kể cả Safari. Xem
-`lib/presentation/widgets/type_instead_of_talk.dart`.
+**Đính chính:** bản ghi chú trước (2026-09-16) nói Safari "hầu như không hỗ
+trợ" nghe giọng nói - chưa chính xác. Từ iOS 14.5, Safari CÓ bộ nhận dạng
+giọng nói (`webkitSpeechRecognition`) và `speech_to_text` bản web dùng đúng
+bộ này. Điều kiện: bật **Đọc chính tả** (Cài đặt → Cài đặt chung → Bàn phím
+→ Đọc chính tả), cho phép micro, và trang phải chạy HTTPS (GitHub
+Pages/Render tự có). Chất lượng vẫn kém ổn định hơn Chrome/Android.
 
-Tab Chat/Từ điển vốn đã có sẵn lựa chọn gõ chữ song song với nói, không cần
-thêm gì. Riêng tính năng "Kiểm tra phát âm" trong Từ điển (chấm phát âm) vẫn
-chỉ dùng được bằng giọng nói thật - gõ chữ không kiểm tra được phát âm nên
-không có fallback hợp lý cho tính năng này.
+Đã xử lý riêng cho iOS trong app:
 
-=> Với phương án khắc phục trên, bản web dùng ĐẦY ĐỦ được trên Safari
-(iPhone/iPad) - bé chỉ cần biết dùng ô "Gõ thay vào đây" khi mic không nghe
-được, thay vì bị kẹt lại ở bước đó. Bản Android (`flutter build apk`) vẫn là
-trải nghiệm mượt nhất (mic hoạt động ổn định ngay từ đầu, không cần fallback).
+- **Mic (`lib/services/speech_service.dart`, `SpeechService.planFor`)**: trên
+  iOS web luôn nghe 1 phiên, KHÔNG bật chế độ nghe liên tục và KHÔNG tự mở
+  lại phiên nghe (2 cơ chế này viết để vá giới hạn của Android, nhưng trên
+  Safari làm lặp chữ hoặc bị chặn vì phiên mới không xuất phát từ 1 lần
+  chạm). Safari tự dừng khi bé nói xong câu.
+- **Giọng đọc/âm thanh (`web/index.html`)**: Safari chỉ cho phát tiếng sau
+  khi người dùng đã chạm vào trang, và lần phát đầu phải nằm ngay trong lúc
+  chạm. Câu trả lời ở Chat về sau khi chờ mạng nên trước đây có thể bị im.
+  Giờ trang tự "mở khoá" giọng đọc + âm thanh ở lần chạm đầu tiên bất kỳ.
+- **Lịch sử Chat**: Safari hay tự đóng tab chạy nền làm mất cuộc trò chuyện.
+  Giờ 40 tin gần nhất được lưu trong state đồng bộ (`chatHistory`), mở lại
+  (kể cả trên máy khác) vẫn còn; có nút 🗑 xoá cuộc trò chuyện.
+- **Thêm vào Màn hình chính**: icon chú thỏ, tên "Mimi Pet", mở toàn màn
+  hình như app (`web/manifest.json`, thẻ `apple-*` trong `web/index.html`).
+- **Hướng dẫn trong app** (`lib/presentation/widgets/ios_web_tips.dart`):
+  thẻ nhắc ở Home (chỉ hiện trên iPhone/iPad, ẩn được) và mục "Dùng trên
+  iPhone/iPad" trong Cài đặt - thêm vào Màn hình chính, cho phép micro vĩnh
+  viễn, bật Đọc chính tả, xử lý khi không nghe thấy tiếng.
+- **Dự phòng khi mic vẫn không nghe**: ô "Gõ thay vào đây" (Home, bài học)
+  và chế độ gõ chữ ở Chat - bé bấm biểu tượng micro TRÊN BÀN PHÍM iPhone để
+  đọc, chữ tự điền vào ô (đi đường Đọc chính tả của bàn phím, khác với
+  `webkitSpeechRecognition`). Xem `lib/presentation/widgets/type_instead_of_talk.dart`.
+
+Còn hạn chế (cần thử trên máy thật):
+
+- Chưa kiểm chứng trên iPhone thật (chỉ test được trên Chrome). Đặc biệt
+  cần thử mic khi mở từ icon ở Màn hình chính - một số bản iOS hạn chế nhận
+  dạng giọng nói ở chế độ này; nếu không nghe được, mở bằng Safari thường.
+- "Kiểm tra phát âm" trong Từ điển vẫn phụ thuộc mic của trình duyệt.
+  Hướng khắc phục triệt để (dự kiến): ghi âm rồi gửi qua backend cho Gemini
+  nhận dạng - chạy giống nhau trên mọi máy, không phụ thuộc Safari.
+
+Bản Android (`flutter build apk`) vẫn là trải nghiệm mic mượt nhất.
 
 ## Kiến trúc tổng quan
 

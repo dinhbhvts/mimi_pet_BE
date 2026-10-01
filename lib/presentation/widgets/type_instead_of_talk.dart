@@ -5,10 +5,9 @@ import 'package:mimi_pet/core/theme/app_colors.dart';
 /// Phương án thay thế cho các màn hình vốn CHỈ có "Tap to talk" (mic) - hiện
 /// 1 dòng chữ nhỏ, bấm vào mở ra ô gõ chữ.
 ///
-/// LÝ DO CẦN CÁI NÀY: Safari trên iPhone/iPad HẦU NHƯ KHÔNG hỗ trợ
-/// `speech_to_text` (dựa trên Web Speech API của trình duyệt - bị Apple giới
-/// hạn, xem `deployment.md`) - nút mic trên web Safari sẽ luôn báo "không
-/// nghe được" dù bé nói rõ ràng. Ô gõ chữ ở đây vẫn dùng được nút ĐỌC CHÍNH
+/// LÝ DO CẦN CÁI NÀY: mic của `speech_to_text` trên Safari iPhone/iPad
+/// (Web Speech API của WebKit) hay chập chờn - cần bật Đọc chính tả, đôi khi
+/// vẫn báo "không nghe được" dù bé nói rõ ràng (xem `deployment.md`). Ô gõ chữ ở đây vẫn dùng được nút ĐỌC CHÍNH
 /// TẢ (dictation) có sẵn NGAY TRÊN BÀN PHÍM của iOS (khác cơ chế
 /// JS SpeechRecognition mà speech_to_text dùng) - bé chạm vào ô, bấm mic
 /// ngay trên bàn phím, đọc to, chữ tự động điền vào ô - vậy nên bé VẪN "nói"

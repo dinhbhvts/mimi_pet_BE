@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import '../../domain/entities/chat_message.dart';
 import '../../domain/entities/pet_character.dart';
 import '../../services/chat_reply_service.dart';
+import '../../services/cloud_state_store.dart';
 import '../../services/speech_service.dart';
 import '../../services/tts_service.dart';
 import 'child_name_controller.dart';
@@ -13,9 +14,32 @@ import 'pet_character_controller.dart';
 /// riêng, bé chọn gõ chữ HOẶC nói").
 enum ChatInputMode { text, voice }
 
-/// Điều phối màn "Tâm sự tự do với thú cưng": giữ lịch sử hội thoại (chỉ
-/// trong bộ nhớ phiên làm việc hiện tại - KHÔNG lưu SharedPreferences, để
-/// đơn giản và giảm thiểu dữ liệu lưu trữ), gọi [ChatReplyService] (thực tế
+/// Nơi lưu lịch sử chat - tách interface để test dùng bản trong bộ nhớ.
+abstract class ChatHistoryStorage {
+  List<dynamic> load();
+  void save(List<Map<String, dynamic>> messages);
+}
+
+/// Lưu lịch sử chat trong state đồng bộ cloud (cùng chỗ với tiến độ của bé):
+/// không mất khi Safari trên iPhone tự đóng tab chạy nền / tải lại trang, và
+/// mở trên máy khác vẫn thấy cuộc trò chuyện cũ.
+class CloudChatHistoryStorage implements ChatHistoryStorage {
+  CloudChatHistoryStorage(this._store);
+
+  final CloudStateStore _store;
+  static const key = 'chatHistory';
+
+  @override
+  List<dynamic> load() => _store.getRaw<List<dynamic>>(key) ?? const [];
+
+  @override
+  void save(List<Map<String, dynamic>> messages) => _store.setRaw(key, messages);
+}
+
+/// Điều phối màn "Tâm sự tự do với thú cưng": giữ lịch sử hội thoại (lưu
+/// [maxStoredMessages] tin gần nhất qua [ChatHistoryStorage] - trước
+/// 2026-10-01 chỉ giữ trong bộ nhớ nên mất sạch mỗi khi Safari iOS đóng tab
+/// nền), gọi [ChatReplyService] (thực tế
 /// là `CompositeChatService` - tự chọn Gemini thật hoặc chatbot offline), và
 /// đọc to câu trả lời của thú cưng qua [TtsService].
 class ChatController extends ChangeNotifier {
@@ -25,18 +49,63 @@ class ChatController extends ChangeNotifier {
     required SpeechService speechService,
     required PetCharacterController petCharacterController,
     required ChildNameController childNameController,
+    ChatHistoryStorage? historyStorage,
   }) : _tts = ttsService,
        _speech = speechService,
        _petCharacter = petCharacterController,
-       _childName = childNameController;
+       _childName = childNameController,
+       _history = historyStorage {
+    _restoreHistory();
+  }
 
   final ChatReplyService _chatService;
   final TtsService _tts;
   final SpeechService _speech;
   final PetCharacterController _petCharacter;
   final ChildNameController _childName;
+  final ChatHistoryStorage? _history;
+
+  /// Số tin nhắn gần nhất được lưu lại - đủ để bé xem lại buổi trò chuyện,
+  /// không làm state đồng bộ phình to theo thời gian.
+  static const int maxStoredMessages = 40;
 
   final List<ChatMessage> _messages = [];
+
+  void _restoreHistory() {
+    final stored = _history?.load() ?? const [];
+    for (final json in stored) {
+      final message = ChatMessage.fromJson(json);
+      if (message != null) _messages.add(message);
+    }
+  }
+
+  void _persistHistory() {
+    final history = _history;
+    if (history == null) return;
+    final start = _messages.length > maxStoredMessages ? _messages.length - maxStoredMessages : 0;
+    history.save([for (final m in _messages.skip(start)) m.toJson()]);
+  }
+
+  /// Tăng mỗi lần xoá lịch sử - kết quả ngữ pháp/dịch về SAU khi đã xoá
+  /// (chỉ số tin nhắn không còn đúng nữa) sẽ bị bỏ qua.
+  int _historyEpoch = 0;
+
+  /// Xoá toàn bộ cuộc trò chuyện (nút 🗑 ở màn Chat).
+  Future<void> clearHistory() async {
+    if (_isSending) return;
+    await _tts.stop();
+    _historyEpoch++;
+    _messages.clear();
+    _visibleTranslationIndices.clear();
+    _translatingMessageIndex = null;
+    _isSpeaking = false;
+    _lastError = null;
+    _suggestions = const [];
+    _voiceDraft = null;
+    _persistHistory();
+    notifyListeners();
+  }
+
   ChatInputMode _inputMode = ChatInputMode.text;
   bool _isSending = false;
   bool _isListening = false;
@@ -54,6 +123,32 @@ class ChatController extends ChangeNotifier {
   /// thời chặn bấm dịch nhiều tin nhắn cùng lúc (giữ đơn giản, giống cách
   /// [_isSending] chặn gửi nhiều tin nhắn cùng lúc).
   int? _translatingMessageIndex;
+
+  /// Câu gợi ý bé có thể nói tiếp - lấy từ lượt trả lời gần nhất (xem
+  /// [ChatReplyResult.suggestions]).
+  List<String> _suggestions = const [];
+
+  /// Câu mở đầu khi chưa có tin nhắn nào.
+  static const starterSuggestions = ['Hello! How are you?', "What's your name?", 'I like cats.', 'Tell me a joke!'];
+
+  /// Khi đã có lịch sử nhưng chưa có gợi ý (vd vừa mở lại app).
+  static const followUpSuggestions = ['Tell me more!', 'What do you like?', "Let's play a game!"];
+
+  /// Nút gợi ý nhanh dưới khung chat - ẩn trong lúc đang chờ trả lời/đang nghe.
+  List<String> get suggestions {
+    if (_isSending || _isListening) return const [];
+    if (_suggestions.isNotEmpty) return _suggestions;
+    return _messages.isEmpty ? starterSuggestions : followUpSuggestions;
+  }
+
+  /// Chữ mic nghe được (chế độ nói) đang CHỜ bé xem lại/sửa rồi mới gửi -
+  /// trước 2026-10-01 nghe xong là gửi luôn, nghe sai bé không sửa được.
+  String? _voiceDraft;
+  String? get voiceDraft => _voiceDraft;
+
+  /// Chữ đang nghe được TRONG LÚC bé nói (hiện ngay trên nút mic).
+  String _partialTranscript = '';
+  String get partialTranscript => _partialTranscript;
 
   List<ChatMessage> get messages => List.unmodifiable(_messages);
   ChatInputMode get inputMode => _inputMode;
@@ -94,7 +189,11 @@ class ChatController extends ChangeNotifier {
     // toàn vì chỉ có thao tác APPEND vào cuối danh sách, không có gì xoá/
     // chèn ở giữa làm lệch chỉ số này trước khi phân tích xong.
     final userMessageIndex = _messages.length - 1;
+    final epoch = _historyEpoch;
+    _voiceDraft = null;
+    _suggestions = const [];
     _isSending = true;
+    _persistHistory();
     notifyListeners();
 
     final petName = PetCharacterInfo.all[_petCharacter.character]!.displayName;
@@ -113,17 +212,25 @@ class ChatController extends ChangeNotifier {
           text: reply,
           sentAt: DateTime.now(),
           viaOffline: result.viaOffline,
+          // Bản dịch có sẵn trong cùng lượt -> bấm 🌐 hiện ngay, không gọi AI.
+          translatedText: result.translation,
         ),
       );
+      _suggestions = result.suggestions;
+      final tip = result.grammarTip;
+      if (result.grammarChecked && tip != null && tip.trim().isNotEmpty) {
+        _messages[userMessageIndex] = _messages[userMessageIndex].copyWith(grammarNote: tip.trim());
+      }
+      _persistHistory();
       notifyListeners();
       // Đọc to câu trả lời cho bé nghe - không cần chờ để không làm treo UI
       // (isSending đã về false ngay từ trên, bé có thể gõ tiếp trong lúc thú
       // cưng đang đọc).
       unawaited(_speakReply(reply));
-      // Kiểm tra ngữ pháp câu bé vừa gửi - hoàn toàn "âm thầm" phía sau,
-      // không chặn UI, không ảnh hưởng gì tới luồng chat chính dù kết quả
-      // thế nào (xem [_checkGrammar]).
-      unawaited(_checkGrammar(trimmed, userMessageIndex));
+      // Chưa kiểm tra ngữ pháp trong cùng lượt (chatbot offline, hoặc Gemini
+      // trả chữ thường thay vì JSON) -> kiểm tra riêng "âm thầm" như cách cũ,
+      // không chặn UI (xem [_checkGrammar]).
+      if (!result.grammarChecked) unawaited(_checkGrammar(trimmed, userMessageIndex, epoch));
     } else {
       _lastError = result.error;
       notifyListeners();
@@ -137,9 +244,9 @@ class ChatController extends ChangeNotifier {
   /// nên không làm bé phải chờ thêm mới thấy phản hồi của thú cưng. Chỉ có
   /// tác dụng khi đang dùng AI thật (xem [ChatReplyService.checkGrammar]) -
   /// chatbot offline không có khả năng phân tích ngôn ngữ.
-  Future<void> _checkGrammar(String childText, int messageIndex) async {
+  Future<void> _checkGrammar(String childText, int messageIndex, int epoch) async {
     final note = await _chatService.checkGrammar(childText);
-    if (note == null || note.trim().isEmpty) return;
+    if (note == null || note.trim().isEmpty || epoch != _historyEpoch) return;
     if (messageIndex < 0 || messageIndex >= _messages.length) return;
     final original = _messages[messageIndex];
     // Phòng hờ chỉ số bị lệch (không nên xảy ra với logic hiện tại) - chỉ
@@ -147,6 +254,7 @@ class ChatController extends ChangeNotifier {
     // cưng.
     if (original.role != ChatRole.user) return;
     _messages[messageIndex] = original.copyWith(grammarNote: note.trim());
+    _persistHistory();
     notifyListeners();
   }
 
@@ -201,9 +309,11 @@ class ChatController extends ChangeNotifier {
 
     if (_translatingMessageIndex != null) return;
     _translatingMessageIndex = messageIndex;
+    final epoch = _historyEpoch;
     notifyListeners();
 
     final translated = await _chatService.translateToVietnamese(message.text);
+    if (epoch != _historyEpoch) return; // đã xoá lịch sử trong lúc chờ dịch
 
     _translatingMessageIndex = null;
     if (translated == null || translated.trim().isEmpty) {
@@ -217,6 +327,7 @@ class ChatController extends ChangeNotifier {
     }
     _messages[messageIndex] = _messages[messageIndex].copyWith(translatedText: translated.trim());
     _visibleTranslationIndices.add(messageIndex);
+    _persistHistory();
     notifyListeners();
   }
 
@@ -243,6 +354,8 @@ class ChatController extends ChangeNotifier {
   Future<void> startVoiceInput() async {
     if (_isSending || _isListening) return;
     _lastError = null;
+    _voiceDraft = null;
+    _partialTranscript = '';
     _isListening = true;
     notifyListeners();
 
@@ -264,6 +377,10 @@ class ChatController extends ChangeNotifier {
         // từ vựng, tra từ điển...) không truyền cờ này vì chỉ cần 1 từ/câu
         // ngắn, không cần - và không nên - chờ thêm.
         allowContinuation: true,
+        onPartial: (text) {
+          _partialTranscript = text;
+          notifyListeners();
+        },
       );
       recognizedText = outcome.recognizedText;
     } catch (_) {
@@ -271,11 +388,43 @@ class ChatController extends ChangeNotifier {
       // nhận diện được" (recognizedText rỗng bên dưới sẽ tự return).
     } finally {
       _isListening = false;
+      _partialTranscript = '';
+      // Không gửi ngay: đưa vào bản nháp để bé xem lại, sửa nếu mic nghe sai,
+      // rồi mới bấm gửi (xem [sendVoiceDraft]).
+      final heard = recognizedText.trim();
+      if (heard.isNotEmpty) _voiceDraft = heard;
       notifyListeners();
     }
+  }
 
-    if (recognizedText.trim().isEmpty) return;
-    await sendText(recognizedText);
+  /// Gửi bản nháp giọng nói - [edited] là chữ bé đã sửa (nếu có).
+  Future<void> sendVoiceDraft(String edited) async {
+    final text = edited.trim();
+    _voiceDraft = null;
+    if (text.isEmpty) {
+      notifyListeners();
+      return;
+    }
+    await sendText(text);
+  }
+
+  /// Bỏ bản nháp giọng nói (bé muốn nói lại).
+  void discardVoiceDraft() {
+    if (_voiceDraft == null) return;
+    _voiceDraft = null;
+    notifyListeners();
+  }
+
+  /// Bé chạm 1 câu gợi ý: Mimi đọc mẫu câu đó cho bé nghe; ở chế độ nói thì
+  /// đưa vào bản nháp (bé có thể tự nói lại hoặc gửi luôn), ở chế độ gõ thì
+  /// màn Chat tự điền vào ô nhập (xem `chat_screen.dart`).
+  void useSuggestion(String text) {
+    if (_isSending || _isListening) return;
+    if (_inputMode == ChatInputMode.voice) {
+      _voiceDraft = text;
+      notifyListeners();
+    }
+    unawaited(_speakReply(text));
   }
 
   /// Bé bấm lại nút mic trong lúc ĐANG NÓI để chủ động báo "nói xong rồi",

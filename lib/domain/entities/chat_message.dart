@@ -42,6 +42,35 @@ class ChatMessage {
     this.translatedText,
   });
 
+  /// Dạng lưu trữ (lịch sử chat đồng bộ cloud - xem `ChatHistoryStorage`).
+  /// Bỏ các field null/false cho gọn.
+  Map<String, dynamic> toJson() => {
+    'r': role.name,
+    't': text,
+    'at': sentAt.millisecondsSinceEpoch,
+    if (viaOffline) 'off': true,
+    if (grammarNote != null) 'g': grammarNote,
+    if (translatedText != null) 'vi': translatedText,
+  };
+
+  /// Đọc lại từ [toJson] - trả về null nếu dữ liệu hỏng (bỏ qua tin đó thay
+  /// vì làm hỏng cả lịch sử).
+  static ChatMessage? fromJson(Object? json) {
+    if (json is! Map) return null;
+    final role = ChatRole.values.where((r) => r.name == json['r']).firstOrNull;
+    final text = json['t'];
+    final at = json['at'];
+    if (role == null || text is! String || text.isEmpty || at is! int) return null;
+    return ChatMessage(
+      role: role,
+      text: text,
+      sentAt: DateTime.fromMillisecondsSinceEpoch(at),
+      viaOffline: json['off'] == true,
+      grammarNote: json['g'] is String ? json['g'] as String : null,
+      translatedText: json['vi'] is String ? json['vi'] as String : null,
+    );
+  }
+
   /// Tạo bản sao với [grammarNote] và/hoặc [translatedText] mới - dùng để
   /// "gắn" kết quả phân tích ngữ pháp/dịch vào ĐÚNG tin nhắn đã gửi trước đó
   /// (xem `ChatController._checkGrammar`/`toggleTranslate`), vì [ChatMessage]

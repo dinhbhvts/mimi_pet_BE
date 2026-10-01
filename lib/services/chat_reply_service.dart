@@ -13,10 +13,50 @@ class ChatReplyResult {
   /// mạng, hết hạn mức...) nên phải dùng tạm câu có sẵn cho đúng lượt này.
   final bool viaOffline;
 
-  const ChatReplyResult._({this.reply, this.error, this.viaOffline = false});
+  /// GỘP 1 LƯỢT GỌI (2026-10-01): trước đây mỗi tin nhắn tốn 2-3 lượt gọi AI
+  /// (trả lời + kiểm tra ngữ pháp + dịch khi bấm 🌐) - vừa chậm vừa dễ chạm
+  /// giới hạn "Mimi đang bận". Giờ Gemini trả về CÙNG LÚC các phần dưới đây.
+  ///
+  /// Bản dịch tiếng Việt của [reply] (null nếu không có - vd chatbot offline).
+  final String? translation;
 
-  const ChatReplyResult.success(String reply, {bool viaOffline = false})
-    : this._(reply: reply, viaOffline: viaOffline);
+  /// Gợi ý sửa ngữ pháp cho câu bé vừa gửi - chỉ có ý nghĩa khi
+  /// [grammarChecked] = true (null = không có lỗi đáng nói).
+  final String? grammarTip;
+
+  /// true nếu câu của bé ĐÃ được kiểm tra ngữ pháp trong chính lượt này -
+  /// false thì [ChatController] tự gọi [ChatReplyService.checkGrammar] riêng
+  /// như cách cũ (vd Gemini trả về chữ thường thay vì JSON).
+  final bool grammarChecked;
+
+  /// 2-3 câu ngắn bé có thể nói tiếp (nút gợi ý nhanh dưới khung chat).
+  final List<String> suggestions;
+
+  const ChatReplyResult._({
+    this.reply,
+    this.error,
+    this.viaOffline = false,
+    this.translation,
+    this.grammarTip,
+    this.grammarChecked = false,
+    this.suggestions = const [],
+  });
+
+  const ChatReplyResult.success(
+    String reply, {
+    bool viaOffline = false,
+    String? translation,
+    String? grammarTip,
+    bool grammarChecked = false,
+    List<String> suggestions = const [],
+  }) : this._(
+         reply: reply,
+         viaOffline: viaOffline,
+         translation: translation,
+         grammarTip: grammarTip,
+         grammarChecked: grammarChecked,
+         suggestions: suggestions,
+       );
 
   const ChatReplyResult.failure(String error) : this._(error: error);
 

@@ -222,10 +222,11 @@ class TtsService {
 
   // ------------------------------------------------------------ hàm thuần
 
-  static final _speakerLabel = RegExp(r"(?:^|(?<=[.!?…]\s))([A-Z][a-z]*):\s");
+  static final _speakerLabel = RegExp(r"(?:^|(?<=[.!?…]\s))([A-Z][a-z]*(?: [1-3])?):\s");
 
   /// Tách kịch bản thành các lượt thoại theo nhãn người nói ở ĐẦU câu:
-  /// "A: ... B: ...", "Man: ... Woman: ...", "Mum: ... Ben: ...". Trả về rỗng
+  /// "A: ... B: ...", "Man: ... Woman: ...", "Mum: ... Ben: ...", hội thoại 3
+  /// người kiểu TOEIC "Woman 1: ... Man: ... Woman 2: ...". Trả về rỗng
   /// nếu kịch bản không có nhãn hoặc chỉ có 1 người nói (độc thoại).
   static List<DialogueLine> parseDialogue(String script) {
     final matches = _speakerLabel.allMatches(script).toList();
@@ -253,9 +254,9 @@ class TtsService {
   };
 
   /// Đoán giới tính người nói từ nhãn ("Woman", "Dad", "Maria"...) - nhãn
-  /// trung tính như "A"/"B" trả về unknown.
+  /// trung tính như "A"/"B" trả về unknown. Bỏ số thứ tự: "Woman 2" -> woman.
   static SpeakerGender genderOfLabel(String label) {
-    final l = label.toLowerCase();
+    final l = label.toLowerCase().replaceFirst(RegExp(r'\s+\d+$'), '');
     if (_femaleLabels.contains(l)) return SpeakerGender.female;
     if (_maleLabels.contains(l)) return SpeakerGender.male;
     return SpeakerGender.unknown;

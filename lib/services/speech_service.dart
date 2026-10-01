@@ -1,5 +1,21 @@
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
+import '../core/platform/platform_info.dart';
+
+/// Cách mở mic cho 1 lần nghe - tách thành hàm thuần ([SpeechService.planFor])
+/// để test được logic riêng cho Safari iOS mà không cần trình duyệt thật.
+class SpeechListenPlan {
+  /// Nhận kết quả tạm thời trong lúc bé đang nói. Trên web, plugin dùng
+  /// CHÍNH cờ này cho chế độ nghe liên tục (`continuous`) của trình duyệt.
+  final bool partialResults;
+
+  /// Tự mở lại phiên nghe mới khi bị dừng sớm do im lặng (xem doc lớp
+  /// [SpeechService]).
+  final bool allowContinuation;
+
+  const SpeechListenPlan({required this.partialResults, required this.allowContinuation});
+}
+
 /// Kết quả trả về sau một lần Mimi "lắng nghe" bé nói.
 class SpeechListenOutcome {
   final String recognizedText;
@@ -66,6 +82,19 @@ class SpeechService {
 
   bool get isListening => _speech.isListening;
 
+  /// Safari trên iPhone/iPad (2026-10-01): bộ nhận dạng giọng nói của WebKit
+  /// chạy được (iOS 14.5+, cần bật Siri/Đọc chính tả) nhưng 2 thứ app dùng
+  /// cho Android lại làm hỏng nó:
+  /// - Chế độ nghe liên tục + kết quả tạm thời: Safari hay trả lặp chữ
+  ///   ("hello hello") và không tự kết thúc phiên.
+  /// - Tự mở lại phiên nghe: phiên mới KHÔNG xuất phát từ 1 lần chạm của bé
+  ///   nên Safari có thể chặn (lỗi not-allowed) hoặc hỏi lại quyền micro.
+  /// Vì vậy trên iOS web luôn nghe 1 phiên, không liên tục - Safari tự dừng
+  /// khi bé nói xong câu.
+  static SpeechListenPlan planFor({required bool isIosWeb, required bool allowContinuation}) => isIosWeb
+      ? const SpeechListenPlan(partialResults: false, allowContinuation: false)
+      : SpeechListenPlan(partialResults: true, allowContinuation: allowContinuation);
+
   /// Bắt đầu nghe, tự dừng khi bé ngừng nói thật sự (hoặc hết [listenFor]).
   /// Trả về text nhận diện được, đã NỐI đầy đủ qua mọi phiên nghe con bên
   /// trong (xem doc comment lớp) - phần còn lại của app không cần biết có
@@ -80,12 +109,15 @@ class SpeechService {
     Duration listenFor = const Duration(seconds: 6),
     Duration pauseFor = const Duration(seconds: 2),
     bool allowContinuation = false,
+    void Function(String text)? onPartial,
   }) async {
     final available = await initialize();
     if (!available) {
       return const SpeechListenOutcome(recognizedText: '', timedOut: true);
     }
 
+    final plan = planFor(isIosWeb: PlatformInfo.isIosWeb, allowContinuation: allowContinuation);
+    allowContinuation = plan.allowContinuation;
     _stopRequested = false;
     final overallDeadline = DateTime.now().add(listenFor);
     String accumulated = '';
@@ -100,10 +132,15 @@ class SpeechService {
         await _speech.listen(
           onResult: (result) {
             sessionWords = result.recognizedWords;
+            // Báo phần đã nghe được tới giờ (cả các phiên trước) để UI hiện
+            // chữ ngay trong lúc bé đang nói.
+            if (onPartial != null && sessionWords.trim().isNotEmpty) {
+              onPartial(accumulated.isEmpty ? sessionWords : '$accumulated $sessionWords');
+            }
           },
           listenFor: remaining,
           pauseFor: pauseFor,
-          partialResults: true,
+          partialResults: plan.partialResults,
           localeId: 'en_US',
           cancelOnError: true,
           listenMode: stt.ListenMode.confirmation,

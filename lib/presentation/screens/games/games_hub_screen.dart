@@ -237,96 +237,125 @@ class _GameSetupSheetState extends State<_GameSetupSheet> {
   Widget build(BuildContext context) {
     final isMemory = widget.kind == _GameKind.memory;
     final isFrog = widget.kind == _GameKind.frog;
+    final selectedLesson = widget.lessons.where((l) => l.id == _lessonId).firstOrNull;
+    final sourceLabel = switch (_source) {
+      GameWordSource.mastered => '🌟 Từ bé đã thuộc',
+      GameWordSource.random => '🎲 Ngẫu nhiên',
+      GameWordSource.lesson => selectedLesson == null ? '🎲 Ngẫu nhiên' : '${selectedLesson.emoji} ${selectedLesson.title}',
+    };
+    // BỐ CỤC (2026-10-01): danh sách chủ đề rất dài (60+ chủ đề) nên trước
+    // đây nút "Chơi thôi" nằm tận cuối, phải cuộn xuống mới thấy. Giờ chia 3
+    // phần: tiêu đề - phần chọn từ CUỘN ĐƯỢC ở giữa - chân bảng CỐ ĐỊNH (độ
+    // khó + đang chọn gì + nút Chơi), luôn nằm trong khung hình.
     return SafeArea(
       child: ConstrainedBox(
         constraints: BoxConstraints(maxHeight: MediaQuery.sizeOf(context).height * 0.85),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+              child: Text(
                   switch (widget.kind) {
                     _GameKind.memory => 'Lật thẻ tìm cặp 🃏',
                     _GameKind.bubble => 'Chạm bong bóng 🎈',
                     _GameKind.frog => 'Ếch nhảy qua sông 🐸',
                   },
                   style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 14),
-              const Text('Chọn từ để chơi', style: TextStyle(fontWeight: FontWeight.w600)),
-              const SizedBox(height: 8),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  if (widget.masteredCount >= 4)
-                    _chip('🌟 Ôn từ bé đã thuộc', _source == GameWordSource.mastered, () {
-                      _source = GameWordSource.mastered;
-                      _lessonId = null;
-                    }),
-                  _chip('🎲 Ngẫu nhiên', _source == GameWordSource.random, () {
-                    _source = GameWordSource.random;
-                    _lessonId = null;
-                  }),
-                ],
-              ),
-              const SizedBox(height: 12),
-              const Text('Hoặc chọn 1 chủ đề', style: TextStyle(fontSize: 13, color: AppColors.textMuted)),
-              const SizedBox(height: 8),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  for (final lesson in widget.lessons)
-                    _chip('${lesson.emoji} ${lesson.title}', _lessonId == lesson.id, () {
-                      _source = GameWordSource.lesson;
-                      _lessonId = lesson.id;
-                    }),
-                ],
-              ),
-              if (isMemory) ...[
-                const SizedBox(height: 16),
-                const Text('Độ khó', style: TextStyle(fontWeight: FontWeight.w600)),
-                const SizedBox(height: 8),
-                Wrap(
-                  spacing: 8,
+            ),
+            Flexible(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    for (final e in _sizes.entries) _chip(e.value, _pairs == e.key, () => _pairs = e.key),
+                    const Text('Chọn từ để chơi', style: TextStyle(fontWeight: FontWeight.w600)),
+                    const SizedBox(height: 8),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        if (widget.masteredCount >= 4)
+                          _chip('🌟 Ôn từ bé đã thuộc', _source == GameWordSource.mastered, () {
+                            _source = GameWordSource.mastered;
+                            _lessonId = null;
+                          }),
+                        _chip('🎲 Ngẫu nhiên', _source == GameWordSource.random, () {
+                          _source = GameWordSource.random;
+                          _lessonId = null;
+                        }),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    const Text('Hoặc chọn 1 chủ đề', style: TextStyle(fontSize: 13, color: AppColors.textMuted)),
+                    const SizedBox(height: 8),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        for (final lesson in widget.lessons)
+                          _chip('${lesson.emoji} ${lesson.title}', _lessonId == lesson.id, () {
+                            _source = GameWordSource.lesson;
+                            _lessonId = lesson.id;
+                          }),
+                      ],
+                    ),
                   ],
                 ),
-              ],
-              if (isFrog) ...[
-                const SizedBox(height: 16),
-                const Text('Độ khó', style: TextStyle(fontWeight: FontWeight.w600)),
-                const SizedBox(height: 8),
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: [
-                    for (final d in FrogDifficulty.values) _chip(d.label, _frog == d, () => _frog = d),
-                  ],
-                ),
-              ],
-              const SizedBox(height: 20),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(
-                    // Ếch cần nhiều từ hơn để các hàng lá sen ít lặp lại.
-                    _GameSetup(_source, _lessonId, isMemory ? _pairs : (isFrog ? 12 : 8), frogDifficulty: _frog),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                  ),
-                  child: const Text('Chơi thôi! ▶', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                ),
               ),
-            ],
-          ),
+            ),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.06), blurRadius: 8, offset: const Offset(0, -2))],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (isMemory || isFrog) ...[
+                    const Text('Độ khó', style: TextStyle(fontWeight: FontWeight.w600)),
+                    const SizedBox(height: 8),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        if (isMemory)
+                          for (final e in _sizes.entries) _chip(e.value, _pairs == e.key, () => _pairs = e.key),
+                        if (isFrog)
+                          for (final d in FrogDifficulty.values) _chip(d.label, _frog == d, () => _frog = d),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                  Text('Đang chọn: $sourceLabel',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontSize: 13, color: AppColors.textMuted)),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () => Navigator.of(context).pop(
+                        // Ếch cần nhiều từ hơn để các hàng lá sen ít lặp lại.
+                        _GameSetup(_source, _lessonId, isMemory ? _pairs : (isFrog ? 12 : 8), frogDifficulty: _frog),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      ),
+                      child: const Text('Chơi thôi! ▶', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import '../domain/entities/chat_message.dart';
 import 'api_client.dart';
@@ -63,6 +64,12 @@ Rules you must always follow, no matter what the child says:
 - Do not use markdown formatting, asterisks, or emoji spam - plain, warm, spoken-style text only, at most 1 emoji per message.
 - Occasionally (not every message) weave in one simple English word or phrase to gently encourage learning, but keep it light and fun, never like a lecture.
 - Always stay in character as $petDisplayName, a virtual pet - never break character.
+
+Answer with ONE JSON object with exactly these fields:
+- "reply": your message to the child, following all the rules above.
+- "reply_vi": a natural, simple Vietnamese translation of "reply" that an 8-year-old Vietnamese child easily understands (same warm tone, keep the emoji).
+- "grammar_tip": check ONLY the child's LAST message for a CLEAR basic grammar mistake (verb tense, subject-verb agreement, a/an/the, plurals, basic word order). Do NOT count spelling of names, punctuation, capital letters, chat abbreviations like "im" or "u", or short exclamations. If there is a clear mistake, write ONE short, warm sentence (max 15 words) in simple English that gently models the corrected sentence - no grammar terms, never scold. If there is no clear mistake, use an empty string "".
+- "suggestions": exactly 3 different, short things (2 to 8 words, very easy A1 English) the child could say NEXT to keep chatting - for example one answer to your question, one question back to you, and one new fun idea. Safe topics only, never personal information.
 ''';
 
   @override
@@ -103,11 +110,29 @@ Rules you must always follow, no matter what the child says:
       // này thành "thinkingBudget": 0 thay vì "thinkingLevel"). Đồng thời
       // tăng maxOutputTokens lên 500 để có dư chỗ cho câu trả lời hiển thị dù
       // vẫn còn 1 ít token dành cho suy luận.
+      // 'responseMimeType'/'responseSchema' (2026-10-01): bắt Gemini trả về
+      // ĐÚNG 1 object JSON (xem [parseCombinedReply]) - gộp câu trả lời +
+      // bản dịch + gợi ý ngữ pháp + câu gợi ý vào 1 lượt gọi duy nhất.
+      // maxOutputTokens tăng 500 -> 900 vì giờ có thêm bản dịch + gợi ý.
       'generationConfig': {
         'temperature': 0.8,
-        'maxOutputTokens': 500,
+        'maxOutputTokens': 900,
         'topP': 0.9,
         'thinkingConfig': {'thinkingLevel': 'minimal'},
+        'responseMimeType': 'application/json',
+        'responseSchema': {
+          'type': 'OBJECT',
+          'properties': {
+            'reply': {'type': 'STRING'},
+            'reply_vi': {'type': 'STRING'},
+            'grammar_tip': {'type': 'STRING'},
+            'suggestions': {
+              'type': 'ARRAY',
+              'items': {'type': 'STRING'},
+            },
+          },
+          'required': ['reply', 'reply_vi', 'grammar_tip', 'suggestions'],
+        },
       },
       'safetySettings': [
         {'category': 'HARM_CATEGORY_HARASSMENT', 'threshold': 'BLOCK_LOW_AND_ABOVE'},
@@ -118,8 +143,21 @@ Rules you must always follow, no matter what the child says:
     };
 
     try {
-      final decoded = await _callGemini(body).timeout(const Duration(seconds: 20));
-      return _parseSuccess(decoded);
+      Map<String, dynamic> decoded;
+      try {
+        decoded = await _callGemini(body).timeout(const Duration(seconds: 20));
+      } on ApiException catch (e) {
+        if (e.statusCode != 400) rethrow;
+        // Phòng hờ model/tài khoản không nhận cấu hình JSON (responseSchema)
+        // -> gọi lại 1 lần ở chế độ chữ thường như trước, thay vì báo lỗi
+        // cho bé. [parseCombinedReply] đọc được cả 2 dạng.
+        final config = Map<String, dynamic>.of(body['generationConfig'] as Map<String, dynamic>)
+          ..remove('responseMimeType')
+          ..remove('responseSchema');
+        decoded = await _callGemini({...body, 'generationConfig': config}).timeout(const Duration(seconds: 20));
+      }
+      final childText = history.lastWhere((m) => m.role == ChatRole.user, orElse: () => history.last).text;
+      return _parseSuccess(decoded, childText: childText);
     } on ApiException catch (e) {
       if (e.statusCode == 429) return const ChatReplyResult.failure('rate_limited');
       if (e.statusCode == 503) return const ChatReplyResult.failure('missing_key');
@@ -283,7 +321,66 @@ Respond with ONLY the Vietnamese translation, nothing else - no quotes, no expla
     }
   }
 
-  ChatReplyResult _parseSuccess(Map<String, dynamic> decoded) {
+  /// Đọc câu trả lời dạng JSON (xem [_buildSystemPrompt]). Hàm thuần, public
+  /// để test. Không phải JSON hợp lệ thì:
+  /// - chữ thường -> dùng nguyên văn làm câu trả lời (grammarChecked = false
+  ///   để [ChatController] tự kiểm tra ngữ pháp riêng như cách cũ);
+  /// - JSON bị cắt dở (hết token) -> cố lấy riêng trường "reply", không bao
+  ///   giờ hiện chuỗi JSON thô cho bé.
+  static ChatReplyResult parseCombinedReply(String raw, {required String childText}) {
+    var text = raw.trim();
+    final fenced = RegExp(r'^```(?:json)?\s*([\s\S]*?)\s*```$').firstMatch(text);
+    if (fenced != null) text = fenced.group(1)!.trim();
+
+    Object? json;
+    try {
+      json = jsonDecode(text);
+    } catch (_) {
+      json = null;
+    }
+
+    if (json is! Map) {
+      if (!text.startsWith('{')) return ChatReplyResult.success(text);
+      final match = RegExp(r'"reply"\s*:\s*"((?:[^"\\]|\\.)*)"').firstMatch(text);
+      if (match == null) return const ChatReplyResult.failure('parse_error');
+      try {
+        final reply = (jsonDecode('"${match.group(1)}"') as String).trim();
+        return reply.isEmpty ? const ChatReplyResult.failure('empty') : ChatReplyResult.success(reply);
+      } catch (_) {
+        return const ChatReplyResult.failure('parse_error');
+      }
+    }
+
+    final reply = json['reply'];
+    if (reply is! String || reply.trim().isEmpty) return const ChatReplyResult.failure('empty');
+    final vi = json['reply_vi'];
+    final tip = json['grammar_tip'];
+    final wordCount = childText.trim().split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length;
+    return ChatReplyResult.success(
+      reply.trim(),
+      translation: vi is String && vi.trim().isNotEmpty ? vi.trim() : null,
+      grammarTip: tip is String && tip.trim().isNotEmpty && wordCount >= _minWordsForGrammarCheck ? tip.trim() : null,
+      grammarChecked: true,
+      suggestions: cleanSuggestions(json['suggestions']),
+    );
+  }
+
+  /// Tối đa 3 gợi ý, bỏ trùng/rỗng/quá dài (nút gợi ý phải ngắn gọn).
+  static List<String> cleanSuggestions(Object? value) {
+    if (value is! List) return const [];
+    final seen = <String>{};
+    final result = <String>[];
+    for (final item in value) {
+      if (item is! String) continue;
+      final s = item.trim();
+      if (s.isEmpty || s.length > 60 || !seen.add(s.toLowerCase())) continue;
+      result.add(s);
+      if (result.length == 3) break;
+    }
+    return result;
+  }
+
+  ChatReplyResult _parseSuccess(Map<String, dynamic> decoded, {required String childText}) {
     try {
       final candidates = decoded['candidates'] as List<dynamic>?;
       if (candidates == null || candidates.isEmpty) {
@@ -309,7 +406,7 @@ Respond with ONLY the Vietnamese translation, nothing else - no quotes, no expla
       if (text == null || text.isEmpty) {
         return const ChatReplyResult.failure('empty');
       }
-      return ChatReplyResult.success(text);
+      return parseCombinedReply(text, childText: childText);
     } catch (_) {
       return const ChatReplyResult.failure('parse_error');
     }
