@@ -9,7 +9,7 @@ void main() {
     test('không trùng từ, đủ phiên âm/nghĩa/ví dụ/dịch', () {
       final words = ToeicVocab.all.map((w) => w.word.toLowerCase()).toList();
       expect(words.toSet().length, words.length);
-      expect(ToeicVocab.all.length, greaterThanOrEqualTo(350));
+      expect(ToeicVocab.all.length, greaterThanOrEqualTo(850));
       for (final w in ToeicVocab.all) {
         expect(w.ipa, matches(RegExp(r'^/.+/$')), reason: w.word);
         expect(w.meaning.trim(), isNotEmpty, reason: w.word);

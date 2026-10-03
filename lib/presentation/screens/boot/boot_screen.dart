@@ -180,9 +180,20 @@ class _BootScreenState extends State<BootScreen> {
 class VocabTipCard extends StatelessWidget {
   final ToeicWord word;
   final void Function(String text) onSpeak;
-  final VoidCallback onNext;
 
-  const VocabTipCard({super.key, required this.word, required this.onSpeak, required this.onNext});
+  /// null = ẩn nút "Từ tiếp" (màn "Từ vựng TOEIC" có thanh điều khiển riêng).
+  final VoidCallback? onNext;
+
+  /// Dòng tiêu đề nhỏ trên cùng của thẻ.
+  final String label;
+
+  const VocabTipCard({
+    super.key,
+    required this.word,
+    required this.onSpeak,
+    this.onNext,
+    this.label = '📖 Từ vựng TOEIC hay gặp',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -201,9 +212,9 @@ class VocabTipCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            '📖 Từ vựng TOEIC hay gặp',
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: AppColors.textMuted),
+          Text(
+            label,
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: AppColors.textMuted),
           ),
           const SizedBox(height: 6),
           Wrap(
@@ -280,15 +291,18 @@ class VocabTipCard extends StatelessWidget {
               child: Text('💡 $tip', style: const TextStyle(fontSize: 13)),
             ),
           ],
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton.icon(
-              onPressed: onNext,
-              iconAlignment: IconAlignment.end,
-              icon: const Icon(Icons.chevron_right_rounded),
-              label: const Text('Từ tiếp'),
-            ),
-          ),
+          if (onNext != null)
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton.icon(
+                onPressed: onNext,
+                iconAlignment: IconAlignment.end,
+                icon: const Icon(Icons.chevron_right_rounded),
+                label: const Text('Từ tiếp'),
+              ),
+            )
+          else
+            const SizedBox(height: 12),
         ],
       ),
     );

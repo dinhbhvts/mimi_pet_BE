@@ -40,6 +40,7 @@ import 'presentation/state/gem_reward_controller.dart';
 import 'presentation/state/hearts_controller.dart';
 import 'presentation/state/lessons_controller.dart';
 import 'presentation/state/mistake_book_controller.dart';
+import 'presentation/state/toeic_vocab_controller.dart';
 import 'presentation/state/pet_character_controller.dart';
 import 'presentation/state/pet_controller.dart';
 import 'presentation/state/pet_inventory_controller.dart';
@@ -301,6 +302,10 @@ class _AuthenticatedAppState extends State<_AuthenticatedApp> {
               // Sổ câu sai + lịch ôn giãn cách, lưu trong state đồng bộ cloud.
               ChangeNotifierProvider<MistakeBookController>(
                 create: (context) => MistakeBookController(CloudMistakeStorage(context.read<CloudStateStore>())),
+              ),
+              // Thẻ từ vựng TOEIC (ôn luyện) - từ đã thuộc + tuỳ chọn đồng bộ cloud.
+              ChangeNotifierProvider<ToeicVocabController>(
+                create: (context) => ToeicVocabController(storage: CloudVocabStorage(context.read<CloudStateStore>())),
               ),
               // Đăng ký ở cấp app (không phải riêng tab Chat) để lịch sử hội
               // thoại không bị mất khi bé chuyển qua tab khác rồi quay lại

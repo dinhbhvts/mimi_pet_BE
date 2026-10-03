@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:mimi_pet/core/theme/app_colors.dart';
+import 'package:mimi_pet/core/toeic_vocab.dart';
 import 'package:mimi_pet/exam_engine/mock_test_engine.dart';
 import 'package:mimi_pet/exam_engine/question_bank_models.dart';
 import 'package:mimi_pet/presentation/screens/exam/exam_launcher.dart';
+import 'package:mimi_pet/presentation/screens/exam/toeic_vocab_screen.dart';
 import 'package:mimi_pet/presentation/screens/grammar/grammar_screens.dart';
 import 'package:mimi_pet/presentation/state/exam_catalog_controller.dart';
 import 'package:mimi_pet/presentation/state/mistake_book_controller.dart';
@@ -99,9 +101,24 @@ class ExamHomeScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 13, color: AppColors.textMuted),
                       ),
                       const SizedBox(height: 16),
-                      _GrammarEntryCard(
+                      _EntryCard(
+                        emoji: '📘',
+                        title: 'Ngữ pháp theo chủ đề',
+                        subtitle: 'Công thức, dấu hiệu, ví dụ đúng/sai + luyện ngay câu cùng chủ đề (Movers, Flyers, TOEIC)',
+                        color: const Color(0xFFE6F4FF),
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute<void>(builder: (_) => const GrammarHomeScreen()),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      _EntryCard(
+                        emoji: '📖',
+                        title: 'Từ vựng TOEIC',
+                        subtitle: '${ToeicVocab.all.length} từ theo ${ToeicVocab.topics.length} chủ đề - thẻ tự chuyển, '
+                            'có phiên âm, tự đọc, đánh dấu từ đã thuộc',
+                        color: const Color(0xFFEAF7E6),
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute<void>(builder: (_) => const ToeicVocabScreen()),
                         ),
                       ),
                       const SizedBox(height: 14),
@@ -537,40 +554,47 @@ class _SectionSelectTile extends StatelessWidget {
   }
 }
 
-/// Lối vào "Ngữ pháp theo chủ đề" (xem `grammar_screens.dart`).
-class _GrammarEntryCard extends StatelessWidget {
+/// Thẻ lối vào ở đầu màn (Ngữ pháp theo chủ đề, Từ vựng TOEIC).
+class _EntryCard extends StatelessWidget {
+  final String emoji;
+  final String title;
+  final String subtitle;
+  final Color color;
   final VoidCallback onTap;
 
-  const _GrammarEntryCard({required this.onTap});
+  const _EntryCard({
+    required this.emoji,
+    required this.title,
+    required this.subtitle,
+    required this.color,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color(0xFFE6F4FF),
+      color: color,
       borderRadius: BorderRadius.circular(20),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: onTap,
-        child: const Padding(
-          padding: EdgeInsets.all(16),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
           child: Row(
             children: [
-              Text('📘', style: TextStyle(fontSize: 30)),
-              SizedBox(width: 12),
+              Text(emoji, style: const TextStyle(fontSize: 30)),
+              const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Ngữ pháp theo chủ đề', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 2),
-                    Text(
-                      'Công thức, dấu hiệu, ví dụ đúng/sai + luyện ngay câu cùng chủ đề (Movers, Flyers, TOEIC)',
-                      style: TextStyle(fontSize: 12.5, color: AppColors.textMuted),
-                    ),
+                    Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 2),
+                    Text(subtitle, style: const TextStyle(fontSize: 12.5, color: AppColors.textMuted)),
                   ],
                 ),
               ),
-              Icon(Icons.chevron_right_rounded),
+              const Icon(Icons.chevron_right_rounded),
             ],
           ),
         ),
