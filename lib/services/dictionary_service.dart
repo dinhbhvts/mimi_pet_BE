@@ -19,7 +19,7 @@ class DictionaryLookupOutcome {
   bool get isSuccess => result != null;
 }
 
-/// Interface cho tính năng tra cứu từ điển Anh<->Việt (tab "Từ điển") - dịch
+/// Interface cho tính năng tra cứu từ điển Anh<->Việt (tab "Tra cứu") - dịch
 /// 2 chiều 1 từ hoặc 1 câu bé gõ vào. KHÁC với [ChatReplyService]: không có
 /// chatbot offline thay thế, vì dịch nghĩa cần hiểu ngôn ngữ thật sự (không
 /// thể đối chiếu từ khoá đơn giản như `OfflineChatService`).
@@ -32,4 +32,24 @@ abstract class DictionaryService {
   /// còn lại. KHÔNG BAO GIỜ throw - mọi lỗi được gói vào
   /// [DictionaryLookupOutcome.failure] với 1 mã lỗi cụ thể.
   Future<DictionaryLookupOutcome> lookup(String text);
+
+  /// Hỏi đáp / giải thích ngữ pháp (trả lời bằng tiếng Việt). [history] là
+  /// các lượt hỏi - đáp trước đó để hỏi tiếp được ("còn trường hợp phủ định
+  /// thì sao?"). KHÔNG BAO GIỜ throw - lỗi trả về qua [GrammarAnswerOutcome.error].
+  Future<GrammarAnswerOutcome> askGrammar({
+    required String question,
+    List<GrammarQaTurn> history = const [],
+    GrammarAudience audience = GrammarAudience.kid,
+  });
+}
+
+class GrammarAnswerOutcome {
+  final GrammarAnswer? answer;
+  final String? error;
+
+  const GrammarAnswerOutcome.success(GrammarAnswer this.answer) : error = null;
+
+  const GrammarAnswerOutcome.failure(String this.error) : answer = null;
+
+  bool get isSuccess => answer != null;
 }

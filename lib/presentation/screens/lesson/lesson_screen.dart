@@ -367,7 +367,7 @@ class _ChoiceButtons extends StatelessWidget {
   /// [state]/[correctWordId]/[selectedWordId] (bổ sung 2026-08-23): dùng để tô
   /// màu XANH đáp án đúng và màu ĐỎ đáp án bé vừa chọn (nếu sai) ngay khi đã
   /// có kết quả (`correct`/`incorrect`) - giúp bé thấy rõ đúng/sai thay vì chỉ
-  /// nghe Mimi nói, cùng tinh thần với [_WordLevelFeedback] bên tab Từ điển.
+  /// nghe Mimi nói, cùng tinh thần với [_WordLevelFeedback] bên tab Tra cứu.
   final LessonSessionState state;
   final String correctWordId;
   final String? selectedWordId;

@@ -55,7 +55,7 @@ Còn hạn chế (cần thử trên máy thật):
 - Chưa kiểm chứng trên iPhone thật (chỉ test được trên Chrome). Đặc biệt
   cần thử mic khi mở từ icon ở Màn hình chính - một số bản iOS hạn chế nhận
   dạng giọng nói ở chế độ này; nếu không nghe được, mở bằng Safari thường.
-- "Kiểm tra phát âm" trong Từ điển vẫn phụ thuộc mic của trình duyệt.
+- "Kiểm tra phát âm" trong tab Tra cứu vẫn phụ thuộc mic của trình duyệt.
   Hướng khắc phục triệt để (dự kiến): ghi âm rồi gửi qua backend cho Gemini
   nhận dạng - chạy giống nhau trên mọi máy, không phụ thuộc Safari.
 
@@ -127,7 +127,7 @@ git push -u origin main
    |---|---|
    | `DATABASE_URL` | Chuỗi kết nối NeonDB đã copy ở Bước 1.1 |
    | `JWT_SECRET` | 1 chuỗi ngẫu nhiên dài (chạy `python -c "import secrets; print(secrets.token_hex(32))"` để tạo) |
-   | `GEMINI_API_KEY` | API key Gemini (lấy tại https://aistudio.google.com/apikey) - để trống nếu chưa dùng tính năng Chat/Từ điển |
+   | `GEMINI_API_KEY` | API key Gemini (lấy tại https://aistudio.google.com/apikey) - để trống nếu chưa dùng tính năng Chat/Tra cứu |
    | `GEMINI_MODEL` | `gemini-3.6-flash` (model đang dùng được tại thời điểm viết tài liệu này - Google hay đổi tên model, xem mục "Chat không kết nối được AI thật?" bên dưới nếu gặp lỗi "Tên model Gemini không đúng") |
    | `ALLOWED_ORIGINS` | Domain web sẽ deploy ở Phần 2, ví dụ `https://<ten-user>.github.io` (nhiều domain cách nhau dấu phẩy) |
 5. Bấm **Create Web Service**. Lần đầu build mất vài phút, xong sẽ có URL

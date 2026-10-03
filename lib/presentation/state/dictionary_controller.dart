@@ -11,7 +11,10 @@ import '../../services/tts_service.dart';
 /// trong) chỉ để đặt tên rõ ràng hơn trong ngữ cảnh tra từ điển.
 typedef PronunciationCheck = AnswerResult;
 
-/// Điều phối tab "Từ điển": tra nghĩa 1 từ/câu (2 chiều Anh<->Việt qua
+/// 2 chế độ của tab "Tra cứu".
+enum DictionaryMode { lookup, ask }
+
+/// Điều phối tab "Tra cứu" (chế độ Tra từ + Hỏi đáp ngữ pháp): tra nghĩa 1 từ/câu (2 chiều Anh<->Việt qua
 /// [DictionaryService]), đọc to (TTS) phía tiếng Anh, và kiểm tra phát âm
 /// của bé cho phía tiếng Anh đó (mic + [EvaluateAnswer.callPhrase] - CÙNG
 /// usecase đang dùng cho câu hỏi dạng "nói" ở bài học, xem
@@ -32,6 +35,106 @@ class DictionaryController extends ChangeNotifier {
   final TtsService _tts;
   final SpeechService _speech;
   final EvaluateAnswer _evaluator = const EvaluateAnswer();
+
+  DictionaryMode _mode = DictionaryMode.lookup;
+  DictionaryMode get mode => _mode;
+
+  void setMode(DictionaryMode mode) {
+    if (mode == _mode) return;
+    _mode = mode;
+    notifyListeners();
+  }
+
+  /// Các từ/câu đã tra gần đây (mới nhất trước) - chạm để tra lại nhanh.
+  final List<String> _recent = [];
+  List<String> get recentLookups => List.unmodifiable(_recent);
+  static const int maxRecent = 8;
+
+  // ---------------------------------------------------------- hỏi đáp ngữ pháp
+
+  final List<GrammarQaTurn> _qa = [];
+  bool _isAsking = false;
+  String? _askError;
+  GrammarAudience _audience = GrammarAudience.kid;
+
+  List<GrammarQaTurn> get qaTurns => List.unmodifiable(_qa);
+  bool get isAsking => _isAsking;
+  String? get askError => _askError;
+  GrammarAudience get audience => _audience;
+
+  /// Câu hỏi mẫu khi chưa hỏi gì (theo đối tượng đang chọn).
+  List<String> get starterQuestions => _audience == GrammarAudience.kid
+      ? const [
+          'Khi nào dùng "a", khi nào dùng "an"?',
+          'Tại sao nói "She likes" mà không nói "She like"?',
+          'Thì quá khứ đơn dùng khi nào?',
+          'Câu "I am go to school" sai ở đâu?',
+          'Phân biệt "much" và "many"',
+        ]
+      : const [
+          'Phân biệt "since" và "for"',
+          'Hiện tại hoàn thành khác quá khứ đơn thế nào?',
+          'Khi nào dùng V-ing, khi nào dùng to V?',
+          'Phân biệt "affect" và "effect" trong TOEIC',
+          'Câu điều kiện loại 1, 2, 3 khác nhau ra sao?',
+        ];
+
+  void setAudience(GrammarAudience audience) {
+    if (audience == _audience) return;
+    _audience = audience;
+    notifyListeners();
+  }
+
+  /// Hỏi 1 câu (kèm các lượt trước làm ngữ cảnh để hỏi tiếp được).
+  Future<void> ask(String question) async {
+    final trimmed = question.trim();
+    if (trimmed.isEmpty || _isAsking) return;
+    _askError = null;
+    final history = List<GrammarQaTurn>.of(_qa);
+    _qa.add(GrammarQaTurn(trimmed));
+    _isAsking = true;
+    notifyListeners();
+
+    final outcome = await _service.askGrammar(question: trimmed, history: history, audience: _audience);
+
+    _isAsking = false;
+    if (outcome.isSuccess) {
+      _qa[_qa.length - 1] = GrammarQaTurn(trimmed, outcome.answer);
+    } else {
+      // Bỏ câu hỏi chưa có trả lời để bé hỏi lại (không để lại "bong bóng" treo).
+      _qa.removeLast();
+      _askError = outcome.error ?? 'lookup_failed';
+    }
+    notifyListeners();
+  }
+
+  void clearQa() {
+    if (_isAsking) return;
+    _qa.clear();
+    _askError = null;
+    notifyListeners();
+  }
+
+  void clearAskError() {
+    if (_askError == null) return;
+    _askError = null;
+    notifyListeners();
+  }
+
+  /// Đọc to 1 đoạn tiếng Anh bất kỳ (câu ví dụ, từ đồng nghĩa...).
+  Future<void> speakEnglish(String text) async {
+    if (text.trim().isEmpty) return;
+    _isSpeaking = true;
+    notifyListeners();
+    try {
+      await _tts.speak(text);
+    } finally {
+      _isSpeaking = false;
+      notifyListeners();
+    }
+  }
+
+  // ---------------------------------------------------------- tra từ
 
   DictionaryLookupResult? _result;
   bool _isLookingUp = false;
@@ -89,6 +192,9 @@ class DictionaryController extends ChangeNotifier {
       return;
     }
     _result = outcome.result;
+    _recent.removeWhere((r) => r.toLowerCase() == trimmed.toLowerCase());
+    _recent.insert(0, trimmed);
+    if (_recent.length > maxRecent) _recent.removeLast();
     notifyListeners();
   }
 

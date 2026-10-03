@@ -7,7 +7,7 @@ class _NavItem {
   const _NavItem(this.icon, this.label);
 }
 
-/// Thanh điều hướng dưới cùng: Home / Play / Rewards / Chat / Từ điển.
+/// Thanh điều hướng dưới cùng: Home / Play / Rewards / Chat / Tra cứu (trước 2026-10-03 là "Từ điển").
 class AppBottomNav extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
@@ -19,7 +19,7 @@ class AppBottomNav extends StatelessWidget {
     _NavItem(Icons.sports_esports_rounded, 'Play'),
     _NavItem(Icons.card_giftcard_rounded, 'Rewards'),
     _NavItem(Icons.chat_bubble_rounded, 'Chat'),
-    _NavItem(Icons.menu_book_rounded, 'Từ điển'),
+    _NavItem(Icons.manage_search_rounded, 'Tra cứu'),
   ];
 
   @override

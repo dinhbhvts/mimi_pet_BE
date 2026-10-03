@@ -14,7 +14,7 @@ import '../rewards/rewards_screen.dart';
 import '../settings/settings_screen.dart';
 
 /// "Khung" chính của app: thanh trên cùng (sao/tim/streak + cài đặt), 5 tab
-/// Home/Play/Rewards/Chat/Từ điển, và thanh điều hướng dưới cùng. Dùng IndexedStack
+/// Home/Play/Rewards/Chat/Tra cứu, và thanh điều hướng dưới cùng. Dùng IndexedStack
 /// để giữ nguyên trạng thái từng tab khi chuyển qua lại (ví dụ không mất câu
 /// chào của Mimi ở Home, hay lịch sử chat, khi bé chuyển qua tab khác rồi
 /// quay lại).
