@@ -115,6 +115,56 @@ void main() {
     });
   });
 
+  group('Nhập bằng giọng nói', () {
+    test('tra từ nghe tiếng Anh (1 phiên); hỏi đáp nghe tiếng Việt (cho nối câu dài); đổi được EN/VI', () async {
+      final speech = _FakeSpeech();
+      final c = _controller(_FakeDictionary(), speech: speech);
+      expect(c.voiceLangFor(DictionaryMode.lookup), VoiceLang.en);
+      expect(c.voiceLangFor(DictionaryMode.ask), VoiceLang.vi);
+
+      expect(await c.dictate(DictionaryMode.lookup), 'deadline');
+      expect(speech.lastLocale, 'en_US');
+      expect(speech.lastContinuation, isFalse);
+      expect(c.isDictatingAny, isFalse);
+
+      speech.reply = 'since và for khác nhau thế nào';
+      expect(await c.dictate(DictionaryMode.ask), 'since và for khác nhau thế nào');
+      expect(speech.lastLocale, 'vi_VN');
+      expect(speech.lastContinuation, isTrue);
+
+      c.toggleVoiceLang(DictionaryMode.lookup);
+      await c.dictate(DictionaryMode.lookup);
+      expect(speech.lastLocale, 'vi_VN');
+    });
+
+    testWidgets('bấm mic: tra từ thì tra luôn; hỏi đáp thì điền vào ô để bé xem/sửa, chưa gửi', (tester) async {
+      final speech = _FakeSpeech();
+      final fake = _FakeDictionary();
+      final c = _controller(fake, speech: speech);
+      await tester.pumpWidget(ChangeNotifierProvider.value(
+        value: c,
+        child: const MaterialApp(home: Scaffold(body: DictionaryScreen())),
+      ));
+
+      await tester.tap(find.byTooltip('Nói để nhập'));
+      await tester.pumpAndSettle();
+      expect(c.result?.query, 'deadline', reason: 'tra luôn sau khi nói');
+      expect(find.text('/ˈded.laɪn/'), findsOneWidget);
+
+      await tester.tap(find.text('💬 Hỏi ngữ pháp'));
+      await tester.pumpAndSettle();
+      speech.reply = 'khi nào dùng an';
+      await tester.tap(find.byTooltip('Nói để nhập'));
+      await tester.pumpAndSettle();
+      expect(find.text('khi nào dùng an'), findsOneWidget);
+      expect(c.qaTurns, isEmpty, reason: 'chưa gửi - chờ bé bấm gửi');
+
+      await tester.tap(find.byTooltip('Hỏi'));
+      await tester.pumpAndSettle();
+      expect(c.qaTurns.single.question, 'khi nào dùng an');
+    });
+  });
+
   testWidgets('màn Tra cứu: thẻ kết quả có phiên âm, ví dụ, đồng nghĩa; chế độ hỏi đáp hiện câu trả lời',
       (tester) async {
     final fake = _FakeDictionary();
@@ -144,8 +194,37 @@ void main() {
   });
 }
 
-DictionaryController _controller(DictionaryService service) =>
-    DictionaryController(service: service, ttsService: _SilentTts(), speechService: SpeechService());
+DictionaryController _controller(DictionaryService service, {SpeechService? speech}) =>
+    DictionaryController(service: service, ttsService: _SilentTts(), speechService: speech ?? SpeechService());
+
+class _FakeSpeech extends SpeechService {
+  String reply = 'deadline';
+  String? lastLocale;
+  bool? lastContinuation;
+  final partials = <String>[];
+
+  @override
+  Future<SpeechListenOutcome> listenOnce({
+    Duration listenFor = const Duration(seconds: 6),
+    Duration pauseFor = const Duration(seconds: 2),
+    bool allowContinuation = false,
+    void Function(String text)? onPartial,
+    String localeId = 'en_US',
+  }) async {
+    lastLocale = localeId;
+    lastContinuation = allowContinuation;
+    final first = reply.split(' ').first;
+    partials.add(first);
+    onPartial?.call(first);
+    return SpeechListenOutcome(recognizedText: reply);
+  }
+
+  @override
+  Future<void> stopListening() async {}
+
+  @override
+  Future<void> cancelListening() async {}
+}
 
 class _FakeDictionary implements DictionaryService {
   List<GrammarQaTurn> lastHistory = const [];

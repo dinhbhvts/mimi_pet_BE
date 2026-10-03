@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 import '../core/platform/platform_info.dart';
@@ -110,6 +111,7 @@ class SpeechService {
     Duration pauseFor = const Duration(seconds: 2),
     bool allowContinuation = false,
     void Function(String text)? onPartial,
+    String localeId = 'en_US',
   }) async {
     final available = await initialize();
     if (!available) {
@@ -141,7 +143,9 @@ class SpeechService {
           listenFor: remaining,
           pauseFor: pauseFor,
           partialResults: plan.partialResults,
-          localeId: 'en_US',
+          // Trình duyệt dùng mã chuẩn BCP 47 có gạch nối (vi-VN), Android/iOS
+          // dùng gạch dưới (vi_VN).
+          localeId: kIsWeb ? localeId.replaceAll('_', '-') : localeId,
           cancelOnError: true,
           listenMode: stt.ListenMode.confirmation,
         );

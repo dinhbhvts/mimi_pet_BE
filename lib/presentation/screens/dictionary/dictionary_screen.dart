@@ -46,6 +46,47 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
     c.lookup(query);
   }
 
+  /// Bấm 🎤: nghe bé nói rồi điền vào ô. Tra từ thì tra luôn; hỏi đáp thì
+  /// để bé xem/sửa rồi mới gửi. Bấm lần nữa trong lúc nghe = "nói xong".
+  Future<void> _dictate(DictionaryController c, DictionaryMode mode) async {
+    if (c.isDictating(mode)) {
+      await c.stopDictation();
+      return;
+    }
+    final field = mode == DictionaryMode.lookup ? _lookupController : _askController;
+    final before = field.text;
+    final text = await c.dictate(mode);
+    if (!mounted) return;
+    if (text.isEmpty) {
+      _setText(field, before);
+      return;
+    }
+    if (mode == DictionaryMode.lookup) {
+      _lookup(c, text);
+    } else {
+      _setText(field, text);
+    }
+  }
+
+  void _setText(TextEditingController field, String text) {
+    field.value = TextEditingValue(text: text, selection: TextSelection.collapsed(offset: text.length));
+  }
+
+  /// Trong lúc bé nói: hiện ngay chữ nghe được vào ô đang nhập.
+  void _showPartial(DictionaryController c) {
+    for (final mode in DictionaryMode.values) {
+      if (!c.isDictating(mode) || c.dictationPartial.isEmpty) continue;
+      final field = mode == DictionaryMode.lookup ? _lookupController : _askController;
+      if (field.text != c.dictationPartial) {
+        WidgetsBinding.instance.addPostFrameCallback((_) => _setText(field, c.dictationPartial));
+      }
+    }
+  }
+
+  String _hint(DictionaryController c, DictionaryMode mode, String normal) => c.isDictating(mode)
+      ? '🎤 Đang nghe (${c.voiceLangFor(mode).label})... chạm mic để dừng'
+      : normal;
+
   void _ask(DictionaryController c, [String? text]) {
     final question = text ?? _askController.text;
     if (question.trim().isEmpty || c.isAsking) return;
@@ -72,6 +113,7 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
   Widget build(BuildContext context) {
     final c = context.watch<DictionaryController>();
     final isLookup = c.mode == DictionaryMode.lookup;
+    _showPartial(c);
     if (!isLookup) _scrollQaIfNeeded(c);
 
     return Padding(
@@ -115,9 +157,20 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
                 child: TextField(
                   controller: _lookupController,
                   enabled: !c.isListening,
+                  readOnly: c.isDictatingAny,
                   textInputAction: TextInputAction.search,
                   onSubmitted: (_) => _lookup(c),
-                  decoration: _inputDecoration('Từ hoặc câu tiếng Anh / tiếng Việt...'),
+                  decoration: _inputDecoration(
+                    _hint(c, DictionaryMode.lookup, 'Gõ hoặc nói 1 từ / 1 câu...'),
+                  ).copyWith(
+                    suffixIcon: _VoiceSuffix(
+                      lang: c.voiceLangFor(DictionaryMode.lookup),
+                      listening: c.isDictating(DictionaryMode.lookup),
+                      enabled: !c.isLookingUp && !c.isListening,
+                      onToggleLang: () => c.toggleVoiceLang(DictionaryMode.lookup),
+                      onMic: () => _dictate(c, DictionaryMode.lookup),
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(width: 8),
@@ -239,11 +292,22 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
               child: TextField(
                 controller: _askController,
                 enabled: !c.isAsking,
+                readOnly: c.isDictatingAny,
                 minLines: 1,
                 maxLines: 3,
                 textInputAction: TextInputAction.send,
                 onSubmitted: (_) => _ask(c),
-                decoration: _inputDecoration('Hỏi Cô Mimi, hoặc dán 1 câu để kiểm tra...'),
+                decoration: _inputDecoration(
+                  _hint(c, DictionaryMode.ask, 'Gõ hoặc nói câu hỏi...'),
+                ).copyWith(
+                  suffixIcon: _VoiceSuffix(
+                    lang: c.voiceLangFor(DictionaryMode.ask),
+                    listening: c.isDictating(DictionaryMode.ask),
+                    enabled: !c.isAsking,
+                    onToggleLang: () => c.toggleVoiceLang(DictionaryMode.ask),
+                    onMic: () => _dictate(c, DictionaryMode.ask),
+                  ),
+                ),
               ),
             ),
             const SizedBox(width: 8),
@@ -262,6 +326,57 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20), borderSide: BorderSide.none),
       );
+}
+
+/// Nút trong ô nhập: [EN/VI] chọn ngôn ngữ bé sẽ nói + 🎤 bắt đầu/dừng nghe.
+class _VoiceSuffix extends StatelessWidget {
+  final VoiceLang lang;
+  final bool listening;
+  final bool enabled;
+  final VoidCallback onToggleLang;
+  final VoidCallback onMic;
+
+  const _VoiceSuffix({
+    required this.lang,
+    required this.listening,
+    required this.enabled,
+    required this.onToggleLang,
+    required this.onMic,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Tooltip(
+          message: 'Đổi ngôn ngữ nói (đang: ${lang == VoiceLang.en ? 'tiếng Anh' : 'tiếng Việt'})',
+          child: InkWell(
+            borderRadius: BorderRadius.circular(8),
+            onTap: listening ? null : onToggleLang,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+              decoration: BoxDecoration(
+                color: AppColors.primary.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                lang.label,
+                style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: AppColors.primary),
+              ),
+            ),
+          ),
+        ),
+        IconButton(
+          onPressed: enabled || listening ? onMic : null,
+          icon: Icon(listening ? Icons.stop_circle_rounded : Icons.mic_rounded),
+          color: listening ? Colors.redAccent : AppColors.primary,
+          tooltip: listening ? 'Nói xong' : 'Nói để nhập',
+          visualDensity: VisualDensity.compact,
+        ),
+      ],
+    );
+  }
 }
 
 class _RoundButton extends StatelessWidget {

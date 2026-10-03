@@ -14,6 +14,16 @@ typedef PronunciationCheck = AnswerResult;
 /// 2 chế độ của tab "Tra cứu".
 enum DictionaryMode { lookup, ask }
 
+/// Ngôn ngữ bé NÓI khi nhập bằng giọng nói (mic nghe theo đúng ngôn ngữ đó).
+enum VoiceLang {
+  en('EN', 'en_US'),
+  vi('VI', 'vi_VN');
+
+  const VoiceLang(this.label, this.localeId);
+  final String label;
+  final String localeId;
+}
+
 /// Điều phối tab "Tra cứu" (chế độ Tra từ + Hỏi đáp ngữ pháp): tra nghĩa 1 từ/câu (2 chiều Anh<->Việt qua
 /// [DictionaryService]), đọc to (TTS) phía tiếng Anh, và kiểm tra phát âm
 /// của bé cho phía tiếng Anh đó (mic + [EvaluateAnswer.callPhrase] - CÙNG
@@ -38,6 +48,67 @@ class DictionaryController extends ChangeNotifier {
 
   DictionaryMode _mode = DictionaryMode.lookup;
   DictionaryMode get mode => _mode;
+
+  // ---------------------------------------------------------- nhập bằng giọng nói
+
+  /// Tra từ mặc định nói tiếng Anh; hỏi ngữ pháp mặc định nói tiếng Việt.
+  final Map<DictionaryMode, VoiceLang> _voiceLang = {
+    DictionaryMode.lookup: VoiceLang.en,
+    DictionaryMode.ask: VoiceLang.vi,
+  };
+  DictionaryMode? _dictatingFor;
+  String _dictationPartial = '';
+
+  VoiceLang voiceLangFor(DictionaryMode mode) => _voiceLang[mode]!;
+  bool isDictating(DictionaryMode mode) => _dictatingFor == mode;
+  bool get isDictatingAny => _dictatingFor != null;
+
+  /// Chữ đang nghe được (hiện ngay vào ô nhập trong lúc bé nói).
+  String get dictationPartial => _dictationPartial;
+
+  void toggleVoiceLang(DictionaryMode mode) {
+    if (_dictatingFor != null) return;
+    _voiceLang[mode] = _voiceLang[mode] == VoiceLang.en ? VoiceLang.vi : VoiceLang.en;
+    notifyListeners();
+  }
+
+  /// Nghe bé nói (theo [voiceLangFor]) rồi trả về chữ nhận được ('' nếu
+  /// không nghe được). Màn hình tự điền vào ô nhập: tra từ thì tra luôn, hỏi
+  /// đáp thì để bé xem/sửa rồi mới gửi (câu hỏi dài, mic dễ nghe nhầm).
+  Future<String> dictate(DictionaryMode mode) async {
+    if (_dictatingFor != null || _isListening || _isLookingUp || _isAsking) return '';
+    _dictatingFor = mode;
+    _dictationPartial = '';
+    notifyListeners();
+    var text = '';
+    try {
+      final outcome = await _speech.listenOnce(
+        listenFor: mode == DictionaryMode.ask ? const Duration(seconds: 20) : const Duration(seconds: 8),
+        pauseFor: const Duration(seconds: 3),
+        // Câu hỏi có thể dài, bé hay ngập ngừng -> cho nối nhiều phiên nghe.
+        allowContinuation: mode == DictionaryMode.ask,
+        localeId: voiceLangFor(mode).localeId,
+        onPartial: (partial) {
+          _dictationPartial = partial;
+          notifyListeners();
+        },
+      );
+      text = outcome.recognizedText.trim();
+    } catch (_) {
+      // Mic bị từ chối/plugin lỗi - coi như không nghe được gì.
+    } finally {
+      _dictatingFor = null;
+      _dictationPartial = '';
+      notifyListeners();
+    }
+    return text;
+  }
+
+  /// Bé bấm mic lần nữa để báo "nói xong".
+  Future<void> stopDictation() async {
+    if (_dictatingFor == null) return;
+    await _speech.stopListening();
+  }
 
   void setMode(DictionaryMode mode) {
     if (mode == _mode) return;
@@ -88,7 +159,7 @@ class DictionaryController extends ChangeNotifier {
   /// Hỏi 1 câu (kèm các lượt trước làm ngữ cảnh để hỏi tiếp được).
   Future<void> ask(String question) async {
     final trimmed = question.trim();
-    if (trimmed.isEmpty || _isAsking) return;
+    if (trimmed.isEmpty || _isAsking || _dictatingFor != null) return;
     _askError = null;
     final history = List<GrammarQaTurn>.of(_qa);
     _qa.add(GrammarQaTurn(trimmed));
@@ -175,7 +246,7 @@ class DictionaryController extends ChangeNotifier {
     // hợp bé gõ từ mới rồi tra ngay trong lúc mic của từ cũ vẫn đang mở, dẫn
     // tới kết quả phát âm trả về SAU khi đã hiện từ mới, gây hiểu lầm là
     // đang chấm điểm phát âm cho từ đang hiển thị (xem [checkPronunciation]).
-    if (trimmed.isEmpty || _isLookingUp || _isListening) return;
+    if (trimmed.isEmpty || _isLookingUp || _isListening || _dictatingFor != null) return;
 
     _isLookingUp = true;
     _error = null;
@@ -220,7 +291,7 @@ class DictionaryController extends ChangeNotifier {
   /// thể dài hơn 1 từ vựng đơn ở bài học).
   Future<void> checkPronunciation() async {
     final target = _result?.english;
-    if (target == null || target.isEmpty || _isListening || _isSpeaking) return;
+    if (target == null || target.isEmpty || _isListening || _isSpeaking || _dictatingFor != null) return;
 
     _isListening = true;
     _pronunciationResult = null;
