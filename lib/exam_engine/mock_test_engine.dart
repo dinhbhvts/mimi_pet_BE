@@ -129,15 +129,25 @@ bool isAnswerCorrect(Question q, List<String>? userAnswer) {
           Set.from(userAnswer).containsAll(q.correctAnswer);
     case QuestionType.fillBlank:
     case QuestionType.shortAnswer:
-      final normalizedUser = userAnswer.first.trim().toLowerCase();
-      return q.correctAnswer
-          .map((a) => a.trim().toLowerCase())
-          .contains(normalizedUser);
+      final normalizedUser = normalizeTypedAnswer(userAnswer.first);
+      return q.correctAnswer.map(normalizeTypedAnswer).contains(normalizedUser);
     case QuestionType.speakingPrompt:
       // Speaking không chấm tự động trong engine này — xem _baseScore().
       return false;
   }
 }
+
+/// Chuẩn hoá câu bé GÕ để so với đáp án: bỏ hoa/thường, khoảng trắng thừa,
+/// dấu chấm/chấm than cuối câu, và đổi dấu nháy cong (’ ‘ - bàn phím iPhone
+/// gõ mặc định) thành nháy thẳng - trước 2026-10-02 "don’t" gõ trên iPhone
+/// bị chấm SAI so với đáp án "don't".
+String normalizeTypedAnswer(String text) => text
+    .trim()
+    .toLowerCase()
+    .replaceAll(RegExp('[‘’ʼ`]'), "'")
+    .replaceAll(RegExp(r'\s+'), ' ')
+    .replaceAll(RegExp(r'[.!]+$'), '')
+    .trim();
 
 /// Interface cho các cách quy đổi điểm khác nhau theo từng track.
 abstract class ScoringStrategy {

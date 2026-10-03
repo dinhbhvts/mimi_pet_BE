@@ -481,7 +481,7 @@ class GrammarLessons {
         GrammarExample('I didn\'t went to school.', '(Sai → I didn\'t go to school.)', correct: false),
       ],
       practiceSkill: Skill.grammar,
-      practiceTopics: ['Past Simple', 'Past Simple Negative'],
+      practiceTopics: ['Past Simple', 'Past Simple Negative', 'Past Simple Questions'],
     ),
     GrammarLesson(
       id: 'mov_compare',
@@ -611,7 +611,7 @@ class GrammarLessons {
         GrammarExample('You must to wear a helmet.', '(Sai: sau must không có "to" → You must wear a helmet.)', correct: false),
       ],
       practiceSkill: Skill.grammar,
-      practiceTopics: ['Going to Future', 'Would Like', 'Must/Have to', 'Modals', 'Modal Verbs'],
+      practiceTopics: ['Going to Future', 'Would Like', 'Must/Have to', "Must/Mustn't", 'Modals', 'Modal Verbs'],
     ),
 
     GrammarLesson(
@@ -759,7 +759,7 @@ class GrammarLessons {
         GrammarExample('If it will rain, we will stay home.', '(Sai → If it rains, ...)', correct: false),
       ],
       practiceSkill: Skill.grammar,
-      practiceTopics: ['Conditionals', 'Second Conditional'],
+      practiceTopics: ['Conditionals', 'First Conditional', 'Second Conditional'],
     ),
     GrammarLesson(
       id: 'fly_relative',
@@ -864,7 +864,7 @@ class GrammarLessons {
         GrammarExample('I will to call you tomorrow.', '(Sai: sau will không có "to" → I will call you.)', correct: false),
       ],
       practiceSkill: Skill.grammar,
-      practiceTopics: ['Future Tense'],
+      practiceTopics: ['Future Tense', 'Going To'],
     ),
     GrammarLesson(
       id: 'fly_articles_pronouns',

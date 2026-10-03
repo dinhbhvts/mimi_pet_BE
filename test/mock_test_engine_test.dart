@@ -32,4 +32,10 @@ void main() {
       expect(isAnswerCorrect(q, ['w2', 'w1', 'w3', 'w4', 'w5', 'w6']), isFalse);
     });
   });
+
+  test('câu gõ: bỏ qua hoa/thường, khoảng trắng thừa, dấu chấm cuối và dấu nháy cong của bàn phím iPhone', () {
+    expect(normalizeTypedAnswer('  Don’t   Water. '), "don't water");
+    expect(normalizeTypedAnswer("won't she"), normalizeTypedAnswer('Won‘t she!'));
+    expect(normalizeTypedAnswer('7 P.M.'), normalizeTypedAnswer('7 p.m'));
+  });
 }

@@ -94,6 +94,34 @@
             "A balloon"
           ],
           "answer": "A kite"
+        },
+        {
+          "id": "park_q11",
+          "prompt": "True or false: there is a cloud in the sky.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "park_q12",
+          "prompt": "Where is the dog?",
+          "kind": "choice",
+          "options": [
+            "Under the bench",
+            "On the bench",
+            "In the tree"
+          ],
+          "answer": "Under the bench"
+        },
+        {
+          "id": "park_q13",
+          "prompt": "How many dogs are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "One"
         }
       ]
     },
@@ -192,6 +220,34 @@
             "Green"
           ],
           "answer": "Pink"
+        },
+        {
+          "id": "breakfast_q11",
+          "prompt": "True or false: Mom is pouring juice into a cup.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "breakfast_q12",
+          "prompt": "How many bananas are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "One"
+        },
+        {
+          "id": "breakfast_q13",
+          "prompt": "Who is in the picture?",
+          "kind": "choice",
+          "options": [
+            "Mom",
+            "Dad",
+            "Grandpa"
+          ],
+          "answer": "Mom"
         }
       ]
     },
@@ -290,6 +346,34 @@
             "On the shelf"
           ],
           "answer": "At their desks"
+        },
+        {
+          "id": "classroom_q11",
+          "prompt": "What color is the teacher's shirt?",
+          "kind": "choice",
+          "options": [
+            "Purple",
+            "Green",
+            "Orange"
+          ],
+          "answer": "Purple"
+        },
+        {
+          "id": "classroom_q12",
+          "prompt": "True or false: there is a clock on the wall.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "classroom_q13",
+          "prompt": "How many teachers are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "One"
         }
       ]
     },
@@ -387,6 +471,22 @@
             "The monkey"
           ],
           "answer": "The elephant"
+        },
+        {
+          "id": "zoo_q11",
+          "prompt": "True or false: the elephant has big ears.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "zoo_q12",
+          "prompt": "Is the lion's mouth open or closed?",
+          "kind": "choice",
+          "options": [
+            "Open",
+            "Closed"
+          ],
+          "answer": "Open"
         }
       ]
     },
@@ -483,6 +583,28 @@
             "In the garden"
           ],
           "answer": "In bed"
+        },
+        {
+          "id": "bedtime_q11",
+          "prompt": "How many books are on the nightstand?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "One"
+        },
+        {
+          "id": "bedtime_q12",
+          "prompt": "Where is the lamp?",
+          "kind": "choice",
+          "options": [
+            "On the nightstand",
+            "On the floor",
+            "On the bed"
+          ],
+          "answer": "On the nightstand"
         }
       ]
     },
@@ -579,6 +701,34 @@
             "Cloudy"
           ],
           "answer": "Sunny"
+        },
+        {
+          "id": "beach_q11",
+          "prompt": "What color is the girl's shirt?",
+          "kind": "choice",
+          "options": [
+            "Pink",
+            "Blue",
+            "Green"
+          ],
+          "answer": "Pink"
+        },
+        {
+          "id": "beach_q12",
+          "prompt": "True or false: the crab is in the water.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "beach_q13",
+          "prompt": "What is next to the girl?",
+          "kind": "choice",
+          "options": [
+            "A bucket",
+            "A dog",
+            "A bike"
+          ],
+          "answer": "A bucket"
         }
       ]
     },
@@ -672,6 +822,23 @@
           "prompt": "True or false: there is a horse on the farm.",
           "kind": "trueFalse",
           "answer": "False"
+        },
+        {
+          "id": "farm_q11",
+          "prompt": "How many cows are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "One"
+        },
+        {
+          "id": "farm_q12",
+          "prompt": "True or false: there is a tractor on the farm.",
+          "kind": "trueFalse",
+          "answer": "True"
         }
       ]
     },
@@ -770,6 +937,23 @@
             "Apples"
           ],
           "answer": "Steam"
+        },
+        {
+          "id": "kitchen_q11",
+          "prompt": "What color is Dad's shirt?",
+          "kind": "choice",
+          "options": [
+            "Blue",
+            "Red",
+            "Yellow"
+          ],
+          "answer": "Blue"
+        },
+        {
+          "id": "kitchen_q12",
+          "prompt": "True or false: the cat is sitting on the counter.",
+          "kind": "trueFalse",
+          "answer": "False"
         }
       ]
     },
@@ -868,6 +1052,23 @@
             "Purple"
           ],
           "answer": "Yellow"
+        },
+        {
+          "id": "garden_q11",
+          "prompt": "True or false: there is a tree in the garden.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "garden_q12",
+          "prompt": "What is the girl going to do?",
+          "kind": "choice",
+          "options": [
+            "Water the flowers",
+            "Eat lunch",
+            "Go to sleep"
+          ],
+          "answer": "Water the flowers"
         }
       ]
     },
@@ -966,6 +1167,23 @@
             "Blue"
           ],
           "answer": "Green"
+        },
+        {
+          "id": "birthday_q11",
+          "prompt": "True or false: there is a present next to the table.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "birthday_q12",
+          "prompt": "Where is the cake?",
+          "kind": "choice",
+          "options": [
+            "On the table",
+            "On the floor",
+            "On a chair"
+          ],
+          "answer": "On the table"
         }
       ]
     },
@@ -1064,6 +1282,23 @@
             "Red"
           ],
           "answer": "Yellow"
+        },
+        {
+          "id": "rainy_q11",
+          "prompt": "What is falling from the sky?",
+          "kind": "choice",
+          "options": [
+            "Rain",
+            "Snow",
+            "Leaves"
+          ],
+          "answer": "Rain"
+        },
+        {
+          "id": "rainy_q12",
+          "prompt": "True or false: there is a snail on the grass.",
+          "kind": "trueFalse",
+          "answer": "True"
         }
       ]
     },
@@ -1162,6 +1397,23 @@
           "prompt": "Say the color of the girl's shirt.",
           "kind": "speak",
           "answer": "purple"
+        },
+        {
+          "id": "playground_q11",
+          "prompt": "What color is the boy's shirt?",
+          "kind": "choice",
+          "options": [
+            "Blue",
+            "Red",
+            "Yellow"
+          ],
+          "answer": "Blue"
+        },
+        {
+          "id": "playground_q12",
+          "prompt": "True or false: one of the swings is empty.",
+          "kind": "trueFalse",
+          "answer": "True"
         }
       ]
     },
@@ -1260,6 +1512,669 @@
             "Blue"
           ],
           "answer": "Red"
+        },
+        {
+          "id": "snowy_q11",
+          "prompt": "True or false: there is a house in the picture.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "snowy_q12",
+          "prompt": "What is the snowman wearing around its neck?",
+          "kind": "choice",
+          "options": [
+            "A scarf",
+            "A tie",
+            "A necklace"
+          ],
+          "answer": "A scarf"
+        }
+      ]
+    },
+    {
+      "id": "market_v1",
+      "title": "At the Fruit Market",
+      "titleVi": "Ở chợ trái cây",
+      "illustrationId": "market_v1",
+      "questions": [
+        {
+          "id": "market_q1",
+          "prompt": "What fruit is in the left basket?",
+          "kind": "choice",
+          "options": [
+            "Apples",
+            "Bananas",
+            "Grapes"
+          ],
+          "answer": "Apples"
+        },
+        {
+          "id": "market_q2",
+          "prompt": "How many apples are there?",
+          "kind": "choice",
+          "options": [
+            "Four",
+            "Five",
+            "Six"
+          ],
+          "answer": "Five"
+        },
+        {
+          "id": "market_q3",
+          "prompt": "What color are the bananas?",
+          "kind": "choice",
+          "options": [
+            "Yellow",
+            "Red",
+            "Blue"
+          ],
+          "answer": "Yellow"
+        },
+        {
+          "id": "market_q4",
+          "prompt": "How many oranges are there?",
+          "kind": "choice",
+          "options": [
+            "Three",
+            "Four",
+            "Five"
+          ],
+          "answer": "Four"
+        },
+        {
+          "id": "market_q5",
+          "prompt": "True or false: there are grapes at the market.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "market_q6",
+          "prompt": "True or false: the woman is behind the stall.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "market_q7",
+          "prompt": "What color is the woman's shirt?",
+          "kind": "choice",
+          "options": [
+            "Green",
+            "Pink",
+            "Blue"
+          ],
+          "answer": "Green"
+        },
+        {
+          "id": "market_q8",
+          "prompt": "What is the boy holding?",
+          "kind": "choice",
+          "options": [
+            "A bag",
+            "A ball",
+            "An umbrella"
+          ],
+          "answer": "A bag"
+        },
+        {
+          "id": "market_q9",
+          "prompt": "What color is the boy's bag?",
+          "kind": "choice",
+          "options": [
+            "Blue",
+            "Red",
+            "Yellow"
+          ],
+          "answer": "Blue"
+        },
+        {
+          "id": "market_q10",
+          "prompt": "How many baskets are there?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Three"
+        },
+        {
+          "id": "market_q11",
+          "prompt": "Is it sunny or rainy?",
+          "kind": "choice",
+          "options": [
+            "Sunny",
+            "Rainy"
+          ],
+          "answer": "Sunny"
+        },
+        {
+          "id": "market_q12",
+          "prompt": "Say the name of the long yellow fruit.",
+          "kind": "speak",
+          "answer": "banana"
+        },
+        {
+          "id": "market_q13",
+          "prompt": "Say the color of the apples.",
+          "kind": "speak",
+          "answer": "red"
+        }
+      ]
+    },
+    {
+      "id": "space_v1",
+      "title": "In Space",
+      "titleVi": "Ngoài vũ trụ",
+      "illustrationId": "space_v1",
+      "questions": [
+        {
+          "id": "space_q1",
+          "prompt": "What is flying in space?",
+          "kind": "choice",
+          "options": [
+            "A rocket",
+            "A bus",
+            "A bird"
+          ],
+          "answer": "A rocket"
+        },
+        {
+          "id": "space_q2",
+          "prompt": "How many stars are there?",
+          "kind": "choice",
+          "options": [
+            "Four",
+            "Five",
+            "Six"
+          ],
+          "answer": "Six"
+        },
+        {
+          "id": "space_q3",
+          "prompt": "What color is the top of the rocket?",
+          "kind": "choice",
+          "options": [
+            "Red",
+            "Green",
+            "Yellow"
+          ],
+          "answer": "Red"
+        },
+        {
+          "id": "space_q4",
+          "prompt": "Who is next to the rocket?",
+          "kind": "choice",
+          "options": [
+            "An astronaut",
+            "A doctor",
+            "A farmer"
+          ],
+          "answer": "An astronaut"
+        },
+        {
+          "id": "space_q5",
+          "prompt": "What is on the astronaut's head?",
+          "kind": "choice",
+          "options": [
+            "A helmet",
+            "A cap",
+            "A crown"
+          ],
+          "answer": "A helmet"
+        },
+        {
+          "id": "space_q6",
+          "prompt": "True or false: the astronaut is outside the rocket.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "space_q7",
+          "prompt": "What color is the moon?",
+          "kind": "choice",
+          "options": [
+            "Gray",
+            "Green",
+            "Pink"
+          ],
+          "answer": "Gray"
+        },
+        {
+          "id": "space_q8",
+          "prompt": "Where is the moon?",
+          "kind": "choice",
+          "options": [
+            "On the left",
+            "On the right",
+            "At the bottom"
+          ],
+          "answer": "On the left"
+        },
+        {
+          "id": "space_q9",
+          "prompt": "How many planets are there? (Don't count the moon.)",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "space_q10",
+          "prompt": "What color is the planet with a ring?",
+          "kind": "choice",
+          "options": [
+            "Orange",
+            "Blue",
+            "Purple"
+          ],
+          "answer": "Orange"
+        },
+        {
+          "id": "space_q11",
+          "prompt": "True or false: the sky is bright blue.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "space_q12",
+          "prompt": "Say the name of the big gray thing in the sky.",
+          "kind": "speak",
+          "answer": "moon"
+        },
+        {
+          "id": "space_q13",
+          "prompt": "Say what is coming out of the bottom of the rocket.",
+          "kind": "speak",
+          "answer": "fire"
+        }
+      ]
+    },
+    {
+      "id": "sea_v1",
+      "title": "Under the Sea",
+      "titleVi": "Dưới đáy biển",
+      "illustrationId": "sea_v1",
+      "questions": [
+        {
+          "id": "sea_q1",
+          "prompt": "How many fish are there?",
+          "kind": "choice",
+          "options": [
+            "Three",
+            "Four",
+            "Five"
+          ],
+          "answer": "Four"
+        },
+        {
+          "id": "sea_q2",
+          "prompt": "What color is the big fish?",
+          "kind": "choice",
+          "options": [
+            "Purple",
+            "Red",
+            "Green"
+          ],
+          "answer": "Purple"
+        },
+        {
+          "id": "sea_q3",
+          "prompt": "What color are the small fish?",
+          "kind": "choice",
+          "options": [
+            "Orange",
+            "Pink",
+            "Black"
+          ],
+          "answer": "Orange"
+        },
+        {
+          "id": "sea_q4",
+          "prompt": "Which animal has a green shell?",
+          "kind": "choice",
+          "options": [
+            "A turtle",
+            "A crab",
+            "A fish"
+          ],
+          "answer": "A turtle"
+        },
+        {
+          "id": "sea_q5",
+          "prompt": "What color is the crab?",
+          "kind": "choice",
+          "options": [
+            "Red",
+            "Blue",
+            "Yellow"
+          ],
+          "answer": "Red"
+        },
+        {
+          "id": "sea_q6",
+          "prompt": "Where is the crab?",
+          "kind": "choice",
+          "options": [
+            "On the sand",
+            "On the turtle",
+            "In the box"
+          ],
+          "answer": "On the sand"
+        },
+        {
+          "id": "sea_q7",
+          "prompt": "True or false: there is a starfish on the sand.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "sea_q8",
+          "prompt": "True or false: there is a shark in the picture.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "sea_q9",
+          "prompt": "What color is the starfish?",
+          "kind": "choice",
+          "options": [
+            "Yellow",
+            "Pink",
+            "Black"
+          ],
+          "answer": "Yellow"
+        },
+        {
+          "id": "sea_q10",
+          "prompt": "What is the brown box on the sand?",
+          "kind": "choice",
+          "options": [
+            "A treasure chest",
+            "A car",
+            "A bed"
+          ],
+          "answer": "A treasure chest"
+        },
+        {
+          "id": "sea_q11",
+          "prompt": "What are the small white circles in the water?",
+          "kind": "choice",
+          "options": [
+            "Bubbles",
+            "Eggs",
+            "Balls"
+          ],
+          "answer": "Bubbles"
+        },
+        {
+          "id": "sea_q12",
+          "prompt": "Say the name of the red animal on the sand.",
+          "kind": "speak",
+          "answer": "crab"
+        },
+        {
+          "id": "sea_q13",
+          "prompt": "Say the color of the water.",
+          "kind": "speak",
+          "answer": "blue"
+        }
+      ]
+    },
+    {
+      "id": "street_v1",
+      "title": "On the Street",
+      "titleVi": "Trên đường phố",
+      "illustrationId": "street_v1",
+      "questions": [
+        {
+          "id": "street_q1",
+          "prompt": "What color is the bus?",
+          "kind": "choice",
+          "options": [
+            "Red",
+            "Blue",
+            "Green"
+          ],
+          "answer": "Red"
+        },
+        {
+          "id": "street_q2",
+          "prompt": "What color is the car?",
+          "kind": "choice",
+          "options": [
+            "Yellow",
+            "Red",
+            "White"
+          ],
+          "answer": "Yellow"
+        },
+        {
+          "id": "street_q3",
+          "prompt": "Which traffic light is on?",
+          "kind": "choice",
+          "options": [
+            "Green",
+            "Red",
+            "Yellow"
+          ],
+          "answer": "Green"
+        },
+        {
+          "id": "street_q4",
+          "prompt": "Which is bigger?",
+          "kind": "choice",
+          "options": [
+            "The bus",
+            "The car"
+          ],
+          "answer": "The bus"
+        },
+        {
+          "id": "street_q5",
+          "prompt": "How many wheels can you see on the bus?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "street_q6",
+          "prompt": "Where is the girl standing?",
+          "kind": "choice",
+          "options": [
+            "On the sidewalk",
+            "On the bus",
+            "On the car"
+          ],
+          "answer": "On the sidewalk"
+        },
+        {
+          "id": "street_q7",
+          "prompt": "What color is the girl's shirt?",
+          "kind": "choice",
+          "options": [
+            "Pink",
+            "Green",
+            "Black"
+          ],
+          "answer": "Pink"
+        },
+        {
+          "id": "street_q8",
+          "prompt": "True or false: there is a zebra crossing on the road.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "street_q9",
+          "prompt": "True or false: there is a bike on the road.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "street_q10",
+          "prompt": "How many buildings are there?",
+          "kind": "choice",
+          "options": [
+            "One",
+            "Two",
+            "Three"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "street_q11",
+          "prompt": "Is it day or night?",
+          "kind": "choice",
+          "options": [
+            "Day",
+            "Night"
+          ],
+          "answer": "Day"
+        },
+        {
+          "id": "street_q12",
+          "prompt": "Say the name of the big red vehicle.",
+          "kind": "speak",
+          "answer": "bus"
+        },
+        {
+          "id": "street_q13",
+          "prompt": "Say the color of the light that is on.",
+          "kind": "speak",
+          "answer": "green"
+        }
+      ]
+    },
+    {
+      "id": "camping_v1",
+      "title": "Camping",
+      "titleVi": "Đi cắm trại",
+      "illustrationId": "camping_v1",
+      "questions": [
+        {
+          "id": "camping_q1",
+          "prompt": "What color is the tent?",
+          "kind": "choice",
+          "options": [
+            "Orange",
+            "Blue",
+            "Green"
+          ],
+          "answer": "Orange"
+        },
+        {
+          "id": "camping_q2",
+          "prompt": "How many trees are there?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Three"
+        },
+        {
+          "id": "camping_q3",
+          "prompt": "Where are the trees?",
+          "kind": "choice",
+          "options": [
+            "On the left",
+            "On the right",
+            "In the tent"
+          ],
+          "answer": "On the left"
+        },
+        {
+          "id": "camping_q4",
+          "prompt": "True or false: there is a campfire.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "camping_q5",
+          "prompt": "Is it day or night?",
+          "kind": "choice",
+          "options": [
+            "Night",
+            "Day"
+          ],
+          "answer": "Night"
+        },
+        {
+          "id": "camping_q6",
+          "prompt": "What can you see in the sky?",
+          "kind": "choice",
+          "options": [
+            "The moon and stars",
+            "The sun",
+            "A rainbow"
+          ],
+          "answer": "The moon and stars"
+        },
+        {
+          "id": "camping_q7",
+          "prompt": "How many people are there?",
+          "kind": "choice",
+          "options": [
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "answer": "Two"
+        },
+        {
+          "id": "camping_q8",
+          "prompt": "What color is the girl's shirt?",
+          "kind": "choice",
+          "options": [
+            "Purple",
+            "Yellow",
+            "Red"
+          ],
+          "answer": "Purple"
+        },
+        {
+          "id": "camping_q9",
+          "prompt": "True or false: the man is wearing a blue shirt.",
+          "kind": "trueFalse",
+          "answer": "True"
+        },
+        {
+          "id": "camping_q10",
+          "prompt": "True or false: it is snowing.",
+          "kind": "trueFalse",
+          "answer": "False"
+        },
+        {
+          "id": "camping_q11",
+          "prompt": "How many stars are there?",
+          "kind": "choice",
+          "options": [
+            "Four",
+            "Five",
+            "Six"
+          ],
+          "answer": "Five"
+        },
+        {
+          "id": "camping_q12",
+          "prompt": "Say what is burning between the man and the girl.",
+          "kind": "speak",
+          "answer": "fire"
+        },
+        {
+          "id": "camping_q13",
+          "prompt": "Say the name of the orange thing people sleep in.",
+          "kind": "speak",
+          "answer": "tent"
         }
       ]
     }

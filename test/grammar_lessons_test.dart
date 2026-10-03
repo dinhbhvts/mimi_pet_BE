@@ -43,14 +43,14 @@ class _MemStorage implements MistakeStorage {
 void main() {
   final bank = _realBank();
 
-  test('id bài không trùng; mỗi bài có đủ ví dụ và ít nhất 7 câu luyện trong ngân hàng', () {
+  test('id bài không trùng; mỗi bài có đủ ví dụ và ít nhất 20 câu luyện trong ngân hàng', () {
     final ids = GrammarLessons.all.map((l) => l.id).toList();
     expect(ids.toSet().length, ids.length);
     for (final lesson in GrammarLessons.all) {
       expect(lesson.points, isNotEmpty, reason: lesson.id);
       expect(lesson.examples.where((e) => e.correct).length, greaterThanOrEqualTo(2), reason: lesson.id);
       final count = bank.questions.where(lesson.matches).length;
-      expect(count, greaterThanOrEqualTo(7), reason: '${lesson.id} chỉ có $count câu luyện');
+      expect(count, greaterThanOrEqualTo(20), reason: '${lesson.id} chỉ có $count câu luyện');
     }
   });
 

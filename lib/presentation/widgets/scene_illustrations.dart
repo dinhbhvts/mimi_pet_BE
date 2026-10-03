@@ -17,6 +17,14 @@ class SceneIllustration extends StatelessWidget {
 
   const SceneIllustration({super.key, required this.illustrationId});
 
+  /// Các [illustrationId] đã có hình vẽ - test kiểm tra mọi bài tranh trong
+  /// `scenes.json` đều thuộc danh sách này (không rơi vào hình trống).
+  static const supportedIds = {
+    'park_v1', 'breakfast_v1', 'classroom_v1', 'zoo_v1', 'bedtime_v1', 'beach_v1', 'farm_v1', 'kitchen_v1',
+    'garden_v1', 'birthday_v1', 'rainy_v1', 'playground_v1', 'snowy_v1',
+    'market_v1', 'space_v1', 'sea_v1', 'street_v1', 'camping_v1',
+  };
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -59,6 +67,16 @@ class SceneIllustration extends StatelessWidget {
         return _PlaygroundScenePainter();
       case 'snowy_v1':
         return _SnowyScenePainter();
+      case 'market_v1':
+        return _MarketScenePainter();
+      case 'space_v1':
+        return _SpaceScenePainter();
+      case 'sea_v1':
+        return _SeaScenePainter();
+      case 'street_v1':
+        return _StreetScenePainter();
+      case 'camping_v1':
+        return _CampingScenePainter();
       default:
         return _UnknownScenePainter();
     }
@@ -1464,6 +1482,548 @@ class _SnowyScenePainter extends CustomPainter {
         canvas.drawCircle(Offset(x, y), w * (0.005 + 0.003 * ((row + col) % 3) / 2), flakePaint);
       }
     }
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// ---------------------------------------------------------------------------
+// Helper cho các scene mới (2026-10-02).
+// ---------------------------------------------------------------------------
+
+/// Cá đơn giản: thân oval + đuôi tam giác + mắt. [facingRight] = đầu bên phải.
+void _drawFish(Canvas canvas, Offset center, double length, Color color, {bool facingRight = true}) {
+  final dir = facingRight ? 1.0 : -1.0;
+  final paint = Paint()..color = color;
+  canvas.drawOval(Rect.fromCenter(center: center, width: length, height: length * 0.55), paint);
+  final tailBase = center.translate(-dir * length * 0.45, 0);
+  final tail = Path()
+    ..moveTo(tailBase.dx, tailBase.dy)
+    ..lineTo(tailBase.dx - dir * length * 0.3, tailBase.dy - length * 0.25)
+    ..lineTo(tailBase.dx - dir * length * 0.3, tailBase.dy + length * 0.25)
+    ..close();
+  canvas.drawPath(tail, paint);
+  final eye = center.translate(dir * length * 0.25, -length * 0.06);
+  canvas.drawCircle(eye, length * 0.07, Paint()..color = Colors.white);
+  canvas.drawCircle(eye, length * 0.035, Paint()..color = Colors.black87);
+}
+
+/// Sao biển 5 cánh (khác [_drawStar] chỉ có 4 cánh nhọn).
+void _drawFivePointStar(Canvas canvas, Offset center, double radius, Color color) {
+  final path = Path();
+  for (var i = 0; i < 10; i++) {
+    final angle = -math.pi / 2 + i * math.pi / 5;
+    final r = i.isEven ? radius : radius * 0.45;
+    final p = Offset(center.dx + r * _cos(angle), center.dy + r * _sin(angle));
+    if (i == 0) {
+      path.moveTo(p.dx, p.dy);
+    } else {
+      path.lineTo(p.dx, p.dy);
+    }
+  }
+  path.close();
+  canvas.drawPath(path, Paint()..color = color);
+}
+
+/// Cây thông: thân nâu + 2 tầng tam giác xanh đậm.
+void _drawPineTree(Canvas canvas, Offset base, double height, double width) {
+  canvas.drawRect(
+    Rect.fromCenter(center: base.translate(0, -height * 0.08), width: width * 0.18, height: height * 0.16),
+    Paint()..color = const Color(0xFF7A5536),
+  );
+  final green = Paint()..color = const Color(0xFF2F7D4A);
+  for (var i = 0; i < 2; i++) {
+    final bottom = base.dy - height * (0.14 + i * 0.3);
+    final top = bottom - height * 0.55;
+    final half = width * (0.5 - i * 0.12);
+    canvas.drawPath(
+      Path()
+        ..moveTo(base.dx - half, bottom)
+        ..lineTo(base.dx + half, bottom)
+        ..lineTo(base.dx, top)
+        ..close(),
+      green,
+    );
+  }
+}
+
+/// Bánh xe đen có vành xám.
+void _drawWheel(Canvas canvas, Offset center, double radius) {
+  canvas.drawCircle(center, radius, Paint()..color = const Color(0xFF2E2E2E));
+  canvas.drawCircle(center, radius * 0.45, Paint()..color = const Color(0xFFBDBDBD));
+}
+
+// ---------------------------------------------------------------------------
+// Scene 14: "At the Fruit Market" - sạp có mái sọc ĐỎ-trắng, ĐÚNG 3 giỏ: giỏ
+// TRÁI 5 quả táo đỏ, giỏ GIỮA 3 quả chuối vàng, giỏ PHẢI 4 quả cam; cô bán
+// hàng áo XANH LÁ đứng SAU sạp; bé trai áo VÀNG cầm túi XANH DƯƠNG; trời nắng,
+// 1 đám mây (khớp câu hỏi trong scenes.json).
+// ---------------------------------------------------------------------------
+class _MarketScenePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+
+    canvas.drawRect(Rect.fromLTWH(0, 0, w, h * 0.6), Paint()..color = const Color(0xFFBEE7FF));
+    canvas.drawRect(Rect.fromLTWH(0, h * 0.6, w, h * 0.4), Paint()..color = const Color(0xFFE8D9C5));
+    _drawSun(canvas, Offset(w * 0.9, h * 0.12), w * 0.045, const Color(0xFFFFC94A));
+    _drawCloud(canvas, Offset(w * 0.6, h * 0.09), w * 0.004);
+
+    // Cột + mái sọc đỏ - trắng.
+    final post = Paint()..color = const Color(0xFF8D6748);
+    canvas.drawRect(Rect.fromLTWH(w * 0.15, h * 0.3, w * 0.02, h * 0.45), post);
+    canvas.drawRect(Rect.fromLTWH(w * 0.83, h * 0.3, w * 0.02, h * 0.45), post);
+    const stripes = 8;
+    for (var i = 0; i < stripes; i++) {
+      final x = w * (0.13 + i * 0.74 / stripes);
+      canvas.drawRect(
+        Rect.fromLTWH(x, h * 0.2, w * 0.74 / stripes, h * 0.11),
+        Paint()..color = i.isEven ? const Color(0xFFE84C3D) : Colors.white,
+      );
+    }
+
+    // Cô bán hàng (vẽ TRƯỚC quầy để quầy che phần chân - đứng SAU sạp).
+    _drawSimplePerson(canvas, Offset(w * 0.5, h * 0.68), h * 0.36, shirtColor: const Color(0xFF6FBE7A));
+
+    // Quầy hàng.
+    canvas.drawRect(Rect.fromLTWH(w * 0.17, h * 0.56, w * 0.66, h * 0.2), Paint()..color = const Color(0xFFB07A4E));
+    canvas.drawRect(Rect.fromLTWH(w * 0.17, h * 0.56, w * 0.66, h * 0.025), Paint()..color = const Color(0xFF8D6748));
+
+    // 3 giỏ trên mặt quầy.
+    final basket = Paint()..color = const Color(0xFFC98B4E);
+    for (final cx in [0.3, 0.5, 0.7]) {
+      canvas.drawArc(
+        Rect.fromCenter(center: Offset(w * cx, h * 0.53), width: w * 0.16, height: h * 0.12),
+        0,
+        math.pi,
+        true,
+        basket,
+      );
+    }
+
+    // Giỏ trái: 5 quả táo đỏ (3 dưới + 2 trên).
+    final apple = Paint()..color = const Color(0xFFD93B30);
+    final r = w * 0.022;
+    for (final p in [
+      Offset(w * 0.255, h * 0.52),
+      Offset(w * 0.3, h * 0.52),
+      Offset(w * 0.345, h * 0.52),
+      Offset(w * 0.2775, h * 0.465),
+      Offset(w * 0.3225, h * 0.465),
+    ]) {
+      canvas.drawCircle(p, r, apple);
+      canvas.drawLine(p.translate(0, -r), p.translate(r * 0.3, -r * 1.5), Paint()
+        ..color = const Color(0xFF5B4636)
+        ..strokeWidth = 1.5);
+    }
+
+    // Giỏ giữa: 3 quả chuối vàng (3 nét cong dày).
+    final banana = Paint()
+      ..color = const Color(0xFFFFD43B)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = w * 0.022
+      ..strokeCap = StrokeCap.round;
+    for (var i = 0; i < 3; i++) {
+      final dx = w * (0.45 + i * 0.05);
+      canvas.drawPath(
+        Path()
+          ..moveTo(dx - w * 0.02, h * 0.44)
+          ..quadraticBezierTo(dx - w * 0.03, h * 0.52, dx + w * 0.025, h * 0.53),
+        banana,
+      );
+    }
+
+    // Giỏ phải: 4 quả cam (3 dưới + 1 trên).
+    final orange = Paint()..color = const Color(0xFFF5922A);
+    for (final p in [
+      Offset(w * 0.655, h * 0.52),
+      Offset(w * 0.7, h * 0.52),
+      Offset(w * 0.745, h * 0.52),
+      Offset(w * 0.7, h * 0.465),
+    ]) {
+      canvas.drawCircle(p, r, orange);
+    }
+
+    // Bé trai áo vàng cầm túi xanh dương (bên phải, trước sạp).
+    _drawSimplePerson(canvas, Offset(w * 0.9, h * 0.97), h * 0.3, shirtColor: const Color(0xFFFFC94A));
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(Rect.fromLTWH(w * 0.93, h * 0.78, w * 0.06, h * 0.1), const Radius.circular(4)),
+      Paint()..color = const Color(0xFF3D7DD8),
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// ---------------------------------------------------------------------------
+// Scene 15: "In Space" - trời đen xanh, mặt trăng XÁM bên TRÁI có hố tròn,
+// ĐÚNG 6 ngôi sao, tên lửa trắng mũi ĐỎ đang phun lửa, phi hành gia mũ bảo
+// hiểm bay cạnh tên lửa, ĐÚNG 2 hành tinh: 1 hành tinh CAM có vành đai + 1
+// hành tinh XANH DƯƠNG nhỏ (khớp câu hỏi trong scenes.json).
+// ---------------------------------------------------------------------------
+class _SpaceScenePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+    canvas.drawRect(Offset.zero & size, Paint()..color = const Color(0xFF1B2A4A));
+
+    // 6 ngôi sao.
+    for (final p in [
+      Offset(w * 0.32, h * 0.1),
+      Offset(w * 0.6, h * 0.08),
+      Offset(w * 0.08, h * 0.55),
+      Offset(w * 0.28, h * 0.85),
+      Offset(w * 0.62, h * 0.88),
+      Offset(w * 0.93, h * 0.48),
+    ]) {
+      _drawFivePointStar(canvas, p, w * 0.022, const Color(0xFFFFF3B0));
+    }
+
+    // Mặt trăng xám + 3 hố.
+    final moonC = Offset(w * 0.15, h * 0.24);
+    canvas.drawCircle(moonC, w * 0.09, Paint()..color = const Color(0xFFBDBDBD));
+    final crater = Paint()..color = const Color(0xFF9E9E9E);
+    canvas.drawCircle(moonC.translate(-w * 0.03, -w * 0.02), w * 0.018, crater);
+    canvas.drawCircle(moonC.translate(w * 0.035, w * 0.01), w * 0.014, crater);
+    canvas.drawCircle(moonC.translate(-w * 0.005, w * 0.045), w * 0.012, crater);
+
+    // Hành tinh cam có vành đai.
+    final ringed = Offset(w * 0.8, h * 0.22);
+    canvas.drawCircle(ringed, w * 0.07, Paint()..color = const Color(0xFFF5922A));
+    canvas.drawOval(
+      Rect.fromCenter(center: ringed, width: w * 0.22, height: h * 0.07),
+      Paint()
+        ..color = const Color(0xFFFFE08A)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = w * 0.008,
+    );
+
+    // Hành tinh xanh dương nhỏ (góc dưới phải).
+    final blue = Offset(w * 0.86, h * 0.8);
+    canvas.drawCircle(blue, w * 0.055, Paint()..color = const Color(0xFF3D7DD8));
+    canvas.drawCircle(blue.translate(-w * 0.015, -w * 0.01), w * 0.02, Paint()..color = const Color(0xFF6FBE7A));
+
+    // Lửa dưới đáy tên lửa.
+    final cx = w * 0.45;
+    canvas.drawPath(
+      Path()
+        ..moveTo(cx - w * 0.04, h * 0.74)
+        ..lineTo(cx + w * 0.04, h * 0.74)
+        ..lineTo(cx, h * 0.92)
+        ..close(),
+      Paint()..color = const Color(0xFFF5922A),
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(cx - w * 0.02, h * 0.74)
+        ..lineTo(cx + w * 0.02, h * 0.74)
+        ..lineTo(cx, h * 0.85)
+        ..close(),
+      Paint()..color = const Color(0xFFFFD43B),
+    );
+
+    // Thân tên lửa trắng + mũi đỏ + 2 cánh đỏ + cửa sổ tròn.
+    final red = Paint()..color = const Color(0xFFE84C3D);
+    canvas.drawPath(
+      Path()
+        ..moveTo(cx - w * 0.05, h * 0.62)
+        ..lineTo(cx - w * 0.1, h * 0.76)
+        ..lineTo(cx - w * 0.05, h * 0.72)
+        ..close(),
+      red,
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(cx + w * 0.05, h * 0.62)
+        ..lineTo(cx + w * 0.1, h * 0.76)
+        ..lineTo(cx + w * 0.05, h * 0.72)
+        ..close(),
+      red,
+    );
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(Rect.fromLTRB(cx - w * 0.05, h * 0.32, cx + w * 0.05, h * 0.75), Radius.circular(w * 0.03)),
+      Paint()..color = const Color(0xFFF5F5F5),
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(cx - w * 0.05, h * 0.34)
+        ..lineTo(cx + w * 0.05, h * 0.34)
+        ..lineTo(cx, h * 0.18)
+        ..close(),
+      red,
+    );
+    canvas.drawCircle(Offset(cx, h * 0.46), w * 0.028, Paint()..color = const Color(0xFF4FA8E0));
+
+    // Dây nối + phi hành gia (áo trắng, mũ bảo hiểm tròn trong suốt).
+    final feet = Offset(w * 0.68, h * 0.74);
+    final ph = h * 0.28;
+    canvas.drawLine(
+      Offset(cx + w * 0.05, h * 0.5),
+      feet.translate(-w * 0.03, -ph * 0.6),
+      Paint()
+        ..color = const Color(0xFFBDBDBD)
+        ..strokeWidth = 1.5,
+    );
+    _drawSimplePerson(canvas, feet, ph, shirtColor: const Color(0xFFF5F5F5));
+    final headCenter = Offset(feet.dx, feet.dy - ph * 0.84 - ph * 0.16);
+    canvas.drawCircle(headCenter, ph * 0.26, Paint()..color = const Color(0x554FA8E0));
+    canvas.drawCircle(
+      headCenter,
+      ph * 0.26,
+      Paint()
+        ..color = Colors.white
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// ---------------------------------------------------------------------------
+// Scene 16: "Under the Sea" - nước xanh, cát vàng ở đáy, ĐÚNG 4 con cá (3 cá
+// CAM nhỏ + 1 cá TÍM to), rùa biển mai XANH LÁ, cua ĐỎ trên cát, sao biển
+// VÀNG trên cát, rương kho báu nâu bên PHẢI, rong biển xanh, bong bóng trắng
+// (khớp câu hỏi trong scenes.json).
+// ---------------------------------------------------------------------------
+class _SeaScenePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+    canvas.drawRect(Offset.zero & size, Paint()..color = const Color(0xFF4FB3E8));
+    canvas.drawRect(Rect.fromLTWH(0, h * 0.8, w, h * 0.2), Paint()..color = const Color(0xFFF2D59A));
+
+    // Rong biển (3 dải lượn sóng).
+    final weed = Paint()
+      ..color = const Color(0xFF2F9E5B)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = w * 0.018
+      ..strokeCap = StrokeCap.round;
+    for (final x in [0.07, 0.14, 0.93]) {
+      canvas.drawPath(
+        Path()
+          ..moveTo(w * x, h * 0.84)
+          ..quadraticBezierTo(w * (x - 0.03), h * 0.72, w * x, h * 0.62)
+          ..quadraticBezierTo(w * (x + 0.03), h * 0.52, w * x, h * 0.44),
+        weed,
+      );
+    }
+
+    // 4 con cá: 3 cam nhỏ + 1 tím to.
+    _drawFish(canvas, Offset(w * 0.3, h * 0.2), w * 0.11, const Color(0xFFF5922A));
+    _drawFish(canvas, Offset(w * 0.55, h * 0.14), w * 0.1, const Color(0xFFF5922A), facingRight: false);
+    _drawFish(canvas, Offset(w * 0.38, h * 0.42), w * 0.1, const Color(0xFFF5922A));
+    _drawFish(canvas, Offset(w * 0.75, h * 0.3), w * 0.2, const Color(0xFF8E5BD0), facingRight: false);
+
+    // Bong bóng (vòng tròn trắng).
+    final bubble = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5;
+    for (final p in [Offset(w * 0.5, h * 0.36), Offset(w * 0.52, h * 0.29), Offset(w * 0.5, h * 0.22)]) {
+      canvas.drawCircle(p, w * 0.012, bubble);
+    }
+
+    // Rùa biển: mai xanh lá + đầu + 4 chân chèo.
+    final turtleC = Offset(w * 0.6, h * 0.58);
+    final skin = Paint()..color = const Color(0xFF9CCB6E);
+    canvas.drawCircle(turtleC.translate(w * 0.1, -h * 0.01), w * 0.03, skin);
+    for (final d in [Offset(-0.06, -0.06), Offset(0.05, -0.07), Offset(-0.06, 0.06), Offset(0.05, 0.07)]) {
+      canvas.drawOval(
+        Rect.fromCenter(center: turtleC.translate(w * d.dx, h * d.dy), width: w * 0.06, height: h * 0.05),
+        skin,
+      );
+    }
+    canvas.drawOval(
+      Rect.fromCenter(center: turtleC, width: w * 0.16, height: h * 0.14),
+      Paint()..color = const Color(0xFF2F7D4A),
+    );
+
+    // Cua đỏ trên cát (bên trái).
+    final crabC = Offset(w * 0.3, h * 0.88);
+    final crab = Paint()..color = const Color(0xFFE84C3D);
+    canvas.drawOval(Rect.fromCenter(center: crabC, width: w * 0.09, height: h * 0.06), crab);
+    canvas.drawCircle(crabC.translate(-w * 0.065, -h * 0.04), w * 0.017, crab);
+    canvas.drawCircle(crabC.translate(w * 0.065, -h * 0.04), w * 0.017, crab);
+    canvas.drawCircle(crabC.translate(-w * 0.015, -h * 0.035), w * 0.008, Paint()..color = Colors.black87);
+    canvas.drawCircle(crabC.translate(w * 0.015, -h * 0.035), w * 0.008, Paint()..color = Colors.black87);
+
+    // Sao biển vàng trên cát.
+    _drawFivePointStar(canvas, Offset(w * 0.55, h * 0.9), w * 0.04, const Color(0xFFFFC94A));
+
+    // Rương kho báu (bên phải, trên cát).
+    final chest = Rect.fromLTWH(w * 0.76, h * 0.8, w * 0.14, h * 0.12);
+    canvas.drawRect(chest, Paint()..color = const Color(0xFF8D6748));
+    canvas.drawRect(Rect.fromLTWH(chest.left, chest.top, chest.width, h * 0.035), Paint()..color = const Color(0xFF6E4E32));
+    canvas.drawRect(
+      Rect.fromCenter(center: Offset(chest.center.dx, chest.top + h * 0.045), width: w * 0.025, height: h * 0.035),
+      Paint()..color = const Color(0xFFFFC94A),
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// ---------------------------------------------------------------------------
+// Scene 17: "On the Street" - ban ngày, ĐÚNG 2 toà nhà, xe buýt ĐỎ (thấy 2
+// bánh) bên trái, ô tô VÀNG bên phải, vạch qua đường trắng, đèn giao thông
+// đang sáng XANH, bé gái áo HỒNG đứng trên vỉa hè chờ qua đường; KHÔNG có
+// xe đạp (khớp câu hỏi trong scenes.json).
+// ---------------------------------------------------------------------------
+class _StreetScenePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+    canvas.drawRect(Rect.fromLTWH(0, 0, w, h * 0.55), Paint()..color = const Color(0xFFBEE7FF));
+    _drawSun(canvas, Offset(w * 0.5, h * 0.12), w * 0.04, const Color(0xFFFFC94A));
+
+    // 2 toà nhà.
+    final window = Paint()..color = const Color(0xFFFFE08A);
+    canvas.drawRect(Rect.fromLTWH(w * 0.04, h * 0.1, w * 0.22, h * 0.45), Paint()..color = const Color(0xFF9EA7B3));
+    for (var row = 0; row < 4; row++) {
+      for (var col = 0; col < 3; col++) {
+        canvas.drawRect(Rect.fromLTWH(w * (0.065 + col * 0.065), h * (0.15 + row * 0.095), w * 0.04, h * 0.055), window);
+      }
+    }
+    canvas.drawRect(Rect.fromLTWH(w * 0.74, h * 0.2, w * 0.22, h * 0.35), Paint()..color = const Color(0xFFC98B4E));
+    for (var row = 0; row < 3; row++) {
+      for (var col = 0; col < 3; col++) {
+        canvas.drawRect(Rect.fromLTWH(w * (0.765 + col * 0.065), h * (0.25 + row * 0.095), w * 0.04, h * 0.055), window);
+      }
+    }
+
+    // Vỉa hè trên, mặt đường, vỉa hè dưới.
+    canvas.drawRect(Rect.fromLTWH(0, h * 0.55, w, h * 0.08), Paint()..color = const Color(0xFFD6D6D6));
+    canvas.drawRect(Rect.fromLTWH(0, h * 0.63, w, h * 0.29), Paint()..color = const Color(0xFF5A5A5A));
+    canvas.drawRect(Rect.fromLTWH(0, h * 0.92, w, h * 0.08), Paint()..color = const Color(0xFFD6D6D6));
+
+    // Vạch qua đường (các thanh trắng nằm ngang giữa đường).
+    final zebra = Paint()..color = Colors.white;
+    for (var i = 0; i < 5; i++) {
+      canvas.drawRect(Rect.fromLTWH(w * 0.44, h * (0.645 + i * 0.056), w * 0.12, h * 0.03), zebra);
+    }
+
+    // Đèn giao thông: cột + hộp đen + đèn XANH đang sáng.
+    canvas.drawRect(Rect.fromLTWH(w * 0.665, h * 0.3, w * 0.012, h * 0.3), Paint()..color = const Color(0xFF424242));
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(Rect.fromLTWH(w * 0.645, h * 0.12, w * 0.052, h * 0.2), const Radius.circular(4)),
+      Paint()..color = const Color(0xFF212121),
+    );
+    canvas.drawCircle(Offset(w * 0.671, h * 0.155), w * 0.014, Paint()..color = const Color(0xFF5C2A27));
+    canvas.drawCircle(Offset(w * 0.671, h * 0.22), w * 0.014, Paint()..color = const Color(0xFF5C5427));
+    canvas.drawCircle(Offset(w * 0.671, h * 0.285), w * 0.014, Paint()..color = const Color(0xFF3CE06B));
+
+    // Bé gái áo hồng đứng trên vỉa hè cạnh vạch qua đường.
+    _drawSimplePerson(canvas, Offset(w * 0.6, h * 0.6), h * 0.24, shirtColor: const Color(0xFFE87FA0));
+
+    // Xe buýt đỏ (bên trái).
+    final bus = Rect.fromLTWH(w * 0.04, h * 0.64, w * 0.34, h * 0.18);
+    canvas.drawRRect(RRect.fromRectAndRadius(bus, Radius.circular(w * 0.015)), Paint()..color = const Color(0xFFE84C3D));
+    for (var i = 0; i < 4; i++) {
+      canvas.drawRect(Rect.fromLTWH(bus.left + w * (0.02 + i * 0.08), bus.top + h * 0.025, w * 0.06, h * 0.06), Paint()..color = const Color(0xFFBEE7FF));
+    }
+    _drawWheel(canvas, Offset(bus.left + w * 0.07, bus.bottom), w * 0.03);
+    _drawWheel(canvas, Offset(bus.right - w * 0.07, bus.bottom), w * 0.03);
+
+    // Ô tô vàng (bên phải, nhỏ hơn xe buýt).
+    final carBody = Rect.fromLTWH(w * 0.7, h * 0.77, w * 0.2, h * 0.08);
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(Rect.fromLTWH(w * 0.74, h * 0.71, w * 0.11, h * 0.07), Radius.circular(w * 0.015)),
+      Paint()..color = const Color(0xFFFFC94A),
+    );
+    canvas.drawRRect(RRect.fromRectAndRadius(carBody, Radius.circular(w * 0.015)), Paint()..color = const Color(0xFFFFC94A));
+    canvas.drawRect(Rect.fromLTWH(w * 0.755, h * 0.725, w * 0.08, h * 0.04), Paint()..color = const Color(0xFFBEE7FF));
+    _drawWheel(canvas, Offset(carBody.left + w * 0.04, carBody.bottom), w * 0.022);
+    _drawWheel(canvas, Offset(carBody.right - w * 0.04, carBody.bottom), w * 0.022);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// ---------------------------------------------------------------------------
+// Scene 18: "Camping" - ban đêm: trăng vàng nhạt bên PHẢI + 5 ngôi sao, ĐÚNG
+// 3 cây thông bên TRÁI, lều màu CAM, lửa trại đang cháy, ĐÚNG 2 người: bố áo
+// XANH DƯƠNG + bé gái áo TÍM; không có tuyết (khớp câu hỏi trong scenes.json).
+// ---------------------------------------------------------------------------
+class _CampingScenePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+    canvas.drawRect(Rect.fromLTWH(0, 0, w, h * 0.66), Paint()..color = const Color(0xFF24305E));
+    canvas.drawRect(Rect.fromLTWH(0, h * 0.66, w, h * 0.34), Paint()..color = const Color(0xFF3E7B4E));
+
+    canvas.drawCircle(Offset(w * 0.86, h * 0.16), w * 0.06, Paint()..color = const Color(0xFFFFF3B0));
+    for (final p in [
+      Offset(w * 0.45, h * 0.08),
+      Offset(w * 0.6, h * 0.2),
+      Offset(w * 0.7, h * 0.06),
+      Offset(w * 0.38, h * 0.3),
+      Offset(w * 0.55, h * 0.38),
+    ]) {
+      _drawFivePointStar(canvas, p, w * 0.018, const Color(0xFFFFF3B0));
+    }
+
+    // 3 cây thông bên trái.
+    _drawPineTree(canvas, Offset(w * 0.07, h * 0.72), h * 0.5, w * 0.14);
+    _drawPineTree(canvas, Offset(w * 0.18, h * 0.7), h * 0.42, w * 0.12);
+    _drawPineTree(canvas, Offset(w * 0.28, h * 0.72), h * 0.48, w * 0.13);
+
+    // Lều màu cam + cửa lều.
+    canvas.drawPath(
+      Path()
+        ..moveTo(w * 0.62, h * 0.84)
+        ..lineTo(w * 0.94, h * 0.84)
+        ..lineTo(w * 0.78, h * 0.48)
+        ..close(),
+      Paint()..color = const Color(0xFFF08A3C),
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(w * 0.74, h * 0.84)
+        ..lineTo(w * 0.82, h * 0.84)
+        ..lineTo(w * 0.78, h * 0.66)
+        ..close(),
+      Paint()..color = const Color(0xFFB85A1E),
+    );
+
+    // Lửa trại: 2 khúc gỗ bắt chéo + ngọn lửa.
+    final fire = Offset(w * 0.44, h * 0.9);
+    final log = Paint()
+      ..color = const Color(0xFF7A5536)
+      ..strokeWidth = w * 0.02
+      ..strokeCap = StrokeCap.round;
+    canvas.drawLine(fire.translate(-w * 0.06, h * 0.03), fire.translate(w * 0.06, -h * 0.01), log);
+    canvas.drawLine(fire.translate(w * 0.06, h * 0.03), fire.translate(-w * 0.06, -h * 0.01), log);
+    canvas.drawPath(
+      Path()
+        ..moveTo(fire.dx - w * 0.04, fire.dy)
+        ..quadraticBezierTo(fire.dx - w * 0.03, fire.dy - h * 0.1, fire.dx, fire.dy - h * 0.14)
+        ..quadraticBezierTo(fire.dx + w * 0.03, fire.dy - h * 0.1, fire.dx + w * 0.04, fire.dy)
+        ..close(),
+      Paint()..color = const Color(0xFFF5922A),
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(fire.dx - w * 0.02, fire.dy)
+        ..quadraticBezierTo(fire.dx - w * 0.01, fire.dy - h * 0.05, fire.dx, fire.dy - h * 0.08)
+        ..quadraticBezierTo(fire.dx + w * 0.01, fire.dy - h * 0.05, fire.dx + w * 0.02, fire.dy)
+        ..close(),
+      Paint()..color = const Color(0xFFFFD43B),
+    );
+
+    // Bố áo xanh dương (trái lửa) + bé gái áo tím (phải lửa).
+    _drawSimplePerson(canvas, Offset(w * 0.3, h * 0.97), h * 0.34, shirtColor: const Color(0xFF4FA8E0));
+    _drawSimplePerson(canvas, Offset(w * 0.57, h * 0.97), h * 0.25, shirtColor: const Color(0xFFB07AD1));
   }
 
   @override
