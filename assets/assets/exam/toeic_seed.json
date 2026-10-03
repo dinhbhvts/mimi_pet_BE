@@ -77787,5 +77787,2645 @@
       "Reading Comprehension"
     ],
     "points": 1
+  },
+  {
+    "id": "toeic_p5_448",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Subject-verb agreement",
+    "questionType": "multipleChoice",
+    "prompt": "The manager, along with her assistants, ___ attending the trade show in Berlin.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "is"
+      },
+      {
+        "id": "b",
+        "text": "have been"
+      },
+      {
+        "id": "c",
+        "text": "are"
+      },
+      {
+        "id": "d",
+        "text": "were"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Chủ ngữ chính 'The manager' (số ít); 'along with...' không đổi số.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_449",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Subject-verb agreement",
+    "questionType": "multipleChoice",
+    "prompt": "Every computer in the training rooms ___ been upgraded.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "has"
+      },
+      {
+        "id": "b",
+        "text": "are"
+      },
+      {
+        "id": "c",
+        "text": "were"
+      },
+      {
+        "id": "d",
+        "text": "have"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Every + N số ít -> has.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_450",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Subject-verb agreement",
+    "questionType": "multipleChoice",
+    "prompt": "The results of the customer survey ___ surprising.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "were"
+      },
+      {
+        "id": "b",
+        "text": "has been"
+      },
+      {
+        "id": "c",
+        "text": "is"
+      },
+      {
+        "id": "d",
+        "text": "was"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Chủ ngữ chính 'The results' (số nhiều).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_451",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Subject-verb agreement",
+    "questionType": "multipleChoice",
+    "prompt": "Either the director or her deputy ___ the contracts each Friday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "are signing"
+      },
+      {
+        "id": "b",
+        "text": "signs"
+      },
+      {
+        "id": "c",
+        "text": "have signed"
+      },
+      {
+        "id": "d",
+        "text": "sign"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Either... or: chia theo chủ ngữ gần (her deputy - số ít).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_452",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Subject-verb agreement",
+    "questionType": "multipleChoice",
+    "prompt": "Ten kilometers ___ a long distance to walk to work.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "have"
+      },
+      {
+        "id": "b",
+        "text": "were"
+      },
+      {
+        "id": "c",
+        "text": "are"
+      },
+      {
+        "id": "d",
+        "text": "is"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Khoảng cách/số đo xem như 1 khối -> số ít.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_453",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Subject-verb agreement",
+    "questionType": "multipleChoice",
+    "prompt": "The staff ___ asked to update their contact details by Monday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "are"
+      },
+      {
+        "id": "b",
+        "text": "has"
+      },
+      {
+        "id": "c",
+        "text": "was being"
+      },
+      {
+        "id": "d",
+        "text": "is"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "staff (nhân viên - từng người, có 'their') -> số nhiều.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_454",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Subject-verb agreement",
+    "questionType": "multipleChoice",
+    "prompt": "Neither of the proposals ___ within our budget.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "are"
+      },
+      {
+        "id": "b",
+        "text": "have been"
+      },
+      {
+        "id": "c",
+        "text": "were"
+      },
+      {
+        "id": "d",
+        "text": "is"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Neither of + N số nhiều -> động từ số ít (văn phong trang trọng).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_455",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Subject-verb agreement",
+    "questionType": "multipleChoice",
+    "prompt": "There ___ several reasons for the delay in shipping.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "was"
+      },
+      {
+        "id": "b",
+        "text": "is"
+      },
+      {
+        "id": "c",
+        "text": "are"
+      },
+      {
+        "id": "d",
+        "text": "has been"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "There + be chia theo danh từ phía sau (several reasons).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_456",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Subject-verb agreement",
+    "questionType": "multipleChoice",
+    "prompt": "Whoever finishes the report first ___ the rest of the afternoon off.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "gets"
+      },
+      {
+        "id": "b",
+        "text": "are getting"
+      },
+      {
+        "id": "c",
+        "text": "get"
+      },
+      {
+        "id": "d",
+        "text": "have gotten"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Mệnh đề 'Whoever...' làm chủ ngữ -> số ít.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_457",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Subject-verb agreement",
+    "questionType": "multipleChoice",
+    "prompt": "The news about the merger ___ spread quickly through the office.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "have"
+      },
+      {
+        "id": "b",
+        "text": "were"
+      },
+      {
+        "id": "c",
+        "text": "has"
+      },
+      {
+        "id": "d",
+        "text": "are"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "news là danh từ không đếm được -> số ít.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_458",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conditionals & subjunctive",
+    "questionType": "multipleChoice",
+    "prompt": "If the weather ___ good tomorrow, the picnic will be held in the park.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "is"
+      },
+      {
+        "id": "b",
+        "text": "had been"
+      },
+      {
+        "id": "c",
+        "text": "were"
+      },
+      {
+        "id": "d",
+        "text": "will be"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Loại 1: If + hiện tại, will + V.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_459",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conditionals & subjunctive",
+    "questionType": "multipleChoice",
+    "prompt": "If we had more staff, we ___ open on Sundays.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "had"
+      },
+      {
+        "id": "b",
+        "text": "could"
+      },
+      {
+        "id": "c",
+        "text": "will"
+      },
+      {
+        "id": "d",
+        "text": "can"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Loại 2: If + quá khứ, could/would + V.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_460",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conditionals & subjunctive",
+    "questionType": "multipleChoice",
+    "prompt": "The manager requested that the report ___ by noon.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "is finished"
+      },
+      {
+        "id": "b",
+        "text": "be finished"
+      },
+      {
+        "id": "c",
+        "text": "finishes"
+      },
+      {
+        "id": "d",
+        "text": "was finished"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "request that + S + (be) V nguyên mẫu (giả định).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_461",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conditionals & subjunctive",
+    "questionType": "multipleChoice",
+    "prompt": "___ the order arrive late, please inform the customer immediately.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Should"
+      },
+      {
+        "id": "b",
+        "text": "If"
+      },
+      {
+        "id": "c",
+        "text": "Were"
+      },
+      {
+        "id": "d",
+        "text": "Had"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Đảo ngữ loại 1: Should + S + V.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_462",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conditionals & subjunctive",
+    "questionType": "multipleChoice",
+    "prompt": "If Ms. Kim had checked the schedule, she ___ the meeting.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "has not missed"
+      },
+      {
+        "id": "b",
+        "text": "will not miss"
+      },
+      {
+        "id": "c",
+        "text": "did not miss"
+      },
+      {
+        "id": "d",
+        "text": "would not have missed"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Loại 3: would have + V3.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_463",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conditionals & subjunctive",
+    "questionType": "multipleChoice",
+    "prompt": "___ the company offered free parking, more employees would drive to work.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "If"
+      },
+      {
+        "id": "b",
+        "text": "Had"
+      },
+      {
+        "id": "c",
+        "text": "Unless"
+      },
+      {
+        "id": "d",
+        "text": "Should"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Loại 2: If + quá khứ, would + V.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_464",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conditionals & subjunctive",
+    "questionType": "multipleChoice",
+    "prompt": "Visitors may enter the lab ___ they wear protective glasses.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "despite"
+      },
+      {
+        "id": "b",
+        "text": "provided that"
+      },
+      {
+        "id": "c",
+        "text": "in case of"
+      },
+      {
+        "id": "d",
+        "text": "unless"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "provided that = miễn là.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_465",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conditionals & subjunctive",
+    "questionType": "multipleChoice",
+    "prompt": "We will miss the deadline ___ we get more help.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "provided"
+      },
+      {
+        "id": "b",
+        "text": "as long as"
+      },
+      {
+        "id": "c",
+        "text": "unless"
+      },
+      {
+        "id": "d",
+        "text": "if"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "unless = trừ khi (nếu không).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_466",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conditionals & subjunctive",
+    "questionType": "multipleChoice",
+    "prompt": "It is recommended that each employee ___ a strong password.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "choosing"
+      },
+      {
+        "id": "b",
+        "text": "chooses"
+      },
+      {
+        "id": "c",
+        "text": "chose"
+      },
+      {
+        "id": "d",
+        "text": "choose"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "recommended that + S + V nguyên mẫu.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_467",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Conditionals & subjunctive",
+    "questionType": "multipleChoice",
+    "prompt": "If the printer runs out of paper, the light ___ red.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "had turned"
+      },
+      {
+        "id": "b",
+        "text": "would turn"
+      },
+      {
+        "id": "c",
+        "text": "turned"
+      },
+      {
+        "id": "d",
+        "text": "turns"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Loại 0 (sự thật/quy luật): If + hiện tại, hiện tại.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_468",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "This is ___ efficient printer we have ever purchased.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "the more"
+      },
+      {
+        "id": "b",
+        "text": "most"
+      },
+      {
+        "id": "c",
+        "text": "more"
+      },
+      {
+        "id": "d",
+        "text": "the most"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "So sánh nhất tính từ dài: the most + adj.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_469",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "Of the two laptops, this model is ___ cheaper one.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "more"
+      },
+      {
+        "id": "b",
+        "text": "most"
+      },
+      {
+        "id": "c",
+        "text": "a"
+      },
+      {
+        "id": "d",
+        "text": "the"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "the + so sánh hơn + of the two.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_470",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "___ employees have signed up for the training than last year.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "More"
+      },
+      {
+        "id": "b",
+        "text": "Much"
+      },
+      {
+        "id": "c",
+        "text": "The most"
+      },
+      {
+        "id": "d",
+        "text": "Most"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "So sánh hơn + than -> More.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_471",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "There is ___ space in the storage room for these boxes.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "a few"
+      },
+      {
+        "id": "b",
+        "text": "little"
+      },
+      {
+        "id": "c",
+        "text": "few"
+      },
+      {
+        "id": "d",
+        "text": "many"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "space không đếm được -> little.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_472",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "___ of the applicants has a degree in engineering.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Many"
+      },
+      {
+        "id": "b",
+        "text": "Both"
+      },
+      {
+        "id": "c",
+        "text": "All"
+      },
+      {
+        "id": "d",
+        "text": "Each"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Each of + N số nhiều + V số ít (has).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_473",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "The ___ you submit the form, the sooner you will be reimbursed.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "earlier"
+      },
+      {
+        "id": "b",
+        "text": "earliest"
+      },
+      {
+        "id": "c",
+        "text": "more early"
+      },
+      {
+        "id": "d",
+        "text": "early"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "The + so sánh hơn ..., the + so sánh hơn ...",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_474",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "Ms. Patel's presentation was ___ more detailed than Mr. Kerr's.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "many"
+      },
+      {
+        "id": "b",
+        "text": "much"
+      },
+      {
+        "id": "c",
+        "text": "very"
+      },
+      {
+        "id": "d",
+        "text": "most"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "much + so sánh hơn (nhấn mạnh).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_475",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Comparatives & determiners",
+    "questionType": "multipleChoice",
+    "prompt": "We received ___ complaints this month than in May.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "least"
+      },
+      {
+        "id": "b",
+        "text": "less"
+      },
+      {
+        "id": "c",
+        "text": "little"
+      },
+      {
+        "id": "d",
+        "text": "fewer"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "complaints đếm được -> fewer.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_476",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb form (V-ing/to V)",
+    "questionType": "multipleChoice",
+    "prompt": "The company expects ___ its new store in June.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "open"
+      },
+      {
+        "id": "b",
+        "text": "to open"
+      },
+      {
+        "id": "c",
+        "text": "opening"
+      },
+      {
+        "id": "d",
+        "text": "opened"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "expect + to V.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_477",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb form (V-ing/to V)",
+    "questionType": "multipleChoice",
+    "prompt": "Mr. Ross suggested ___ the meeting until Thursday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "postponing"
+      },
+      {
+        "id": "b",
+        "text": "postpone"
+      },
+      {
+        "id": "c",
+        "text": "to postpone"
+      },
+      {
+        "id": "d",
+        "text": "postponed"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "suggest + V-ing.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_478",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb form (V-ing/to V)",
+    "questionType": "multipleChoice",
+    "prompt": "Please avoid ___ personal calls during working hours.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "make"
+      },
+      {
+        "id": "b",
+        "text": "making"
+      },
+      {
+        "id": "c",
+        "text": "made"
+      },
+      {
+        "id": "d",
+        "text": "to make"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "avoid + V-ing.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_479",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb form (V-ing/to V)",
+    "questionType": "multipleChoice",
+    "prompt": "The board has agreed ___ the budget for next year.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "increased"
+      },
+      {
+        "id": "b",
+        "text": "to increase"
+      },
+      {
+        "id": "c",
+        "text": "increase"
+      },
+      {
+        "id": "d",
+        "text": "increasing"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "agree + to V.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_480",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb form (V-ing/to V)",
+    "questionType": "multipleChoice",
+    "prompt": "Ms. Chen is responsible for ___ new employees.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "trained"
+      },
+      {
+        "id": "b",
+        "text": "training"
+      },
+      {
+        "id": "c",
+        "text": "train"
+      },
+      {
+        "id": "d",
+        "text": "to train"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Sau giới từ for -> V-ing.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_481",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb form (V-ing/to V)",
+    "questionType": "multipleChoice",
+    "prompt": "We would appreciate ___ your reply by Friday.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "to receive"
+      },
+      {
+        "id": "b",
+        "text": "receiving"
+      },
+      {
+        "id": "c",
+        "text": "receive"
+      },
+      {
+        "id": "d",
+        "text": "received"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "appreciate + V-ing.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_482",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb form (V-ing/to V)",
+    "questionType": "multipleChoice",
+    "prompt": "The supervisor reminded the workers ___ their safety helmets.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "wear"
+      },
+      {
+        "id": "b",
+        "text": "wearing"
+      },
+      {
+        "id": "c",
+        "text": "worn"
+      },
+      {
+        "id": "d",
+        "text": "to wear"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "remind sb to V.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_483",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "The client ___ we met yesterday wants to sign the contract.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "whose"
+      },
+      {
+        "id": "b",
+        "text": "what"
+      },
+      {
+        "id": "c",
+        "text": "which"
+      },
+      {
+        "id": "d",
+        "text": "whom"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Tân ngữ chỉ người -> whom.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_484",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "The building, ___ was built in 1920, is being renovated.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "which"
+      },
+      {
+        "id": "b",
+        "text": "where"
+      },
+      {
+        "id": "c",
+        "text": "who"
+      },
+      {
+        "id": "d",
+        "text": "that"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Mệnh đề có dấu phẩy chỉ vật -> which (không dùng that).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_485",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "Please keep your documents with ___ at all times.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "you"
+      },
+      {
+        "id": "b",
+        "text": "your"
+      },
+      {
+        "id": "c",
+        "text": "yours"
+      },
+      {
+        "id": "d",
+        "text": "yourself"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Sau giới từ with -> tân ngữ you.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_486",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "Our product is cheaper than ___ of our competitors.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "them"
+      },
+      {
+        "id": "b",
+        "text": "that"
+      },
+      {
+        "id": "c",
+        "text": "theirs"
+      },
+      {
+        "id": "d",
+        "text": "those"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Thay cho 'the products' (số nhiều) -> those.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_487",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "The office ___ the interviews will take place is on the third floor.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "which"
+      },
+      {
+        "id": "b",
+        "text": "where"
+      },
+      {
+        "id": "c",
+        "text": "whose"
+      },
+      {
+        "id": "d",
+        "text": "who"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Nơi chốn -> where.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_488",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "Employees ___ parking permits have expired must renew them.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "who"
+      },
+      {
+        "id": "b",
+        "text": "whom"
+      },
+      {
+        "id": "c",
+        "text": "which"
+      },
+      {
+        "id": "d",
+        "text": "whose"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "whose + danh từ (permits).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_489",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Pronouns & relatives",
+    "questionType": "multipleChoice",
+    "prompt": "Mr. Lopez and I reviewed the figures by ___.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "us"
+      },
+      {
+        "id": "b",
+        "text": "we"
+      },
+      {
+        "id": "c",
+        "text": "our"
+      },
+      {
+        "id": "d",
+        "text": "ourselves"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "by ourselves = tự chúng tôi.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_490",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense",
+    "questionType": "multipleChoice",
+    "prompt": "Ms. Ford ___ the sales team since last October.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "is managing"
+      },
+      {
+        "id": "b",
+        "text": "has managed"
+      },
+      {
+        "id": "c",
+        "text": "managed"
+      },
+      {
+        "id": "d",
+        "text": "manages"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "since + mốc -> hiện tại hoàn thành.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_491",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense",
+    "questionType": "multipleChoice",
+    "prompt": "The train ___ when we reached the platform.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "already leaves"
+      },
+      {
+        "id": "b",
+        "text": "has already left"
+      },
+      {
+        "id": "c",
+        "text": "will already leave"
+      },
+      {
+        "id": "d",
+        "text": "had already left"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Xảy ra trước 1 hành động quá khứ -> quá khứ hoàn thành.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_492",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense",
+    "questionType": "multipleChoice",
+    "prompt": "Next month, our team ___ on the new marketing project.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "has worked"
+      },
+      {
+        "id": "b",
+        "text": "was working"
+      },
+      {
+        "id": "c",
+        "text": "worked"
+      },
+      {
+        "id": "d",
+        "text": "will be working"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "Tương lai tiếp diễn (next month).",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_493",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense",
+    "questionType": "multipleChoice",
+    "prompt": "We ___ a reply from the supplier yet.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "don't receive"
+      },
+      {
+        "id": "b",
+        "text": "won't receive"
+      },
+      {
+        "id": "c",
+        "text": "didn't receive"
+      },
+      {
+        "id": "d",
+        "text": "haven't received"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "yet trong câu phủ định -> hiện tại hoàn thành.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_494",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense",
+    "questionType": "multipleChoice",
+    "prompt": "The client called while I ___ lunch.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "am having"
+      },
+      {
+        "id": "b",
+        "text": "was having"
+      },
+      {
+        "id": "c",
+        "text": "had had"
+      },
+      {
+        "id": "d",
+        "text": "have"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "while + quá khứ tiếp diễn.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_495",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense",
+    "questionType": "multipleChoice",
+    "prompt": "By the time the guests arrive, we ___ the meeting room.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "have prepared"
+      },
+      {
+        "id": "b",
+        "text": "will have prepared"
+      },
+      {
+        "id": "c",
+        "text": "had prepared"
+      },
+      {
+        "id": "d",
+        "text": "prepared"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "By the time + hiện tại -> tương lai hoàn thành.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_496",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense",
+    "questionType": "multipleChoice",
+    "prompt": "Mr. Grant usually ___ to work, but today he is driving.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "walked"
+      },
+      {
+        "id": "b",
+        "text": "walks"
+      },
+      {
+        "id": "c",
+        "text": "is walking"
+      },
+      {
+        "id": "d",
+        "text": "has walked"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "usually -> hiện tại đơn.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_497",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Verb tense",
+    "questionType": "multipleChoice",
+    "prompt": "The conference ___ place in Hall B two years ago.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "takes"
+      },
+      {
+        "id": "b",
+        "text": "is taking"
+      },
+      {
+        "id": "c",
+        "text": "has taken"
+      },
+      {
+        "id": "d",
+        "text": "took"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "ago -> quá khứ đơn.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_498",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Passive voice",
+    "questionType": "multipleChoice",
+    "prompt": "The new safety rules ___ to all staff last week.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "were explained"
+      },
+      {
+        "id": "b",
+        "text": "explained"
+      },
+      {
+        "id": "c",
+        "text": "are explaining"
+      },
+      {
+        "id": "d",
+        "text": "have explained"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Quy định được giải thích, last week -> were + V3.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_499",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Passive voice",
+    "questionType": "multipleChoice",
+    "prompt": "Your package ___ within three business days.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "will deliver"
+      },
+      {
+        "id": "b",
+        "text": "will be delivered"
+      },
+      {
+        "id": "c",
+        "text": "delivers"
+      },
+      {
+        "id": "d",
+        "text": "is delivering"
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Gói hàng được giao -> will be + V3.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_500",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Passive voice",
+    "questionType": "multipleChoice",
+    "prompt": "The parking lot ___ at the moment, so please park on the street.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "repaves"
+      },
+      {
+        "id": "b",
+        "text": "is repaving"
+      },
+      {
+        "id": "c",
+        "text": "is being repaved"
+      },
+      {
+        "id": "d",
+        "text": "has repaved"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Bị động tiếp diễn: is being + V3.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_501",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Passive voice",
+    "questionType": "multipleChoice",
+    "prompt": "All luggage ___ before passengers board the plane.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "is checking"
+      },
+      {
+        "id": "b",
+        "text": "must check"
+      },
+      {
+        "id": "c",
+        "text": "must be checked"
+      },
+      {
+        "id": "d",
+        "text": "checks"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Hành lý được kiểm tra -> must be + V3.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_502",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Passive voice",
+    "questionType": "multipleChoice",
+    "prompt": "The winners ___ at the end of the ceremony.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "will be announced"
+      },
+      {
+        "id": "b",
+        "text": "will announce"
+      },
+      {
+        "id": "c",
+        "text": "announce"
+      },
+      {
+        "id": "d",
+        "text": "are announcing"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Người thắng được công bố -> bị động.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_503",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Passive voice",
+    "questionType": "multipleChoice",
+    "prompt": "Since 2010, more than 2 million copies of the book ___.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "are selling"
+      },
+      {
+        "id": "b",
+        "text": "have sold"
+      },
+      {
+        "id": "c",
+        "text": "have been sold"
+      },
+      {
+        "id": "d",
+        "text": "sold"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Since + bị động -> have been + V3.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_504",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Passive voice",
+    "questionType": "multipleChoice",
+    "prompt": "The broken printer should ___ by a technician.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "be repaired"
+      },
+      {
+        "id": "b",
+        "text": "repaired"
+      },
+      {
+        "id": "c",
+        "text": "repair"
+      },
+      {
+        "id": "d",
+        "text": "repairing"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Sau modal: be + V3.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p5_505",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 5,
+    "topic": "Passive voice",
+    "questionType": "multipleChoice",
+    "prompt": "Ms. Rivera was ___ the Employee of the Year award.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "gave"
+      },
+      {
+        "id": "b",
+        "text": "give"
+      },
+      {
+        "id": "c",
+        "text": "given"
+      },
+      {
+        "id": "d",
+        "text": "giving"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "be given sth = được trao cái gì.",
+    "difficulty": 3,
+    "tags": [
+      "Incomplete Sentences"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_055_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Dear guests, the hotel swimming pool will be closed for cleaning ___ Tuesday morning.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "by"
+      },
+      {
+        "id": "b",
+        "text": "at"
+      },
+      {
+        "id": "c",
+        "text": "in"
+      },
+      {
+        "id": "d",
+        "text": "on"
+      }
+    ],
+    "correctAnswer": [
+      "d"
+    ],
+    "explanation": "on + thứ.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_055_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Sentence insertion",
+    "questionType": "multipleChoice",
+    "prompt": "Which sentence best fits the blank? (Context: what guests can do instead.)",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Guests may use the pool at our sister hotel across the street."
+      },
+      {
+        "id": "b",
+        "text": "The hotel was built in 1985."
+      },
+      {
+        "id": "c",
+        "text": "Room service is very popular."
+      },
+      {
+        "id": "d",
+        "text": "Our restaurant serves Italian food every night of the week."
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Đưa giải pháp thay thế khi hồ bơi đóng cửa.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_055_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "The pool will reopen ___ the cleaning is complete.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "during"
+      },
+      {
+        "id": "b",
+        "text": "despite"
+      },
+      {
+        "id": "c",
+        "text": "once"
+      },
+      {
+        "id": "d",
+        "text": "unless"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "once = ngay khi (+ mệnh đề).",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_055_4",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Sentence insertion",
+    "questionType": "multipleChoice",
+    "prompt": "Which sentence best fits the blank? (Context: closing the notice.)",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "We are hiring lifeguards."
+      },
+      {
+        "id": "b",
+        "text": "Please return your keys to the front desk by noon on your last day."
+      },
+      {
+        "id": "c",
+        "text": "Thank you for your understanding."
+      },
+      {
+        "id": "d",
+        "text": "The pool is 25 meters long."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Câu kết lịch sự của thông báo xin lỗi.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_056_1",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Sentence insertion",
+    "questionType": "multipleChoice",
+    "prompt": "Which sentence best fits the blank? (Context: the opening of an email to a job candidate.)",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Please pay your bill online."
+      },
+      {
+        "id": "b",
+        "text": "Thank you for attending the interview last Tuesday."
+      },
+      {
+        "id": "c",
+        "text": "Our company was founded more than thirty years ago in a small town."
+      },
+      {
+        "id": "d",
+        "text": "The weather has been very cold."
+      }
+    ],
+    "correctAnswer": [
+      "b"
+    ],
+    "explanation": "Mở đầu email gửi ứng viên sau phỏng vấn.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_056_2",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "We are pleased to offer you the position of ___ assistant.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "administrative"
+      },
+      {
+        "id": "b",
+        "text": "administer"
+      },
+      {
+        "id": "c",
+        "text": "administratively"
+      },
+      {
+        "id": "d",
+        "text": "administration"
+      }
+    ],
+    "correctAnswer": [
+      "a"
+    ],
+    "explanation": "Bổ nghĩa cho danh từ assistant -> tính từ.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_056_3",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Sentence insertion",
+    "questionType": "multipleChoice",
+    "prompt": "Which sentence best fits the blank? (Context: details of the job offer.)",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "Many people applied for the job of driver."
+      },
+      {
+        "id": "b",
+        "text": "The interview room was on the second floor."
+      },
+      {
+        "id": "c",
+        "text": "Your starting salary will be $3,200 per month."
+      },
+      {
+        "id": "d",
+        "text": "We hope you enjoyed the coffee."
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "Nêu chi tiết lời mời làm việc.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
+  },
+  {
+    "id": "toeic_p6_056_4",
+    "track": "toeic",
+    "level": "Standard",
+    "skill": "reading",
+    "partNumber": 6,
+    "topic": "Grammar & vocabulary",
+    "questionType": "multipleChoice",
+    "prompt": "Please let us know whether you accept the offer ___ May 15.",
+    "media": {
+      "type": "none"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": "until"
+      },
+      {
+        "id": "b",
+        "text": "since"
+      },
+      {
+        "id": "c",
+        "text": "by"
+      },
+      {
+        "id": "d",
+        "text": "during"
+      }
+    ],
+    "correctAnswer": [
+      "c"
+    ],
+    "explanation": "by + hạn chót.",
+    "difficulty": 3,
+    "tags": [
+      "Text Completion"
+    ],
+    "points": 1
   }
 ]
